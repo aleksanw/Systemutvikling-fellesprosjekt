@@ -27,7 +27,7 @@ public class Login extends JPanel implements ActionListener,KeyListener {
 		usernameLabel = new JLabel("Username: ");
 		passwordLabel = new JLabel("Password: ");
 
-		usernameTextfield = new JTextField("Enter your username");
+		usernameTextfield = new JTextField("Skriv inn ditt brukernavn");
 		usernameTextfield.setColumns(20);
 		usernameTextfield.addKeyListener(this);
 
@@ -72,6 +72,8 @@ public class Login extends JPanel implements ActionListener,KeyListener {
 	}
 	
 	public void login(){
+		usernameTextfield.setText("Skriv inn ditt brukernavn");
+		passwordTextfield.setText("");
 		MainClass.loginOK();
 	}
 
@@ -80,7 +82,7 @@ public class Login extends JPanel implements ActionListener,KeyListener {
 		if (usernameTextfield.getText().equals(BRUKERNAVN) && isCorrectPassword(input)) {
 			login();
 		} else {
-			usernameTextfield.setText("Wrong username or password");
+			usernameTextfield.setText("Feil brukernavn eller passord");
 			passwordTextfield.setText("");
 		}
 	}

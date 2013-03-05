@@ -42,7 +42,7 @@ public class MainClass {
 			e.printStackTrace();
 		}
 		frameSetup();
-		loginOK();
+		//loginOK();
 	}
 
 	public static void loginOK() {
@@ -51,5 +51,9 @@ public class MainClass {
 	
 	public static void runAddEvent(){
 		swapPane("addEvent");
+	}
+	
+	public static void logout(){
+		swapPane("login");
 	}
 }

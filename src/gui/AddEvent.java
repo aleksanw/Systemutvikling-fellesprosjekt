@@ -4,7 +4,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -18,7 +17,7 @@ public class AddEvent extends JPanel implements ActionListener{
 	private JLabel title,lAlarm,start,end,lAllDay,lDesc,visible,lName;
 	private JTextField name;
 	private JTextArea desc;
-	private JComboBox<String> hour,min,date,hourE,minE,dateE,alarm,group;
+	private JComboBox<String> hour,min,date,hourE,minE,dateE,alarm,group,vis;
 	private JRadioButton allDay;
 	private JButton save,delete;
 	
@@ -27,6 +26,7 @@ public class AddEvent extends JPanel implements ActionListener{
 	public AddEvent(){
 		String[] hours = addNum(24);
 		String[] minutes = {"00","15","30","45"};
+		String[] minForAlarm = {"Ingen alarm","10 min","15 min","20 min", "30 min", "1 time","2 timer", "24 timer"};
 		
 		title = new JLabel();
 		title.setText("Legg til/endre alarm");
@@ -49,16 +49,29 @@ public class AddEvent extends JPanel implements ActionListener{
 		lAllDay = new JLabel();
 		lAllDay.setText("Hele dagen:");
 		allDay = new JRadioButton();
+		allDay.addActionListener(this);
 		
 		lDesc = new JLabel();
 		lDesc.setText("Beskrivelse:");
 		desc = new JTextArea(5,20);
 		
+		lAlarm = new JLabel();
+		lAlarm.setText("Legg Til Alarm:");
+		alarm = new JComboBox<String>(minForAlarm);
+		
 		save = new JButton();
 		save.setText("Lagre");
+		save.addActionListener(this);
 		
 		delete = new JButton();
 		delete.setText("Slett");
+		delete.addActionListener(this);
+		
+		visible = new JLabel();
+		visible.setText("Synlig for:");
+		vis = new JComboBox<String>();
+		
+		
 		
 		setLayout(new GridBagLayout());
 		g.gridy = 0;
@@ -101,6 +114,18 @@ public class AddEvent extends JPanel implements ActionListener{
 		
 		g.gridy = 6;
 		g.gridx = 0;
+		add(lAlarm,g);
+		g.gridx = 1;
+		add(alarm,g);
+		
+		g.gridy = 7;
+		g.gridx = 0;
+		add(visible,g);
+		g.gridx = 1; 
+		add(vis,g);
+		
+		g.gridy = 8;
+		g.gridx = 0;
 		add(save,g);
 		g.gridx = 1;
 		add(delete,g);
@@ -116,8 +141,17 @@ public class AddEvent extends JPanel implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals(save)){
+		System.out.println(e.getActionCommand().toString());
+		if(e.getActionCommand().toString().equals("Lagre")){
 			MainClass.loginOK();
+		}
+		else if(allDay.isSelected()){
+			hourE.setEnabled(false);
+			minE.setEnabled(false);
+		}
+		else if(!allDay.isSelected()){
+			hourE.setEnabled(true);
+			minE.setEnabled(true);
 		}
 	}
 }
