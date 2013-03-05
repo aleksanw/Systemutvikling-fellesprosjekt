@@ -13,11 +13,10 @@ public class AddEvent extends JPanel{
 
 	private JLabel title,lAlarm,start,end,lAllDay,lDesc,visible,lName;
 	private JTextField name,desc;
-	private JComboBox<String> hour,min,date,hourE,minE,dateE,alarm;
-	private JComboBox<String> group;
+	private JComboBox<String> hour,min,date,hourE,minE,dateE,alarm,group;
 	private JRadioButton allDay;
 	private JButton save,delete;
-	private String[] hours = {"2","3","4"};
+	private int[] hours = new int[24];
 	
 	GridBagConstraints g = new GridBagConstraints();
 	
@@ -60,4 +59,6 @@ public class AddEvent extends JPanel{
 		g.gridy = 5;
 		add(lDesc,g);
 	}
+	
+	
 }
