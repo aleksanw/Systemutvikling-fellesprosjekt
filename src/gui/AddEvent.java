@@ -2,8 +2,6 @@ package gui;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -15,11 +13,11 @@ public class AddEvent extends JPanel{
 
 	private JLabel title,lAlarm,start,end,lAllDay,lDesc,visible,lName;
 	private JTextField name,desc;
-	private JComboBox<String> hour,min,date,hourE,minE,dateE,alarm,group;
+	private JComboBox<String> hour,min,date,hourE,minE,dateE,alarm;
+	private JComboBox<String> group;
 	private JRadioButton allDay;
 	private JButton save,delete;
-	private ArrayList<String> hours;
-	private ArrayList<String> minutes;
+	private String[] hours = {"2","3","4"};
 	
 	GridBagConstraints g = new GridBagConstraints();
 	
@@ -34,8 +32,7 @@ public class AddEvent extends JPanel{
 		
 		start = new JLabel();
 		start.setText("Start:");
-		hour = new JComboBox<String>();
-		
+		hour = new JComboBox<String>(hours);
 		
 		end = new JLabel();
 		end.setText("Slutt:");
@@ -62,12 +59,5 @@ public class AddEvent extends JPanel{
 		add(lAllDay,g);
 		g.gridy = 5;
 		add(lDesc,g);
-	}
-	
-	public ArrayList<String> addNum(ArrayList<String> list,int i){
-		for(int x = 0; x < i; x++){
-			list.add(Integer.toString(x));
-		}
-		return list;
 	}
 }

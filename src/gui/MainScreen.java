@@ -1,5 +1,5 @@
 package gui;
-//hei
+
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
