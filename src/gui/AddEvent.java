@@ -16,7 +16,6 @@ public class AddEvent extends JPanel{
 	private JComboBox<String> hour,min,date,hourE,minE,dateE,alarm,group;
 	private JRadioButton allDay;
 	private JButton save,delete;
-	private int[] hours = new int[24];
 	
 	GridBagConstraints g = new GridBagConstraints();
 	
@@ -31,10 +30,17 @@ public class AddEvent extends JPanel{
 		
 		start = new JLabel();
 		start.setText("Start:");
+		
+		String[] hours = addNum(24);
+		String[] minutes = addNum(60);
 		hour = new JComboBox<String>(hours);
+		min = new JComboBox<String>(minutes);
 		
 		end = new JLabel();
 		end.setText("Slutt:");
+		
+		hourE = new JComboBox<String>(hours);
+		minE = new JComboBox<String>(minutes);
 		
 		lAllDay = new JLabel();
 		lAllDay.setText("Hele dagen:");
@@ -51,14 +57,22 @@ public class AddEvent extends JPanel{
 		g.gridy = 2;
 		add(start,g);
 		add(hour,g);
+		add(min,g);
 		
 		g.gridy = 3;
 		add(end,g);
+		add(hourE,g);
 		g.gridy = 4;
 		add(lAllDay,g);
 		g.gridy = 5;
 		add(lDesc,g);
 	}
 	
-	
+	public String[] addNum(int i){
+		String[] resList = new String[i];
+		for (int j = 0; j < i; j++) {
+			resList[j] = Integer.toString(j);
+		}
+		return resList;
+	}
 }
