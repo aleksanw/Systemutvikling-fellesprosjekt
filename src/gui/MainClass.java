@@ -42,7 +42,7 @@ public class MainClass {
 			e.printStackTrace();
 		}
 		frameSetup();
-		//loginOK();
+		loginOK();
 	}
 
 	public static void loginOK() {
