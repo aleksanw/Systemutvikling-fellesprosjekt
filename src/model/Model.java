@@ -18,7 +18,11 @@ public abstract class Model {
 	}
 	
 	public void addPropartyChangeListener(PropertyChangeListener listener) {
-		
+		pcs.addPropertyChangeListener(listener);
+	}
+	
+	public void removePropartyChangeListener(PropertyChangeListener listener) {
+		pcs.removePropertyChangeListener(listener);
 	}
 	
 	
