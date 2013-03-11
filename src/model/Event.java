@@ -19,6 +19,7 @@ public class Event extends Model{
 	public Room getBookedRoom() {
 		return new Room();
 	}
+<<<<<<< HEAD
 	
 	public void setBookedRoom(Room room) {
 		
@@ -35,3 +36,6 @@ public class Event extends Model{
 	
 	
 }
+=======
+}
+>>>>>>> Tulliball
