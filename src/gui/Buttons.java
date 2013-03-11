@@ -73,7 +73,7 @@ public class Buttons extends JPanel implements ActionListener {
 			nextWeek();
 		}
 		else if(e.getActionCommand().toString().equals("Opprett Møte")){
-			
+			MainClass.runAddMeating();
 		}
 	}
 
