@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import com.mysql.jdbc.Driver;  // Just to check that this is imported
 
 public class Database {
 	/**
@@ -16,7 +15,6 @@ public class Database {
 	 * 
 	 */
 	
-    private static String driver = "com.mysql.jdbc.Driver";
     private static Connection connection = null;
     private static String connectionURL = "jdbc:mysql://mysql.stud.ntnu.no/jonkrit_su";
     private static Statement stat = null;
@@ -31,7 +29,6 @@ public class Database {
      */
     public Database() {
         try { //Logger inn i databasen
-                Class.forName(driver).newInstance();
                 connection = DriverManager.getConnection(
                                 connectionURL,
                                 user,
