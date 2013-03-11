@@ -14,12 +14,12 @@ import javax.swing.JTextField;
 
 public class AddEvent extends JPanel implements ActionListener{
 
-	private JLabel title,lAlarm,start,end,lAllDay,lDesc,visible,lName;
-	private JTextField name;
-	private JTextArea desc;
-	private JComboBox<String> hour,min,date,hourE,minE,dateE,alarm,group,vis;
-	private JRadioButton allDay;
-	private JButton save,delete;
+	protected JLabel title,lAlarm,start,end,lAllDay,lDesc,visible,lName;
+	protected JTextField name;
+	protected JTextArea desc;
+	protected JComboBox<String> hour,min,date,hourE,minE,dateE,alarm,group,vis;
+	protected JRadioButton allDay;
+	protected JButton save,delete;
 	
 	GridBagConstraints g = new GridBagConstraints();
 	

@@ -22,6 +22,7 @@ public class MainClass {
 		cards.add(new Login(), "login");
 		cards.add(new MainScreen(), "main");
 		cards.add(new AddEvent(),"addEvent");
+		cards.add(new AddMeating(),"addMeating");
 		frame = new JFrame("Login");
 		frame.add(cards);
 		frame.setSize(1100, 700);
@@ -55,5 +56,9 @@ public class MainClass {
 	
 	public static void logout(){
 		swapPane("login");
+	}
+	
+	public static void runAddMeating(){
+		swapPane("addMeating");
 	}
 }
