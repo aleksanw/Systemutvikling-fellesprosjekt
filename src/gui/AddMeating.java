@@ -15,7 +15,7 @@ public class AddMeating extends AddEvent {
 
 		part = new Participants();
 
-		g.gridx = 3;
+		g.gridx = 2;
 		g.gridy = 1;
 		g.gridheight = 7;
 

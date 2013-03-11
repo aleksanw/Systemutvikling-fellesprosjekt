@@ -23,6 +23,7 @@ public class MainClass {
 		cards.add(new MainScreen(), "main");
 		cards.add(new AddEvent(),"addEvent");
 		cards.add(new AddMeating(),"addMeating");
+		cards.add(new GroupSettings(),"Groups");
 		frame = new JFrame("Login");
 		frame.add(cards);
 		frame.setSize(1100, 700);
@@ -60,5 +61,9 @@ public class MainClass {
 	
 	public static void runAddMeating(){
 		swapPane("addMeating");
+	}
+	
+	public static void runGroupSettings(){
+		swapPane("Groups");
 	}
 }
