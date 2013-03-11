@@ -13,7 +13,25 @@ public class Event extends Model{
 	private DateTime start, end;
 	
 	public Event(boolean isMeeting) {
+		super("Event", createTableFields());
 		this.isMeeting = isMeeting;
+	}
+	
+	private static ArrayList<String> createTableFields() {
+		ArrayList<String> tableFields = new ArrayList<String>();
+		tableFields.add("eventID");
+		tableFields.add("eventName");
+		tableFields.add("isActive");
+		tableFields.add("start");
+		tableFields.add("end");
+		tableFields.add("isWholeDay");
+		tableFields.add("description");
+		tableFields.add("location");
+		tableFields.add("isMeeting");
+		tableFields.add("roomBooked");
+		tableFields.add("createdByUser");
+		tableFields.add("createdByGroup");
+		return tableFields;
 	}
 	
 	public Room getBookedRoom() {

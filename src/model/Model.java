@@ -6,19 +6,16 @@ import java.util.ArrayList;
 
 public abstract class Model {
 
-	private Database db;
+	private static Database DB = new Database();
 	private String tableName;
 	private String primaryKeyField1, primaryKeyField2;
 	private ArrayList<String> tableFields;
 	private boolean isSavedInDB;
 	private PropertyChangeSupport pcs;
 	
-	public Model(){
-		db = new Database();
-	}
-	
-	protected void addTableField(String field){
-		
+	public Model(String tableName, ArrayList<String> tableFields) {
+		this.tableName = tableName;
+		this.tableFields = tableFields;
 	}
 	
 	protected void updateField(String field, Object value){

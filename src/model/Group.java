@@ -9,6 +9,17 @@ public class Group extends Model {
 	private int groupID;
 	private String groupName;
 	
+	public Group() {
+		super("Group", createTableFields());
+	}
+	
+	private static ArrayList<String> createTableFields() {
+		ArrayList<String> tableFields = new ArrayList<String>();
+		tableFields.add("GroupID");
+		tableFields.add("groupName");
+		return tableFields;
+	}
+	
 	public Group getParentGroup() {
 		return new Group();
 	}

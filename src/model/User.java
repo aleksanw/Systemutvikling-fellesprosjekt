@@ -9,6 +9,21 @@ public class User extends Model {
 	private String name, email;
 	private Date dateOfBirth;
 	
+	public User() {
+		super("User", createTableFields());
+	}
+	
+	private static ArrayList<String> createTableFields() {
+		ArrayList<String> tableFields = new ArrayList<String>();
+		tableFields.add("userID");
+		tableFields.add("username");
+		tableFields.add("password");
+		tableFields.add("name");
+		tableFields.add("email");
+		tableFields.add("dateOfBirth");
+		return tableFields;
+	}
+	
 	public boolean isCreatorOfEvent(Event event) {
 		return true;
 	}
