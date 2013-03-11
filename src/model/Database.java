@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import com.mysql.jdbc.Driver;  // Just to check that this is imported
 
 public class Database {
 	/**
@@ -20,7 +21,7 @@ public class Database {
     private static String connectionURL = "jdbc:mysql://mysql.stud.ntnu.no/jonkrit_su";
     private static Statement stat = null;
     private static String user = "jonkrit_su";
-    private static String pw = "kakemann!";
+    private static String pw = "kakemann";
     private static String database = "jonkrit_su";
     
     
@@ -28,7 +29,7 @@ public class Database {
      * Logger på databasen.
      * @throws Exception
      */
-    public Database() throws Exception {
+    public Database() {
         try { //Logger inn i databasen
                 Class.forName(driver).newInstance();
                 connection = DriverManager.getConnection(
@@ -50,13 +51,32 @@ public class Database {
     	connection.close();
     }
     
-    public ResultSet query(String sql) throws SQLException {
+    /**
+     * SQL Query that do not alter the database. Eg. SELECT queries
+     * @param sql
+     * @return ResultSet
+     * @throws SQLException
+     */
+    public ResultSet readQuery(String sql) throws SQLException {
     	Statement s = connection.createStatement();
         ResultSet rs;
         
         rs = s.executeQuery(sql);
         
         return rs;
+    }
+    
+    /**
+     * SQL Query that alters the database. Eg. CREATE TABLE, INSERT, UPDATE, DELETE querys.
+     * @param sql
+     * @return ResultSet
+     * @throws SQLException
+     */
+    
+    public void updateQuery(String sql) throws SQLException {
+    	Statement s = connection.createStatement();
+        
+        s.executeUpdate(sql);
     }
     
     public Connection getConnection() throws SQLException {
