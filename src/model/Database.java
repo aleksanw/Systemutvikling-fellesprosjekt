@@ -24,7 +24,7 @@ public class Database {
     
     
     /**
-     * Logger pŒ databasen.
+     * Logger pï¿½ databasen.
      * @throws Exception
      */
     public Database() {

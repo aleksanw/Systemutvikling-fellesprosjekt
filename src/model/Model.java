@@ -13,6 +13,14 @@ public abstract class Model {
 	private boolean isSavedInDB;
 	private PropertyChangeSupport pcs;
 	
+	public Model(){
+		db = new Database();
+	}
+	
+	protected void addTableField(String field){
+		
+	}
+	
 	protected void updateField(String field, Object value){
 		
 	}
