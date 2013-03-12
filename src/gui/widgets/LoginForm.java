@@ -21,17 +21,18 @@ public class LoginForm extends JPanel implements ActionListener {
 		JLabel label = new JLabel("Login:");
 		label.setFont(new Font("Sans Serif", Font.PLAIN, 30));
 		label.setForeground(Color.decode("#777777"));
-		this.add(label, "wrap");
-		
+
 		usernameField = new MyTextField("username");
 		usernameField.setColumns(20);
 		usernameField.addActionListener(this);
-		this.add(usernameField, "gapleft 20, wrap");
-		
+
 		passwordField = new MyPasswordField("password");
 		passwordField.setColumns(20);
 		passwordField.addActionListener(this);
-		this.add(passwordField, "gapleft 20");
+		
+		this.add(label, "wrap");
+		this.add(usernameField, "gapleft 7mm, wrap");
+		this.add(passwordField, "gapleft 7mm");
 	}
 	
 	public static void main(String[] args) {
@@ -55,7 +56,8 @@ public class LoginForm extends JPanel implements ActionListener {
 	}
 	
 	private void fireLoginEvent(int id, String username, String password) {
-		if(loginListener == null) return;
+		if(loginListener == null)
+			return;
 		
 		LoginEvent e = new LoginEvent(this, id, username, password);
 		loginListener.loginAttempted(e);
