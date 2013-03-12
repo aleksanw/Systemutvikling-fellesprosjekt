@@ -10,7 +10,8 @@ public class User extends Model {
 	private Date dateOfBirth;
 	
 	public User() {
-		super("User", createTableFields());
+		super("User", createTableFields(), "userID", null);
+		
 	}
 	
 	private static ArrayList<String> createTableFields() {

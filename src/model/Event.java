@@ -13,7 +13,7 @@ public class Event extends Model{
 	private DateTime start, end;
 	
 	public Event(boolean isMeeting) {
-		super("Event", createTableFields());
+		super("Event", createTableFields(), "eventID", null);
 		this.isMeeting = isMeeting;
 	}
 	
