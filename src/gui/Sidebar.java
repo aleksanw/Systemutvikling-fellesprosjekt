@@ -19,14 +19,14 @@ public class Sidebar extends JPanel {
 	
 	public Sidebar(){
 		recieved = new JLabel();
-		recieved.setText("Mottatte Møteinnkallelser");
+		recieved.setText("Mottatte MÃ¸teinnkallelser");
 		rList = new JList();
 		//rList.setCellRenderer(new CellRenderer());
 		rScroll = new JScrollPane(rList);
 		rScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		sent = new JLabel();
-		sent.setText("Sendte Møteinnkallelser");
+		sent.setText("Sendte MÃ¸teinnkallelser");
 		sList = new JList();
 		sScroll = new JScrollPane(sList);
 		sScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);

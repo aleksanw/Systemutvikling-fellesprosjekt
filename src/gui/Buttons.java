@@ -21,7 +21,7 @@ public class Buttons extends JPanel implements ActionListener {
 		event = new JButton("Legg Til Avtale");
 		event.addActionListener(this);
 
-		meating = new JButton("Opprett M�te");
+		meating = new JButton("Opprett Møte");
 		meating.addActionListener(this);
 
 		groups = new JButton("Gruppeinnstillinger");
@@ -72,7 +72,7 @@ public class Buttons extends JPanel implements ActionListener {
 			validWeek(weekNr + 1);
 			nextWeek();
 		}
-		else if(e.getActionCommand().toString().equals("Opprett M�te")){
+		else if(e.getActionCommand().toString().equals("Opprett Møte")){
 			MainClass.runAddMeating();
 		}
 		else if(e.getActionCommand().toString().equals("Gruppeinnstillinger")){
