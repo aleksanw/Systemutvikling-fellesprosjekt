@@ -17,6 +17,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class AddEvent extends JPanel implements ActionListener {
 
 	protected JLabel title, lAlarm, start, end, lAllDay, lDesc, visible, lName;

@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
+@SuppressWarnings("serial")
 public class CellRenderer extends JLabel implements ListCellRenderer{
 
 	public Component getListCellRendererComponent(JList list, Object value,

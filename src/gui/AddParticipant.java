@@ -11,6 +11,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+@SuppressWarnings("serial")
 public class AddParticipant extends JPanel implements ActionListener{
 	
 	private JButton addP,cancel;

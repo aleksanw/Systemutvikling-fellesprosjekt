@@ -1,5 +1,6 @@
 package gui;
 
+@SuppressWarnings("serial")
 public class AddMeating extends AddEvent {
 
 	private Participants part;

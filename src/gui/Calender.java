@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class Calender extends JPanel implements ActionListener{
 	
 	public Calender(){
@@ -18,8 +19,8 @@ public class Calender extends JPanel implements ActionListener{
 		add(new DayView("Onsdag"));
 		add(new DayView("Torsdag"));
 		add(new DayView("Fredag"));
-		add(new DayView("Lørdag"));
-		add(new DayView("Søndag"));
+		add(new DayView("Lï¿½rdag"));
+		add(new DayView("Sï¿½ndag"));
 	}
 
 	public void actionPerformed(ActionEvent e) {
