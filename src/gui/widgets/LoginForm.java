@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
-import javax.swing.event.EventListenerList;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -13,9 +12,7 @@ import net.miginfocom.swing.MigLayout;
 public class LoginForm extends JPanel implements ActionListener {
 	private MyTextField usernameField;
 	private MyPasswordField passwordField;
-	private EventListenerList listenerList;{
-		listenerList = new EventListenerList();
-	}
+	private LoginListener loginListener;
 
 	public LoginForm() {
 		this.setLayout(new MigLayout());
@@ -53,20 +50,18 @@ public class LoginForm extends JPanel implements ActionListener {
 		} else {
 			String username = usernameField.getText();
 			String password = new String(passwordField.getPassword());
-			this.fireLoginEvent(new LoginEvent(this,
-											   e.getID(),
-											   username,
-											   password));
+			this.fireLoginEvent(e.getID(), username, password);
 		}
 	}
 	
-	private void fireLoginEvent(LoginEvent loginEvent) {
-		for(LoginListener l: listenerList.getListeners(LoginListener.class)){
-			l.loginAttempted(loginEvent);
-		}
+	private void fireLoginEvent(int id, String username, String password) {
+		if(loginListener == null) return;
+		
+		LoginEvent e = new LoginEvent(this, id, username, password);
+		loginListener.loginAttempted(e);
 	}
 
-	public void addLoginListener(LoginListener l) {
-		this.listenerList.add(LoginListener.class, l);
+	public void setLoginListener(LoginListener l) {
+		this.loginListener = l;
 	}
 }
