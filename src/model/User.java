@@ -1,8 +1,9 @@
 package model;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 
 public class User extends Model {
 	
@@ -11,14 +12,20 @@ public class User extends Model {
 	private Date dateOfBirth;
 	
 	
-	public User(int userID) {
+	public User(int userID) throws SQLException {
 		super("User", createTableFields(), "userID", null);
-		
+		ResultSet result = super.getFromDB(userID);
+		if(result.next()) {
+			this.userID = result.getInt("userID");
+			this.name = result.getString("name");
+			this.email = result.getString("email");
+			this.dateOfBirth = result.getDate("dateOfBirth");
+		}
 	}
 	
 	public User(String userName, String password, String name) throws SQLException {
 		super("User", createTableFields(), "userID", null);
-		String values = "'" + userName + "', '" + password + "', '" + name +"', '', '0000-00-00'";
+		String values = "'" + userName + "', '" + password + "', '" + name +"', '', '0000-01-01'";
 		ArrayList<Integer> keyList = super.addToDB(values);
 		this.userID = keyList.get(0);		
 		this.name = name;
@@ -61,5 +68,8 @@ public class User extends Model {
 	
 	public int getUserID() {
 		return this.userID;
+	}
+	public String getName() {
+		return this.name;
 	}
 }
