@@ -1,5 +1,9 @@
 *.class
 .classpath
+/bin
+
+# Execption for libs #
+!/lib/*
 
 # Package Files #
 *.jar
