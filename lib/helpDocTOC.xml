@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toc label="jfcUnit" topic="main.html">
+    <topic label="Reference" href="reference.html">
+        <topic label="Purpose"                   href="purpose.html"/>
+        <topic label="What is jfcUnit?"          href="whatisjfcunit.html"/>
+        <topic label="What's New"                href="whatsnew.html"/>
+        <topic label="Download"                  href="downloads.html"/>
+        <topic label="Installing jfcUnit"        href="installation.html"/>
+        <topic label="Example: Login Screen"     href="loginscreenexample.html"/>
+        <topic label="Example: jfcUnit via XML"  href="jfcunitxml.htm"/>
+        <topic label="Example: Recording"        href="capturingdataexample.html"/>
+        <topic label="Example: Detecting Popups" href="popupmenu.htm"/>
+        <topic label="Some useful links"         href="links.html"/>
+        <!--
+        <topic label="SF Forums"                 href="https://sourceforge.net/forum/?group_id=28662">
+        <topic label="SF Patches"                href="https://sourceforge.net/tracker/?group_id=28662&atid=393916">
+        <topic label="SF Lists"                  href="https://sourceforge.net/mail/?group_id=28662">
+        <topic label="SF CVS"                    href="https://sourceforge.net/cvs/?group_id=28662">
+        -->
+    </topic>
+    <topic label="About" href="about.html"/>
+    <topic label="API" href="api/index.html"/>
+</toc>
