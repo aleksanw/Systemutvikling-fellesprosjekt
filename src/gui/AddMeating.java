@@ -1,5 +1,7 @@
 package gui;
 
+import java.awt.GridBagConstraints;
+
 public class AddMeating extends AddEvent {
 
 	private Participants part;
@@ -14,11 +16,12 @@ public class AddMeating extends AddEvent {
 		remove(visible);
 
 		part = new Participants();
+		
+		g.fill = GridBagConstraints.EAST;
 
-		g.gridx = 2;
+		g.gridx = 9;
 		g.gridy = 1;
-		g.gridheight = 7;
-
+		g.gridheight = 8;
 		add(part, g);
 	}
 }

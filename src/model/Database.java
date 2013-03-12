@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.mysql.jdbc.Driver;
+
 public class Database {
 	/**
 	 * Handels connection to database server.
