@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.mysql.jdbc.Driver;
+
 public class Database {
 	/**
 	 * Handels connection to database server.
@@ -66,7 +68,6 @@ public class Database {
     /**
      * SQL Query that alters the database. Eg. CREATE TABLE, INSERT, UPDATE, DELETE querys.
      * @param sql
-     * @return ResultSet
      * @throws SQLException
      */
     
@@ -74,6 +75,25 @@ public class Database {
     	Statement s = connection.createStatement();
         
         s.executeUpdate(sql);
+    }
+    
+    /**
+     * SQL Query that INSERT in the DB and return the keys
+     * @param sql
+     * @return keylist
+     * @throws SQLException
+     */
+    public ArrayList<Integer> insertAndGetKeysQuery(String sql) throws SQLException {
+    	Statement s = connection.createStatement();
+        s.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+        ResultSet keys = s.getGeneratedKeys();
+        ArrayList<Integer> keyList = new ArrayList<Integer>();
+        int i = 1;
+        while(keys.next()) {
+        	keyList.add(keys.getInt(i));
+        	i++;
+        }
+    	return keyList;
     }
     
     public Connection getConnection() throws SQLException {

@@ -23,7 +23,8 @@ public class AddEvent extends JPanel implements ActionListener {
 	protected JLabel title, lAlarm, start, end, lAllDay, lDesc, visible, lName;
 	protected JTextField name;
 	protected JTextArea desc;
-	protected JComboBox<String> hour, min, hourE, minE, alarm, group, vis, day, month, dayE, monthE;
+	protected JComboBox<String> hour, min, hourE, minE, alarm, group, vis, day,
+			month, dayE, monthE;
 	protected JRadioButton allDay;
 	protected JButton save, delete;
 	protected JTabbedPane tabs;
@@ -34,12 +35,13 @@ public class AddEvent extends JPanel implements ActionListener {
 
 	public AddEvent() {
 		g.fill = GridBagConstraints.BOTH;
-		String[] hours = addNum(0,24);
+
+		String[] hours = addNum(0, 24);
 		String[] minutes = { "00", "15", "30", "45" };
 		String[] minForAlarm = { "Ingen alarm", "10 min", "15 min", "20 min",
 				"30 min", "1 time", "2 timer", "24 timer" };
-		String[] days = addNum(1,32);
-		String[] months = {"Mars 2013","April 2013"}; 
+		String[] days = addNum(1, 32);
+		String[] months = { "Mars 2013", "April 2013" };
 
 		title = new JLabel();
 		title.setText("Legg til/endre avtale");
@@ -58,12 +60,9 @@ public class AddEvent extends JPanel implements ActionListener {
 		start = new JLabel();
 		start.setText("Start:");
 		hour = new JComboBox<String>(hours);
-		hour.addActionListener(new hourBoxActionListener());
+		hour.addActionListener(new timeBoxActionListener());
 		min = new JComboBox<String>(minutes);
-		min.addActionListener(new minBoxActionListener());
-
-		booking.date.setText("klokken " + hour.getSelectedItem().toString()
-				+ ":" + min.getSelectedItem().toString());
+		min.addActionListener(new timeBoxActionListener());
 
 		end = new JLabel();
 		end.setText("Slutt:");
@@ -82,13 +81,15 @@ public class AddEvent extends JPanel implements ActionListener {
 		lAlarm = new JLabel();
 		lAlarm.setText("Legg Til Alarm:");
 		alarm = new JComboBox<String>(minForAlarm);
-		
+
 		day = new JComboBox<String>(days);
-		
+		day.addActionListener(new timeBoxActionListener());
+
 		dayE = new JComboBox<String>(days);
-		
+
 		month = new JComboBox<String>(months);
-		
+		month.addActionListener(new timeBoxActionListener());
+
 		monthE = new JComboBox<String>(months);
 
 		save = new JButton();
@@ -103,9 +104,19 @@ public class AddEvent extends JPanel implements ActionListener {
 		visible.setText("Synlig for:");
 		vis = new JComboBox<String>();
 
+		booking.date.setText("klokken " + hour.getSelectedItem().toString()
+				+ ":" + min.getSelectedItem().toString() + " den "
+				+ day.getSelectedItem().toString() + ". "
+				+ month.getSelectedItem().toString());
+
+		buildPanel();
+
+	}
+
+	public void buildPanel() {
 		setLayout(new GridBagLayout());
-		
-		g.gridwidth  = 4;
+
+		g.gridwidth = 4;
 		g.gridy = 0;
 		g.gridx = 1;
 		add(title, g);
@@ -117,7 +128,7 @@ public class AddEvent extends JPanel implements ActionListener {
 		g.gridx = 1;
 		g.gridwidth = 4;
 		add(name, g);
-		
+
 		g.gridwidth = 1;
 		g.gridx = 0;
 		g.gridy = 2;
@@ -127,9 +138,9 @@ public class AddEvent extends JPanel implements ActionListener {
 		g.gridx = 2;
 		add(min, g);
 		g.gridx = 3;
-		add(day,g);
+		add(day, g);
 		g.gridx = 4;
-		add(month,g);
+		add(month, g);
 
 		g.gridx = 0;
 		g.gridy = 3;
@@ -139,9 +150,9 @@ public class AddEvent extends JPanel implements ActionListener {
 		g.gridx = 2;
 		add(minE, g);
 		g.gridx = 3;
-		add(dayE,g);
+		add(dayE, g);
 		g.gridx = 4;
-		add(monthE,g);
+		add(monthE, g);
 
 		g.gridx = 0;
 		g.gridy = 4;
@@ -181,28 +192,21 @@ public class AddEvent extends JPanel implements ActionListener {
 		g.gridx = 6;
 		add(delete, g);
 
-		
 	}
 
-	private class hourBoxActionListener implements ActionListener {
+	private class timeBoxActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			booking.date.setText("klokken " + hour.getSelectedItem().toString()
-					+ ":" + min.getSelectedItem().toString());
+					+ ":" + min.getSelectedItem().toString() + " den "
+					+ day.getSelectedItem().toString() + ". "
+					+ month.getSelectedItem().toString());
 		}
-	}
-
-	private class minBoxActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			booking.date.setText("klokken " + hour.getSelectedItem().toString()
-					+ ":" + min.getSelectedItem().toString());
-		}
-
 	}
 
 	public String[] addNum(int k, int i) {
 		String[] resList = new String[i];
 		for (int j = k; j < i; j++) {
-			resList[j-k] = Integer.toString(j);
+			resList[j - k] = Integer.toString(j);
 		}
 		return resList;
 	}
