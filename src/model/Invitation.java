@@ -11,7 +11,7 @@ public class Invitation extends Model {
 	private Event invitedTo;
 	
 	public Invitation() {
-		super("InvitedTo", createTableFields());
+		super("InvitedTo", createTableFields(), "User_userID", "Event_eventID");
 	}
 	
 	private static ArrayList<String> createTableFields() {

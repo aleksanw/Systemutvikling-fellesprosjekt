@@ -8,27 +8,36 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.joda.time.DateTime;
+import org.joda.time.MutableDateTime;
+
 public class Buttons extends JPanel implements ActionListener {
 
 	private JButton event, meating, groups, logout, rArrow, lArrow;
 	private JLabel curWeek;
-	private int weekNr = 6;
-	private int year = 2013;
+	protected MutableDateTime date;
+	protected int weekNr,year;
 
 	GridBagConstraints gbc = new GridBagConstraints();
 
 	public Buttons() {
+		date = new MutableDateTime();
+		date.setDate(MutableDateTime.now());
+		
+		weekNr = date.getWeekOfWeekyear();
+		year = date.getYear();
+		
 		event = new JButton("Legg Til Avtale");
 		event.addActionListener(this);
 
-		meating = new JButton("Opprett M�te");
+		meating = new JButton("Opprett Møte");
 		meating.addActionListener(this);
 
 		groups = new JButton("Gruppeinnstillinger");
 		groups.addActionListener(this);
 
 		curWeek = new JLabel();
-		curWeek.setText("Uke 6, 2013");
+		curWeek.setText("Uke " + date.getWeekOfWeekyear() + ", " + date.getYear());
 
 		rArrow = new JButton(">");
 		rArrow.addActionListener(this);
@@ -72,7 +81,7 @@ public class Buttons extends JPanel implements ActionListener {
 			validWeek(weekNr + 1);
 			nextWeek();
 		}
-		else if(e.getActionCommand().toString().equals("Opprett M�te")){
+		else if(e.getActionCommand().toString().equals("Opprett Møte")){
 			MainClass.runAddMeating();
 		}
 		else if(e.getActionCommand().toString().equals("Gruppeinnstillinger")){
@@ -90,13 +99,13 @@ public class Buttons extends JPanel implements ActionListener {
 
 	public void prevYear() {
 		year -= 1;
-		weekNr = 52;
+		weekNr = 51;
 		curWeek.setText("Uke " + weekNr + ", " + year);
 	}
 
 	public void nextYear() {
 		year += 1;
-		weekNr = 1;
+		weekNr = 0;
 		curWeek.setText("Uke " + weekNr + ", " + year);
 	}
 

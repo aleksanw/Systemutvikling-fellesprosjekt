@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 public class MainScreen extends JPanel{
 	
 	Buttons ms = new Buttons();
-	Calender cal = new Calender();
+	Calendar cal = new Calendar();
 	Sidebar sb = new Sidebar();
 	
 	public MainScreen(){

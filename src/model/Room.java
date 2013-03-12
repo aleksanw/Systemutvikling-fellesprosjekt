@@ -10,7 +10,7 @@ public class Room extends Model {
 	private String roomName;
 	
 	public Room() {
-		super("Room", createTableFields());
+		super("Room", createTableFields(), "roomID", null);
 	}
 	
 	private static ArrayList<String> createTableFields() {

@@ -10,7 +10,7 @@ public class Group extends Model {
 	private String groupName;
 	
 	public Group() {
-		super("Group", createTableFields());
+		super("Group", createTableFields(), "groupID", null);
 	}
 	
 	private static ArrayList<String> createTableFields() {
