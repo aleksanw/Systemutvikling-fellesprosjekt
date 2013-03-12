@@ -2,6 +2,7 @@ package model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public abstract class Model {
@@ -18,8 +19,10 @@ public abstract class Model {
 		this.tableFields = tableFields;
 	}
 	
-	protected void updateField(String field, Object value){
-		
+	protected void updateField(String field, Object value, int primaryKey) throws SQLException{
+		System.out.println("UPDATE " + tableName + " SET " + field + "="+value.toString()+";");
+		DB.updateQuery("UPDATE " + tableName + " SET " + field + "='"+value.toString()+"' WHERE " +
+		primaryKeyField1 + "=" + primaryKey + ";");
 	}
 	
 	public void addPropartyChangeListener(PropertyChangeListener listener) {
