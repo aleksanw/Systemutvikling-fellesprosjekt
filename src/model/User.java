@@ -18,10 +18,10 @@ public class User extends Model {
 	
 	public User(String userName, String password, String name) throws SQLException {
 		super("User", createTableFields(), "userID", null);
-		this.name = name;
 		String values = "'" + userName + "', '" + password + "', '" + name +"', '', '0000-00-00'";
-		super.addToDB(values);
-		
+		ArrayList<Integer> keyList = super.addToDB(values);
+		this.userID = keyList.get(0);		
+		this.name = name;
 	}
 	
 	private static ArrayList<String> createTableFields() {
@@ -57,5 +57,9 @@ public class User extends Model {
 	
 	public ArrayList<Invitation> getInvitations() {
 		return new ArrayList<Invitation>();
+	}
+	
+	public int getUserID() {
+		return this.userID;
 	}
 }

@@ -48,15 +48,14 @@ public abstract class Model {
 		return tableFields;
 	}
 	
-	protected int addToDB(String values) throws SQLException {
+	protected ArrayList<Integer> addToDB(String values) throws SQLException {
 		String query = "INSERT INTO " +tableName+ " (";
 		for(int i = 1; i<tableFields.size()-1; i++) {
 			query += tableFields.get(i) + ", ";
 		}
-		query += tableFields.get(tableFields.size()-1) + ") VALUES (" + values + ");";
-		System.out.println(query);
-		DB.updateQuery(query);
-		return 0;
+		query += tableFields.get(tableFields.size()-1) + ") VALUES (" + values + ");";		
+		ArrayList<Integer> keyList = DB.insertAndGetKeysQuery(query);
+		return keyList;
 	}
 	
 	
