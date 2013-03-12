@@ -2,9 +2,6 @@
 .classpath
 /bin
 
-# Execption for libs #
-!/lib/*
-
 # Package Files #
 *.jar
 *.war
@@ -48,3 +45,6 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Execption for libs #
+!/lib/*
