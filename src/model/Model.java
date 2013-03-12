@@ -3,6 +3,7 @@ package model;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public abstract class Model {
@@ -18,9 +19,11 @@ public abstract class Model {
 		this.tableName = tableName;
 		this.tableFields = tableFields;
 		this.primaryKeyField1 = primaryKeyField1;
-		this.primaryKeyField2 = primaryKeyField2;
+		this.primaryKeyField2 = primaryKeyField2;	
 	}
 	
+	//Zero indexed field number, value, primarykey1 and/or primarykey2
+	//For easy updating of fiels for the subclass(es)
 	protected void updateField(int field, Object value, int primaryKey1) throws SQLException{
 		String query = "UPDATE " + tableName + " SET " + tableFields.get(field) + "='"+value.toString()+"' WHERE " +
 				primaryKeyField1 + "='" + primaryKey1 + "';";
@@ -39,6 +42,21 @@ public abstract class Model {
 	
 	public void removePropartyChangeListener(PropertyChangeListener listener) {
 		pcs.removePropertyChangeListener(listener);
+	}
+	
+	protected ArrayList<String> getTableFields() {
+		return tableFields;
+	}
+	
+	protected int addToDB(String values) throws SQLException {
+		String query = "INSERT INTO " +tableName+ " (";
+		for(int i = 1; i<tableFields.size()-1; i++) {
+			query += tableFields.get(i) + ", ";
+		}
+		query += tableFields.get(tableFields.size()-1) + ") VALUES (" + values + ");";
+		System.out.println(query);
+		DB.updateQuery(query);
+		return 0;
 	}
 	
 	

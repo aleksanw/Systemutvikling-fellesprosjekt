@@ -8,7 +8,7 @@ public class Alarm extends Model {
 	private Time numberOfHourBeforeMeeting;
 	
 	public Alarm(){
-		super("Alarm", createTableFields());
+		super("Alarm", createTableFields(), "Event_eventID", "User_userID");
 	}
 	
 	private static ArrayList<String> createTableFields() {

@@ -68,7 +68,6 @@ public class Database {
     /**
      * SQL Query that alters the database. Eg. CREATE TABLE, INSERT, UPDATE, DELETE querys.
      * @param sql
-     * @return ResultSet
      * @throws SQLException
      */
     
@@ -76,6 +75,17 @@ public class Database {
     	Statement s = connection.createStatement();
         
         s.executeUpdate(sql);
+    }
+    
+    /**
+     * SQL Query that INSERT in the DB and return the keys
+     * @param sql
+     * @return keylist
+     * @throws SQLException
+     */
+    public ArrayList<Integer> insertAndGetKeysQuery(String sql) throws SQLException {
+    	
+    	return new ArrayList<Integer>();
     }
     
     public Connection getConnection() throws SQLException {

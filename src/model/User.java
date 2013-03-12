@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -9,8 +10,17 @@ public class User extends Model {
 	private String name, email;
 	private Date dateOfBirth;
 	
-	public User() {
+	
+	public User(int userID) {
 		super("User", createTableFields(), "userID", null);
+		
+	}
+	
+	public User(String userName, String password, String name) throws SQLException {
+		super("User", createTableFields(), "userID", null);
+		this.name = name;
+		String values = "'" + userName + "', '" + password + "', '" + name +"', '', '0000-00-00'";
+		super.addToDB(values);
 		
 	}
 	
