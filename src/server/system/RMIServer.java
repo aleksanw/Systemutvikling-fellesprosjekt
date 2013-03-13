@@ -12,6 +12,11 @@ import storage.EventStorage;
 public class RMIServer {
 	private static int port = 1099;
 	
+	/**
+	 * Starts RMI Server and starts listen to port 1099
+	 * 
+	 */
+	
 	public RMIServer() {
 		// Initialize Security Manager
 		if(System.getSecurityManager()==null){
@@ -28,6 +33,17 @@ public class RMIServer {
 		}
 		System.out.println("RMI Server Running...");
 	}
+	
+	/**
+	 * Add a remote object to RMI Server
+	 * 
+	 * Usage eq.
+	 * 		server = new RMIServer();
+	 * 		server.addObject("EventStorage", new EventStorage());
+	 * 
+	 * @param name
+	 * @param obj
+	 */
 	
 	public void addObject(String name, Remote obj) {
 		// Bind to RMI registry 
