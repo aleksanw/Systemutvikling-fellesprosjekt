@@ -38,9 +38,10 @@ public class RMITest extends JFCTestCase {
 		server.addObject("Test", testServer);
 		
 		RMIClient client = new RMIClient();
-		TestI test = (TestI)client.getRMIObjectFromServer("Test");
+		TestI testClient = (TestI)client.getRMIObjectFromServer("Test");
 		
 		
-		assertEquals("Test123", test.getValue());
+		assertEquals("Test123", testClient.getValue());
+	}
 	}
 }
