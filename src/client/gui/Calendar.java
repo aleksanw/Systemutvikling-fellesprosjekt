@@ -31,6 +31,9 @@ public class Calendar extends JPanel implements ActionListener{
 		add(sat);
 		add(sun);
 		
+		mon.addEvents();
+		
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {

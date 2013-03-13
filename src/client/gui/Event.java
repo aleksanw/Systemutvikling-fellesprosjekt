@@ -2,29 +2,27 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.ArrayList;
+
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import model.Model;
+
 public class Event extends JPanel{
 	
-	private int startH, startM,endH,endM;
-	private String desc,place;
-	private JLabel text;
+	private String desc,place,text,name;
+	private ArrayList<String> fields;
+	
+	public Event(String d, String p, String name, int sH, int sM, int eH, int eM){	
+		fields.add(p);
+		fields.add(d);
+		//Model.Event(name,fields,);
 		
-	public Event(){		
-		startH = 15;
-		startM = 30;
-		endH = 16;
-		endM = 30;
-		desc = "Viktig";
-		place = "p15";
-		text = new JLabel();
-		text.setText(startH + ":" + startM + "\n"+ desc + "\n" + place);
-		
-		setSize(new Dimension(100,100));
-		setBorder(BorderFactory.createLineBorder(Color.BLUE));
-			
-		add(text);
+	}
+	
+	public String toString() {
+		return text;
 	}
 }
