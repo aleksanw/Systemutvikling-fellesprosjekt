@@ -44,8 +44,10 @@ public class EventStorage extends UnicastRemoteObject implements EventStorageI, 
 	}
 
 	public void delete(Event e) throws RemoteException {
+		Integer eventID = e.getID();
+		eventsCache.remove(eventID);
 		
+		// Delete object
+		e = null;
 	}
-	
-	
 }
