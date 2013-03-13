@@ -39,11 +39,4 @@ public class RMIClient {
 		
 		return null;
 	}
-	
-	/*
-	public login(String username, String password) {
-		
-	}
-	
-	*/
 }
