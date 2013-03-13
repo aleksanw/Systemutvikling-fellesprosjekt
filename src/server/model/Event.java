@@ -69,4 +69,8 @@ public class Event extends Model{
 	public void invite(User user) {
 		
 	}
+
+	public int getEventID() {
+		return eventID;
+	}
 }
