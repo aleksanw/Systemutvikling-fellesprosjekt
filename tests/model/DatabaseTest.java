@@ -2,6 +2,8 @@ package model;
 
 import java.sql.*;
 
+import server.model.Database;
+
 import junit.extensions.jfcunit.JFCTestCase;
 
 public class DatabaseTest extends JFCTestCase {

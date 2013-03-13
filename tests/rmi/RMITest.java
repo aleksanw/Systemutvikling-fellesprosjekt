@@ -6,8 +6,8 @@ import java.rmi.server.UnicastRemoteObject;
 
 import junit.extensions.jfcunit.JFCTestCase;
 
+import server.storage.EventStorage;
 import server.system.RMIServer;
-import storage.EventStorage;
 import client.system.RMIClient;
 
 /**

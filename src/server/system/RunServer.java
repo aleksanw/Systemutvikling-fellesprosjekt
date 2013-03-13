@@ -8,7 +8,7 @@ import java.rmi.registry.LocateRegistry;
 
 import client.system.RMIClient;
 
-import storage.EventStorage;
+import server.storage.EventStorage;
 
 public class RunServer {
 	public static void main(String[] args) throws RemoteException {
