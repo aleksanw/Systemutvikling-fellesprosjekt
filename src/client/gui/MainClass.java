@@ -24,7 +24,7 @@ public class MainClass {
 		cards.add(new AddEvent(),"addEvent");
 		cards.add(new AddMeating(),"addMeating");
 		cards.add(new GroupSettings(),"Groups");
-		frame = new JFrame("Login");
+		frame = new JFrame("G4Calender");
 		frame.add(cards);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

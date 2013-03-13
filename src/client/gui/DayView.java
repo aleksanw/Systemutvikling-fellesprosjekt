@@ -48,10 +48,7 @@ public class DayView extends JPanel implements ListSelectionListener{
 	}
 	
 	public void addEvents(){
-		evt = new Event(name, name, name, flags, flags, flags, flags);
-		model.addElement(evt);
-		Event evt2 = new Event(name, name, name, flags, flags, flags, flags);
-		model.addElement(evt2);
+		
 	}
 	
 	public void findPos(DateTime date){
