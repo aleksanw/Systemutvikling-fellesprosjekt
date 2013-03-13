@@ -20,7 +20,7 @@ public class Alarm extends Model {
 		}		
 	}
 	
-	public Alarm(int eventID, int userID, int numberOfHourBeforeMeeting) throws SQLException{
+	public Alarm(int eventID, int userID, Time numberOfHoursBeforeMeeting) throws SQLException{
 		super("Alarm", createTableFields(), "Event_eventID", "User_userID");
 		String values = "'" + eventID+ "', '" + userID + "', '" + numberOfHoursBeforeMeeting + "'";
 		super.addRelationToDB(values);
@@ -34,7 +34,7 @@ public class Alarm extends Model {
 		ArrayList<String> tableFields = new ArrayList<String>();
 		tableFields.add("Event_eventID");
 		tableFields.add("User_userID");
-		tableFields.add("nymberOfHoursBeforeMeeting");
+		tableFields.add("numberOfHoursBeforeMeeting");
 		return tableFields;
 	}
 	

@@ -16,6 +16,7 @@ public abstract class Model {
 	private boolean isSavedInDB;
 	private PropertyChangeSupport pcs;
 	
+	
 	public Model(String tableName, ArrayList<String> tableFields, String primaryKeyField1, String primaryKeyField2) {
 		this.tableName = tableName;
 		this.tableFields = tableFields;
