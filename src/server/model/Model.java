@@ -4,7 +4,6 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public abstract class Model {
@@ -13,7 +12,6 @@ public abstract class Model {
 	private String tableName;
 	private String primaryKeyField1, primaryKeyField2;
 	private ArrayList<String> tableFields;
-	private boolean isSavedInDB;
 	private PropertyChangeSupport pcs;
 	
 	
@@ -68,13 +66,11 @@ public abstract class Model {
 			query += tableFields.get(i) + ", ";
 		}
 		query += tableFields.get(tableFieldSize-1) + ") VALUES (" + values + ");";	
-		System.out.println(query);
 		DB.updateQuery(query);
 	}
 	
 	protected ResultSet getFromDB(int primaryKey1) throws SQLException {
 		String query = "Select * FROM " + tableName + " WHERE " + primaryKeyField1 + "='" + primaryKey1 + "';";
-		System.out.println(query);
 		ResultSet result = DB.readQuery(query);
 		return result;
 	}
@@ -86,5 +82,8 @@ public abstract class Model {
 		return result;
 	}
 	
+	protected Database getDB() {
+		return DB;
+	}
 	
 }

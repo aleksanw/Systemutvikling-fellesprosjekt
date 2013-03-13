@@ -24,6 +24,38 @@ public class Invitation extends Model {
 		}
 	}
 	
+	public boolean isAttending() {
+		return isAttending;
+	}
+
+	public void setAttending(boolean isAttending) {
+		this.isAttending = isAttending;
+	}
+
+	public Event getInvitedTo() {
+		return invitedTo;
+	}
+
+	public void setInvitedTo(Event invitedTo) {
+		this.invitedTo = invitedTo;
+	}
+
+	public int getEventID() {
+		return eventID;
+	}
+
+	public void setEventID(int eventID) {
+		this.eventID = eventID;
+	}
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setDateTimeOfInvitation(DateTime dateTimeOfInvitation) {
+		this.dateTimeOfInvitation = dateTimeOfInvitation;
+	}
+
 	public Invitation(int userID, int eventID, DateTime dateTimeOfInvitation) throws SQLException {
 		super("InvitedTo", createTableFields(), "User_userID", "Event_eventID");
 		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:SS");

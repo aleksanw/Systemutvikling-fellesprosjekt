@@ -1,7 +1,5 @@
 package server.model;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,6 +7,10 @@ import java.util.ArrayList;
 public class Group extends Model {
 
 	private int groupID;
+	public int getGroupID() {
+		return groupID;
+	}
+
 	private String groupName;
 	
 	public Group(int groupID) throws SQLException {

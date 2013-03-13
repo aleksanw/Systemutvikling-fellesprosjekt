@@ -10,6 +10,18 @@ public class Alarm extends Model {
 	private Time numberOfHoursBeforeMeeting;
 	private int userID, eventID;
 	
+	public int getUserID() {
+		return userID;
+	}
+
+	public int getEventID() {
+		return eventID;
+	}
+
+	public void setNumberOfHoursBeforeMeeting(Time numberOfHoursBeforeMeeting) {
+		this.numberOfHoursBeforeMeeting = numberOfHoursBeforeMeeting;
+	}
+
 	public Alarm(int userID, int eventID) throws SQLException{
 		super("Alarm", createTableFields(), "Event_eventID", "User_userID");
 		ResultSet result = super.getFromDB(userID, eventID);

@@ -12,6 +12,99 @@ public class Event extends Model{
 	private boolean isActive, isWholeDay;
 	private boolean isMeeting;
 	private String eventName, description, location;
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public boolean isWholeDay() {
+		return isWholeDay;
+	}
+
+	public void setWholeDay(boolean isWholeDay) {
+		this.isWholeDay = isWholeDay;
+	}
+
+	public String getEventName() {
+		return eventName;
+	}
+
+	public void setEventName(String eventName) {
+		this.eventName = eventName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public DateTime getStart() {
+		return start;
+	}
+
+	public void setStart(DateTime start) {
+		this.start = start;
+	}
+
+	public DateTime getEnd() {
+		return end;
+	}
+
+	public void setEnd(DateTime end) {
+		this.end = end;
+	}
+
+	public boolean isWholeday() {
+		return isWholeday;
+	}
+
+	public void setWholeday(boolean isWholeday) {
+		this.isWholeday = isWholeday;
+	}
+
+	public int getRoomBooked() {
+		return roomBooked;
+	}
+
+	public void setRoomBooked(int roomBooked) {
+		this.roomBooked = roomBooked;
+	}
+
+	public int getCreatedByUser() {
+		return createdByUser;
+	}
+
+	public void setCreatedByUser(int createdByUser) {
+		this.createdByUser = createdByUser;
+	}
+
+	public int getCreatedByGroup() {
+		return createdByGroup;
+	}
+
+	public void setCreatedByGroup(int createdByGroup) {
+		this.createdByGroup = createdByGroup;
+	}
+
+	public boolean isMeeting() {
+		return isMeeting;
+	}
+
+
 	private DateTime start, end;
 	private boolean isWholeday;
 	private int roomBooked;

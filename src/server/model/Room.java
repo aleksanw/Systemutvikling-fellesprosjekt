@@ -28,6 +28,18 @@ public class Room extends Model {
 		this.roomID = keyList.get(0);
 	}
 	
+	public int getRoomID() {
+		return roomID;
+	}
+
+	public int getPersonCapacity() {
+		return personCapacity;
+	}
+
+	public String getRoomName() {
+		return roomName;
+	}
+
 	private static ArrayList<String> createTableFields() {
 		ArrayList<String> tableFields = new ArrayList<String>();
 		tableFields.add("roomID");

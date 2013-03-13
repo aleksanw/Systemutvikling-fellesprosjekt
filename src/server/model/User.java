@@ -24,11 +24,25 @@ public class User extends Model {
 		}
 	}
 	
-	public User(String username, String password) {
+	public User(String username, String password) throws SQLException {
 		super("User", createTableFields(), "userID", null);
-		
+		String query = "SELECT userID FROM User WHERE username='" + username + "' AND password='" + password +"';";
+		ResultSet result = super.getDB().readQuery(query);
+		result.getInt("userID");
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
 	public User(String userName, String password, String name) throws SQLException {
 		super("User", createTableFields(), "userID", null);
 		String values = "'" + userName + "', '" + password + "', '" + name +"', '', '0000-01-01'";
