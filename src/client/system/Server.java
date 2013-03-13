@@ -6,6 +6,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 
+import storage.Storage;
+
 import common.ValueModelI;
 
 public class Server {

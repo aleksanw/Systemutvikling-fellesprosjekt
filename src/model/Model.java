@@ -51,10 +51,13 @@ public abstract class Model {
 	
 	protected ArrayList<Integer> addToDB(String values) throws SQLException {
 		String query = "INSERT INTO " +tableName+ " (";
-		for(int i = 1; i<tableFields.size()-1; i++) {
-			query += tableFields.get(i) + ", ";
+		int tableFieldSize = tableFields.size();
+		if(tableFieldSize > 1) {
+			for(int i = 1; i < tableFieldSize-1; i++) {
+				query += tableFields.get(i) + ", ";
+			}
 		}
-		query += tableFields.get(tableFields.size()-1) + ") VALUES (" + values + ");";		
+		query += tableFields.get(tableFieldSize-1) + ") VALUES (" + values + ");";		
 		ArrayList<Integer> keyList = DB.insertAndGetKeysQuery(query);
 		return keyList;
 	}

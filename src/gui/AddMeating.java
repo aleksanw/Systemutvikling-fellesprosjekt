@@ -1,7 +1,7 @@
 package gui;
-
 import java.awt.GridBagConstraints;
 
+@SuppressWarnings("serial")
 public class AddMeating extends AddEvent {
 
 	private Participants part;

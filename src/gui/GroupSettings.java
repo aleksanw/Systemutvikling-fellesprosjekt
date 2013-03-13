@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+
 public class GroupSettings extends JPanel implements ActionListener{
 	private JLabel groupName, title;
 	private JButton newGroup, save, cancel;

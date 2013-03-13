@@ -28,6 +28,9 @@
 *.tar
 *.zip
 
+# Execption for libs #
+!/lib/*
+
 # Logs and databases #
 ######################
 *.log
@@ -44,6 +47,3 @@
 Icon?
 ehthumbs.db
 Thumbs.db
-
-# Execption for libs #
-!/lib/*

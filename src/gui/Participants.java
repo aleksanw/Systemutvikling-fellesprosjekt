@@ -13,6 +13,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+
 public class Participants extends JPanel implements ActionListener {
 
 	protected JButton findP;

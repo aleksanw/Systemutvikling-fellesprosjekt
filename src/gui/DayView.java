@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.joda.time.DateTime;
 
+
 public class DayView extends JPanel{
 	
 	private JLabel day;
