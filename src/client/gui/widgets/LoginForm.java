@@ -39,8 +39,7 @@ public class LoginForm extends JPanel implements ActionListener, DocumentListene
 		
 		loginbutton = new JButton("Login");
 		
-		this.setLayout(new MigLayout("",
-				                     "[] 1cm [grow, center] [align right]"));
+		this.setLayout(new MigLayout("", "[] 1cm [grow, center] [align right]"));
 		this.add(label,         "cell 0 0 2 1");
 		this.add(usernameField, "cell 1 1 2 1");
 		this.add(passwordField, "cell 1 2 2 1");
@@ -48,26 +47,9 @@ public class LoginForm extends JPanel implements ActionListener, DocumentListene
 		this.add(loginbutton,   "cell 2 3 1 1");
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		Object src = e.getSource();
-		if(src == usernameField) {
-			passwordField.requestFocusInWindow();
-		} else {
-			setBusy();
-			String username = usernameField.getText();
-			String password = new String(passwordField.getPassword());
-			this.fireLoginEvent(e.getID(), username, password);
-		}
-	}
+
 	
-	private void fireLoginEvent(int id, String username, String password) {
-		if(loginListener == null)
-			return;
-		
-		LoginEvent e = new LoginEvent(this, id, username, password);
-		loginListener.loginAttempted(e);
-	}
+	/* ## State change ## */
 	
 	private void setBusy(){
 		usernameField.setEnabled(false);
@@ -88,6 +70,31 @@ public class LoginForm extends JPanel implements ActionListener, DocumentListene
 		statuslabel.setText("");
 	}
 
+
+	
+	/* ## Event handling ## */
+	
+	// Called when enter is pressed in one of the input-fields
+	public void actionPerformed(ActionEvent e) {
+		Object src = e.getSource();
+		if(src == usernameField) {
+			passwordField.requestFocusInWindow();
+		} else {
+			setBusy();
+			String username = usernameField.getText();
+			String password = new String(passwordField.getPassword());
+			this.fireLoginEvent(e.getID(), username, password);
+		}
+	}
+	
+	private void fireLoginEvent(int id, String username, String password) {
+		if(loginListener == null)
+			return;
+		
+		LoginEvent e = new LoginEvent(this, id, username, password);
+		loginListener.loginAttempted(e);
+	}
+	
 	public void setLoginListener(LoginListener l) {
 		this.loginListener = l;
 	}
@@ -106,6 +113,8 @@ public class LoginForm extends JPanel implements ActionListener, DocumentListene
 		public void authFailure() {		setFail();			}
 	}
 
+	
+	// Called when text is changed in one of the input-fields
 	public void insertUpdate(DocumentEvent e) {		setNormal();	}
 	public void removeUpdate(DocumentEvent e) {		setNormal();	}
 	public void changedUpdate(DocumentEvent e) {}
