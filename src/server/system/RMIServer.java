@@ -22,11 +22,11 @@ public class RMIServer {
 		try {
 			LocateRegistry.createRegistry( port );
 		} catch (RemoteException e) {
-			System.out.println("Error initializing registry or binding server.");
+			System.out.println("RMI Server connection error: Error initializing registry or binding server.");
 			System.out.println(e.getMessage());
 			System.exit(-1);
 		}
-		System.out.println("Running...");
+		System.out.println("RMI Server Running...");
 	}
 	
 	public void addObject(String name, Remote obj) {
@@ -36,11 +36,11 @@ public class RMIServer {
 			Naming.rebind(name, obj);
 			
 		} catch (RemoteException e) {
-			System.out.println("Error initializing registry or binding server.");
+			System.out.println("RMI Server addObject error: Error initializing registry or binding server.");
 			System.out.println(e.getMessage());
 			System.exit(-1);
 		} catch (MalformedURLException e) {
-			System.out.println("Could not bind server to defined registry as the URL was malformed.");
+			System.out.println("RMI Server addObject error: Could not bind server to defined registry as the URL was malformed.");
 			System.exit(-1);
 		}
 	}
