@@ -2,6 +2,8 @@ package model;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Group extends Model {
@@ -9,8 +11,21 @@ public class Group extends Model {
 	private int groupID;
 	private String groupName;
 	
-	public Group() {
-		super("Group", createTableFields(), "groupID", null);
+	public Group(int groupID) throws SQLException {
+		super("Groups", createTableFields(), "groupID", null);
+		ResultSet result = super.getFromDB(groupID);
+		if(result.next()) {
+			this.groupID = result.getInt("groupID");
+			this.groupName = result.getString("groupName");
+		}
+	}
+	
+	public Group(String groupName) throws SQLException {
+		super("Groups", createTableFields(), "groupID", null);
+		String values = "'" + groupName + "'";
+		ArrayList<Integer> keyList = super.addToDB(values);
+		this.groupID = keyList.get(0);
+		this.groupName = groupName;
 	}
 	
 	private static ArrayList<String> createTableFields() {
@@ -20,8 +35,8 @@ public class Group extends Model {
 		return tableFields;
 	}
 	
-	public Group getParentGroup() {
-		return new Group();
+	public Group getParentGroup() throws SQLException {
+		return new Group(0);
 	}
 	
 	public ArrayList<Group> getChildrenGroups() {
@@ -42,5 +57,9 @@ public class Group extends Model {
 
 	public ArrayList<Event> getEvents() {
 		return new ArrayList<Event>();
+	}
+	
+	public String getGroupName() {
+		return this.groupName;
 	}
 }

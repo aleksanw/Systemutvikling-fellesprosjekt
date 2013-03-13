@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 
@@ -19,8 +20,8 @@ public class Alarm extends Model {
 		return tableFields;
 	}
 	
-	public User getUser() {
-		return new User();
+	public User getUser() throws SQLException {
+		return new User(-1);
 	}
 	
 	public Event getEvent() {
