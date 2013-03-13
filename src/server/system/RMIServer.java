@@ -22,6 +22,8 @@ public class RMIServer {
 	 */
 	
 	public RMIServer() {
+		System.setProperty("java.security.policy","config/openall.policy");
+		
 		// Initialize Security Manager
 		if(System.getSecurityManager()==null){
             System.setSecurityManager(new RMISecurityManager());
