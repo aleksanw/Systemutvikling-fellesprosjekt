@@ -53,7 +53,7 @@ public class LoginForm extends JPanel implements ActionListener {
 		if(src == usernameField) {
 			passwordField.requestFocusInWindow();
 		} else {
-			setBusy();
+			setBusy(true);
 			String username = usernameField.getText();
 			String password = new String(passwordField.getPassword());
 			this.fireLoginEvent(e.getID(), username, password);
@@ -68,10 +68,10 @@ public class LoginForm extends JPanel implements ActionListener {
 		loginListener.loginAttempted(e);
 	}
 	
-	private void setBusy(){
-		usernameField.setEnabled(false);
-		passwordField.setEnabled(false);
-		busylabel.setVisible(true);
+	private void setBusy(boolean busy){
+		usernameField.setEnabled(!busy);
+		passwordField.setEnabled(!busy);
+		busylabel.setVisible(busy);
 	}
 
 	public void setLoginListener(LoginListener l) {
