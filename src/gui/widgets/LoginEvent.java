@@ -2,7 +2,6 @@ package gui.widgets;
 
 import java.awt.AWTEvent;
 
-@SuppressWarnings("serial")
 public class LoginEvent extends AWTEvent {
 	String username, password;
 	

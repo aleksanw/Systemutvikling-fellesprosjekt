@@ -5,7 +5,6 @@ import javax.swing.JTextField;
 import org.jdesktop.xswingx.PromptSupport;
 import org.jdesktop.xswingx.PromptSupport.FocusBehavior;
 
-@SuppressWarnings("serial")
 public class MyTextField extends JTextField {
 	public MyTextField() {
 		PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, this);

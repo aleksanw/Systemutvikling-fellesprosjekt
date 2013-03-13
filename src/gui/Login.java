@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-@SuppressWarnings("serial")
+
 public class Login extends JPanel implements ActionListener,KeyListener {
 
 	private JLabel usernameLabel, passwordLabel;

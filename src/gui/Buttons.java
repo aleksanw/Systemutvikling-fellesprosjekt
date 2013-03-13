@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
 
-@SuppressWarnings("serial")
 public class Buttons extends JPanel implements ActionListener {
 
 	private JButton event, meating, groups, logout, rArrow, lArrow;

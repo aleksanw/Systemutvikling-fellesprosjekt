@@ -3,7 +3,6 @@ package gui;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
-@SuppressWarnings("serial")
 public class MainScreen extends JPanel{
 	
 	Buttons ms = new Buttons();

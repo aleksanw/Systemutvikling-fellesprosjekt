@@ -8,10 +8,10 @@ import javax.swing.*;
 import net.miginfocom.swing.MigLayout;
 
 
-@SuppressWarnings("serial")
 public class LoginForm extends JPanel implements ActionListener {
 	private MyTextField usernameField;
 	private MyPasswordField passwordField;
+	private JLabel busylabel;
 	private LoginListener loginListener;
 
 	public LoginForm() {
@@ -21,6 +21,9 @@ public class LoginForm extends JPanel implements ActionListener {
 		JLabel label = new JLabel("Login:");
 		label.setFont(new Font("Sans Serif", Font.PLAIN, 30));
 		label.setForeground(Color.decode("#777777"));
+		
+		busylabel = new JLabel("Please wait..");
+		busylabel.setVisible(false);
 
 		usernameField = new MyTextField("username");
 		usernameField.setColumns(20);
@@ -32,7 +35,8 @@ public class LoginForm extends JPanel implements ActionListener {
 		
 		this.add(label, "wrap");
 		this.add(usernameField, "gapleft 7mm, wrap");
-		this.add(passwordField, "gapleft 7mm");
+		this.add(passwordField, "gapleft 7mm, wrap");
+		this.add(busylabel, "align right");
 	}
 	
 	public static void main(String[] args) {
@@ -49,6 +53,7 @@ public class LoginForm extends JPanel implements ActionListener {
 		if(src == usernameField) {
 			passwordField.requestFocusInWindow();
 		} else {
+			setBusy();
 			String username = usernameField.getText();
 			String password = new String(passwordField.getPassword());
 			this.fireLoginEvent(e.getID(), username, password);
@@ -61,6 +66,12 @@ public class LoginForm extends JPanel implements ActionListener {
 		
 		LoginEvent e = new LoginEvent(this, id, username, password);
 		loginListener.loginAttempted(e);
+	}
+	
+	private void setBusy(){
+		usernameField.setEnabled(false);
+		passwordField.setEnabled(false);
+		busylabel.setVisible(true);
 	}
 
 	public void setLoginListener(LoginListener l) {

@@ -8,7 +8,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-@SuppressWarnings("serial")
+
 public class Sidebar extends JPanel {
 	
 	private JLabel recieved, sent, calenders;
