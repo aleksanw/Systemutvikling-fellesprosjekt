@@ -10,7 +10,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
 
-import storage.EventStorage;
+import server.storage.EventStorage;
 
 public class RMIServer {
 	private static int port = 1099;
@@ -22,6 +22,8 @@ public class RMIServer {
 	 */
 	
 	public RMIServer() {
+		System.setProperty("java.security.policy","config/openall.policy");
+		
 		// Initialize Security Manager
 		if(System.getSecurityManager()==null){
             System.setSecurityManager(new RMISecurityManager());

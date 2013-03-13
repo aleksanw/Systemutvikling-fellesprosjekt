@@ -6,8 +6,8 @@ import java.rmi.server.UnicastRemoteObject;
 
 import junit.extensions.jfcunit.JFCTestCase;
 
+import server.storage.EventStorage;
 import server.system.RMIServer;
-import storage.EventStorage;
 import client.system.RMIClient;
 
 /**
@@ -36,7 +36,7 @@ public class RMITest extends JFCTestCase {
 			this.value = value;
 		}
 	}
-	/*
+
 	public void testSimpleConnection() throws RemoteException {
 		RMIServer server = new RMIServer();
 		Test testServer = new Test();
@@ -48,8 +48,9 @@ public class RMITest extends JFCTestCase {
 		
 		
 		assertEquals("Test123", testClient.getValue());
+		
+		server.killServer();
 	}
-	*/
 	
 	public void testTwoClients() throws RemoteException {
 		RMIServer server = new RMIServer();
@@ -76,5 +77,7 @@ public class RMITest extends JFCTestCase {
 		assertEquals("Test3", testServer.getValue());
 		assertEquals("Test3", testClient1.getValue());
 		assertEquals("Test3", testClient2.getValue());
+		
+		server.killServer();
 	}
 }

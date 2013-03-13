@@ -13,6 +13,8 @@ public class RMIClient {
 	//public StorageI eventStorage;
 	
 	public RMIClient() throws RemoteException {
+		System.setProperty("java.security.policy","config/openall.policy");
+		
 		// Initialize Security Manager
 		if(System.getSecurityManager()==null){
             System.setSecurityManager(new RMISecurityManager());
