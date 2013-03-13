@@ -12,29 +12,35 @@ import client.system.RMIClient;
 
 public class RMITest extends JFCTestCase {
 	public interface TestI extends Remote {
-		public String getInitValue() throws RemoteException;
+		public String getValue() throws RemoteException;
+		public void setValue(String value) throws RemoteException;
 	}
 	
 	public class Test extends UnicastRemoteObject implements TestI {
-		private String initvalue;
+		private String value;
 		
-		public Test(String initvalue) throws RemoteException {
-			this.initvalue = initvalue;
+		public Test() throws RemoteException {
 		}
 		
-		public String getInitValue() throws RemoteException {
-			return this.initvalue;
+		public String getValue() throws RemoteException {
+			return this.value;
+		}
+		
+		public void setValue(String value) throws RemoteException {
+			this.value = value;
 		}
 	}
 	
-	public void testRMIConnection() throws RemoteException {
-		RMIServer rmiServer = new RMIServer();
-		rmiServer.addObject("Test", new Test("Test123"));
+	public void testSimpleConnection() throws RemoteException {
+		RMIServer server = new RMIServer();
+		Test testServer = new Test();
+		testServer.setValue("Test123");
+		server.addObject("Test", testServer);
 		
-		RMIClient server = new RMIClient();
-		TestI test = (TestI)server.getRMIObjectFromServer("Test");
+		RMIClient client = new RMIClient();
+		TestI test = (TestI)client.getRMIObjectFromServer("Test");
 		
 		
-		assertEquals("Test123", test.getInitValue());
+		assertEquals("Test123", test.getValue());
 	}
 }
