@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
 
 /**
  * 
- * THIS CLASS IS JUST AN EXAMPLE
+ * THIS CLASS IS JUST AN EXAMPLE AND NOT USED IN THE SYSTEM
  * 
  * 
  */
