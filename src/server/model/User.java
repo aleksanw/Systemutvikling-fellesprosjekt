@@ -26,6 +26,7 @@ public class User extends Model {
 	
 	public User(String username, String password) {
 		super("User", createTableFields(), "userID", null);
+		
 	}
 	
 	public User(String userName, String password, String name) throws SQLException {
