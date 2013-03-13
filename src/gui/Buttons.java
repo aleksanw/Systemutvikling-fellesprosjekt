@@ -7,8 +7,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
 
 public class Buttons extends JPanel implements ActionListener {
@@ -16,17 +14,17 @@ public class Buttons extends JPanel implements ActionListener {
 	private JButton event, meating, groups, logout, rArrow, lArrow;
 	private JLabel curWeek;
 	protected MutableDateTime date;
-	protected int weekNr,year;
+	protected int weekNr, year;
 
 	GridBagConstraints gbc = new GridBagConstraints();
 
 	public Buttons() {
 		date = new MutableDateTime();
 		date.setDate(MutableDateTime.now());
-		
+
 		weekNr = date.getWeekOfWeekyear();
 		year = date.getYear();
-		
+
 		event = new JButton("Legg Til Avtale");
 		event.addActionListener(this);
 
@@ -37,7 +35,8 @@ public class Buttons extends JPanel implements ActionListener {
 		groups.addActionListener(this);
 
 		curWeek = new JLabel();
-		curWeek.setText("Uke " + date.getWeekOfWeekyear() + ", " + date.getYear());
+		curWeek.setText("Uke " + date.getWeekOfWeekyear() + ", "
+				+ date.getYear());
 
 		rArrow = new JButton(">");
 		rArrow.addActionListener(this);
@@ -75,37 +74,44 @@ public class Buttons extends JPanel implements ActionListener {
 		} else if (e.getActionCommand().toString().equals("Logg Ut")) {
 			MainClass.logout();
 		} else if (e.getActionCommand().toString().equals("<")) {
-			validWeek(weekNr - 1);
-			prevWeek();
+			if (validWeek(weekNr - 1)) {
+				prevWeek();
+			} else {
+				prevYear();
+			}
 		} else if (e.getActionCommand().toString().equals(">")) {
-			validWeek(weekNr + 1);
-			nextWeek();
-		}
-		else if(e.getActionCommand().toString().equals("Opprett Møte")){
+			if (validWeek(weekNr + 1)) {
+				nextWeek();
+			} else {
+				nextYear();
+			}
+		} else if (e.getActionCommand().toString().equals("Opprett Møte")) {
 			MainClass.runAddMeating();
-		}
-		else if(e.getActionCommand().toString().equals("Gruppeinnstillinger")){
+		} else if (e.getActionCommand().toString()
+				.equals("Gruppeinnstillinger")) {
 			MainClass.runGroupSettings();
 		}
 	}
 
-	public void validWeek(int wNr) {
+	public boolean validWeek(int wNr) {
 		if (wNr > 52) {
-			nextYear();
+			return false;
 		} else if (wNr < 1) {
-			prevYear();
+			return false;
 		}
+		return true;
 	}
 
 	public void prevYear() {
 		year -= 1;
-		weekNr = 51;
+		weekNr = 52;
+		System.out.println(weekNr);
 		curWeek.setText("Uke " + weekNr + ", " + year);
 	}
 
 	public void nextYear() {
 		year += 1;
-		weekNr = 0;
+		weekNr = 1;
 		curWeek.setText("Uke " + weekNr + ", " + year);
 	}
 

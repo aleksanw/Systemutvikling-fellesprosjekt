@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 public class Calendar extends JPanel implements ActionListener{
 	
-	protected DayView mon,tue,wed, thu, fri, sat, sun;
+	protected DayView mon,tue,wed,thu,fri,sat,sun;
 	
 	public Calendar(){
 		setPreferredSize(new Dimension(800,400));
@@ -31,7 +31,6 @@ public class Calendar extends JPanel implements ActionListener{
 		add(sat);
 		add(sun);
 		
-		mon.addEvents();
 	}
 
 	public void actionPerformed(ActionEvent e) {
