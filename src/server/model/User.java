@@ -11,6 +11,7 @@ public class User extends Model {
 	private String name, email;
 	private Date dateOfBirth;
 	
+		
 	
 	public User(int userID) throws SQLException {
 		super("User", createTableFields(), "userID", null);
@@ -21,6 +22,10 @@ public class User extends Model {
 			this.email = result.getString("email");
 			this.dateOfBirth = result.getDate("dateOfBirth");
 		}
+	}
+	
+	public User(String username, String password) {
+		super("User", createTableFields(), "userID", null);
 	}
 	
 	public User(String userName, String password, String name) throws SQLException {

@@ -65,7 +65,7 @@ public class Event extends Model{
 	}
 	
 	public Room getBookedRoom() {
-		return new Room();
+		return null;
 	}
 	
 	public void setBookedRoom(Room room) {

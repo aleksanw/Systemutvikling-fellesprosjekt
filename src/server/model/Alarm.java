@@ -43,7 +43,7 @@ public class Alarm extends Model {
 	}
 	
 	public Event getEvent() {
-		return new Event(true);
+		return null;
 	}
 	
 	public Time getNumberOfHoursBeforeMeeting() {
