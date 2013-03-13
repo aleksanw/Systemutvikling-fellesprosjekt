@@ -40,7 +40,7 @@ public class Event extends Model{
 	public Event(String eventName, boolean isMeeting) throws SQLException {
 		super("Event", createTableFields(), "eventID", null);
 		String values =  "'" + eventName + "', true, '0000-01-01 00:00:00', '0000-01-01 00:00:00', false, ''," +
-				" '', '" + isMeeting + ", null, null, null;";
+				" '', " + isMeeting + ", null, null, null";
 		ArrayList<Integer> keyList = super.addToDB(values);
 		this.eventID = keyList.get(0);
 		this.eventName = eventName;
