@@ -12,7 +12,7 @@ public class Room extends Model {
 	private String roomName;
 	
 	public Room(int roomID) throws SQLException {
-		super("Room", createTableFields(), "roomID", null);
+		super("Room", createTableFields(), "roomID");
 		ResultSet result = super.getFromDB(roomID);
 		if(result.next()) {
 			this.roomID = result.getInt("roomID");
@@ -21,10 +21,9 @@ public class Room extends Model {
 		}
 	}
 	
-	public Room(String roomName, int personCapacity) throws SQLException {
-		super("Room", createTableFields(), "roomID", null);
-		String values = "'" + roomName + "', " + personCapacity ;
-		ArrayList<Integer> keyList = super.addToDB(values);
+	public Room() throws SQLException {
+		super("Room", createTableFields(), "roomID");
+		ArrayList<Integer> keyList = super.addToDB();
 		this.roomID = keyList.get(0);
 	}
 	
@@ -51,4 +50,16 @@ public class Room extends Model {
 	public boolean isBookedInPeriod(DateTime start, DateTime end) {
 		return false;
 	}
+
+	public void setPersonCapacity(int personCapacity) throws SQLException {
+		super.updateField("personCapacity", personCapacity, roomID);
+		this.personCapacity = personCapacity;
+	}
+
+	public void setRoomName(String roomName) throws SQLException {
+		super.updateField("roomName", roomName, roomID);
+		this.roomName = roomName;
+	}
+	
+	
 }

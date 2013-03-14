@@ -1,8 +1,6 @@
-package model;
+package server.system;
 
 import java.sql.*;
-
-import server.model.Database;
 
 import junit.extensions.jfcunit.JFCTestCase;
 

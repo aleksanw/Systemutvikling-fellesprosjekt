@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 public class MainClass {
 	static JFrame frame;
@@ -19,7 +18,7 @@ public class MainClass {
 
 	private static void frameSetup() {
 		cards = new JPanel(new CardLayout());
-		cards.add(new Login(), "login");
+		cards.add(new LoginScreen(), "login");
 		cards.add(new MainScreen(), "main");
 		cards.add(new AddEvent(),"addEvent");
 		cards.add(new AddMeeting(),"addMeeting");
@@ -32,14 +31,12 @@ public class MainClass {
 	}
 
 	public static void main(String[] args) {
-			try {
-				UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-			} catch (ClassNotFoundException | InstantiationException
-					| IllegalAccessException | UnsupportedLookAndFeelException e) {
-				e.printStackTrace();
-			}
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch(Exception e) {}
+		
 		frameSetup();
-		loginOK();
+		//loginOK();
 	}
 
 	public static void loginOK() {

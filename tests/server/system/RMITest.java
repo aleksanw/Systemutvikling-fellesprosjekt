@@ -1,4 +1,4 @@
-package rmi;
+package server.system;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -6,7 +6,6 @@ import java.rmi.server.UnicastRemoteObject;
 
 import junit.extensions.jfcunit.JFCTestCase;
 
-import server.storage.EventStorage;
 import server.system.RMIServer;
 import client.system.RMIClient;
 

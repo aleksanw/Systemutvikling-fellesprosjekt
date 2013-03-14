@@ -14,7 +14,7 @@ public class User extends Model {
 		
 	
 	public User(int userID) throws SQLException {
-		super("User", createTableFields(), "userID", null);
+		super("User", createTableFields(), "userID");
 		ResultSet result = super.getFromDB(userID);
 		if(result.next()) {
 			this.userID = result.getInt("userID");
@@ -25,8 +25,8 @@ public class User extends Model {
 	}
 	
 	public User(String username, String password) throws SQLException {
-		super("User", createTableFields(), "userID", null);
-		String query = "SELECT userID FROM User WHERE username='" + username + "' AND password='" + password +"';";
+		super("User", createTableFields(), "userID");
+		String query = "SELECT userID FROM User WHERE username='' AND password='';";
 		ResultSet result = super.getDB().readQuery(query);
 		result.getInt("userID");
 	}
@@ -44,12 +44,10 @@ public class User extends Model {
 		return dateOfBirth;
 	}
 
-	public User(String userName, String password, String name) throws SQLException {
-		super("User", createTableFields(), "userID", null);
-		String values = "'" + userName + "', '" + password + "', '" + name +"', '', '0000-01-01'";
-		ArrayList<Integer> keyList = super.addToDB(values);
-		this.userID = keyList.get(0);		
-		this.name = name;
+	public User() throws SQLException {
+		super("User", createTableFields(), "userID");
+		ArrayList<Integer> keyList = super.addToDB();
+		this.userID = keyList.get(0);
 	}
 	
 	private static ArrayList<String> createTableFields() {
@@ -93,4 +91,15 @@ public class User extends Model {
 	public String getName() {
 		return this.name;
 	}
+
+	public void setName(String name) throws SQLException {
+		super.updateField("name", name, userID);
+		this.name = name;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) throws SQLException {
+		super.updateField("dateOfBirth", dateOfBirth, userID);
+		this.dateOfBirth = dateOfBirth;
+	}
+	
 }

@@ -4,8 +4,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.rmi.RemoteException;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,7 +11,7 @@ import org.joda.time.MutableDateTime;
 
 public class Buttons extends JPanel implements ActionListener {
 
-	private JButton event, meating, groups, logout, rArrow, lArrow,toCurWeek;
+	private JButton event, meating, groups, logout, rArrow, lArrow, toCurWeek;
 	private JLabel curWeek;
 	protected MutableDateTime date;
 	protected int weekNr, year;
@@ -38,15 +36,15 @@ public class Buttons extends JPanel implements ActionListener {
 
 		curWeek = new JLabel();
 		toCurrentWeek();
-		
-		toCurWeek = new JButton("Denne uken");
-		toCurWeek.addActionListener(this);
 
 		rArrow = new JButton(">");
 		rArrow.addActionListener(this);
 
 		lArrow = new JButton("<");
 		lArrow.addActionListener(this);
+		
+		toCurWeek = new JButton("Denne uken");
+		toCurWeek.addActionListener(this);
 
 		logout = new JButton("Logg Ut");
 		logout.addActionListener(this);
@@ -61,6 +59,12 @@ public class Buttons extends JPanel implements ActionListener {
 		add(rArrow, gbc);
 		add(toCurWeek,gbc);
 		add(logout, gbc);
+	}
+
+	private void toCurrentWeek() {
+		weekNr = date.getWeekOfWeekyear();
+		curWeek.setText("Uke " + weekNr + ", "
+				+ date.getYear());
 	}
 
 	public void nextWeek() {
@@ -114,7 +118,6 @@ public class Buttons extends JPanel implements ActionListener {
 	public void prevYear() {
 		year -= 1;
 		weekNr = 52;
-		System.out.println(weekNr);
 		curWeek.setText("Uke " + weekNr + ", " + year);
 	}
 
@@ -122,11 +125,6 @@ public class Buttons extends JPanel implements ActionListener {
 		year += 1;
 		weekNr = 1;
 		curWeek.setText("Uke " + weekNr + ", " + year);
-	}
-	
-	public void toCurrentWeek(){
-		curWeek.setText("Uke " + date.getWeekOfWeekyear() + ", "
-				+ date.getYear());
 	}
 
 }

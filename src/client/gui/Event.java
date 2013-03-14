@@ -1,22 +1,28 @@
 package client.gui;
 
-import java.sql.SQLException;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.util.ArrayList;
 
-import org.joda.time.DateTime;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class Event {
+import server.model.Model;
 
-	private String desc, place, text, name;
-	private DateTime time;
 
-	public Event(String desc, String place, String name, int startH,
-			int startM, int endH, int eM, int date, boolean isMeeting,
-			boolean isWholeDay) throws SQLException {
+public class Event extends JPanel{
+	
+	private String desc,place,text,name;
+	private ArrayList<String> fields;
+	
+	public Event(String d, String p, String name, int sH, int sM, int eH, int eM){	
+		fields.add(p);
+		fields.add(d);
+		//Model.Event(name,fields,);
 		
-
 	}
-
+	
 	public String toString() {
 		return text;
 	}

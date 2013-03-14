@@ -12,16 +12,38 @@ public class Invitation extends Model {
 	
 	private boolean isAttending;
 	private DateTime dateTimeOfInvitation;
-	private Event invitedTo;
-	private int userID, eventID;
+	private int invitationID, userID, eventID;
 	
-	public Invitation(int userID, int eventID) throws SQLException {
-		super("InvitedTo", createTableFields(), "User_userID", "Event_eventID");
-		ResultSet result = super.getFromDB(userID, eventID);
+	public Invitation(int invitationID) throws SQLException {
+		super("InvitedTo", createTableFields(), "invitedToID");
+		ResultSet result = super.getFromDB(invitationID);
 		if(result.next()) {
+			this.invitationID = result.getInt("invitedToID");
 			this.userID = result.getInt("userID");
 			this.eventID = result.getInt("eventID");
+			this.isAttending = result.getBoolean("isAttending");
+			this.dateTimeOfInvitation = new DateTime(result.getDate("dateOfInvitation"));
 		}
+	}
+
+	public Invitation() throws SQLException {
+		super("InvitedTo", createTableFields(), "invitedToID");
+		ArrayList<Integer> keyList = super.addToDB();
+		this.invitationID = keyList.get(0);
+	}
+	
+	private static ArrayList<String> createTableFields() {
+		ArrayList<String> tableFields = new ArrayList<String>();
+		tableFields.add("invitedToID");
+		tableFields.add("User_userID");
+		tableFields.add("Event_eventID");
+		tableFields.add("isAttending");
+		tableFields.add("dateOfInvitation");
+		return tableFields;
+	}
+	
+	public DateTime getDateTimeOfInvitation() {
+		return dateTimeOfInvitation;
 	}
 	
 	public boolean isAttending() {
@@ -29,17 +51,8 @@ public class Invitation extends Model {
 	}
 
 	public void setAttending(boolean isAttending) throws SQLException {
-		super.updateField("isAttending", isAttending, userID, eventID);
+		super.updateField("isAttending", isAttending, invitationID);
 		this.isAttending = isAttending;
-	}
-
-	public Event getInvitedTo() {
-		return invitedTo;
-	}
-
-	public void setInvitedTo(Event invitedTo) throws SQLException {
-		super.updateField("invitedTo", invitedTo, userID, eventID);
-		this.invitedTo = invitedTo;
 	}
 
 	public int getEventID() {
@@ -51,31 +64,24 @@ public class Invitation extends Model {
 	}
 
 	public void setDateTimeOfInvitation(DateTime dateTimeOfInvitation) throws SQLException {
-		super.updateField("dateTimeOfInvitation", dateTimeOfInvitation, userID, eventID);
+		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:SS");
+		String dateToString = fmt.print(dateTimeOfInvitation);
+		super.updateField("dateTimeOfInvitation", dateToString, invitationID);
 		this.dateTimeOfInvitation = dateTimeOfInvitation;
 	}
 
-	public Invitation(int userID, int eventID, DateTime dateTimeOfInvitation) throws SQLException {
-		super("InvitedTo", createTableFields(), "User_userID", "Event_eventID");
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:SS");
-		String dateToString = fmt.print(dateTimeOfInvitation);
-		String values = "'" + userID + "', '" + eventID + "', " +null+ ", '" + dateToString + "'";
-		super.addRelationToDB(values);
+	public int getInvitationID() {
+		return invitationID;
+	}
+
+	public void setUserID(int userID) throws SQLException {
+		super.updateField("userID", userID, invitationID);
 		this.userID = userID;
+	}
+
+	public void setEventID(int eventID) throws SQLException {
+		super.updateField("eventID", eventID, invitationID);
 		this.eventID = eventID;
-		this.dateTimeOfInvitation = dateTimeOfInvitation;
 	}
 	
-	private static ArrayList<String> createTableFields() {
-		ArrayList<String> tableFields = new ArrayList<String>();
-		tableFields.add("User_userID");
-		tableFields.add("Event_eventID");
-		tableFields.add("isAttending");
-		tableFields.add("dateOfInvitation");
-		return tableFields;
-	}
-	
-	public DateTime getDateTimeOfInvitation() {
-		return dateTimeOfInvitation;
-	}
 }
