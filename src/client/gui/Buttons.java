@@ -11,8 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.joda.time.MutableDateTime;
 
-import server.storage.EventStorage;
-
 public class Buttons extends JPanel implements ActionListener {
 
 	private JButton event, meating, groups, logout, rArrow, lArrow,toCurWeek;
@@ -77,12 +75,7 @@ public class Buttons extends JPanel implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().toString().equals("Legg Til Avtale")) {
-			try {
-				server.storage.EventStorage es = new EventStorage();
-				es.create();
-			} catch (RemoteException e1) {
-				e1.printStackTrace();
-			}
+			
 			MainClass.runAddEvent();
 		} else if (e.getActionCommand().toString().equals("Logg Ut")) {
 			MainClass.logout();

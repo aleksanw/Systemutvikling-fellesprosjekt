@@ -17,10 +17,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import org.joda.time.DateTime;
-
-import server.storage.EventStorage;
 
 @SuppressWarnings("serial")
 public class AddEvent extends JPanel implements ActionListener {
