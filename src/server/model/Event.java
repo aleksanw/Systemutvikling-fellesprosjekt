@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 public class Event extends Model{
 	
@@ -12,11 +14,79 @@ public class Event extends Model{
 	private boolean isActive, isWholeDay;
 	private boolean isMeeting;
 	private String eventName, description, location;
+
 	private DateTime start, end;
 	private boolean isWholeday;
 	private int roomBooked;
 	private int createdByUser;
 	private int createdByGroup;
+	
+	
+	public Event(int eventID) throws SQLException {
+		super("Event", createTableFields(), "eventID");
+		ResultSet result = super.getFromDB(eventID);
+		if(result.next()) {
+			this.eventID = result.getInt("eventID");
+			this.eventName = result.getString("eventName");
+			this.isActive = result.getBoolean("isActive");
+			this.start = new DateTime(result.getDate("start"));
+			this.end = new DateTime(result.getDate("end"));
+			this.isWholeday = result.getBoolean("isWholeDay");
+			this.description = result.getString("description");
+			this.location = result.getString("location");
+			this.isMeeting = result.getBoolean("isMeeting");
+			this.roomBooked = result.getInt("roomBooked");
+			this.createdByUser = result.getInt("createdByUser");
+			this.createdByGroup = result.getInt("createdByGroup");
+		}	
+	}
+	
+	public Event() throws SQLException {
+		super("Event", createTableFields(), "eventID");
+		ArrayList<Integer> keyList = super.addToDB();
+		this.eventID = keyList.get(0);
+	}
+	
+	private static ArrayList<String> createTableFields() {
+		ArrayList<String> tableFields = new ArrayList<String>();
+		tableFields.add("eventID");
+		tableFields.add("eventName");
+		tableFields.add("isActive");
+		tableFields.add("start");
+		tableFields.add("end");
+		tableFields.add("isWholeDay");
+		tableFields.add("description");
+		tableFields.add("location");
+		tableFields.add("isMeeting");
+		tableFields.add("roomBooked");
+		tableFields.add("createdByUser");
+		tableFields.add("createdByGroup");
+		return tableFields;
+	}
+	
+	public ArrayList<Invitation> getInvitationList() {
+		return new ArrayList<Invitation>();
+	}
+	
+	public void invite(User user) {
+		
+	}
+
+	public int getEventID() {
+		return eventID;
+	}
+	
+	public boolean isWholeday() {
+		return isWholeday;
+	}
+	
+	public void setWholeday(boolean isWholeday) {
+		this.isWholeday = isWholeday;
+	}
+	
+	public void setMeeting(boolean isMeeting) {
+		this.isMeeting = isMeeting;
+	}
 	
 	public boolean isActive() {
 		return isActive;
@@ -68,7 +138,9 @@ public class Event extends Model{
 	}
 
 	public void setStart(DateTime start) throws SQLException {
-		super.updateField("start", start, eventID);
+		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:SS");
+		String dateToString = fmt.print(start);
+		super.updateField("start", dateToString, eventID);
 		this.start = start;
 	}
 
@@ -77,7 +149,9 @@ public class Event extends Model{
 	}
 
 	public void setEnd(DateTime end) throws SQLException{
-		super.updateField("end", end, eventID);
+		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:SS");
+		String dateToString = fmt.print(end);
+		super.updateField("end", dateToString, eventID);
 		this.end = end;
 	}
 
@@ -110,63 +184,5 @@ public class Event extends Model{
 
 	public boolean isMeeting() {
 		return isMeeting;
-	}
-	
-	public Event(int eventID) throws SQLException {
-		super("Event", createTableFields(), "eventID", null);
-		ResultSet result = super.getFromDB(eventID);
-		if(result.next()) {
-			this.eventID = result.getInt("eventID");
-			this.eventName = result.getString("eventName");
-			this.isActive = result.getBoolean("isActive");
-			this.start = new DateTime(result.getDate("start"));
-			this.end = new DateTime(result.getDate("end"));
-			this.isWholeday = result.getBoolean("isWholeDay");
-			this.description = result.getString("description");
-			this.location = result.getString("location");
-			this.isMeeting = result.getBoolean("isMeeting");
-			this.roomBooked = result.getInt("roomBooked");
-			this.createdByUser = result.getInt("createdByUser");
-			this.createdByGroup = result.getInt("createdByGroup");
-		}	
-	}
-	
-	public Event(String eventName, boolean isMeeting) throws SQLException {
-		super("Event", createTableFields(), "eventID", null);
-		String values =  "'" + eventName + "', true, '0000-01-01 00:00:00', '0000-01-01 00:00:00', false, ''," +
-				" '', " + isMeeting + ", null, null, null";
-		ArrayList<Integer> keyList = super.addToDB(values);
-		this.eventID = keyList.get(0);
-		this.eventName = eventName;
-		this.isMeeting = isMeeting;
-	}
-	
-	private static ArrayList<String> createTableFields() {
-		ArrayList<String> tableFields = new ArrayList<String>();
-		tableFields.add("eventID");
-		tableFields.add("eventName");
-		tableFields.add("isActive");
-		tableFields.add("start");
-		tableFields.add("end");
-		tableFields.add("isWholeDay");
-		tableFields.add("description");
-		tableFields.add("location");
-		tableFields.add("isMeeting");
-		tableFields.add("roomBooked");
-		tableFields.add("createdByUser");
-		tableFields.add("createdByGroup");
-		return tableFields;
-	}
-	
-	public ArrayList<Invitation> getInvitationList() {
-		return new ArrayList<Invitation>();
-	}
-	
-	public void invite(User user) {
-		
-	}
-
-	public int getEventID() {
-		return eventID;
 	}
 }

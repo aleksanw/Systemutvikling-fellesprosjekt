@@ -6,63 +6,51 @@ import java.util.ArrayList;
 
 public class Group extends Model {
 
-	private int groupID;
+	private int groupID, parentGroupID;
 	private String groupName;
 	
-	public int getGroupID() {
-		return groupID;
-	}
-
-	
 	public Group(int groupID) throws SQLException {
-		super("Groups", createTableFields(), "groupID", null);
+		super("Groups", createTableFields(), "groupID");
 		ResultSet result = super.getFromDB(groupID);
 		if(result.next()) {
 			this.groupID = result.getInt("groupID");
+			this.parentGroupID = result.getInt("parentGroupID");
 			this.groupName = result.getString("groupName");
 		}
 	}
 	
 	public Group(String groupName) throws SQLException {
-		super("Groups", createTableFields(), "groupID", null);
-		String values = "'" + groupName + "'";
-		ArrayList<Integer> keyList = super.addToDB(values);
+		super("Groups", createTableFields(), "groupID");
+		ArrayList<Integer> keyList = super.addToDB();
 		this.groupID = keyList.get(0);
-		this.groupName = groupName;
 	}
 	
 	private static ArrayList<String> createTableFields() {
 		ArrayList<String> tableFields = new ArrayList<String>();
 		tableFields.add("GroupID");
+		tableFields.add("parentGroupID");
 		tableFields.add("groupName");
 		return tableFields;
 	}
 	
-	public Group getParentGroup() throws SQLException {
-		return new Group(0);
-	}
-	
-	public ArrayList<Group> getChildrenGroups() {
-		return new ArrayList<Group>();
-	}
-	
-	public ArrayList<User> getUsers() {
-		return new ArrayList<User>();
-	}
-	
-	public void addUser(User user) {
-		
-	}
-	
-	public void removeUser(User user) {
-		
-	}
-
-	public ArrayList<Event> getEvents() {
-		return new ArrayList<Event>();
+	public int getGroupID() {
+		return groupID;
 	}
 	
 	public String getGroupName() {
 		return this.groupName;
 	}
+
+	public int getParentGroupID() {
+		return parentGroupID;
+	}
+
+	public void setParentGroupID(int parentGroupID) {
+		this.parentGroupID = parentGroupID;
+	}
+
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+	}
+	
 }

@@ -8,7 +8,39 @@ import java.util.ArrayList;
 public class Alarm extends Model {
 	
 	private Time numberOfHoursBeforeMeeting;
-	private int userID, eventID;
+	private int alarmID, userID, eventID;
+
+	public Alarm(int alarmID) throws SQLException{
+		super("alarm", createTableFields(), "alarmID");
+		ResultSet result = super.getFromDB(alarmID);
+		if(result.next()) {
+			this.alarmID = result.getInt("alarmID");
+			this.eventID = result.getInt("eventID");
+			this.userID = result.getInt("userID");
+			this.numberOfHoursBeforeMeeting = result.getTime("numberOfHoursBeforeMeeting");
+		}		
+	}
+	
+	public Alarm() throws SQLException{
+		super("Alarm", createTableFields(), "AlarmID");
+		ArrayList<Integer> keyList = super.addToDB();
+		this.alarmID = keyList.get(0);	
+	}
+	
+	
+	private static ArrayList<String> createTableFields() {
+		ArrayList<String> tableFields = new ArrayList<String>();
+		tableFields.add("alarmID");
+		tableFields.add("eventID");
+		tableFields.add("userID");
+		tableFields.add("numberOfHoursBeforeMeeting");
+		return tableFields;
+	}
+
+
+	public int getAlarmID() {
+		return alarmID;
+	}
 	
 	public int getUserID() {
 		return userID;
@@ -17,45 +49,23 @@ public class Alarm extends Model {
 	public int getEventID() {
 		return eventID;
 	}
-
-	public void setNumberOfHoursBeforeMeeting(Time numberOfHoursBeforeMeeting) throws SQLException {
-		super.updateField("numberOfhoursBeforeMeeting", numberOfHoursBeforeMeeting, eventID, userID);
-		this.numberOfHoursBeforeMeeting = numberOfHoursBeforeMeeting;
-	}
-
-	public Alarm(int userID, int eventID) throws SQLException{
-		super("Alarm", createTableFields(), "Event_eventID", "User_userID");
-		ResultSet result = super.getFromDB(userID, eventID);
-		if(result.next()) {
-			this.eventID = result.getInt("Event_eventID");
-			this.userID = result.getInt("User_userID");
-			this.numberOfHoursBeforeMeeting = result.getTime("numberOfHoursBeforeMeeting");
-		}		
-	}
-	
-	public Alarm(int eventID, int userID, Time numberOfHoursBeforeMeeting) throws SQLException{
-		super("Alarm", createTableFields(), "Event_eventID", "User_userID");
-		String values = "'" + eventID+ "', '" + userID + "', '" + numberOfHoursBeforeMeeting + "'";
-		super.addRelationToDB(values);
-		this.eventID = eventID;
-		this.userID = userID;
-		this.numberOfHoursBeforeMeeting = numberOfHoursBeforeMeeting;		
-	}
-	
-	
-	private static ArrayList<String> createTableFields() {
-		ArrayList<String> tableFields = new ArrayList<String>();
-		tableFields.add("Event_eventID");
-		tableFields.add("User_userID");
-		tableFields.add("numberOfHoursBeforeMeeting");
-		return tableFields;
-	}
-	
-	public Event getEvent() {
-		return null;
-	}
 	
 	public Time getNumberOfHoursBeforeMeeting() {
 		return numberOfHoursBeforeMeeting;
+	}
+
+	public void setUserID(int userID) throws SQLException {
+		super.updateField("userID", userID, alarmID);
+		this.userID = userID;
+	}
+
+	public void setEventID(int eventID) throws SQLException {
+		super.updateField("eventID", eventID, alarmID);
+		this.eventID = eventID;
+	}
+
+	public void setNumberOfHoursBeforeMeeting(Time numberOfHoursBeforeMeeting) throws SQLException {
+		super.updateField("numberOfhoursBeforeMeeting", numberOfHoursBeforeMeeting, alarmID);
+		this.numberOfHoursBeforeMeeting = numberOfHoursBeforeMeeting;
 	}
 }
