@@ -9,6 +9,13 @@ import server.storage.Storage;
 import server.model.*;
 
 public class StorageServerConnection {
+	public StorageI eventStorage;
+	public StorageI userStorage;
+	public StorageI groupStorage;
+	public StorageI roomStorage;
+	public StorageI alarmStorage;
+	public StorageI invitationStorage;
+	
 	public StorageServerConnection() throws RemoteException {
 		/*
 		RMIClient server = new RMIClient();
@@ -23,11 +30,11 @@ public class StorageServerConnection {
 		
 		
 		// Dummy server
-		StorageI eventStorage = new Storage(Event.class);
-		StorageI userStorage = new Storage(User.class);
-		StorageI groupStorage = new Storage(Group.class);
-		StorageI roomStorage = new Storage(Room.class);
-		StorageI alarmStorage = new Storage(Alarm.class);
-		StorageI invitationStorage = new Storage(Invitation.class);
+		this.eventStorage = new Storage(Event.class);
+		this.userStorage = new Storage(User.class);
+		this.groupStorage = new Storage(Group.class);
+		this.roomStorage = new Storage(Room.class);
+		this.alarmStorage = new Storage(Alarm.class);
+		this.invitationStorage = new Storage(Invitation.class);
 	}
 }
