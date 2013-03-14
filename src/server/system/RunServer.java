@@ -8,6 +8,7 @@ import java.rmi.registry.LocateRegistry;
 
 import client.system.RMIClient;
 
+import server.model.*;
 import server.storage.Storage;
 
 public class RunServer {
@@ -15,11 +16,11 @@ public class RunServer {
 		
 		RMIServer rmiServer = new RMIServer();
 		
-		rmiServer.addObject("EventStorage", new Storage("Event"));
-		rmiServer.addObject("UserStorage", new Storage("User"));
-		rmiServer.addObject("GroupStorage", new Storage("Group"));
-		rmiServer.addObject("RoomStorage", new Storage("Room"));
-		rmiServer.addObject("AlarmStorage", new Storage("Alarm"));
-		rmiServer.addObject("InvitationStorage", new Storage("Invitation"));
+		rmiServer.addObject("EventStorage", new Storage(Event.class));
+		rmiServer.addObject("UserStorage", new Storage(User.class));
+		rmiServer.addObject("GroupStorage", new Storage(User.class));
+		rmiServer.addObject("RoomStorage", new Storage(Room.class));
+		rmiServer.addObject("AlarmStorage", new Storage(Alarm.class));
+		rmiServer.addObject("InvitationStorage", new Storage(Invitation.class));
 	}
 }
