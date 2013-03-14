@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
+import javax.swing.UIManager;
 
 public class MainClass {
 	static JFrame frame;
@@ -30,6 +31,10 @@ public class MainClass {
 	}
 
 	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch(Exception e) {}
+		
 		frameSetup();
 		//loginOK();
 	}
