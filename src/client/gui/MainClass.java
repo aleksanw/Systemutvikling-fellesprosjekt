@@ -19,7 +19,7 @@ public class MainClass {
 
 	private static void frameSetup() {
 		cards = new JPanel(new CardLayout());
-		cards.add(new Login(), "login");
+		cards.add(new LoginScreen(), "login");
 		cards.add(new MainScreen(), "main");
 		cards.add(new AddEvent(),"addEvent");
 		cards.add(new AddMeeting(),"addMeeting");
@@ -39,7 +39,7 @@ public class MainClass {
 				e.printStackTrace();
 			}
 		frameSetup();
-		loginOK();
+		//loginOK();
 	}
 
 	public static void loginOK() {
