@@ -35,7 +35,8 @@ public class User extends Model {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(String email) throws SQLException {
+		super.updateField(email, email, userID);
 		this.email = email;
 	}
 
