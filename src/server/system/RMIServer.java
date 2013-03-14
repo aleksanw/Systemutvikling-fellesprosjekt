@@ -10,8 +10,6 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
 
-import server.storage.EventStorage;
-
 public class RMIServer {
 	private static int port = 1099;
 	Registry registry;
