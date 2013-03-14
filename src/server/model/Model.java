@@ -23,15 +23,11 @@ public abstract class Model {
 		this.primaryKeyField1 = primaryKeyField1;
 	}
 	
-<<<<<<< HEAD
-=======
+
 	public void delete() {
 		// TODO
 	}
-	
-	//Zero indexed field number, value, primarykey1 and/or primarykey2
-	//For easy updating of fiels for the subclass(es)
->>>>>>> d5e2ba1d6f4301ea13151350e4aa5ee586edea6d
+
 	protected void updateField(String field, Object value, int primaryKey1) throws SQLException{
 		String query = "UPDATE " + tableName + " SET " + field + "='"+value.toString()+"' WHERE " +
 				primaryKeyField1 + "='" + primaryKey1 + "';";

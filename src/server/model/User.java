@@ -91,4 +91,15 @@ public class User extends Model {
 	public String getName() {
 		return this.name;
 	}
+
+	public void setName(String name) throws SQLException {
+		super.updateField("name", name, userID);
+		this.name = name;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) throws SQLException {
+		super.updateField("dateOfBirth", dateOfBirth, userID);
+		this.dateOfBirth = dateOfBirth;
+	}
+	
 }
