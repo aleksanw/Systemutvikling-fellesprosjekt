@@ -53,4 +53,8 @@ public class Group extends Model {
 		this.groupName = groupName;
 	}
 	
+	@Override
+	public void delete() throws SQLException {
+		super.delete(groupID);		
+	}
 }

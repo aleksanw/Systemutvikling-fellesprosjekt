@@ -61,5 +61,8 @@ public class Room extends Model {
 		this.roomName = roomName;
 	}
 	
-	
+	@Override
+	public void delete() throws SQLException {
+		super.delete(roomID);		
+	}
 }

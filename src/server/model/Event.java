@@ -185,4 +185,9 @@ public class Event extends Model{
 	public boolean isMeeting() {
 		return isMeeting;
 	}
+	
+	@Override
+	public void delete() throws SQLException {
+		super.delete(eventID);		
+	}
 }

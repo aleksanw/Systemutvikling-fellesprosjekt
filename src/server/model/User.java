@@ -103,5 +103,8 @@ public class User extends Model {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	
+	@Override
+	public void delete() throws SQLException {
+		super.delete(userID);		
+	}
 }

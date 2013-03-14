@@ -84,4 +84,8 @@ public class Invitation extends Model {
 		this.eventID = eventID;
 	}
 	
+	@Override
+	public void delete() throws SQLException {
+		super.delete(invitationID);		
+	}
 }

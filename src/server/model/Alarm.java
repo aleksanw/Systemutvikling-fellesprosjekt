@@ -68,4 +68,9 @@ public class Alarm extends Model {
 		super.updateField("numberOfhoursBeforeMeeting", numberOfHoursBeforeMeeting, alarmID);
 		this.numberOfHoursBeforeMeeting = numberOfHoursBeforeMeeting;
 	}
+
+	@Override
+	public void delete() throws SQLException {
+		super.delete(alarmID);		
+	}
 }

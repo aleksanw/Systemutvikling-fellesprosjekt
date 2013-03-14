@@ -23,14 +23,16 @@ public abstract class Model {
 		this.primaryKeyField1 = primaryKeyField1;
 	}
 	
-
-	public void delete() throws SQLException {
-		DB.updateQuery("DELETE FROM " + tableName + " WHERE userID=1");
+	public abstract void delete() throws SQLException;
+	
+	protected void delete(int ID) throws SQLException {
+		DB.updateQuery("DELETE FROM " + tableName + " WHERE userID=" + ID);
 	}
 
 	protected void updateField(String field, Object value, int primaryKey1) throws SQLException{
-		String query = "UPDATE " + tableName + " SET " + field + "='"+value.toString()+"' WHERE " +
-				primaryKeyField1 + "='" + primaryKey1 + "';";
+		String c =((value instanceof String) ? ( "'" +value+"'" ) : value.toString());
+		String query = "UPDATE " + tableName + " SET " + field + "="+ c +" WHERE " +
+				primaryKeyField1 + "=" + primaryKey1 + ";";
 		DB.updateQuery(query);
 	}
 	
