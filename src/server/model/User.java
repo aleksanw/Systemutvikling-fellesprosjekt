@@ -10,6 +10,7 @@ public class User extends Model {
 	private int userID;
 	private String name, email;
 	private Date dateOfBirth;
+	public String userName;
 	
 		
 	
@@ -101,5 +102,6 @@ public class User extends Model {
 		super.updateField("dateOfBirth", dateOfBirth, userID);
 		this.dateOfBirth = dateOfBirth;
 	}
+
 	
 }

@@ -24,8 +24,8 @@ public abstract class Model {
 	}
 	
 
-	public void delete() {
-		// TODO
+	public void delete() throws SQLException {
+		DB.updateQuery("DELETE FROM " + tableName + " WHERE userID=1");
 	}
 
 	protected void updateField(String field, Object value, int primaryKey1) throws SQLException{
