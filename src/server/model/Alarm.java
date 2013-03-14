@@ -18,7 +18,8 @@ public class Alarm extends Model {
 		return eventID;
 	}
 
-	public void setNumberOfHoursBeforeMeeting(Time numberOfHoursBeforeMeeting) {
+	public void setNumberOfHoursBeforeMeeting(Time numberOfHoursBeforeMeeting) throws SQLException {
+		super.updateField("numberOfhoursBeforeMeeting", numberOfHoursBeforeMeeting, eventID, userID);
 		this.numberOfHoursBeforeMeeting = numberOfHoursBeforeMeeting;
 	}
 
@@ -48,10 +49,6 @@ public class Alarm extends Model {
 		tableFields.add("User_userID");
 		tableFields.add("numberOfHoursBeforeMeeting");
 		return tableFields;
-	}
-	
-	public User getUser() throws SQLException {
-		return new User(-1);
 	}
 	
 	public Event getEvent() {
