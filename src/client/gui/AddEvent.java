@@ -6,7 +6,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.rmi.RemoteException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -18,10 +17,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import org.joda.time.DateTime;
-
-import server.storage.EventStorage;
-
 @SuppressWarnings("serial")
 public class AddEvent extends JPanel implements ActionListener {
 
@@ -31,11 +26,10 @@ public class AddEvent extends JPanel implements ActionListener {
 	protected JComboBox<String> hour, min, hourE, minE, alarm, group, vis, day,
 			month, dayE, monthE;
 	protected JRadioButton allDay;
-	protected JButton save, delete, cancel;
+	protected JButton save, delete;
 	protected JTabbedPane tabs;
 	protected Place place = new Place();
 	protected Booking booking = new Booking();
-	private DateTime StartTime;
 
 	GridBagConstraints g = new GridBagConstraints();
 
@@ -105,10 +99,6 @@ public class AddEvent extends JPanel implements ActionListener {
 		delete = new JButton();
 		delete.setText("Slett");
 		delete.addActionListener(this);
-
-		cancel = new JButton();
-		cancel.setText("Avbryt");
-		cancel.addActionListener(this);
 
 		visible = new JLabel();
 		visible.setText("Synlig for:");
@@ -201,8 +191,6 @@ public class AddEvent extends JPanel implements ActionListener {
 		add(save, g);
 		g.gridx = 6;
 		add(delete, g);
-		g.gridx = 7;
-		add(cancel, g);
 
 	}
 
@@ -226,15 +214,10 @@ public class AddEvent extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().toString().equals("Lagre")) {
 			MainClass.loginOK();
-			clearFields();
 			// lagre
 		} else if (e.getActionCommand().toString().equals("Slett")) {
 			MainClass.loginOK();
-			clearFields();
-			// delete
-		} else if (e.getActionCommand().toString().equals("Avbryt")) {
-			MainClass.loginOK();
-			clearFields();
+			// slett
 		} else if (allDay.isSelected()) {
 			hourE.setEnabled(false);
 			minE.setEnabled(false);
@@ -246,36 +229,5 @@ public class AddEvent extends JPanel implements ActionListener {
 			dayE.setEnabled(true);
 			monthE.setEnabled(true);
 		}
-	}
-
-	private void clearFields() {
-		name.setText("");
-		hour.setSelectedIndex(0);
-		min.setSelectedIndex(0);
-		month.setSelectedIndex(0);
-		hourE.setSelectedIndex(0);
-		minE.setSelectedIndex(0);
-		monthE.setSelectedIndex(0);
-		day.setSelectedIndex(0);
-		dayE.setSelectedIndex(0);
-		if (allDay.isSelected()) {
-			allDay.setSelected(false);
-			hourE.setEnabled(true);
-			minE.setEnabled(true);
-			dayE.setEnabled(true);
-			monthE.setEnabled(true);
-		}
-		desc.setText("");
-		alarm.setSelectedIndex(0);
-		place.text.setText("");
-	}
-
-	private void saveEvent() {
-		
-	}
-
-	private int findYear() {
-		String[] y = month.getSelectedItem().toString().split(" ");
-		return Integer.parseInt(y[1]);
 	}
 }

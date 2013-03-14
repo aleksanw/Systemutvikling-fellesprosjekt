@@ -4,18 +4,14 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.rmi.RemoteException;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.joda.time.MutableDateTime;
 
-import server.storage.EventStorage;
-
 public class Buttons extends JPanel implements ActionListener {
 
-	private JButton event, meating, groups, logout, rArrow, lArrow,toCurWeek;
+	private JButton event, meating, groups, logout, rArrow, lArrow;
 	private JLabel curWeek;
 	protected MutableDateTime date;
 	protected int weekNr, year;
@@ -39,10 +35,8 @@ public class Buttons extends JPanel implements ActionListener {
 		groups.addActionListener(this);
 
 		curWeek = new JLabel();
-		toCurrentWeek();
-		
-		toCurWeek = new JButton("Denne uken");
-		toCurWeek.addActionListener(this);
+		curWeek.setText("Uke " + date.getWeekOfWeekyear() + ", "
+				+ date.getYear());
 
 		rArrow = new JButton(">");
 		rArrow.addActionListener(this);
@@ -61,7 +55,6 @@ public class Buttons extends JPanel implements ActionListener {
 		add(curWeek, gbc);
 		add(lArrow, gbc);
 		add(rArrow, gbc);
-		add(toCurWeek,gbc);
 		add(logout, gbc);
 	}
 
@@ -77,12 +70,6 @@ public class Buttons extends JPanel implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().toString().equals("Legg Til Avtale")) {
-			try {
-				server.storage.EventStorage es = new EventStorage();
-				es.create();
-			} catch (RemoteException e1) {
-				e1.printStackTrace();
-			}
 			MainClass.runAddEvent();
 		} else if (e.getActionCommand().toString().equals("Logg Ut")) {
 			MainClass.logout();
@@ -103,9 +90,6 @@ public class Buttons extends JPanel implements ActionListener {
 		} else if (e.getActionCommand().toString()
 				.equals("Gruppeinnstillinger")) {
 			MainClass.runGroupSettings();
-		}
-		else if(e.getActionCommand().toString().equals("Denne uken")){
-			toCurrentWeek();
 		}
 	}
 
@@ -129,11 +113,6 @@ public class Buttons extends JPanel implements ActionListener {
 		year += 1;
 		weekNr = 1;
 		curWeek.setText("Uke " + weekNr + ", " + year);
-	}
-	
-	public void toCurrentWeek(){
-		curWeek.setText("Uke " + date.getWeekOfWeekyear() + ", "
-				+ date.getYear());
 	}
 
 }
