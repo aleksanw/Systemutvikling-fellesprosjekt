@@ -28,7 +28,8 @@ public class Invitation extends Model {
 		return isAttending;
 	}
 
-	public void setAttending(boolean isAttending) {
+	public void setAttending(boolean isAttending) throws SQLException {
+		super.updateField("isAttending", isAttending, userID, eventID);
 		this.isAttending = isAttending;
 	}
 
@@ -36,7 +37,8 @@ public class Invitation extends Model {
 		return invitedTo;
 	}
 
-	public void setInvitedTo(Event invitedTo) {
+	public void setInvitedTo(Event invitedTo) throws SQLException {
+		super.updateField("invitedTo", invitedTo, userID, eventID);
 		this.invitedTo = invitedTo;
 	}
 
@@ -44,15 +46,12 @@ public class Invitation extends Model {
 		return eventID;
 	}
 
-	public void setEventID(int eventID) {
-		this.eventID = eventID;
-	}
-
 	public int getUserID() {
 		return userID;
 	}
 
-	public void setDateTimeOfInvitation(DateTime dateTimeOfInvitation) {
+	public void setDateTimeOfInvitation(DateTime dateTimeOfInvitation) throws SQLException {
+		super.updateField("dateTimeOfInvitation", dateTimeOfInvitation, userID, eventID);
 		this.dateTimeOfInvitation = dateTimeOfInvitation;
 	}
 
