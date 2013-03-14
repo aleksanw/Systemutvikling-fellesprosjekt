@@ -20,8 +20,8 @@ public class Calendar extends JPanel implements ActionListener{
 		wed = new DayView("Onsdag");
 		thu = new DayView("Torsdag");
 		fri = new DayView("Fredag");
-		sat = new DayView("L�rdag");
-		sun = new DayView("S�ndag");
+		sat = new DayView("Lørdag");
+		sun = new DayView("Søndag");
 		
 		add(mon);
 		add(tue);
