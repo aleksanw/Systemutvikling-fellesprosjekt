@@ -22,6 +22,10 @@ public abstract class Model {
 		this.primaryKeyField2 = primaryKeyField2;	
 	}
 	
+	public void delete() {
+		// TODO
+	}
+	
 	//Zero indexed field number, value, primarykey1 and/or primarykey2
 	//For easy updating of fiels for the subclass(es)
 	protected void updateField(String field, Object value, int primaryKey1) throws SQLException{
@@ -85,5 +89,4 @@ public abstract class Model {
 	protected Database getDB() {
 		return DB;
 	}
-	
 }
