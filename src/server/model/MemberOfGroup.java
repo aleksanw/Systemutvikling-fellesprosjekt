@@ -4,8 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.joda.time.DateTime;
-
 public class MemberOfGroup extends Model {
 
 	private int memberOfGroupID, groupID, userID;
