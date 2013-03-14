@@ -7,11 +7,12 @@ import java.util.ArrayList;
 public class Group extends Model {
 
 	private int groupID;
+	private String groupName;
+	
 	public int getGroupID() {
 		return groupID;
 	}
 
-	private String groupName;
 	
 	public Group(int groupID) throws SQLException {
 		super("Groups", createTableFields(), "groupID", null);

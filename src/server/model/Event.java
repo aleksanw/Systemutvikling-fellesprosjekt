@@ -12,11 +12,18 @@ public class Event extends Model{
 	private boolean isActive, isWholeDay;
 	private boolean isMeeting;
 	private String eventName, description, location;
+	private DateTime start, end;
+	private boolean isWholeday;
+	private int roomBooked;
+	private int createdByUser;
+	private int createdByGroup;
+	
 	public boolean isActive() {
 		return isActive;
 	}
 
-	public void setActive(boolean isActive) {
+	public void setActive(boolean isActive) throws SQLException {
+		super.updateField("isActive", isActive, eventID);
 		this.isActive = isActive;
 	}
 
@@ -24,7 +31,8 @@ public class Event extends Model{
 		return isWholeDay;
 	}
 
-	public void setWholeDay(boolean isWholeDay) {
+	public void setWholeDay(boolean isWholeDay) throws SQLException {
+		super.updateField("isWholeDay", isWholeDay, eventID);
 		this.isWholeDay = isWholeDay;
 	}
 
@@ -32,7 +40,8 @@ public class Event extends Model{
 		return eventName;
 	}
 
-	public void setEventName(String eventName) {
+	public void setEventName(String eventName) throws SQLException {
+		super.updateField("eventName", eventName, eventID);
 		this.eventName = eventName;
 	}
 
@@ -40,7 +49,8 @@ public class Event extends Model{
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescription(String description) throws SQLException {
+		super.updateField("description", description, eventID);
 		this.description = description;
 	}
 
@@ -48,7 +58,8 @@ public class Event extends Model{
 		return location;
 	}
 
-	public void setLocation(String location) {
+	public void setLocation(String location) throws SQLException {
+		super.updateField("location", location, eventID);
 		this.location = location;
 	}
 
@@ -56,7 +67,8 @@ public class Event extends Model{
 		return start;
 	}
 
-	public void setStart(DateTime start) {
+	public void setStart(DateTime start) throws SQLException {
+		super.updateField("start", start, eventID);
 		this.start = start;
 	}
 
@@ -64,23 +76,17 @@ public class Event extends Model{
 		return end;
 	}
 
-	public void setEnd(DateTime end) {
+	public void setEnd(DateTime end) throws SQLException{
+		super.updateField("end", end, eventID);
 		this.end = end;
-	}
-
-	public boolean isWholeday() {
-		return isWholeday;
-	}
-
-	public void setWholeday(boolean isWholeday) {
-		this.isWholeday = isWholeday;
 	}
 
 	public int getRoomBooked() {
 		return roomBooked;
 	}
 
-	public void setRoomBooked(int roomBooked) {
+	public void setRoomBooked(int roomBooked) throws SQLException {
+		super.updateField("roomBooked",roomBooked, eventID);
 		this.roomBooked = roomBooked;
 	}
 
@@ -88,7 +94,8 @@ public class Event extends Model{
 		return createdByUser;
 	}
 
-	public void setCreatedByUser(int createdByUser) {
+	public void setCreatedByUser(int createdByUser) throws SQLException {
+		super.updateField("createdByUser", createdByUser, eventID);
 		this.createdByUser = createdByUser;
 	}
 
@@ -96,20 +103,14 @@ public class Event extends Model{
 		return createdByGroup;
 	}
 
-	public void setCreatedByGroup(int createdByGroup) {
+	public void setCreatedByGroup(int createdByGroup) throws SQLException {
+		super.updateField("createdByGroup", createdByGroup, eventID);
 		this.createdByGroup = createdByGroup;
 	}
 
 	public boolean isMeeting() {
 		return isMeeting;
 	}
-
-
-	private DateTime start, end;
-	private boolean isWholeday;
-	private int roomBooked;
-	private int createdByUser;
-	private int createdByGroup;
 	
 	public Event(int eventID) throws SQLException {
 		super("Event", createTableFields(), "eventID", null);
@@ -155,14 +156,6 @@ public class Event extends Model{
 		tableFields.add("createdByUser");
 		tableFields.add("createdByGroup");
 		return tableFields;
-	}
-	
-	public Room getBookedRoom() {
-		return null;
-	}
-	
-	public void setBookedRoom(Room room) {
-		
 	}
 	
 	public ArrayList<Invitation> getInvitationList() {

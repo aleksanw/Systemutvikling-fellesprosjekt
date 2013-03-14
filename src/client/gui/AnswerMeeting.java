@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 
-public class AnswerMeating extends JPanel implements ActionListener {
+public class AnswerMeeting extends JPanel implements ActionListener {
 
 	private JLabel header, participants, accept, decline;
 	private JLabel name = new JLabel();
@@ -28,7 +28,7 @@ public class AnswerMeating extends JPanel implements ActionListener {
 
 	GridBagConstraints g = new GridBagConstraints();
 
-	public AnswerMeating(String name, String date, String time, String desc,
+	public AnswerMeeting(String name, String date, String time, String desc,
 			String place) {
 		header = new JLabel();
 		header.setText("Svar på innkalling");
@@ -112,7 +112,7 @@ public class AnswerMeating extends JPanel implements ActionListener {
 	public static void main(String[] args) {
 		JFrame f = new JFrame();
 		f.getContentPane().add(
-				new AnswerMeating("Møte", "06.02", "15:30", "Pølsefest",
+				new AnswerMeeting("Møte", "06.02", "15:30", "Pølsefest",
 						"Narvesen"));
 		f.pack();
 		f.setVisible(true);

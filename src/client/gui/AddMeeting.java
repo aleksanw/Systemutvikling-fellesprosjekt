@@ -2,11 +2,11 @@ package client.gui;
 import java.awt.GridBagConstraints;
 
 @SuppressWarnings("serial")
-public class AddMeating extends AddEvent {
+public class AddMeeting extends AddEvent {
 
 	private Participants part;
 
-	public AddMeating() {
+	public AddMeeting() {
 		super();
 		remove(allDay);
 		remove(alarm);

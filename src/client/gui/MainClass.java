@@ -22,7 +22,7 @@ public class MainClass {
 		cards.add(new Login(), "login");
 		cards.add(new MainScreen(), "main");
 		cards.add(new AddEvent(),"addEvent");
-		cards.add(new AddMeating(),"addMeating");
+		cards.add(new AddMeeting(),"addMeeting");
 		cards.add(new GroupSettings(),"Groups");
 		frame = new JFrame("G4Calender");
 		frame.add(cards);
@@ -55,7 +55,7 @@ public class MainClass {
 	}
 	
 	public static void runAddMeating(){
-		swapPane("addMeating");
+		swapPane("addMeeting");
 	}
 	
 	public static void runGroupSettings(){
