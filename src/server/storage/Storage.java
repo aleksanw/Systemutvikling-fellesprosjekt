@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Hashtable;
 
-import common.EventStorageI;
 import common.StorageI;
 
 import server.model.*;
