@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import server.system.Database;
+
 public abstract class Model {
 
 	private static Database DB = new Database();
