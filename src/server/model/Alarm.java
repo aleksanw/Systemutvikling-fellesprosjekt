@@ -61,5 +61,4 @@ public class Alarm extends Model {
 	public Time getNumberOfHoursBeforeMeeting() {
 		return numberOfHoursBeforeMeeting;
 	}
-	
 }
