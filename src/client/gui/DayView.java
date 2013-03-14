@@ -44,7 +44,6 @@ public class DayView extends JPanel implements ListSelectionListener{
 		add(scroll,BorderLayout.CENTER);
 		
 		setPreferredSize(new Dimension(150,650));
-		setBorder(BorderFactory.createLineBorder(Color.GRAY));
 	}
 	
 	public void addEvents(){
