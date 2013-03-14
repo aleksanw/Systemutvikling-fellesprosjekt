@@ -24,7 +24,7 @@ public class RMIClient {
 		//System.out.println(eventStorage.getValue());
 	}
 	
-	public Object getRMIObjectFromServer(String objectname) {
+	public Object getObject(String objectname) {
 		String urlServer = new String("rmi://" + server + "/" + objectname);
 
 		// Bind to RMIServer
