@@ -24,21 +24,10 @@ public class RMIClient {
 		//System.out.println(eventStorage.getValue());
 	}
 	
-	public Object getObject(String objectname) {
+	public Object getObject(String objectname) throws Exception{
 		String urlServer = new String("rmi://" + server + "/" + objectname);
 
 		// Bind to RMIServer
-		 try {
-			 return (Object)Naming.lookup(urlServer);
-		} catch (MalformedURLException e) {
-			System.out.println("Errpr: Malformed hostname.");
-		} catch (RemoteException e) {
-			System.out.println("Error: Remote Exception.");
-			System.out.println(e.detail);
-		} catch (NotBoundException e) {
-			System.out.println("Error: Not Bound Exception.");
-		}
-		
-		return null;
+		return (Object) Naming.lookup(urlServer);
 	}
 }

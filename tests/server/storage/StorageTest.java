@@ -9,15 +9,16 @@ import client.system.StorageServerConnection;
 import junit.extensions.jfcunit.JFCTestCase;
 
 public class StorageTest  extends JFCTestCase {
-	public void testSimple() throws RemoteException, SQLException { // THIS IS JUST FOR DEBUGGING
+	public void testSimple() throws Exception { // THIS IS JUST FOR DEBUGGING
 		
 		// Set up different client
 		StorageServer server = new StorageServer();
+
 		StorageServerConnection client1 = new StorageServerConnection();
 		StorageServerConnection client2 = new StorageServerConnection();
-	
+
 		// NB: BØR DET VÆRE EventI(nterface) her?
-		Event eventClient1 = client1.eventStorage.create();
+		Event eventClient1 = client1.eventStorage.create();	
 		int eventID = eventClient1.getEventID();
 		
 		// Test om oppdatering av navn fungerer

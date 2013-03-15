@@ -12,13 +12,13 @@ public class StorageServerConnection {
 	public AlarmStorageI alarmStorage;
 	public InvitationStorageI invitationStorage;
 	
-	public StorageServerConnection() throws RemoteException {
+	public StorageServerConnection() throws Exception {
 		RMIClient server = new RMIClient();
-		this.eventStorage 		= (EventStorageI) server.getObject("EventStorage");
-//		this.userStorage 		= (UserStorageI) server.getObject("UserStorage");
-//		this.groupStorage 		= (GroupStorageI) server.getObject("GroupStorage");
-//		this.roomStorage 		= (RoomStorageI) server.getObject("RoomStorage");
-//		this.alarmStorage 		= (AlarmStorageI) server.getObject("AlarmStorage");
-//		this.invitationStorage 	= (InvitationStorageI) server.getObject("InvitationStorage");
+		this.eventStorage 		= (EventStorageI) server.getObject("eventStorage");
+		this.userStorage 		= (UserStorageI) server.getObject("userStorage");
+		this.groupStorage 		= (GroupStorageI) server.getObject("groupStorage");
+		this.roomStorage 		= (RoomStorageI) server.getObject("roomStorage");
+		this.alarmStorage 		= (AlarmStorageI) server.getObject("alarmStorage");
+		this.invitationStorage 	= (InvitationStorageI) server.getObject("invitationStorage");
 	}	
 }

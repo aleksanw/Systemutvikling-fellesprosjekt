@@ -18,10 +18,10 @@ public class DummyStorageServerConnection {
 	
 	public DummyStorageServerConnection() throws RemoteException {
 		this.eventStorage 		= new EventStorage();
-//		this.userStorage 		= new UserStorage();
-//		this.groupStorage 		= new GroupStorage();
-//		this.roomStorage 		= new RoomStorage();
-//		this.alarmStorage 		= new AlarmStorage();
-//		this.invitationStorage 	= new InvitationStorage();
+		this.userStorage 		= new UserStorage();
+		this.groupStorage 		= new GroupStorage();
+		this.roomStorage 		= new RoomStorage();
+		this.alarmStorage 		= new AlarmStorage();
+		this.invitationStorage 	= new InvitationStorage();
 	}
 }

@@ -30,11 +30,11 @@ public class StorageServer {
 		this.alarmStorage 		= new AlarmStorage();
 		this.invitationStorage 	= new InvitationStorage();
 		
-		rmiServer.addObject("EventStorage", this.eventStorage);
-		rmiServer.addObject("UserStorage", this.userStorage);
-		rmiServer.addObject("GroupStorage", this.groupStorage);
-		rmiServer.addObject("RoomStorage", this.roomStorage);
-		rmiServer.addObject("AlarmStorage", this.alarmStorage);
-		rmiServer.addObject("InvitationStorage", this.invitationStorage);
+		rmiServer.addObject("eventStorage", this.eventStorage);
+		rmiServer.addObject("userStorage", this.userStorage);
+		rmiServer.addObject("groupStorage", this.groupStorage);
+		rmiServer.addObject("roomStorage", this.roomStorage);
+		rmiServer.addObject("alarmStorage", this.alarmStorage);
+		rmiServer.addObject("invitationStorage", this.invitationStorage);
 	}
 }
