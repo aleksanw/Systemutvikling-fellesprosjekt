@@ -79,7 +79,6 @@ public class Buttons extends JPanel implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().toString().equals("Legg Til Avtale")) {
-			
 			MainClass.runAddEvent();
 		} else if (e.getActionCommand().toString().equals("Logg Ut")) {
 			MainClass.logout();
