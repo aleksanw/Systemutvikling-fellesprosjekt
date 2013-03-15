@@ -7,6 +7,7 @@ import javax.swing.JScrollPane;
 
 import net.miginfocom.swing.MigLayout;
 
+@SuppressWarnings("unused")
 public class Sidebar extends JPanel {
 	
 	private JLabel recieved, sent, calenders;

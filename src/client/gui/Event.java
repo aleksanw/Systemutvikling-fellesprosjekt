@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-
+@SuppressWarnings("unused")
 public class Event extends JPanel{
 	
 	private String desc,place,text,name;

@@ -12,7 +12,7 @@ import javax.swing.event.ListSelectionListener;
 
 import org.joda.time.DateTime;
 
-
+@SuppressWarnings("unused")
 public class DayView extends JPanel implements ListSelectionListener{
 	
 	private JLabel day;

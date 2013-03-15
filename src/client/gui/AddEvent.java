@@ -260,6 +260,7 @@ public class AddEvent extends JPanel implements ActionListener{
 		//server.model.Event e = (Event) MainClass.sServer.eventStorage.delete();
 	}
 
+	@SuppressWarnings("unused")
 	private void save(server.model.Event e) {
 		int eYear = this.getYear(month);
 		int eMonth = this.getMonth(month);

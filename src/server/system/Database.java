@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+@SuppressWarnings("unused")
 public class Database {
 	/**
 	 * Handels connection to database server.
@@ -16,7 +17,7 @@ public class Database {
 	
     private static Connection connection = null;
     private static String connectionURL = "jdbc:mysql://mysql.stud.ntnu.no/jonkrit_su";
-    private static Statement stat = null;
+	private static Statement stat = null;
     private static String user = "jonkrit_su";
     private static String pw = "kakemann";
     private static String database = "jonkrit_su";

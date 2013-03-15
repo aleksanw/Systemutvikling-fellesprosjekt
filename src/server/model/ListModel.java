@@ -6,6 +6,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+@SuppressWarnings("unused")
 public class ListModel<E> implements ListSelectionListener{
 	
 	PropertyChangeSupport pcs = new PropertyChangeSupport(this);
