@@ -5,11 +5,9 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Hashtable;
 
-import common.StorageI;
-
 import server.model.*;
 
-public class Storage extends UnicastRemoteObject implements StorageI {
+public abstract class Storage extends UnicastRemoteObject {
 	private Class modelClass;
 	
 	public Storage(Class modelClass) throws RemoteException {
@@ -28,7 +26,6 @@ public class Storage extends UnicastRemoteObject implements StorageI {
 		return null;
 	}
 
-	@Override
 	public Model get(int ID) throws RemoteException {
 		try {
 			return (Model)modelClass.getConstructor(Integer.class).newInstance(ID);
@@ -48,7 +45,6 @@ public class Storage extends UnicastRemoteObject implements StorageI {
 		return null;
 	}
 
-	@Override
 	public void delete(int ID) throws RemoteException {
 		Model model = this.get(ID);
 		model.delete();
@@ -56,8 +52,7 @@ public class Storage extends UnicastRemoteObject implements StorageI {
 		// Delete from memory
 		model = null;
 	}
-
-	@Override
+	
 	public void delete(Model model) throws RemoteException {
 		model.delete();
 		

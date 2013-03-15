@@ -2,26 +2,26 @@ package client.system;
 
 import java.rmi.RemoteException;
 
-import common.StorageI;
+import common.*;
 
 // This is just for the dummy server
-import server.storage.Storage;
+import server.storage.*;
 import server.model.*;
 
 public class DummyStorageServerConnection {
-	public StorageI eventStorage;
-	public StorageI userStorage;
-	public StorageI groupStorage;
-	public StorageI roomStorage;
-	public StorageI alarmStorage;
-	public StorageI invitationStorage;
+	public EventStorageI eventStorage;
+	public UserStorageI userStorage;
+	public GroupStorageI groupStorage;
+	public RoomStorageI roomStorage;
+	public AlarmStorageI alarmStorage;
+	public InvitationStorageI invitationStorage;
 	
 	public DummyStorageServerConnection() throws RemoteException {
-		this.eventStorage 		= new Storage(Event.class);
-		this.userStorage 		= new Storage(User.class);
-		this.groupStorage 		= new Storage(Group.class);
-		this.roomStorage 		= new Storage(Room.class);
-		this.alarmStorage 		= new Storage(Alarm.class);
-		this.invitationStorage 	= new Storage(Invitation.class);
+		this.eventStorage 		= new EventStorage();
+//		this.userStorage 		= new UserStorage();
+//		this.groupStorage 		= new GroupStorage();
+//		this.roomStorage 		= new RoomStorage();
+//		this.alarmStorage 		= new AlarmStorage();
+//		this.invitationStorage 	= new InvitationStorage();
 	}
 }
