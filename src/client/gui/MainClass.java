@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.UIManager;
 
+import org.apache.commons.cli.*;
+
 public class MainClass {
 	static JFrame frame;
 	static JRootPane currentPane;
@@ -36,9 +38,13 @@ public class MainClass {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch(Exception e) {}
+
+		CommandLine cmd = parseArgs(args);
 		
 		frameSetup();
-		//loginOK();
+
+		if(cmd.hasOption('L'))
+			loginOK();
 	}
 
 	public static void loginOK() {
@@ -59,5 +65,19 @@ public class MainClass {
 	
 	public static void runGroupSettings(){
 		swapPane("Groups");
+	}
+	
+	private static CommandLine parseArgs(String[] args) {
+		Options options = new Options();
+		options.addOption("L", false, "Skip login-screen");
+		
+		try {
+			return new GnuParser().parse(options, args);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.exit(1);
+			return null; // Why the fuck do i need this shit, java?
+		}
 	}
 }
