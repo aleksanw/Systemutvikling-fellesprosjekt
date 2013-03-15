@@ -22,16 +22,16 @@ public class RMITest extends JFCTestCase {
 		public Test() throws RemoteException {
 		}
 		
-		public String getValue() throws RemoteException {
+		public String getValue() {
 			return this.value;
 		}
 		
-		public void setValue(String value) throws RemoteException {
+		public void setValue(String value) {
 			this.value = value;
 		}
 	}
 
-	public void testSimpleConnection() throws RemoteException {
+	public void testSimpleConnection() throws Exception {
 		RMIServer server = new RMIServer();
 		Test testServer = new Test();
 		testServer.setValue("Test123");
@@ -46,7 +46,7 @@ public class RMITest extends JFCTestCase {
 		server.killServer();
 	}
 	
-	public void testTwoClients() throws RemoteException {
+	public void testTwoClients() throws Exception {
 		RMIServer server = new RMIServer();
 		Test testServer = new Test();
 		server.addObject("Test", testServer);
