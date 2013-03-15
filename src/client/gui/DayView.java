@@ -1,9 +1,7 @@
 package client.gui;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -49,15 +47,8 @@ public class DayView extends JPanel implements ListSelectionListener{
 	public void addEvents(){
 		
 	}
-	
-	public void findPos(DateTime date){
-		int startPos = date.getHourOfDay() + date.getMinuteOfDay();
-		
-	}
 
-	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 }
