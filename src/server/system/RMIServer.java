@@ -19,7 +19,7 @@ public class RMIServer {
 	 * 
 	 */
 	
-	public RMIServer() {
+	public RMIServer() throws Exception {
 		System.setProperty("java.security.policy","config/openall.policy");
 		
 		// Initialize Security Manager
@@ -28,13 +28,8 @@ public class RMIServer {
         }
 		
 		// Bind to RMI registry 
-		try {
-			registry = LocateRegistry.createRegistry( port );
-		} catch (RemoteException e) {
-			System.out.println("RMI Server connection error: Error initializing registry or binding server.");
-			System.out.println(e.getMessage());
-			System.exit(-1);
-		}
+		registry = LocateRegistry.createRegistry( port );
+
 		System.out.println("RMI Server Running...");
 	}
 	
