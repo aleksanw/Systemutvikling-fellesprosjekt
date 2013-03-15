@@ -1,14 +1,8 @@
 package client.gui;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.util.ArrayList;
 
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import server.model.Model;
 
 
 public class Event extends JPanel{

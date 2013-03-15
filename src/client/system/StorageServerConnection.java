@@ -1,8 +1,11 @@
 package client.system;
 
-import java.rmi.RemoteException;
-
-import common.*;
+import common.AlarmStorageI;
+import common.EventStorageI;
+import common.GroupStorageI;
+import common.InvitationStorageI;
+import common.RoomStorageI;
+import common.UserStorageI;
 
 public class StorageServerConnection {
 	public EventStorageI eventStorage;

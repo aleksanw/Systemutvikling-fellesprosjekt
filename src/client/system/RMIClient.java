@@ -1,12 +1,8 @@
 package client.system;
 
-import java.net.MalformedURLException;
 import java.rmi.Naming;
-import java.rmi.NotBoundException;
 import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
-
-import common.*;
 
 public class RMIClient {
 	private static String server = "localhost:1099";

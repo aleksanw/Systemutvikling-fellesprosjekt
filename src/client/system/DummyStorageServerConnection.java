@@ -2,11 +2,20 @@ package client.system;
 
 import java.rmi.RemoteException;
 
-import common.*;
+import server.storage.AlarmStorage;
+import server.storage.EventStorage;
+import server.storage.GroupStorage;
+import server.storage.InvitationStorage;
+import server.storage.RoomStorage;
+import server.storage.UserStorage;
 
+import common.AlarmStorageI;
+import common.EventStorageI;
+import common.GroupStorageI;
+import common.InvitationStorageI;
+import common.RoomStorageI;
+import common.UserStorageI;
 // This is just for the dummy server
-import server.storage.*;
-import server.model.*;
 
 public class DummyStorageServerConnection {
 	public EventStorageI eventStorage;

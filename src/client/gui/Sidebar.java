@@ -1,15 +1,11 @@
 package client.gui;
 
-
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import net.miginfocom.swing.MigLayout;
-
 
 public class Sidebar extends JPanel {
 	
