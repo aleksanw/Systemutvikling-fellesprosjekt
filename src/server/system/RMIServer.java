@@ -10,6 +10,17 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
 
+
+/**
+ * Make a RMIServer.
+ * 	
+ * Usage:
+ * 		server = new RMIServer();
+ * 		server.addObject("EventStorage", new EventStorage());
+ * @author jont
+ *
+ */
+
 public class RMIServer {
 	private static int port = 1099;
 	Registry registry;
@@ -45,7 +56,7 @@ public class RMIServer {
 	/**
 	 * Add a remote object to RMI Server
 	 * 
-	 * Usage eq.
+	 * Usage:
 	 * 		server = new RMIServer();
 	 * 		server.addObject("EventStorage", new EventStorage());
 	 * 
