@@ -19,7 +19,7 @@ public class StorageServer {
 	public AlarmStorage alarmStorage;
 	public InvitationStorage invitationStorage;
 	
-	public void StorageServer() throws RemoteException {
+	public StorageServer() throws Exception {
 		
 		RMIServer rmiServer = new RMIServer();
 		
