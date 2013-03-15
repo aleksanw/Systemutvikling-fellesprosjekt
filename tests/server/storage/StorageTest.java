@@ -1,8 +1,5 @@
 package server.storage;
 
-import java.rmi.RemoteException;
-import java.sql.SQLException;
-
 import server.model.Event;
 import server.system.StorageServer;
 import client.system.StorageServerConnection;
