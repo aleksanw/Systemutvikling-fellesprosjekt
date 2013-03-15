@@ -9,11 +9,6 @@ import junit.extensions.jfcunit.JFCTestCase;
 import server.system.RMIServer;
 import client.system.RMIClient;
 
-/**
- * TODO: Will not allow you to open more than one connection. Therefor you can not run more than one test at once.
- * @author jont
- *
- */
 
 public class RMITest extends JFCTestCase {
 	public interface TestI extends Remote {
@@ -43,7 +38,7 @@ public class RMITest extends JFCTestCase {
 		server.addObject("Test", testServer);
 		
 		RMIClient client = new RMIClient();
-		TestI testClient = (TestI)client.getRMIObjectFromServer("Test");
+		TestI testClient = (TestI)client.getObject("Test");
 		
 		
 		assertEquals("Test123", testClient.getValue());
@@ -57,10 +52,10 @@ public class RMITest extends JFCTestCase {
 		server.addObject("Test", testServer);
 		
 		RMIClient client1 = new RMIClient();
-		TestI testClient1 = (TestI)client1.getRMIObjectFromServer("Test");
+		TestI testClient1 = (TestI)client1.getObject("Test");
 		
 		RMIClient client2 = new RMIClient();
-		TestI testClient2 = (TestI)client2.getRMIObjectFromServer("Test");
+		TestI testClient2 = (TestI)client2.getObject("Test");
 		
 		testServer.setValue("Test1");
 		assertEquals("Test1", testServer.getValue());
