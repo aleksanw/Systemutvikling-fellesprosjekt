@@ -280,7 +280,8 @@ public class AddEvent extends JPanel implements ActionListener{
 		int eMinE = Integer.parseInt(this.minE.getSelectedItem().toString());
 		try {
 			if (e == null) {
-				e = (Event) MainClass.sServer.eventStorage.create();
+				//e = (Event) MainClass.sServer.eventStorage.create();
+				throw new RemoteException();
 			} else {
 				try {
 					e.setEventName(this.getName());
