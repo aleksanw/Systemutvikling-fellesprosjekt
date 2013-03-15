@@ -23,10 +23,14 @@ public abstract class Model {
 		this.primaryKeyField1 = primaryKeyField1;
 	}
 	
-	public abstract void delete() throws SQLException;
+	public abstract void delete();
 	
-	protected void delete(int ID) throws SQLException {
-		DB.updateQuery("DELETE FROM " + tableName + " WHERE userID=" + ID);
+	protected void delete(int ID) {
+		try {
+			DB.updateQuery("DELETE FROM " + tableName + " WHERE userID=" + ID);
+		} catch(SQLException e) {
+			System.out.println("Could not delete " + tableName + " where userID is " + ID);
+		}
 	}
 
 	protected void updateField(String field, Object value, int primaryKey1) throws SQLException{
