@@ -8,6 +8,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import net.miginfocom.swing.MigLayout;
+
 
 public class Sidebar extends JPanel {
 	
@@ -16,33 +18,24 @@ public class Sidebar extends JPanel {
 	private JScrollPane sScroll,rScroll;
 	private String[] list = {"t1","t2","t3"};
 	
-	GridBagConstraints gbc = new GridBagConstraints();
-	
 	public Sidebar(){
 		recieved = new JLabel("Mottatte Møteinnkallelser");
 		rList = new JList();
 		//rList.setCellRenderer(new CellRenderer());
 		rScroll = new JScrollPane(rList);
-		rScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		sent = new JLabel("Sendte Møteinnkallelser");
 		sList = new JList();
 		sScroll = new JScrollPane(sList);
-		sScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		calenders = new JLabel("Kalendre");
 		
-		setLayout(new GridBagLayout());
-		gbc.gridy = 0;
-		add(recieved,gbc);
-		gbc.gridy = 1;
-		add(rScroll,gbc);
-		gbc.gridy = 2;
-		add(sent,gbc);
-		gbc.gridy = 3;
-		add(sScroll,gbc);
-		gbc.gridy = 4;
-		add(calenders,gbc);
+		setLayout(new MigLayout("wrap 1"));
+		add(recieved);
+		add(rScroll);
+		add(sent);
+		add(sScroll);
+		add(calenders);
 		
 		//setPreferredSize(new Dimension(250,600));
 	}
