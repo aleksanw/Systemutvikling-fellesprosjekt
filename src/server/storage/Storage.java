@@ -3,6 +3,7 @@ package server.storage;
 import java.lang.reflect.InvocationTargetException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 import java.util.Hashtable;
 
 import server.model.*;

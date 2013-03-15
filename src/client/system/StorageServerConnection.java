@@ -14,7 +14,6 @@ public class StorageServerConnection {
 	
 	public StorageServerConnection() throws RemoteException {
 		RMIClient server = new RMIClient();
-		
 		this.eventStorage 		= (EventStorageI) server.getObject("EventStorage");
 //		this.userStorage 		= (UserStorageI) server.getObject("UserStorage");
 //		this.groupStorage 		= (GroupStorageI) server.getObject("GroupStorage");
