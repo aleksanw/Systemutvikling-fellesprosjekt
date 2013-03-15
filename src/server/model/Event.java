@@ -187,7 +187,7 @@ public class Event extends Model{
 	}
 	
 	@Override
-	public void delete() throws SQLException {
+	public void delete() {
 		super.delete(eventID);		
 	}
 }
