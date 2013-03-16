@@ -2,13 +2,15 @@ package server.model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import server.system.Database;
 
-public abstract class Model {
+public abstract class Model extends UnicastRemoteObject {
 
 	private static Database DB = new Database();
 	private String tableName;
@@ -17,7 +19,7 @@ public abstract class Model {
 	private PropertyChangeSupport pcs;
 	
 	
-	public Model(String tableName, ArrayList<String> tableFields, String primaryKeyField1) {
+	public Model(String tableName, ArrayList<String> tableFields, String primaryKeyField1) throws RemoteException {
 		this.tableName = tableName;
 		this.tableFields = tableFields;
 		this.primaryKeyField1 = primaryKeyField1;

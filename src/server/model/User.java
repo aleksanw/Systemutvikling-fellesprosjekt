@@ -1,11 +1,16 @@
 package server.model;
 
+import java.rmi.RemoteException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
 
-public class User extends Model {
+import common.EventI;
+import common.GroupI;
+import common.UserI;
+
+public class User extends Model implements UserI {
 	
 	private int userID;
 	private String name, email;
@@ -14,7 +19,7 @@ public class User extends Model {
 	
 		
 	
-	public User(int userID) throws SQLException {
+	public User(int userID) throws RemoteException, SQLException {
 		super("User", createTableFields(), "userID");
 		ResultSet result = super.getFromDB(userID);
 		if(result.next()) {
@@ -25,30 +30,42 @@ public class User extends Model {
 		}
 	}
 	
-	public User(String username, String password) throws SQLException {
+	public User(String username, String password) throws RemoteException, SQLException {
 		super("User", createTableFields(), "userID");
 		String query = "SELECT userID FROM User WHERE username='' AND password='';";
 		ResultSet result = super.getDB().readQuery(query);
 		result.getInt("userID");
 	}
 	
+	public User() throws RemoteException, SQLException {
+		super("User", createTableFields(), "userID");
+		ArrayList<Integer> keyList = super.addToDB();
+		this.userID = keyList.get(0);
+	}
+	
+	/* (non-Javadoc)
+	 * @see server.model.UserI#getEmail()
+	 */
+	@Override
 	public String getEmail() {
 		return email;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.UserI#setEmail(java.lang.String)
+	 */
+	@Override
 	public void setEmail(String email) throws SQLException {
 		super.updateField(email, email, userID);
 		this.email = email;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.UserI#getDateOfBirth()
+	 */
+	@Override
 	public Date getDateOfBirth() {
 		return dateOfBirth;
-	}
-
-	public User() throws SQLException {
-		super("User", createTableFields(), "userID");
-		ArrayList<Integer> keyList = super.addToDB();
-		this.userID = keyList.get(0);
 	}
 	
 	private static ArrayList<String> createTableFields() {
@@ -62,47 +79,90 @@ public class User extends Model {
 		return tableFields;
 	}
 	
-	public boolean isCreatorOfEvent(Event event) {
+	/* (non-Javadoc)
+	 * @see server.model.UserI#isCreatorOfEvent(common.EventI)
+	 */
+	@Override
+	public boolean isCreatorOfEvent(EventI event) {
 		return true;
 	}
 	
+	/* (non-Javadoc)
+	 * @see server.model.UserI#getAlarms()
+	 */
+	@Override
 	public ArrayList<Alarm> getAlarms() {
 		return new ArrayList<Alarm>();
 	}
 	
+	/* (non-Javadoc)
+	 * @see server.model.UserI#getAlarmsBeforeNow()
+	 */
+	@Override
 	public ArrayList<Alarm> getAlarmsBeforeNow() {
 		return new ArrayList<Alarm>();
 	}
 	
-	public void addToGroup(Group group) {
+	/* (non-Javadoc)
+	 * @see server.model.UserI#addToGroup(server.model.GroupI)
+	 */
+	@Override
+	public void addToGroup(GroupI group) {
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see server.model.UserI#getCreatedEvents()
+	 */
+	@Override
 	public ArrayList<Event> getCreatedEvents() {
 		return new ArrayList<Event>();
 	}
 	
+	/* (non-Javadoc)
+	 * @see server.model.UserI#getInvitations()
+	 */
+	@Override
 	public ArrayList<Invitation> getInvitations() {
 		return new ArrayList<Invitation>();
 	}
 	
+	/* (non-Javadoc)
+	 * @see server.model.UserI#getUserID()
+	 */
+	@Override
 	public int getUserID() {
 		return this.userID;
 	}
+	/* (non-Javadoc)
+	 * @see server.model.UserI#getName()
+	 */
+	@Override
 	public String getName() {
 		return this.name;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.UserI#setName(java.lang.String)
+	 */
+	@Override
 	public void setName(String name) throws SQLException {
 		super.updateField("name", name, userID);
 		this.name = name;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.UserI#setDateOfBirth(java.sql.Date)
+	 */
+	@Override
 	public void setDateOfBirth(Date dateOfBirth) throws SQLException {
 		super.updateField("dateOfBirth", dateOfBirth, userID);
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.UserI#delete()
+	 */
 	@Override
 	public void delete() {
 		super.delete(userID);		

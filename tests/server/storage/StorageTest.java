@@ -1,21 +1,46 @@
 package server.storage;
 
-import server.model.Event;
+import common.EventI;
+
 import server.system.StorageServer;
+import client.gui.MainClass;
 import client.system.StorageServerConnection;
 import junit.extensions.jfcunit.JFCTestCase;
 
+import org.joda.time.DateTime;
+
 public class StorageTest  extends JFCTestCase {
-	public void testSimple() throws Exception { // THIS IS JUST FOR DEBUGGING
+	public void testSimple() throws Exception {
 		
 		// Set up different client
 		StorageServer server = new StorageServer();
-
+		StorageServerConnection client = new StorageServerConnection();
+		
+		
+		// Create a new Event
+		EventI event = client.eventStorage.create();	
+		
+		// Update fields (this is instently sent to database)
+		event.setEventName("KTN forelesning");
+		event.setCreatedByUser(MainClass.getCurrentUser());
+		event.setMeeting(true);
+		event.setStart(new DateTime("2013-03-15 12:15:00"));
+		event.setEnd(new DateTime("2013-03-15 15:00:00"));
+		event.setLocation("R1");
+		
+		// Delete
+		server.eventStorage.delete(event);
+	}
+	
+	public void testMultipleClients() throws Exception { // THIS IS JUST FOR DEBUGGING
+		
+		// Set up different client
+		StorageServer server = new StorageServer();
 		StorageServerConnection client1 = new StorageServerConnection();
 		StorageServerConnection client2 = new StorageServerConnection();
 
 		// NB: BØR DET VÆRE EventI(nterface) her?
-		Event eventClient1 = client1.eventStorage.create();	
+		EventI eventClient1 = client1.eventStorage.create();	
 		int eventID = eventClient1.getEventID();
 		
 		// Test om oppdatering av navn fungerer
@@ -23,11 +48,11 @@ public class StorageTest  extends JFCTestCase {
 		assertEquals("Test123", eventClient1.getEventName());
 		
 		// Test om også oppdatert på serveren
-		Event eventServer = server.eventStorage.get(eventID);
+		EventI eventServer = server.eventStorage.get(eventID);
 		assertEquals("Test123", eventServer.getEventName());
 		
 		// Test om også oppdatert på klient2
-		Event eventClient2 = client2.eventStorage.get(eventID);
+		EventI eventClient2 = client2.eventStorage.get(eventID);
 		assertEquals("Test123", eventClient2.getEventName());
 		
 	}

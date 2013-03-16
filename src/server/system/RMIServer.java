@@ -40,7 +40,7 @@ public class RMIServer {
 		
 		// Bind to RMI registry 
 		registry = LocateRegistry.createRegistry( port );
-
+		
 		System.out.println("RMI Server Running...");
 	}
 	

@@ -1,17 +1,20 @@
 package server.model;
 
+import java.rmi.RemoteException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.joda.time.DateTime;
 
-public class Room extends Model {
+import common.RoomI;
+
+public class Room extends Model implements RoomI {
 
 	private int roomID, personCapacity;
 	private String roomName;
 	
-	public Room(int roomID) throws SQLException {
+	public Room(int roomID) throws RemoteException, SQLException {
 		super("Room", createTableFields(), "roomID");
 		ResultSet result = super.getFromDB(roomID);
 		if(result.next()) {
@@ -21,20 +24,32 @@ public class Room extends Model {
 		}
 	}
 	
-	public Room() throws SQLException {
+	public Room() throws RemoteException, SQLException {
 		super("Room", createTableFields(), "roomID");
 		ArrayList<Integer> keyList = super.addToDB();
 		this.roomID = keyList.get(0);
 	}
 	
+	/* (non-Javadoc)
+	 * @see server.model.RoomI#getRoomID()
+	 */
+	@Override
 	public int getRoomID() {
 		return roomID;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.RoomI#getPersonCapacity()
+	 */
+	@Override
 	public int getPersonCapacity() {
 		return personCapacity;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.RoomI#getRoomName()
+	 */
+	@Override
 	public String getRoomName() {
 		return roomName;
 	}
@@ -47,20 +62,35 @@ public class Room extends Model {
 		return tableFields;
 	}
 	
+	/* (non-Javadoc)
+	 * @see server.model.RoomI#isBookedInPeriod(org.joda.time.DateTime, org.joda.time.DateTime)
+	 */
+	@Override
 	public boolean isBookedInPeriod(DateTime start, DateTime end) {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.RoomI#setPersonCapacity(int)
+	 */
+	@Override
 	public void setPersonCapacity(int personCapacity) throws SQLException {
 		super.updateField("personCapacity", personCapacity, roomID);
 		this.personCapacity = personCapacity;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.RoomI#setRoomName(java.lang.String)
+	 */
+	@Override
 	public void setRoomName(String roomName) throws SQLException {
 		super.updateField("roomName", roomName, roomID);
 		this.roomName = roomName;
 	}
 	
+	/* (non-Javadoc)
+	 * @see server.model.RoomI#delete()
+	 */
 	@Override
 	public void delete() {
 		super.delete(roomID);		

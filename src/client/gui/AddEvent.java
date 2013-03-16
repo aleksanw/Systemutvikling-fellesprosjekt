@@ -21,7 +21,8 @@ import javax.swing.JTextField;
 
 import org.joda.time.DateTime;
 
-import server.model.Event;
+import common.EventI;
+
 
 @SuppressWarnings("serial")
 public class AddEvent extends JPanel implements ActionListener{
@@ -36,7 +37,7 @@ public class AddEvent extends JPanel implements ActionListener{
 	protected JTabbedPane tabs;
 	protected Place place = new Place();
 	protected Booking booking = new Booking();
-	protected Event event;
+	protected EventI event;
 
 	GridBagConstraints g = new GridBagConstraints();
 
@@ -261,7 +262,7 @@ public class AddEvent extends JPanel implements ActionListener{
 	}
 
 	@SuppressWarnings("unused")
-	private void save(server.model.Event e) {
+	private void save(EventI e) {
 		int eYear = this.getYear(month);
 		int eMonth = this.getMonth(month);
 		int eDay = Integer.parseInt(this.day.getSelectedItem().toString());

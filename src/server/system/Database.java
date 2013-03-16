@@ -35,7 +35,8 @@ public class Database {
                                 pw);
                 stat = connection.createStatement();
         } catch (Exception  ex) {
-                System.out.println("Tilkobling feilet: "+ex.getMessage());
+                System.out.println("Tilkobling til databaseserver feilet: "+ex.getMessage());
+                System.out.println("For å koble til databaseserveren må du være på NTNU-nettet. Bruk VPN hvis du er utenfor NTNU-nettet.");
         }
     }
     

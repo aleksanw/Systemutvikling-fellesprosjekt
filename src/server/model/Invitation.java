@@ -1,5 +1,6 @@
 package server.model;
 
+import java.rmi.RemoteException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -8,13 +9,15 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-public class Invitation extends Model {
+import common.InvitationI;
+
+public class Invitation extends Model implements InvitationI {
 	
 	private boolean isAttending;
 	private DateTime dateTimeOfInvitation;
 	private int invitationID, userID, eventID;
 	
-	public Invitation(int invitationID) throws SQLException {
+	public Invitation(int invitationID) throws RemoteException, SQLException {
 		super("InvitedTo", createTableFields(), "invitedToID");
 		ResultSet result = super.getFromDB(invitationID);
 		if(result.next()) {
@@ -26,7 +29,7 @@ public class Invitation extends Model {
 		}
 	}
 
-	public Invitation() throws SQLException {
+	public Invitation() throws RemoteException, SQLException {
 		super("InvitedTo", createTableFields(), "invitedToID");
 		ArrayList<Integer> keyList = super.addToDB();
 		this.invitationID = keyList.get(0);
@@ -42,27 +45,51 @@ public class Invitation extends Model {
 		return tableFields;
 	}
 	
+	/* (non-Javadoc)
+	 * @see server.model.InvitationI#getDateTimeOfInvitation()
+	 */
+	@Override
 	public DateTime getDateTimeOfInvitation() {
 		return dateTimeOfInvitation;
 	}
 	
+	/* (non-Javadoc)
+	 * @see server.model.InvitationI#isAttending()
+	 */
+	@Override
 	public boolean isAttending() {
 		return isAttending;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.InvitationI#setAttending(boolean)
+	 */
+	@Override
 	public void setAttending(boolean isAttending) throws SQLException {
 		super.updateField("isAttending", isAttending, invitationID);
 		this.isAttending = isAttending;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.InvitationI#getEventID()
+	 */
+	@Override
 	public int getEventID() {
 		return eventID;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.InvitationI#getUserID()
+	 */
+	@Override
 	public int getUserID() {
 		return userID;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.InvitationI#setDateTimeOfInvitation(org.joda.time.DateTime)
+	 */
+	@Override
 	public void setDateTimeOfInvitation(DateTime dateTimeOfInvitation) throws SQLException {
 		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:SS");
 		String dateToString = fmt.print(dateTimeOfInvitation);
@@ -70,20 +97,35 @@ public class Invitation extends Model {
 		this.dateTimeOfInvitation = dateTimeOfInvitation;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.InvitationI#getInvitationID()
+	 */
+	@Override
 	public int getInvitationID() {
 		return invitationID;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.InvitationI#setUserID(int)
+	 */
+	@Override
 	public void setUserID(int userID) throws SQLException {
 		super.updateField("userID", userID, invitationID);
 		this.userID = userID;
 	}
 
+	/* (non-Javadoc)
+	 * @see server.model.InvitationI#setEventID(int)
+	 */
+	@Override
 	public void setEventID(int eventID) throws SQLException {
 		super.updateField("eventID", eventID, invitationID);
 		this.eventID = eventID;
 	}
 	
+	/* (non-Javadoc)
+	 * @see server.model.InvitationI#delete()
+	 */
 	@Override
 	public void delete() {
 		super.delete(invitationID);		

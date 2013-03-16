@@ -1,5 +1,6 @@
 package server.model;
 
+import java.rmi.RemoteException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ public class MemberOfGroup extends Model {
 
 	private int memberOfGroupID, groupID, userID;
 	
-	public MemberOfGroup(int roomID) throws SQLException {
+	public MemberOfGroup(int roomID) throws RemoteException, SQLException {
 		super("Room", createTableFields(), "roomID");
 		ResultSet result = super.getFromDB(roomID);
 		if(result.next()) {
@@ -18,7 +19,7 @@ public class MemberOfGroup extends Model {
 		}
 	}
 	
-	public MemberOfGroup() throws SQLException {
+	public MemberOfGroup() throws RemoteException, SQLException {
 		super("Room", createTableFields(), "roomID");
 		ArrayList<Integer> keyList = super.addToDB();
 		this.memberOfGroupID = keyList.get(0);
