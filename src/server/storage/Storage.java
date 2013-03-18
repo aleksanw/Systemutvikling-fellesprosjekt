@@ -25,26 +25,11 @@ public abstract class Storage extends UnicastRemoteObject {
 		return null;
 	}
 
-	public Model get(int ID) throws RemoteException {
-		try {
-			return (Model)modelClass.getConstructor(Integer.class).newInstance(ID);
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			e.printStackTrace();
-		}
-		return null;
+	public Model get(int ID) throws RemoteException, Exception {
+		return (Model) modelClass.getConstructor(Integer.class).newInstance(ID);
 	}
 
-	public void delete(int ID) throws RemoteException {
+	public void delete(int ID) throws Exception {
 		Model model = this.get(ID);
 		model.delete();
 		

@@ -17,11 +17,21 @@ public class EventStorage extends Storage implements EventStorageI {
 	}
 	
 	public Event get(int ID) throws RemoteException {
-		return (Event) super.get(ID);
+		try {
+			return (Event) super.get(ID);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
 	}
 	
 	public void delete(int ID) throws RemoteException {
-		super.delete(ID);
+		try {
+			super.delete(ID);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 	public void delete(Event model) throws RemoteException {
