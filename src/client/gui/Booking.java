@@ -2,11 +2,17 @@ package client.gui;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.rmi.RemoteException;
+import java.sql.SQLException;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
+import server.listModel.Rooms;
+import server.model.Room;
 
 public class Booking extends JPanel {
 	
@@ -14,10 +20,32 @@ public class Booking extends JPanel {
 	protected JLabel date;
 	protected JList list;
 	protected JScrollPane scroll;
+	server.listModel.Rooms roomList;
+	DefaultListModel<Room> model;
 	
 	GridBagConstraints g = new GridBagConstraints();
 	
-	public Booking(){
+	public Booking() {
+		
+		try {
+			roomList = new Rooms();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model = new DefaultListModel<Room>();
+		try {
+			for(Room room: roomList.getList()){
+				model.addElement(room);
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		setLayout(new GridBagLayout());
 		
 		label = new JLabel();
@@ -25,7 +53,7 @@ public class Booking extends JPanel {
 		
 		date = new JLabel();
 		
-		list = new JList();
+		list = new JList<Room>(model);
 		
 		scroll = new JScrollPane(list);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
