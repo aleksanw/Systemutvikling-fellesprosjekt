@@ -34,7 +34,6 @@ public class AddEvent extends JPanel implements ActionListener{
 	protected JTabbedPane tabs;
 	protected Place place = new Place();
 	protected Booking booking = new Booking();
-	protected EventI event;
 
 	GridBagConstraints g = new GridBagConstraints();
 
