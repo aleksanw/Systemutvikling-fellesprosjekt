@@ -50,19 +50,20 @@ public interface EventI extends ModelI {
 
 	public void setEnd(DateTime end) throws SQLException, RemoteException;
 
-	public int getRoomBooked() throws RemoteException;
+	public RoomI getRoomBooked() throws RemoteException;
 
-	public void setRoomBooked(int roomBooked) throws SQLException, RemoteException;
+	public void setRoomBooked(int roomID) throws SQLException, RemoteException;
+	public void setRoomBooked(RoomI room) throws SQLException, RemoteException;
 
 	public int getCreatedByUser() throws RemoteException;
 
-	public void setCreatedByUser(int createdByUser)
-			throws SQLException, RemoteException;
+	public void setCreatedByUser(int createdByUser) throws SQLException, RemoteException;
+	public void setCreatedByUser(UserI createdByUser) throws SQLException, RemoteException;
 
 	public int getCreatedByGroup() throws RemoteException;
 
-	public void setCreatedByGroup(int createdByGroup)
-			throws SQLException, RemoteException;
+	public void setCreatedByGroup(int createdByGroup) throws SQLException, RemoteException;
+	public void setCreatedByGroup(GroupI createdByGroup) throws SQLException, RemoteException;
 
 	public boolean isMeeting() throws RemoteException;
 

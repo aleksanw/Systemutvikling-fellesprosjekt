@@ -9,7 +9,11 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import server.system.StorageServer;
+
 import common.EventI;
+import common.GroupI;
+import common.RoomI;
 import common.UserI;
 
 public class Event extends Model implements EventI{
@@ -243,8 +247,8 @@ public class Event extends Model implements EventI{
 	 * @see server.model.EventI#getRoomBooked()
 	 */
 	@Override
-	public int getRoomBooked() {
-		return roomBooked;
+	public Room getRoomBooked() throws RemoteException {
+		return StorageServer.roomStorage.get(roomBooked);
 	}
 
 	/* (non-Javadoc)
@@ -254,6 +258,10 @@ public class Event extends Model implements EventI{
 	public void setRoomBooked(int roomBooked) throws SQLException {
 		super.updateField("roomBooked",roomBooked, eventID);
 		this.roomBooked = roomBooked;
+	}
+	
+	public void setRoomBooked(RoomI roomBooked) throws SQLException {
+		setRoomBooked(roomBooked.getRoomID());
 	}
 
 	/* (non-Javadoc)
@@ -305,5 +313,15 @@ public class Event extends Model implements EventI{
 	@Override
 	public void delete() {
 		super.delete(eventID);		
+	}
+
+	@Override
+	public void setCreatedByUser(UserI createdByUser) throws SQLException,RemoteException {
+		setCreatedByUser(createdByUser.getUserID());	
+	}
+
+	@Override
+	public void setCreatedByGroup(GroupI createdByGroup) throws SQLException,RemoteException {
+		setCreatedByGroup(createdByGroup.getGroupID());
 	}
 }
