@@ -1,6 +1,7 @@
 package common;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -10,62 +11,62 @@ import server.model.Invitation;
 
 public interface EventI extends Remote {
 
-	public ArrayList<Invitation> getInvitationList();
+	public ArrayList<Invitation> getInvitationList() throws RemoteException;
 
-	public void invite(UserI user);
+	public void invite(UserI user) throws RemoteException;
 
-	public int getEventID();
+	public int getEventID() throws RemoteException;
 
-	public boolean isWholeday();
+	public boolean isWholeday() throws RemoteException;
 
-	public void setWholeday(boolean isWholeday);
+	public void setWholeday(boolean isWholeday) throws RemoteException;
 
-	public void setMeeting(boolean isMeeting);
+	public void setMeeting(boolean isMeeting) throws RemoteException;
 
-	public boolean isActive();
+	public boolean isActive() throws RemoteException;
 
-	public void setActive(boolean isActive) throws SQLException;
+	public void setActive(boolean isActive) throws SQLException, RemoteException;
 
-	public boolean isWholeDay();
+	public boolean isWholeDay() throws RemoteException;
 
-	public void setWholeDay(boolean isWholeDay) throws SQLException;
+	public void setWholeDay(boolean isWholeDay) throws SQLException, RemoteException;
 
-	public String getEventName();
+	public String getEventName() throws RemoteException;
 
-	public void setEventName(String eventName) throws SQLException;
+	public void setEventName(String eventName) throws SQLException, RemoteException;
 
-	public String getDescription();
+	public String getDescription() throws RemoteException;
 
-	public void setDescription(String description) throws SQLException;
+	public void setDescription(String description) throws SQLException, RemoteException;
 
-	public String getLocation();
+	public String getLocation() throws RemoteException;
 
-	public void setLocation(String location) throws SQLException;
+	public void setLocation(String location) throws SQLException, RemoteException;
 
-	public DateTime getStart();
+	public DateTime getStart() throws RemoteException;
 
-	public void setStart(DateTime start) throws SQLException;
+	public void setStart(DateTime start) throws SQLException, RemoteException;
 
-	public DateTime getEnd();
+	public DateTime getEnd() throws RemoteException;
 
-	public void setEnd(DateTime end) throws SQLException;
+	public void setEnd(DateTime end) throws SQLException, RemoteException;
 
-	public int getRoomBooked();
+	public int getRoomBooked() throws RemoteException;
 
-	public void setRoomBooked(int roomBooked) throws SQLException;
+	public void setRoomBooked(int roomBooked) throws SQLException, RemoteException;
 
-	public int getCreatedByUser();
+	public int getCreatedByUser() throws RemoteException;
 
 	public void setCreatedByUser(int createdByUser)
-			throws SQLException;
+			throws SQLException, RemoteException;
 
-	public int getCreatedByGroup();
+	public int getCreatedByGroup() throws RemoteException;
 
 	public void setCreatedByGroup(int createdByGroup)
-			throws SQLException;
+			throws SQLException, RemoteException;
 
-	public boolean isMeeting();
+	public boolean isMeeting() throws RemoteException;
 
-	public void delete();
+	public void delete() throws RemoteException;
 
 }
