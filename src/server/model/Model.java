@@ -25,11 +25,11 @@ public abstract class Model extends UnicastRemoteObject {
 		this.primaryKeyField1 = primaryKeyField1;
 	}
 	
-	public static Database getDB() {
+	public static Database getDB() throws RemoteException  {
 		return DB;
 	}
 	
-	public abstract void delete();
+	public abstract void delete() throws RemoteException;
 	
 	protected void delete(Integer ID) {
 		try {
@@ -47,11 +47,11 @@ public abstract class Model extends UnicastRemoteObject {
 	}
 	
 	
-	public void addPropartyChangeListener(PropertyChangeListener listener) {
+	public void addPropartyChangeListener(PropertyChangeListener listener) throws RemoteException {
 		pcs.addPropertyChangeListener(listener);
 	}
 	
-	public void removePropartyChangeListener(PropertyChangeListener listener) {
+	public void removePropartyChangeListener(PropertyChangeListener listener) throws RemoteException  {
 		pcs.removePropertyChangeListener(listener);
 	}
 	
