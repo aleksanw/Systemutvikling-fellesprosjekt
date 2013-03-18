@@ -12,9 +12,7 @@ import common.EventI;
 import common.UserI;
 
 public class UserTest {
-	
-	public ArrayList<EventI> eventsCreatedByThisUser = new ArrayList<>();
-	
+		
 	public void test() throws Exception{
 		
 		new StorageServer();
@@ -35,15 +33,9 @@ public class UserTest {
 		event.setEventName("KTN forelesning");
 		//event.setCreatedByUser(MainClass.getCurrentUser());
 		event.setMeeting(false);
-		event.setStart(new DateTime("2013-03-15 12:15:00"));
-		event.setEnd(new DateTime("2013-03-15 15:00:00"));
-		
-		eventsCreatedByThisUser.add(event);
-		
-		
-		
-		System.out.println(user.getUserID());
-		
+		event.setStart(new DateTime("2013-03-15T12:15:00"));
+		event.setEnd(new DateTime("2013-03-15T15:00:00"));
+					
 		user.delete();
 	}
 }

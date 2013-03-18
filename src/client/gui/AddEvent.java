@@ -267,9 +267,8 @@ public class AddEvent extends JPanel implements ActionListener{
 		int eMinE = Integer.parseInt(this.minE.getSelectedItem().toString());
 		try {
 			if (e == null) {
-				//e = (Event) MainClass.sServer.eventStorage.create();
+				e = (EventI) MainClass.sServer.eventStorage.create();
 				throw new RemoteException();
-			//	e = (Event) MainClass.sServer.eventStorage.create();
 			} else {
 				try {
 					e.setEventName(this.getName());
@@ -282,7 +281,7 @@ public class AddEvent extends JPanel implements ActionListener{
 					}
 					e.setDescription(this.desc.getText());
 					e.setLocation(this.place.text.getText());
-					// e.setRoomBooked("Liste over rom");
+					e.setRoomBooked();
 					e.setMeeting(false);
 					// e.setCreatedByGroup();
 				} catch (SQLException e1) {
