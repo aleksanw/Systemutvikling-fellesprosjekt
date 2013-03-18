@@ -3,6 +3,9 @@ package server.model;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
+
+import junit.extensions.jfcunit.JFCTestCase;
+
 import org.joda.time.DateTime;
 import server.system.StorageServer;
 import client.gui.MainClass;
@@ -11,7 +14,7 @@ import common.AlarmI;
 import common.EventI;
 import common.UserI;
 
-public class UserTest {
+public class UserTest extends JFCTestCase{
 		
 	public void test() throws Exception{
 		
@@ -35,6 +38,14 @@ public class UserTest {
 		event.setMeeting(false);
 		event.setStart(new DateTime("2013-03-15T12:15:00"));
 		event.setEnd(new DateTime("2013-03-15T15:00:00"));
-		user.delete();
+		
+		int userID = user.getUserID();
+		UserI userFromDB = client.userStorage.get(userID);
+		
+		assertEquals("Ole Brumm", userFromDB.getName());
+		assertEquals("ntnu@gmail.com", userFromDB.getEmail());
+		assertEquals(new Date(1991-06-02), userFromDB.getDateOfBirth());
+		assertEquals(event, userFromDB.getCreatedEvents().get(0));
+		assertEquals(true, user.isCreatorOfEvent(event));
 	}
 }
