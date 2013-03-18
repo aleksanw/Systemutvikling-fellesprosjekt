@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -18,9 +17,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import org.joda.time.DateTime;
-
 import common.EventI;
 
 
@@ -277,6 +274,7 @@ public class AddEvent extends JPanel implements ActionListener{
 			if (e == null) {
 				//e = (Event) MainClass.sServer.eventStorage.create();
 				throw new RemoteException();
+			//	e = (Event) MainClass.sServer.eventStorage.create();
 			} else {
 				try {
 					e.setEventName(this.getName());
