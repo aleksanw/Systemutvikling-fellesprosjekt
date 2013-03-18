@@ -8,29 +8,29 @@ import server.storage.RoomStorage;
 import server.storage.UserStorage;
 
 public class StorageServer {
-	public EventStorage eventStorage;
-	public UserStorage userStorage;
-	public GroupStorage groupStorage;
-	public RoomStorage roomStorage;
-	public AlarmStorage alarmStorage;
-	public InvitationStorage invitationStorage;
+	public static EventStorage eventStorage;
+	public static UserStorage userStorage;
+	public static GroupStorage groupStorage;
+	public static RoomStorage roomStorage;
+	public static AlarmStorage alarmStorage;
+	public static InvitationStorage invitationStorage;
 	
 	public StorageServer() throws Exception {
 		
 		RMIServer rmiServer = new RMIServer();
 		
-		this.eventStorage 		= new EventStorage();
-		this.userStorage 		= new UserStorage();
-		this.groupStorage 		= new GroupStorage();
-		this.roomStorage 		= new RoomStorage();
-		this.alarmStorage 		= new AlarmStorage();
-		this.invitationStorage 	= new InvitationStorage();
+		eventStorage 		= new EventStorage();
+		userStorage 		= new UserStorage();
+		groupStorage 		= new GroupStorage();
+		roomStorage 		= new RoomStorage();
+		alarmStorage 		= new AlarmStorage();
+		invitationStorage 	= new InvitationStorage();
 		
-		rmiServer.addObject("eventStorage", this.eventStorage);
-		rmiServer.addObject("userStorage", this.userStorage);
-		rmiServer.addObject("groupStorage", this.groupStorage);
-		rmiServer.addObject("roomStorage", this.roomStorage);
-		rmiServer.addObject("alarmStorage", this.alarmStorage);
-		rmiServer.addObject("invitationStorage", this.invitationStorage);
+		rmiServer.addObject("eventStorage", eventStorage);
+		rmiServer.addObject("userStorage", userStorage);
+		rmiServer.addObject("groupStorage", groupStorage);
+		rmiServer.addObject("roomStorage", roomStorage);
+		rmiServer.addObject("alarmStorage", alarmStorage);
+		rmiServer.addObject("invitationStorage", invitationStorage);
 	}
 }
