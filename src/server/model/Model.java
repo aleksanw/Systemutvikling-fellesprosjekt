@@ -25,6 +25,10 @@ public abstract class Model extends UnicastRemoteObject {
 		this.primaryKeyField1 = primaryKeyField1;
 	}
 	
+	public static Database getDB() {
+		return DB;
+	}
+	
 	public abstract void delete();
 	
 	protected void delete(int ID) {
@@ -65,9 +69,5 @@ public abstract class Model extends UnicastRemoteObject {
 		String query = "Select * FROM " + tableName + " WHERE " + primaryKeyField1 + "='" + primaryKey1 + "';";
 		ResultSet result = DB.readQuery(query);
 		return result;
-	}
-	
-	protected Database getDB() {
-		return DB;
 	}
 }
