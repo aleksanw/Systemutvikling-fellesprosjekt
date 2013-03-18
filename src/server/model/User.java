@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
-
 import common.EventI;
 import common.GroupI;
 import common.UserI;
@@ -15,9 +14,7 @@ public class User extends Model implements UserI {
 	private int userID;
 	private String name, email;
 	private Date dateOfBirth;
-	public String userName;
-	
-		
+	public String userName;		
 	
 	public User(int userID) throws RemoteException, SQLException {
 		super("User", createTableFields(), "userID");
