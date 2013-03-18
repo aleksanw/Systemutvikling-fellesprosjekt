@@ -9,6 +9,7 @@ import server.model.Group;
 import server.model.Model;
 import server.model.User;
 import server.storage.UserStorage;
+import server.system.StorageServer;
 
 public class Users extends ListModel {
 	ArrayList<User> users = new ArrayList<User>();
@@ -18,7 +19,7 @@ public class Users extends ListModel {
 		String query = "SELECT userID FROM memberOfGroup, Groups WHERE Group." + groupID + "=memberOfGroup." + groupID + ";";
 		ResultSet result = Model.getDB().readQuery(query);
 		while(result.next()) {
-			this.users.add(Storage.userStorage.get(result.getInt("userID")));
+			this.users.add(StorageServer.userStorage.get(result.getInt("userID")));
 		}
 	}
 	
