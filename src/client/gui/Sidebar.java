@@ -1,9 +1,12 @@
 package client.gui;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import net.miginfocom.swing.MigLayout;
 
-public class Sidebar extends JPanel {
+public class Sidebar extends JPanel implements ListSelectionListener {
 	
 	private JLabel recieved, sent, calenders;
 	private JList<String> rList, sList;
@@ -15,6 +18,7 @@ public class Sidebar extends JPanel {
 		rList.setFocusable(false);
 		rList.setModel(listmodel);
 		rList.setOpaque(false);
+		rList.addListSelectionListener(this);
 		
 		for(int i=0; i<30; i++){
 			listmodel.addElement("test" + i);
@@ -41,5 +45,9 @@ public class Sidebar extends JPanel {
 		add(calenders);
 		
 		//setPreferredSize(new Dimension(250,600));
+	}
+
+	public void valueChanged(ListSelectionEvent arg0) {
+		
 	}
 }

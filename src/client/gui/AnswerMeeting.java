@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -21,6 +22,7 @@ public class AnswerMeeting extends JPanel implements ActionListener {
 	private JLabel place = new JLabel();
 	private JLabel time = new JLabel();
 	private JLabel desc = new JLabel();
+	private JButton send;
 	private JList list;
 	private JRadioButton acc, dec;
 	private JScrollPane scroll;
@@ -59,6 +61,9 @@ public class AnswerMeeting extends JPanel implements ActionListener {
 		this.time.setText(time);
 		this.desc.setText(desc);
 		this.place.setText(place);
+		
+		send = new JButton("Svar");
+		send.addActionListener(this);
 		
 		myBGroup = new ButtonGroup();
 		myBGroup.add(acc);
@@ -103,17 +108,18 @@ public class AnswerMeeting extends JPanel implements ActionListener {
 		g.gridy = 9;
 		add(dec,g);
 		add(decline,g);
+		
+		g.gridy = 10;
+		add(send,g);
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		System.out.println(arg0.getActionCommand().toString());
+		
 	}
 
 	public static void main(String[] args) {
 		JFrame f = new JFrame();
-		f.getContentPane().add(
-				new AnswerMeeting("Møte", "06.02", "15:30", "Pølsefest",
-						"Narvesen"));
+		f.getContentPane().add(new AnswerMeeting("Møte", "06.02", "15:30", "Pølsefest","Narvesen"));
 		f.pack();
 		f.setVisible(true);
 		f.setSize(800, 600);

@@ -249,16 +249,11 @@ public class AddEvent extends JPanel implements ActionListener{
 			monthE.setEnabled(true);
 		}
 	}
-	
-	public void descRenderer(){
-		
-	}
 
 	private void delete() {
 		//server.model.Event e = (Event) MainClass.sServer.eventStorage.delete();
 	}
 
-	@SuppressWarnings("unused")
 	private void save(EventI e) {
 		int eYear = this.getYear(month);
 		int eMonth = this.getMonth(month);
@@ -334,6 +329,4 @@ public class AddEvent extends JPanel implements ActionListener{
 				.split(" ");
 		return Integer.parseInt(y[0]);
 	}
-
-
 }
