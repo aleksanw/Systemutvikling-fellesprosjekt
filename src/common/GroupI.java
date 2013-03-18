@@ -8,9 +8,9 @@ public interface GroupI extends ModelI {
 
 	public abstract String getGroupName() throws RemoteException;
 
-	public abstract int getParentGroupID() throws RemoteException;
+	public abstract GroupI getParentGroup() throws RemoteException;
 
-	public abstract void setParentGroupID(int parentGroupID) throws RemoteException;
+	public abstract void setParentGroup(GroupI parentGroup) throws RemoteException;
 
 	public abstract void setGroupName(String groupName) throws RemoteException;
 

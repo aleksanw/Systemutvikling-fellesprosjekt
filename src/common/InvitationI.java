@@ -12,18 +12,18 @@ public interface InvitationI extends ModelI {
 
 	public abstract void setAttending(boolean isAttending) throws SQLException;
 
-	public abstract int getEventID();
+	public abstract EventI getEvent();
 
-	public abstract int getUserID();
+	public abstract UserI getUser();
 
 	public abstract void setDateTimeOfInvitation(DateTime dateTimeOfInvitation)
 			throws SQLException;
 
 	public abstract int getInvitationID();
 
-	public abstract void setUserID(int userID) throws SQLException;
+	public abstract void setUser(UserI user) throws SQLException;
 
-	public abstract void setEventID(int eventID) throws SQLException;
+	public abstract void setEvent(EventI event) throws SQLException;
 
 	public abstract void delete();
 
