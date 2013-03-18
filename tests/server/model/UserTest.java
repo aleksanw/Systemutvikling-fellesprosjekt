@@ -3,6 +3,9 @@ package server.model;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
+
+import junit.extensions.jfcunit.JFCTestCase;
+
 import org.joda.time.DateTime;
 import server.system.StorageServer;
 import client.gui.MainClass;
@@ -11,10 +14,8 @@ import common.AlarmI;
 import common.EventI;
 import common.UserI;
 
-public class UserTest {
-	
-	public ArrayList<EventI> eventsCreatedByThisUser = new ArrayList<>();
-	
+public class UserTest extends JFCTestCase{
+		
 	public void test() throws Exception{
 		
 		new StorageServer();
@@ -35,15 +36,16 @@ public class UserTest {
 		event.setEventName("KTN forelesning");
 		//event.setCreatedByUser(MainClass.getCurrentUser());
 		event.setMeeting(false);
-		event.setStart(new DateTime("2013-03-15 12:15:00"));
-		event.setEnd(new DateTime("2013-03-15 15:00:00"));
+		event.setStart(new DateTime("2013-03-15T12:15:00"));
+		event.setEnd(new DateTime("2013-03-15T15:00:00"));
 		
-		eventsCreatedByThisUser.add(event);
+		int userID = user.getUserID();
+		UserI userFromDB = client.userStorage.get(userID);
 		
-		
-		
-		System.out.println(user.getUserID());
-		
-		user.delete();
+		assertEquals("Ole Brumm", userFromDB.getName());
+		assertEquals("ntnu@gmail.com", userFromDB.getEmail());
+		assertEquals(new Date(1991-06-02), userFromDB.getDateOfBirth());
+		assertEquals(event, userFromDB.getCreatedEvents().get(0));
+		assertEquals(true, user.isCreatorOfEvent(event));
 	}
 }

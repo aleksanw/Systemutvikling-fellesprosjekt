@@ -1,6 +1,5 @@
 package common;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -11,7 +10,7 @@ import server.model.Event;
 import server.model.Invitation;
 
 
-public interface UserI extends Remote {
+public interface UserI extends ModelI {
 
 	public abstract String getEmail()throws RemoteException, SQLException;
 
@@ -39,6 +38,6 @@ public interface UserI extends Remote {
 
 	public abstract void setDateOfBirth(Date dateOfBirth) throws RemoteException, SQLException;
 
-	public abstract void delete() throws RemoteException, SQLException;
+	public abstract void delete() throws RemoteException;
 
 }

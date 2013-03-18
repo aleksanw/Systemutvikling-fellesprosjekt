@@ -41,7 +41,7 @@ public class RMIServer {
 		// Bind to RMI registry 
 		registry = LocateRegistry.createRegistry( port );
 		
-		System.out.println("RMI Server Running...");
+		System.out.println("RMI Server Running. (Should be killed before starting a new one on the same port.)");
 	}
 	
 	public void killServer(){
@@ -51,6 +51,7 @@ public class RMIServer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("Killed RMI Server");
 	}
 	
 	/**

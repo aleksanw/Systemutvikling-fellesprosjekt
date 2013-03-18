@@ -9,7 +9,7 @@ public class MemberOfGroup extends Model {
 
 	private int memberOfGroupID, groupID, userID;
 	
-	public MemberOfGroup(int memberOfGroupID) throws RemoteException, SQLException {
+	public MemberOfGroup(Integer memberOfGroupID) throws RemoteException, SQLException {
 		super("memberOfGroup", createTableFields(), "memberOfGroupID");
 		ResultSet result = super.getFromDB(memberOfGroupID);
 		if(result.next()) {

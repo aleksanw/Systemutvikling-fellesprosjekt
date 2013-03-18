@@ -2,6 +2,7 @@ package server.storage;
 
 import java.rmi.RemoteException;
 import server.model.Invitation;
+import common.InvitationI;
 import common.InvitationStorageI;
 
 public class InvitationStorage extends Storage implements InvitationStorageI {
@@ -22,7 +23,7 @@ public class InvitationStorage extends Storage implements InvitationStorageI {
 		super.delete(ID);
 	}
 	
-	public void delete(Invitation model) throws RemoteException {
+	public void delete(InvitationI model) throws RemoteException {
 		super.delete(model);
 	}
 }

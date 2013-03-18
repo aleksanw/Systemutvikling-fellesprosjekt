@@ -2,6 +2,7 @@ package server.storage;
 
 import java.rmi.RemoteException;
 import server.model.Alarm;
+import common.AlarmI;
 import common.AlarmStorageI;
 
 public class AlarmStorage extends Storage implements AlarmStorageI {
@@ -22,7 +23,7 @@ public class AlarmStorage extends Storage implements AlarmStorageI {
 		super.delete(ID);
 	}
 	
-	public void delete(Alarm model) throws RemoteException {
+	public void delete(AlarmI model) throws RemoteException {
 		super.delete(model);
 	}
 }

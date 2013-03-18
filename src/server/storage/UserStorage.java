@@ -2,6 +2,7 @@ package server.storage;
 
 import java.rmi.RemoteException;
 import server.model.User;
+import common.UserI;
 import common.UserStorageI;
 
 public class UserStorage extends Storage implements UserStorageI {
@@ -22,7 +23,7 @@ public class UserStorage extends Storage implements UserStorageI {
 		super.delete(ID);
 	}
 	
-	public void delete(User model) throws RemoteException {
+	public void delete(UserI model) throws RemoteException {
 		super.delete(model);
 	}
 }

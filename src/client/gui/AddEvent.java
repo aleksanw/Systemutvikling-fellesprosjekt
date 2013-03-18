@@ -227,11 +227,23 @@ public class AddEvent extends JPanel implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().toString().equals("Lagre")) {
-			//save();
+			try {
+				try {
+					save(MainClass.sServer.eventStorage.get(event.getEventID()));
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			} catch (RemoteException e1) {
+				e1.printStackTrace();
+			}
 			clearFields();
 			MainClass.loginOK();
 		} else if (e.getActionCommand().toString().equals("Slett")) {
-			delete();
+			try {
+				delete(MainClass.sServer.eventStorage.get(event.getEventID()));
+			} catch (RemoteException e1) {
+				e1.printStackTrace();
+			}
 			clearFields();
 			MainClass.loginOK();
 		} else if (e.getActionCommand().toString().equals("Avbryt")) {
@@ -250,11 +262,29 @@ public class AddEvent extends JPanel implements ActionListener{
 		}
 	}
 
-	private void delete() {
-		//server.model.Event e = (Event) MainClass.sServer.eventStorage.delete();
+	private void delete(EventI e) {
+			if(e != null){
+				try {
+					MainClass.sServer.eventStorage.delete(event.getEventID());
+				} catch (RemoteException e1) {
+					e1.printStackTrace();
+				}
+			}
 	}
 
-	private void save(EventI e) {
+	private void save(EventI e) throws SQLException {
+		try {
+			if (e == null) {
+				e = (EventI) MainClass.sServer.eventStorage.create();
+				throw new RemoteException();
+			} 
+			editEvent(e);
+		} catch (RemoteException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	private void editEvent(EventI e) throws RemoteException, SQLException {
 		int eYear = this.getYear(month);
 		int eMonth = this.getMonth(month);
 		int eDay = Integer.parseInt(this.day.getSelectedItem().toString());
@@ -265,33 +295,20 @@ public class AddEvent extends JPanel implements ActionListener{
 		int eDayE = Integer.parseInt(this.dayE.getSelectedItem().toString());
 		int eHourE = Integer.parseInt(this.hourE.getSelectedItem().toString());
 		int eMinE = Integer.parseInt(this.minE.getSelectedItem().toString());
-		try {
-			if (e == null) {
-				//e = (Event) MainClass.sServer.eventStorage.create();
-				throw new RemoteException();
-			//	e = (Event) MainClass.sServer.eventStorage.create();
-			} else {
-				try {
-					e.setEventName(this.getName());
-					e.setStart(new DateTime(eYear, eMonth, eDay, eHour, eMin));
-					if (this.allDay.isSelected()) {
-						e.setEnd(new DateTime(eYear, eMonth, eDay, 23, 59));
-					} else {
-						e.setEnd(new DateTime(eYearE, eMonthE, eDayE, eHourE,
-								eMinE));
-					}
-					e.setDescription(this.desc.getText());
-					e.setLocation(this.place.text.getText());
-					// e.setRoomBooked("Liste over rom");
-					e.setMeeting(false);
-					// e.setCreatedByGroup();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-			}
-		} catch (RemoteException e1) {
-			e1.printStackTrace();
+		e.setEventName(this.getName());
+		e.setStart(new DateTime(eYear, eMonth, eDay, eHour, eMin));
+		if (this.allDay.isSelected()) {
+			e.setEnd(new DateTime(eYear, eMonth, eDay, 23, 59));
+		} else {
+			e.setEnd(new DateTime(eYearE, eMonthE, eDayE, eHourE,
+					eMinE));
 		}
+		e.setDescription(this.desc.getText());
+		e.setLocation(this.place.text.getText());
+		e.setRoomBooked(booking.list.getSelectedIndex());
+		e.setMeeting(false);
+		//e.setCreatedByGroup(vis.getSelectedItem()); 
+		
 	}
 
 	public void clearFields() {

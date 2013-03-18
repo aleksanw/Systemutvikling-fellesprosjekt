@@ -8,10 +8,16 @@ import javax.swing.UIManager;
 
 import org.apache.commons.cli.*;
 
+import server.system.StorageServer;
+
+import client.system.DummyStorageServerConnection;
+import client.system.StorageServerConnection;
+
 public class MainClass {
 	static JFrame frame;
 	static JRootPane currentPane;
 	static JPanel cards;
+	static client.system.StorageServerConnection sServer;
 	
 	private static void swapPane(String what) {
 		CardLayout layout = (CardLayout) cards.getLayout();
@@ -32,7 +38,10 @@ public class MainClass {
 		frame.setVisible(true);
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		new StorageServer();
+		sServer = new StorageServerConnection();
+		
 		System.setProperty("file.encoding", "UTF-8");
 		
 		try {

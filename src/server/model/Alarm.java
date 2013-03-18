@@ -6,14 +6,18 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 
+import server.system.StorageServer;
+
 import common.AlarmI;
+import common.EventI;
+import common.UserI;
 
 public class Alarm extends Model implements AlarmI {
 	
 	private Time numberOfHoursBeforeMeeting;
 	private int alarmID, userID, eventID;
 
-	public Alarm(int alarmID) throws RemoteException, SQLException{
+	public Alarm(Integer alarmID) throws RemoteException, SQLException{
 		super("alarm", createTableFields(), "alarmID");
 		ResultSet result = super.getFromDB(alarmID);
 		if(result.next()) {
@@ -53,23 +57,23 @@ public class Alarm extends Model implements AlarmI {
 	 * @see server.model.AlarmI#getUserID()
 	 */
 	@Override
-	public int getUserID() {
-		return userID;
+	public User getUser() throws RemoteException {
+		return StorageServer.userStorage.get(userID);
 	}
 
 	/* (non-Javadoc)
 	 * @see server.model.AlarmI#getEventID()
 	 */
 	@Override
-	public int getEventID() {
-		return eventID;
+	public Event getEvent() throws RemoteException {
+		return StorageServer.eventStorage.get(eventID);
 	}
 	
 	/* (non-Javadoc)
 	 * @see server.model.AlarmI#getNumberOfHoursBeforeMeeting()
 	 */
 	@Override
-	public Time getNumberOfHoursBeforeMeeting() {
+	public Time getNumberOfHoursBeforeMeeting() throws RemoteException {
 		return numberOfHoursBeforeMeeting;
 	}
 
@@ -77,7 +81,7 @@ public class Alarm extends Model implements AlarmI {
 	 * @see server.model.AlarmI#setUserID(int)
 	 */
 	@Override
-	public void setUserID(int userID) throws SQLException {
+	public void setUserID(int userID) throws RemoteException, SQLException {
 		super.updateField("userID", userID, alarmID);
 		this.userID = userID;
 	}
@@ -86,7 +90,7 @@ public class Alarm extends Model implements AlarmI {
 	 * @see server.model.AlarmI#setEventID(int)
 	 */
 	@Override
-	public void setEventID(int eventID) throws SQLException {
+	public void setEventID(int eventID) throws RemoteException, SQLException {
 		super.updateField("eventID", eventID, alarmID);
 		this.eventID = eventID;
 	}
@@ -95,7 +99,7 @@ public class Alarm extends Model implements AlarmI {
 	 * @see server.model.AlarmI#setNumberOfHoursBeforeMeeting(java.sql.Time)
 	 */
 	@Override
-	public void setNumberOfHoursBeforeMeeting(Time numberOfHoursBeforeMeeting) throws SQLException {
+	public void setNumberOfHoursBeforeMeeting(Time numberOfHoursBeforeMeeting) throws RemoteException, SQLException {
 		super.updateField("numberOfhoursBeforeMeeting", numberOfHoursBeforeMeeting, alarmID);
 		this.numberOfHoursBeforeMeeting = numberOfHoursBeforeMeeting;
 	}
@@ -104,15 +108,15 @@ public class Alarm extends Model implements AlarmI {
 	 * @see server.model.AlarmI#delete()
 	 */
 	@Override
-	public void delete() {
+	public void delete() throws RemoteException {
 		super.delete(alarmID);		
 	}
 	
-	public void setUser(User user) throws SQLException {
+	public void setUser(UserI user) throws RemoteException, SQLException {
 		this.setUserID(user.getUserID());
 	}
 	
-	public void setEvent(Event event) throws SQLException {
+	public void setEvent(EventI event) throws RemoteException, SQLException {
 		this.setEventID(event.getEventID());
 	}
 }

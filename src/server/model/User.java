@@ -16,7 +16,7 @@ public class User extends Model implements UserI {
 	private Date dateOfBirth;
 	public String userName;		
 	
-	public User(int userID) throws RemoteException, SQLException {
+	public User(Integer userID) throws RemoteException, SQLException {
 		super("User", createTableFields(), "userID");
 		ResultSet result = super.getFromDB(userID);
 		if(result.next()) {
@@ -119,7 +119,7 @@ public class User extends Model implements UserI {
 		while(result.next()) {
 			events.add(new Event((result.getInt("eventID"))));
 		}
-		return new ArrayList<Event>();
+		return events;
 	}
 	
 	/* (non-Javadoc)

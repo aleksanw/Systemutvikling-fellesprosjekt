@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 
 import server.model.Event;
 
+import common.EventI;
 import common.EventStorageI;
 
 public class EventStorage extends Storage implements EventStorageI {
@@ -34,7 +35,7 @@ public class EventStorage extends Storage implements EventStorageI {
 		}
 	}
 	
-	public void delete(Event model) throws RemoteException {
+	public void delete(EventI model) throws RemoteException {
 		super.delete(model);
 	}
 }
