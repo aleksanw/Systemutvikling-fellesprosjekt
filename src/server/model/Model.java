@@ -31,7 +31,7 @@ public abstract class Model extends UnicastRemoteObject {
 	
 	public abstract void delete();
 	
-	protected void delete(int ID) {
+	protected void delete(Integer ID) {
 		try {
 			DB.updateQuery("DELETE FROM " + tableName + " WHERE userID=" + ID);
 		} catch(SQLException e) {

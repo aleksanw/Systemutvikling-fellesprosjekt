@@ -26,7 +26,7 @@ public class Event extends Model implements EventI{
 	private int createdByGroup;
 	
 	
-	public Event(int eventID) throws RemoteException, SQLException {
+	public Event(Integer eventID) throws RemoteException, SQLException {
 		super("Event", createTableFields(), "eventID");
 		ResultSet result = super.getFromDB(eventID);
 		if(result.next()) {

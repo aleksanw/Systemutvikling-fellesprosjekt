@@ -16,7 +16,7 @@ public class User extends Model implements UserI {
 	private Date dateOfBirth;
 	public String userName;		
 	
-	public User(int userID) throws RemoteException, SQLException {
+	public User(Integer userID) throws RemoteException, SQLException {
 		super("User", createTableFields(), "userID");
 		ResultSet result = super.getFromDB(userID);
 		if(result.next()) {

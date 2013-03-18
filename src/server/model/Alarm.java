@@ -13,7 +13,7 @@ public class Alarm extends Model implements AlarmI {
 	private Time numberOfHoursBeforeMeeting;
 	private int alarmID, userID, eventID;
 
-	public Alarm(int alarmID) throws RemoteException, SQLException{
+	public Alarm(Integer alarmID) throws RemoteException, SQLException{
 		super("alarm", createTableFields(), "alarmID");
 		ResultSet result = super.getFromDB(alarmID);
 		if(result.next()) {

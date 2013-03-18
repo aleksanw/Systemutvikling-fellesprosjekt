@@ -12,7 +12,7 @@ public class Group extends Model implements GroupI {
 	private int groupID, parentGroupID;
 	private String groupName;
 	
-	public Group(int groupID) throws RemoteException, SQLException {
+	public Group(Integer groupID) throws RemoteException, SQLException {
 		super("Groups", createTableFields(), "groupID");
 		ResultSet result = super.getFromDB(groupID);
 		if(result.next()) {

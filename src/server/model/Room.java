@@ -14,7 +14,7 @@ public class Room extends Model implements RoomI {
 	private int roomID, personCapacity;
 	private String roomName;
 	
-	public Room(int roomID) throws RemoteException, SQLException {
+	public Room(Integer roomID) throws RemoteException, SQLException {
 		super("Room", createTableFields(), "roomID");
 		ResultSet result = super.getFromDB(roomID);
 		if(result.next()) {
