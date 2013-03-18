@@ -119,7 +119,7 @@ public class User extends Model implements UserI {
 		while(result.next()) {
 			events.add(new Event((result.getInt("eventID"))));
 		}
-		return new ArrayList<Event>();
+		return events;
 	}
 	
 	/* (non-Javadoc)
