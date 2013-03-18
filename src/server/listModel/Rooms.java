@@ -14,6 +14,12 @@ import server.system.StorageServer;
 
 public class Rooms extends ListModel {
 ArrayList<Room> rooms = new ArrayList<Room>();
+
+	public static void main(String[] args) throws Exception {
+		new StorageServer();
+		Rooms x = new Rooms();
+		System.out.println(x.getList());
+	}
 	
 	public Rooms() throws SQLException, RemoteException {
 		String query = "SELECT roomID FROM Room;";
