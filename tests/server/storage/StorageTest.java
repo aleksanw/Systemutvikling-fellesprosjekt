@@ -56,5 +56,7 @@ public class StorageTest  extends JFCTestCase {
 		EventI eventClient2 = client2.eventStorage.get(eventID);
 		assertEquals("Test123", eventClient2.getEventName());
 		
+		server.killServer();
+		
 	}
 }

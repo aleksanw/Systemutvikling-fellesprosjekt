@@ -8,6 +8,8 @@ import server.storage.RoomStorage;
 import server.storage.UserStorage;
 
 public class StorageServer {
+	private RMIServer rmiServer;
+	
 	public static EventStorage eventStorage;
 	public static UserStorage userStorage;
 	public static GroupStorage groupStorage;
@@ -17,7 +19,7 @@ public class StorageServer {
 	
 	public StorageServer() throws Exception {
 		
-		RMIServer rmiServer = new RMIServer();
+		rmiServer = new RMIServer();
 		
 		eventStorage 		= new EventStorage();
 		userStorage 		= new UserStorage();
@@ -32,5 +34,9 @@ public class StorageServer {
 		rmiServer.addObject("roomStorage", roomStorage);
 		rmiServer.addObject("alarmStorage", alarmStorage);
 		rmiServer.addObject("invitationStorage", invitationStorage);
+	}
+	
+	public void killServer() {
+		rmiServer.killServer();
 	}
 }
