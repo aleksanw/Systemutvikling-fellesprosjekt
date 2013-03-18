@@ -2,6 +2,7 @@ package server.storage;
 
 import java.rmi.RemoteException;
 import server.model.Group;
+import common.GroupI;
 import common.GroupStorageI;
 
 public class GroupStorage extends Storage implements GroupStorageI {
@@ -22,7 +23,7 @@ public class GroupStorage extends Storage implements GroupStorageI {
 		super.delete(ID);
 	}
 	
-	public void delete(Group model) throws RemoteException {
+	public void delete(GroupI model) throws RemoteException {
 		super.delete(model);
 	}
 }

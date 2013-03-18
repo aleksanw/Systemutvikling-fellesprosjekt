@@ -1,10 +1,9 @@
 package common;
 
-import java.rmi.Remote;
 import java.sql.SQLException;
 import java.sql.Time;
 
-public interface AlarmI extends Remote {
+public interface AlarmI extends ModelI {
 
 	public abstract int getAlarmID();
 

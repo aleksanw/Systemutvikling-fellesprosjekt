@@ -1,6 +1,5 @@
 package common;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,7 +8,7 @@ import org.joda.time.DateTime;
 
 import server.model.Invitation;
 
-public interface EventI extends Remote {
+public interface EventI extends ModelI {
 
 	public ArrayList<Invitation> getInvitationList() throws RemoteException;
 
@@ -68,5 +67,4 @@ public interface EventI extends Remote {
 	public boolean isMeeting() throws RemoteException;
 
 	public void delete() throws RemoteException;
-
 }

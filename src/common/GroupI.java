@@ -1,9 +1,8 @@
 package common;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface GroupI extends Remote {
+public interface GroupI extends ModelI {
 
 	public abstract int getGroupID() throws RemoteException;
 

@@ -1,11 +1,10 @@
 package common;
 
-import java.rmi.Remote;
 import java.sql.SQLException;
 
 import org.joda.time.DateTime;
 
-public interface InvitationI extends Remote {
+public interface InvitationI extends ModelI {
 
 	public abstract DateTime getDateTimeOfInvitation();
 

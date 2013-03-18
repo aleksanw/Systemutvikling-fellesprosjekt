@@ -4,7 +4,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import server.model.Model;
+import common.ModelI;
+
 
 public abstract class Storage extends UnicastRemoteObject {
 	private Class modelClass;
@@ -13,9 +14,9 @@ public abstract class Storage extends UnicastRemoteObject {
 		this.modelClass = modelClass;
 	}
 
-	public Model create() throws RemoteException {
+	public ModelI create() throws RemoteException {
 		try {
-			return (Model)modelClass.newInstance();
+			return (ModelI)modelClass.newInstance();
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
@@ -25,9 +26,9 @@ public abstract class Storage extends UnicastRemoteObject {
 		return null;
 	}
 
-	public Model get(int ID) throws RemoteException {
+	public ModelI get(int ID) throws RemoteException {
 		try {
-			return (Model)modelClass.getConstructor(Integer.class).newInstance(ID);
+			return (ModelI)modelClass.getConstructor(Integer.class).newInstance(ID);
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
@@ -45,14 +46,14 @@ public abstract class Storage extends UnicastRemoteObject {
 	}
 
 	public void delete(int ID) throws RemoteException {
-		Model model = this.get(ID);
+		ModelI model = this.get(ID);
 		model.delete();
 		
 		// Delete from memory
 		model = null;
 	}
 	
-	public void delete(Model model) throws RemoteException {
+	public void delete(ModelI model) throws RemoteException {
 		model.delete();
 		
 		// Delete from memory

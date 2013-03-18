@@ -1,11 +1,10 @@
 package common;
 
-import java.rmi.Remote;
 import java.sql.SQLException;
 
 import org.joda.time.DateTime;
 
-public interface RoomI extends Remote {
+public interface RoomI extends ModelI {
 
 	public abstract int getRoomID();
 
