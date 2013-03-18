@@ -9,9 +9,9 @@ public class MemberOfGroup extends Model {
 
 	private int memberOfGroupID, groupID, userID;
 	
-	public MemberOfGroup(int roomID) throws RemoteException, SQLException {
-		super("Room", createTableFields(), "roomID");
-		ResultSet result = super.getFromDB(roomID);
+	public MemberOfGroup(int memberOfGroupID) throws RemoteException, SQLException {
+		super("memberOfGroup", createTableFields(), "memberOfGroupID");
+		ResultSet result = super.getFromDB(memberOfGroupID);
 		if(result.next()) {
 			this.memberOfGroupID = result.getInt("memberOfGroupID");
 			this.groupID = result.getInt("groupID");
@@ -20,7 +20,7 @@ public class MemberOfGroup extends Model {
 	}
 	
 	public MemberOfGroup() throws RemoteException, SQLException {
-		super("Room", createTableFields(), "roomID");
+		super("memberOfGroup", createTableFields(), "memberOfGroupID");
 		ArrayList<Integer> keyList = super.addToDB();
 		this.memberOfGroupID = keyList.get(0);
 	}
