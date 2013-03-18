@@ -24,8 +24,8 @@ public class StorageTest  extends JFCTestCase {
 		event.setEventName("KTN forelesning");
 		//event.setCreatedByUser(MainClass.getCurrentUser());
 		event.setMeeting(true);
-		event.setStart(new DateTime("2013-03-15 12:15:00"));
-		event.setEnd(new DateTime("2013-03-15 15:00:00"));
+		event.setStart(new DateTime(2013,03,15,  12,15));
+		event.setEnd(  new DateTime(2013,03,15,  15,00));
 		event.setLocation("R1");
 		
 		// Delete
