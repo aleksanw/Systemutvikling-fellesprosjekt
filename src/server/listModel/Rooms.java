@@ -15,15 +15,15 @@ import server.storage.UserStorage;
 public class Rooms extends ListModel {
 ArrayList<Room> rooms = new ArrayList<Room>();
 	
-	public Rooms() throws SQLException, RemoteException {
-		String query = "SELECT roomID FROM Rooms;";
+	public Rooms(RoomStorage storage) throws SQLException, RemoteException {
+		String query = "SELECT roomID FROM Rooms WHERE Group." + groupID + "=memberOfGroup." + groupID + ";";
 		ResultSet result = Model.getDB().readQuery(query);
 		while(result.next()) {
-			this.rooms.add(StorageServer.roomStorage.get(result.getInt("roomID")));
+			this.users.add(storage.get(result.getInt("userID")));
 		}
 	}
 	
-	public ArrayList<Room> getList() throws RemoteException{
-		return rooms;
+	public ArrayList<User> getList() {
+		return users;
 	}
 }

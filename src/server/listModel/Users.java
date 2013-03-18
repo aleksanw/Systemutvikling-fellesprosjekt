@@ -18,7 +18,7 @@ public class Users extends ListModel {
 		String query = "SELECT userID FROM memberOfGroup, Groups WHERE Group." + groupID + "=memberOfGroup." + groupID + ";";
 		ResultSet result = Model.getDB().readQuery(query);
 		while(result.next()) {
-			this.users.add(Storage.userStorage.get(result.getInt("userID")));
+			this.users.add(storage.get(result.getInt("userID")));
 		}
 	}
 	
