@@ -17,7 +17,7 @@ public class Invitation extends Model implements InvitationI {
 	private DateTime dateTimeOfInvitation;
 	private int invitationID, userID, eventID;
 	
-	public Invitation(int invitationID) throws RemoteException, SQLException {
+	public Invitation(Integer invitationID) throws RemoteException, SQLException {
 		super("InvitedTo", createTableFields(), "invitedToID");
 		ResultSet result = super.getFromDB(invitationID);
 		if(result.next()) {
