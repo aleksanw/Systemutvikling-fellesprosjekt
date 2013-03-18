@@ -8,6 +8,9 @@ import javax.swing.UIManager;
 
 import org.apache.commons.cli.*;
 
+import server.system.StorageServer;
+
+import client.system.DummyStorageServerConnection;
 import client.system.StorageServerConnection;
 
 public class MainClass {
@@ -36,7 +39,7 @@ public class MainClass {
 	}
 
 	public static void main(String[] args) throws Exception {
-		
+		new StorageServer();
 		sServer = new StorageServerConnection();
 		
 		System.setProperty("file.encoding", "UTF-8");

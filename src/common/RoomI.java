@@ -1,24 +1,25 @@
 package common;
 
+import java.rmi.RemoteException;
 import java.sql.SQLException;
 
 import org.joda.time.DateTime;
 
 public interface RoomI extends ModelI {
 
-	public abstract int getRoomID();
+	public abstract int getRoomID() throws RemoteException;
 
-	public abstract int getPersonCapacity();
+	public abstract int getPersonCapacity()throws RemoteException;
 
-	public abstract String getRoomName();
+	public abstract String getRoomName()throws RemoteException;
 
-	public abstract boolean isBookedInPeriod(DateTime start, DateTime end);
+	public abstract boolean isBookedInPeriod(DateTime start, DateTime end)throws RemoteException;
 
 	public abstract void setPersonCapacity(int personCapacity)
-			throws SQLException;
+			throws SQLException, RemoteException;
 
-	public abstract void setRoomName(String roomName) throws SQLException;
+	public abstract void setRoomName(String roomName) throws RemoteException, SQLException;
 
-	public abstract void delete();
+	public abstract void delete() throws RemoteException;
 
 }
