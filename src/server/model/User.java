@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
-
 import common.EventI;
 import common.GroupI;
 import common.UserI;
@@ -15,9 +14,7 @@ public class User extends Model implements UserI {
 	private int userID;
 	private String name, email;
 	private Date dateOfBirth;
-	public String userName;
-	
-		
+	public String userName;		
 	
 	public User(int userID) throws RemoteException, SQLException {
 		super("User", createTableFields(), "userID");
@@ -115,7 +112,13 @@ public class User extends Model implements UserI {
 	 * @see server.model.UserI#getCreatedEvents()
 	 */
 	@Override
-	public ArrayList<Event> getCreatedEvents() {
+	public ArrayList<Event> getCreatedEvents() throws RemoteException, SQLException {
+		ArrayList<Event> events = new ArrayList<Event>();
+		String query = "SELECT eventID FROM Event WHERE createdByUser="+ this.userID +";";
+		ResultSet result = Model.getDB().readQuery(query);
+		while(result.next()) {
+			events.add(new Event((result.getInt("eventID"))));
+		}
 		return new ArrayList<Event>();
 	}
 	

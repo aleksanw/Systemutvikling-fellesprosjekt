@@ -1,6 +1,7 @@
 package common;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,32 +13,32 @@ import server.model.Invitation;
 
 public interface UserI extends Remote {
 
-	public abstract String getEmail();
+	public abstract String getEmail()throws RemoteException, SQLException;
 
-	public abstract void setEmail(String email) throws SQLException;
+	public abstract void setEmail(String email) throws RemoteException, SQLException;
 
-	public abstract Date getDateOfBirth();
+	public abstract Date getDateOfBirth()throws RemoteException, SQLException;
 
-	public abstract boolean isCreatorOfEvent(EventI event);
+	public abstract boolean isCreatorOfEvent(EventI event)throws RemoteException, SQLException;
 
-	public abstract ArrayList<Alarm> getAlarms();
+	public abstract ArrayList<Alarm> getAlarms()throws RemoteException, SQLException;
 
-	public abstract ArrayList<Alarm> getAlarmsBeforeNow();
+	public abstract ArrayList<Alarm> getAlarmsBeforeNow()throws RemoteException, SQLException;
 
-	public abstract void addToGroup(GroupI group);
+	public abstract void addToGroup(GroupI group)throws RemoteException, SQLException;
 
-	public abstract ArrayList<Event> getCreatedEvents();
+	public abstract ArrayList<Event> getCreatedEvents() throws RemoteException, SQLException;
 
-	public abstract ArrayList<Invitation> getInvitations();
+	public abstract ArrayList<Invitation> getInvitations()throws RemoteException, SQLException;
 
-	public abstract int getUserID();
+	public abstract int getUserID()throws RemoteException, SQLException;
 
-	public abstract String getName();
+	public abstract String getName()throws RemoteException, SQLException;
 
-	public abstract void setName(String name) throws SQLException;
+	public abstract void setName(String name) throws RemoteException, SQLException;
 
-	public abstract void setDateOfBirth(Date dateOfBirth) throws SQLException;
+	public abstract void setDateOfBirth(Date dateOfBirth) throws RemoteException, SQLException;
 
-	public abstract void delete();
+	public abstract void delete() throws RemoteException, SQLException;
 
 }
