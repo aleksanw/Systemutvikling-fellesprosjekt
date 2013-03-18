@@ -14,8 +14,7 @@ public class StorageTest  extends JFCTestCase {
 	public void testSimpleWithDummyServer() throws Exception {
 		
 		// Set up dummy client/server (without Java RMI)
-		DummyStorageServerConnection client = new DummyStorageServerConnection();
-		
+		DummyStorageServerConnection client = new DummyStorageServerConnection();	
 		
 		// Create a new Event
 		EventI event = client.eventStorage.create();	
