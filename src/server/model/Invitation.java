@@ -9,7 +9,9 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import common.EventI;
 import common.InvitationI;
+import common.UserI;
 
 public class Invitation extends Model implements InvitationI {
 	
@@ -74,16 +76,16 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#getEventID()
 	 */
 	@Override
-	public int getEventID() {
-		return eventID;
+	public EventI getEvent() {
+		return new Event(eventID);
 	}
 
 	/* (non-Javadoc)
 	 * @see server.model.InvitationI#getUserID()
 	 */
 	@Override
-	public int getUserID() {
-		return userID;
+	public UserI getUser() {
+		return new User(userID);
 	}
 
 	/* (non-Javadoc)
@@ -109,7 +111,8 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#setUserID(int)
 	 */
 	@Override
-	public void setUserID(int userID) throws SQLException {
+	public void setUser(UserI user) {
+		int userID = user.getUserID();
 		super.updateField("userID", userID, invitationID);
 		this.userID = userID;
 	}
@@ -118,7 +121,8 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#setEventID(int)
 	 */
 	@Override
-	public void setEventID(int eventID) throws SQLException {
+	public void setEvent(EventI event) {
+		int eventID = event.getEventID();
 		super.updateField("eventID", eventID, invitationID);
 		this.eventID = eventID;
 	}

@@ -260,7 +260,7 @@ public class Event extends Model implements EventI{
 		this.roomBooked = roomBooked;
 	}
 	
-	public void setRoomBooked(RoomI roomBooked) throws SQLException {
+	public void setRoomBooked(RoomI roomBooked) throws SQLException, RemoteException {
 		setRoomBooked(roomBooked.getRoomID());
 	}
 

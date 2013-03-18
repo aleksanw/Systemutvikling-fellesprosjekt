@@ -12,13 +12,20 @@ public class Group extends Model implements GroupI {
 	private int groupID, parentGroupID;
 	private String groupName;
 	
-	public Group(Integer groupID) throws RemoteException, SQLException {
+	public Group(Integer groupID) throws RemoteException {
 		super("Groups", createTableFields(), "groupID");
-		ResultSet result = super.getFromDB(groupID);
-		if(result.next()) {
-			this.groupID = result.getInt("groupID");
-			this.parentGroupID = result.getInt("parentGroupID");
-			this.groupName = result.getString("groupName");
+		ResultSet result;
+		try {
+			result = super.getFromDB(groupID);
+
+			if(result.next()) {
+				this.groupID = result.getInt("groupID");
+				this.parentGroupID = result.getInt("parentGroupID");
+				this.groupName = result.getString("groupName");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
@@ -56,16 +63,16 @@ public class Group extends Model implements GroupI {
 	 * @see server.model.GroupI#getParentGroupID()
 	 */
 	@Override
-	public int getParentGroupID() {
-		return parentGroupID;
+	public GroupI getParentGroup() throws RemoteException {
+		return new Group(parentGroupID);
 	}
 
 	/* (non-Javadoc)
 	 * @see server.model.GroupI#setParentGroupID(int)
 	 */
 	@Override
-	public void setParentGroupID(int parentGroupID) {
-		this.parentGroupID = parentGroupID;
+	public void setParentGroup(GroupI parentGroup) throws RemoteException {
+		this.parentGroupID = parentGroup.getGroupID();
 	}
 
 	/* (non-Javadoc)
