@@ -107,4 +107,12 @@ public class Alarm extends Model implements AlarmI {
 	public void delete() {
 		super.delete(alarmID);		
 	}
+	
+	public void setUser(User user) throws SQLException {
+		this.setUserID(user.getUserID());
+	}
+	
+	public void setEvent(Event event) throws SQLException {
+		this.setEventID(event.getEventID());
+	}
 }
