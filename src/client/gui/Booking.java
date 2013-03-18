@@ -4,13 +4,13 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
-
 import javax.swing.DefaultListModel;
+import javax.swing.DefaultListSelectionModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
+import javax.swing.ListSelectionModel;
 import server.listModel.Rooms;
 import server.model.Room;
 
@@ -18,22 +18,21 @@ public class Booking extends JPanel {
 	
 	protected JLabel label;
 	protected JLabel date;
-	protected JList list;
+	protected JList<Room> list;
 	protected JScrollPane scroll;
-	server.listModel.Rooms roomList;
-	DefaultListModel<Room> model;
+	protected server.listModel.Rooms roomList;
+	protected DefaultListModel<Room> model;
+	protected DefaultListSelectionModel selectionModel;
 	
 	GridBagConstraints g = new GridBagConstraints();
 	
+	@SuppressWarnings("unchecked")
 	public Booking() {
-		
 		try {
 			roomList = new Rooms();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		model = new DefaultListModel<Room>();
@@ -42,7 +41,6 @@ public class Booking extends JPanel {
 				model.addElement(room);
 			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -53,11 +51,15 @@ public class Booking extends JPanel {
 		
 		date = new JLabel();
 		
+		selectionModel = new DefaultListSelectionModel();
+		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
 		list = new JList<Room>(model);
+		list.setSelectionModel(selectionModel);
+		list.setCellRenderer(new CellRenderer());
 		
 		scroll = new JScrollPane(list);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scroll.setSize(150, 150);
 
 		g.fill = GridBagConstraints.BOTH;
 		g.gridy = 0;
@@ -65,11 +67,7 @@ public class Booking extends JPanel {
 		add(label,g);
 		g.gridx = 1;
 		add(date,g);
-		g.gridx = 0;
 		g.gridy = 1;
-		g.gridwidth = 4;
-		g.gridheight = 2;
 		add(scroll,g);
 	}
-	
 }
