@@ -49,8 +49,8 @@ public class EventTest extends JFCTestCase {
 		
 		assertEquals(myGroup.getGroupID(), eventFromDB.getCreatedByUser().getGroupID());
 		assertEquals("KTN forelesning", eventFromDB.getEventName());
-		assertEquals(new Datetime("2013-03-15T12:15:00").getMillis(), eventFromDB.getStart().getMillis());
-		assertEquals(new Datetime("2013-03-15T15:00:00").getMillis(), eventFromDB.getEnd().getMillis());
+		assertEquals(new DateTime("2013-03-15T12:15:00").getMillis(), eventFromDB.getStart().getMillis());
+		assertEquals(new DateTime("2013-03-15T15:00:00").getMillis(), eventFromDB.getEnd().getMillis());
 		assertEquals("R1", eventFromDB.getLocation());
 		
 		
