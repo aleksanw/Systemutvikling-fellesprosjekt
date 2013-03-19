@@ -8,7 +8,7 @@ import org.apache.commons.cli.ParseException;
 import client.system.StorageServerConnection;
 
 public class MainClass {
-	static StorageServerConnection sServer = new StorageServerConnection();
+	static StorageServerConnection sServer;
 	static GUI gui;
 
 	public static void main(String[] args) {
@@ -17,6 +17,9 @@ public class MainClass {
 		gui = new GUI();
 
 		CommandLine cmd = parseArgs(args);
+
+		String srvAddr = cmd.getArgs()[0];
+		sServer = new StorageServerConnection(srvAddr);
 		if (cmd.hasOption('L'))
 			loginOK();
 	}
