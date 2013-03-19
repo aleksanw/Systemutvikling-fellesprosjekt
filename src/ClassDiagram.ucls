@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true">  
   <class id="1" language="java" name="server.system.Database" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/system/Database.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="274" x="4748" y="824"/>    
+    <position x="4748" y="824" width="274" height="279"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="server.system.RMIServer" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/system/RMIServer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="173" x="5062" y="824"/>    
+    <position x="5062" y="824" width="173" height="153"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="server.system.StartUpServer" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/system/StartUpServer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="2286" y="37"/>    
+    <position x="2286" y="37" width="113" height="99"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="server.system.StorageServer" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/system/StorageServer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="107" x="5848" y="37"/>    
+    <position x="5848" y="37" width="107" height="99"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="server.storage.AlarmStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/AlarmStorage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="116" x="6008" y="824"/>    
+    <position x="6008" y="824" width="116" height="153"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="server.storage.EventStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/EventStorage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="342" x="6542" y="824"/>    
+    <position x="6542" y="824" width="342" height="171"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="server.storage.GroupStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/GroupStorage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="118" x="5509" y="824"/>    
+    <position x="5509" y="824" width="118" height="153"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -67,7 +67,7 @@
   <class id="8" language="java" name="server.storage.InvitationStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/InvitationStorage.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="153" width="130" x="5838" y="824"/>    
+    <position x="5838" y="824" width="130" height="153"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -76,7 +76,7 @@
   </class>  
   <class id="9" language="java" name="server.storage.RoomStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/RoomStorage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="131" x="5667" y="824"/>    
+    <position x="5667" y="824" width="131" height="171"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -85,7 +85,7 @@
   </class>  
   <class id="10" language="java" name="server.storage.Storage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/Storage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="205" x="5995" y="37"/>    
+    <position x="5995" y="37" width="205" height="171"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -94,7 +94,7 @@
   </class>  
   <class id="11" language="java" name="server.storage.UserStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/UserStorage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="111" x="6391" y="824"/>    
+    <position x="6391" y="824" width="111" height="153"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -103,7 +103,7 @@
   </class>  
   <class id="12" language="java" name="server.model.Alarm" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Alarm.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="369" width="242" x="3030" y="824"/>    
+    <position x="3030" y="824" width="242" height="369"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -112,7 +112,7 @@
   </class>  
   <class id="13" language="java" name="server.model.Event" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Event.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="909" width="210" x="3689" y="824"/>    
+    <position x="3689" y="824" width="210" height="909"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -121,7 +121,7 @@
   </class>  
   <class id="14" language="java" name="server.model.Group" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Group.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="206" x="3312" y="824"/>    
+    <position x="3312" y="824" width="206" height="279"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -130,7 +130,7 @@
   </class>  
   <class id="15" language="java" name="server.model.Invitation" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Invitation.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="387" width="214" x="3939" y="824"/>    
+    <position x="3939" y="824" width="214" height="387"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -139,7 +139,7 @@
   </class>  
   <class id="16" language="java" name="server.model.MemberOfGroup" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/MemberOfGroup.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="206" x="4481" y="824"/>    
+    <position x="4481" y="824" width="206" height="279"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -148,7 +148,7 @@
   </class>  
   <class id="17" language="java" name="server.model.Room" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Room.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="248" x="4193" y="824"/>    
+    <position x="4193" y="824" width="248" height="297"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -157,7 +157,7 @@
   </class>  
   <class id="18" language="java" name="server.model.User" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/User.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="477" width="227" x="3763" y="2699"/>    
+    <position x="3763" y="2699" width="227" height="477"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -166,7 +166,7 @@
   </class>  
   <class id="19" language="java" name="server.model.Model" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Model.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="315" width="327" x="4193" y="37"/>    
+    <position x="4193" y="37" width="327" height="315"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -175,7 +175,7 @@
   </class>  
   <class id="20" language="java" name="server.listModel.Alarms" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/listModel/Alarms.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="87" x="14" y="37"/>    
+    <position x="14" y="37" width="87" height="81"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -185,7 +185,7 @@
   <class id="21" language="java" name="server.listModel.CreatedMeetings" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/listModel/CreatedMeetings.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="81" width="121" x="2439" y="37"/>    
+    <position x="2439" y="37" width="121" height="81"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -194,7 +194,7 @@
   </class>  
   <class id="22" language="java" name="server.listModel.Events" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/listModel/Events.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="441" width="269" x="141" y="37"/>    
+    <position x="141" y="37" width="269" height="441"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -203,16 +203,16 @@
   </class>  
   <class id="23" language="java" name="server.listModel.Groups" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/listModel/Groups.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="87" x="1546" y="37"/>    
+    <position x="1546" y="37" width="87" height="81"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="server.listModel.Invitations" project="Systemutvikling-fellesprosjekt" 
-    file="/Systemutvikling-fellesprosjekt/src/server/listModel/Invitations.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="153" x="1200" y="37"/>    
+  <class id="24" language="java" name="server.listModel.InvitationList" project="Systemutvikling-fellesprosjekt" 
+    file="/Systemutvikling-fellesprosjekt/src/server/listModel/InvitationList.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position x="1200" y="37" width="153" height="117"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -221,16 +221,16 @@
   </class>  
   <class id="25" language="java" name="server.listModel.Rooms" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/listModel/Rooms.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="156" x="2834" y="824"/>    
+    <position x="2834" y="824" width="156" height="117"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="server.listModel.Users" project="Systemutvikling-fellesprosjekt" 
-    file="/Systemutvikling-fellesprosjekt/src/server/listModel/Users.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="149" x="3558" y="2434"/>    
+  <class id="26" language="java" name="server.listModel.UserList" project="Systemutvikling-fellesprosjekt" 
+    file="/Systemutvikling-fellesprosjekt/src/server/listModel/UserList.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position x="3558" y="2434" width="149" height="99"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -240,7 +240,7 @@
   <class id="27" language="java" name="exceptions.ObjectNotFoundException" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/exceptions/ObjectNotFoundException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="81" width="170" x="753" y="37"/>    
+    <position x="753" y="37" width="170" height="81"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -249,7 +249,7 @@
   </class>  
   <interface id="28" language="java" name="common.AlarmI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/AlarmI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="242" x="2115" y="1773"/>    
+    <position x="2115" y="1773" width="242" height="243"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -258,7 +258,7 @@
   </interface>  
   <interface id="29" language="java" name="common.AlarmStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/AlarmStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="116" x="6170" y="1773"/>    
+    <position x="6170" y="1773" width="116" height="135"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -267,7 +267,7 @@
   </interface>  
   <interface id="30" language="java" name="common.EventI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/EventI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="621" width="210" x="2794" y="1773"/>    
+    <position x="2794" y="1773" width="210" height="621"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -276,7 +276,7 @@
   </interface>  
   <interface id="31" language="java" name="common.EventStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/EventStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="115" x="6477" y="1773"/>    
+    <position x="6477" y="1773" width="115" height="135"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -285,7 +285,7 @@
   </interface>  
   <interface id="32" language="java" name="common.GroupI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/GroupI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="165" x="2589" y="1773"/>    
+    <position x="2589" y="1773" width="165" height="171"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -294,7 +294,7 @@
   </interface>  
   <interface id="33" language="java" name="common.GroupStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/GroupStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="118" x="5671" y="1773"/>    
+    <position x="5671" y="1773" width="118" height="135"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -303,7 +303,7 @@
   </interface>  
   <interface id="34" language="java" name="common.InvitationI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/InvitationI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="214" x="3824" y="1773"/>    
+    <position x="3824" y="1773" width="214" height="243"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -312,7 +312,7 @@
   </interface>  
   <interface id="35" language="java" name="common.InvitationStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/InvitationStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="130" x="6000" y="1773"/>    
+    <position x="6000" y="1773" width="130" height="135"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -321,7 +321,7 @@
   </interface>  
   <interface id="36" language="java" name="common.ModelI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/ModelI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="327" x="2075" y="824"/>    
+    <position x="2075" y="824" width="327" height="117"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -330,7 +330,7 @@
   </interface>  
   <interface id="37" language="java" name="common.RoomI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/RoomI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="248" x="4078" y="1773"/>    
+    <position x="4078" y="1773" width="248" height="189"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -339,7 +339,7 @@
   </interface>  
   <interface id="38" language="java" name="common.RoomStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/RoomStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="131" x="5829" y="1773"/>    
+    <position x="5829" y="1773" width="131" height="153"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -348,7 +348,7 @@
   </interface>  
   <interface id="39" language="java" name="common.UserI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/UserI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="315" width="227" x="2075" y="3216"/>    
+    <position x="2075" y="3216" width="227" height="315"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -357,7 +357,7 @@
   </interface>  
   <interface id="40" language="java" name="common.UserStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/UserStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="111" x="6326" y="1773"/>    
+    <position x="6326" y="1773" width="111" height="135"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -367,7 +367,7 @@
   <class id="41" language="java" name="client.system.StorageServerConnection" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/system/StorageServerConnection.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="117" width="187" x="6164" y="824"/>    
+    <position x="6164" y="824" width="187" height="117"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -376,7 +376,7 @@
   </class>  
   <class id="42" language="java" name="client.system.StartUpClient" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/system/StartUpClient.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="1393" y="37"/>    
+    <position x="1393" y="37" width="113" height="99"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -385,7 +385,7 @@
   </class>  
   <class id="43" language="java" name="client.system.RMIClient" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/system/RMIClient.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="142" x="1673" y="37"/>    
+    <position x="1673" y="37" width="142" height="135"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -394,7 +394,7 @@
   </class>  
   <class id="44" language="java" name="client.gui.widgets.LoginForm" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/widgets/LoginForm.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="208" x="7738" y="37"/>    
+    <position x="7738" y="37" width="208" height="297"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -403,7 +403,7 @@
   </class>  
   <class id="45" language="java" name="client.gui.widgets.LoginForm.LoginEvent" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/widgets/LoginForm.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="194" x="7633" y="824"/>    
+    <position x="7633" y="824" width="194" height="189"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -413,7 +413,7 @@
   <interface id="46" language="java" name="client.gui.widgets.LoginListener" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/widgets/LoginListener.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="81" width="181" x="7412" y="824"/>    
+    <position x="7412" y="824" width="181" height="81"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -423,7 +423,7 @@
   <class id="47" language="java" name="client.gui.widgets.MyPasswordField" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/widgets/MyPasswordField.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="117" width="148" x="8040" y="824"/>    
+    <position x="8040" y="824" width="148" height="117"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -432,7 +432,7 @@
   </class>  
   <class id="48" language="java" name="client.gui.widgets.MyTextField" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/widgets/MyTextField.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="133" x="7867" y="824"/>    
+    <position x="7867" y="824" width="133" height="117"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -441,7 +441,7 @@
   </class>  
   <class id="49" language="java" name="client.gui.AddEvent" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/AddEvent.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="747" width="194" x="2600" y="37"/>    
+    <position x="2600" y="37" width="194" height="747"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -451,7 +451,7 @@
   <class id="50" language="java" name="client.gui.AddEvent.timeBoxActionListener" 
     project="Systemutvikling-fellesprosjekt" file="/Systemutvikling-fellesprosjekt/src/client/gui/AddEvent.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="194" x="2579" y="824"/>    
+    <position x="2579" y="824" width="194" height="99"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -460,7 +460,7 @@
   </class>  
   <class id="51" language="java" name="client.gui.AddMeeting" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/AddMeeting.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="91" x="3558" y="824"/>    
+    <position x="3558" y="824" width="91" height="81"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -469,7 +469,7 @@
   </class>  
   <class id="52" language="java" name="client.gui.AddParticipant" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/AddParticipant.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="194" x="3747" y="2434"/>    
+    <position x="3747" y="2434" width="194" height="225"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -478,7 +478,7 @@
   </class>  
   <class id="53" language="java" name="client.gui.AnswerMeeting" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/AnswerMeeting.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="423" width="263" x="450" y="37"/>    
+    <position x="450" y="37" width="263" height="423"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -487,7 +487,7 @@
   </class>  
   <class id="54" language="java" name="client.gui.Booking" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Booking.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="226" x="2834" y="37"/>    
+    <position x="2834" y="37" width="226" height="207"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -496,7 +496,7 @@
   </class>  
   <class id="55" language="java" name="client.gui.Buttons" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Buttons.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="423" width="194" x="6924" y="824"/>    
+    <position x="6924" y="824" width="194" height="423"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -505,7 +505,7 @@
   </class>  
   <class id="56" language="java" name="client.gui.Calendar" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Calendar.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="194" x="5275" y="824"/>    
+    <position x="5275" y="824" width="194" height="99"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -514,7 +514,7 @@
   </class>  
   <class id="57" language="java" name="client.gui.CellRenderer" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/CellRenderer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="391" x="1855" y="37"/>    
+    <position x="1855" y="37" width="391" height="99"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -523,7 +523,7 @@
   </class>  
   <class id="58" language="java" name="client.gui.DayView" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/DayView.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="214" x="5275" y="1773"/>    
+    <position x="5275" y="1773" width="214" height="207"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -532,7 +532,7 @@
   </class>  
   <class id="59" language="java" name="client.gui.Event" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Event.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="207" x="5275" y="2434"/>    
+    <position x="5275" y="2434" width="207" height="189"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -541,7 +541,7 @@
   </class>  
   <class id="60" language="java" name="client.gui.GroupSettings" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/GroupSettings.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="387" width="197" x="963" y="37"/>    
+    <position x="963" y="37" width="197" height="387"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -550,7 +550,7 @@
   </class>  
   <class id="61" language="java" name="client.gui.LoginScreen" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/LoginScreen.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="181" x="7412" y="37"/>    
+    <position x="7412" y="37" width="181" height="99"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -559,7 +559,7 @@
   </class>  
   <class id="62" language="java" name="client.gui.MainClass" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/MainClass.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="190" x="6240" y="37"/>    
+    <position x="6240" y="37" width="190" height="225"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -568,7 +568,7 @@
   </class>  
   <class id="63" language="java" name="client.gui.MainScreen" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/MainScreen.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="92" x="6924" y="37"/>    
+    <position x="6924" y="37" width="92" height="81"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -577,7 +577,7 @@
   </class>  
   <class id="64" language="java" name="client.gui.Participants" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Participants.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="226" x="3558" y="1773"/>    
+    <position x="3558" y="1773" width="226" height="225"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -586,7 +586,7 @@
   </class>  
   <class id="65" language="java" name="client.gui.Place" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Place.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="97" x="2442" y="824"/>    
+    <position x="2442" y="824" width="97" height="117"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -595,7 +595,7 @@
   </class>  
   <class id="66" language="java" name="client.gui.Sidebar" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Sidebar.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="214" x="7158" y="824"/>    
+    <position x="7158" y="824" width="214" height="225"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      

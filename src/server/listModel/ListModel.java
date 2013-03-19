@@ -18,4 +18,9 @@ public abstract class ListModel extends UnicastRemoteObject implements
 	public void addPropertyChangeListner(PropertyChangeListener listener) {
 		pcs.addPropertyChangeListener(listener);
 	}
+
+	public void removePropertyChangeListener(PropertyChangeListener listener) {
+		pcs.removePropertyChangeListener(listener);
+	}
+
 }

@@ -65,9 +65,9 @@ public class EventList extends ListModel implements EventListI {
 		return string;
 	}
 
-	public void refresh() throws RemoteException {
+	private void refresh() throws RemoteException {
 
-		ArrayList<Event> oldList = list;
+		ArrayList<Event> oldList = (ArrayList<Event>) list.clone();
 
 		String query = "SELECT * FROM Event WHERE createdByUser IN ("
 				+ intArraytoCommaSeperatedString(getUserIDs())

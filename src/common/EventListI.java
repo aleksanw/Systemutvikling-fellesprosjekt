@@ -11,8 +11,6 @@ import server.model.User;
 
 public interface EventListI extends ListModelI {
 
-	public void refresh() throws RemoteException;
-
 	public void nextDay() throws RemoteException;
 
 	public void previousDay() throws RemoteException;

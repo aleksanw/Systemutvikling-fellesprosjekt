@@ -10,32 +10,38 @@ import server.model.Model;
 import server.model.User;
 import server.system.StorageServer;
 
-public class Users extends ListModel {
-	ArrayList<User> users = new ArrayList<User>();
+import common.UserListI;
+
+public class UserList extends ListModel implements UserListI {
+	ArrayList<User> list = new ArrayList<User>();
 	int groupID;
 
-	public Users(Group group) throws SQLException, RemoteException {
+	public UserList(Group group) throws RemoteException {
 		super();
 		groupID = group.getGroupID();
 		refresh();
 	}
 
 	public ArrayList<User> getList() {
-		return users;
+		return list;
 	}
 
-	public void refresh() throws RemoteException {
+	private void refresh() throws RemoteException {
+		ArrayList<User> oldList = (ArrayList<User>) list.clone();
+
 		String query = "SELECT userID FROM memberOfGroup, Groups WHERE Group."
 				+ groupID + "=memberOfGroup." + groupID + ";";
 		ResultSet result = Model.getDB().readQuery(query);
 		try {
 			while (result.next()) {
-				this.users.add(StorageServer.userStorage.get(result
+				this.list.add(StorageServer.userStorage.get(result
 						.getInt("userID")));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);
 		}
+
+		pcs.firePropertyChange("list", oldList, list);
 	}
 }
