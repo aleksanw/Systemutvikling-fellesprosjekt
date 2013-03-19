@@ -9,7 +9,7 @@ import server.model.Model;
 import server.model.Room;
 import server.system.StorageServer;
 
-public class Rooms extends ListModel {
+class Rooms extends ListModel {
 	ArrayList<Room> rooms = new ArrayList<Room>();
 
 	public Rooms() {

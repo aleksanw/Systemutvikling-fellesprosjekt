@@ -1,6 +1,5 @@
 package server.listModel;
 
-public class Groups extends ListModel {
+class Groups extends ListModel {
 
-	
 }

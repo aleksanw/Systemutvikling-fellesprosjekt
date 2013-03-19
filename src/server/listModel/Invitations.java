@@ -10,7 +10,7 @@ import server.model.Model;
 import server.model.User;
 import server.system.StorageServer;
 
-public class Invitations extends ListModel {
+class Invitations extends ListModel {
 	ArrayList<Event> invites = new ArrayList<Event>();
 
 	public Invitations(User user) throws SQLException, RemoteException {

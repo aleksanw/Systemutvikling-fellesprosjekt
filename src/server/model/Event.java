@@ -16,8 +16,8 @@ import common.GroupI;
 import common.RoomI;
 import common.UserI;
 
-public class Event extends Model implements EventI{
-	
+public class Event extends Model implements EventI {
+
 	private int eventID;
 	private boolean isActive, isWholeDay;
 	private boolean isMeeting;
@@ -28,12 +28,11 @@ public class Event extends Model implements EventI{
 	private int roomBooked;
 	private int createdByUser;
 	private int createdByGroup;
-	
-	
+
 	public Event(Integer eventID) throws RemoteException, SQLException {
 		super("Event", createTableFields(), "eventID");
 		ResultSet result = super.getFromDB(eventID);
-		if(result.next()) {
+		if (result.next()) {
 			this.eventID = result.getInt("eventID");
 			this.eventName = result.getString("eventName");
 			this.isActive = result.getBoolean("isActive");
@@ -46,15 +45,15 @@ public class Event extends Model implements EventI{
 			this.roomBooked = result.getInt("roomBooked");
 			this.createdByUser = result.getInt("createdByUser");
 			this.createdByGroup = result.getInt("createdByGroup");
-		}	
+		}
 	}
-	
+
 	public Event() throws RemoteException, SQLException {
 		super("Event", createTableFields(), "eventID");
 		ArrayList<Integer> keyList = super.addToDB();
 		this.eventID = keyList.get(0);
 	}
-	
+
 	private static ArrayList<String> createTableFields() {
 		ArrayList<String> tableFields = new ArrayList<String>();
 		tableFields.add("eventID");
@@ -71,56 +70,70 @@ public class Event extends Model implements EventI{
 		tableFields.add("createdByGroup");
 		return tableFields;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#getInvitationList()
 	 */
 	@Override
 	public ArrayList<Invitation> getInvitationList() {
 		return new ArrayList<Invitation>();
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#invite(server.model.User)
 	 */
 	@Override
 	public void invite(UserI user) {
-		
+
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#getEventID()
 	 */
 	@Override
 	public int getEventID() {
 		return eventID;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#isWholeday()
 	 */
 	@Override
 	public boolean isWholeday() {
 		return isWholeday;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setWholeday(boolean)
 	 */
 	@Override
 	public void setWholeday(boolean isWholeday) {
 		this.isWholeday = isWholeday;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setMeeting(boolean)
 	 */
 	@Override
 	public void setMeeting(boolean isMeeting) {
 		this.isMeeting = isMeeting;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#isActive()
 	 */
 	@Override
@@ -128,7 +141,9 @@ public class Event extends Model implements EventI{
 		return isActive;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setActive(boolean)
 	 */
 	@Override
@@ -137,7 +152,9 @@ public class Event extends Model implements EventI{
 		this.isActive = isActive;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#isWholeDay()
 	 */
 	@Override
@@ -145,7 +162,9 @@ public class Event extends Model implements EventI{
 		return isWholeDay;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setWholeDay(boolean)
 	 */
 	@Override
@@ -154,7 +173,9 @@ public class Event extends Model implements EventI{
 		this.isWholeDay = isWholeDay;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#getEventName()
 	 */
 	@Override
@@ -162,7 +183,9 @@ public class Event extends Model implements EventI{
 		return eventName;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setEventName(java.lang.String)
 	 */
 	@Override
@@ -171,7 +194,9 @@ public class Event extends Model implements EventI{
 		this.eventName = eventName;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#getDescription()
 	 */
 	@Override
@@ -179,7 +204,9 @@ public class Event extends Model implements EventI{
 		return description;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setDescription(java.lang.String)
 	 */
 	@Override
@@ -188,7 +215,9 @@ public class Event extends Model implements EventI{
 		this.description = description;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#getLocation()
 	 */
 	@Override
@@ -196,7 +225,9 @@ public class Event extends Model implements EventI{
 		return location;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setLocation(java.lang.String)
 	 */
 	@Override
@@ -205,7 +236,9 @@ public class Event extends Model implements EventI{
 		this.location = location;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#getStart()
 	 */
 	@Override
@@ -213,18 +246,23 @@ public class Event extends Model implements EventI{
 		return start;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setStart(org.joda.time.DateTime)
 	 */
 	@Override
 	public void setStart(DateTime start) throws SQLException {
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:SS");
+		DateTimeFormatter fmt = DateTimeFormat
+				.forPattern("yyyy-MM-dd HH:mm:SS");
 		String dateToString = fmt.print(start);
 		super.updateField("start", dateToString, eventID);
 		this.start = start;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#getEnd()
 	 */
 	@Override
@@ -232,18 +270,23 @@ public class Event extends Model implements EventI{
 		return end;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setEnd(org.joda.time.DateTime)
 	 */
 	@Override
-	public void setEnd(DateTime end) throws SQLException{
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:SS");
+	public void setEnd(DateTime end) throws SQLException {
+		DateTimeFormatter fmt = DateTimeFormat
+				.forPattern("yyyy-MM-dd HH:mm:SS");
 		String dateToString = fmt.print(end);
 		super.updateField("end", dateToString, eventID);
 		this.end = end;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#getRoomBooked()
 	 */
 	@Override
@@ -251,20 +294,25 @@ public class Event extends Model implements EventI{
 		return StorageServer.roomStorage.get(roomBooked);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setRoomBooked(int)
 	 */
 	@Override
 	public void setRoomBooked(int roomBooked) throws SQLException {
-		super.updateField("roomBooked",roomBooked, eventID);
+		super.updateField("roomBooked", roomBooked, eventID);
 		this.roomBooked = roomBooked;
 	}
-	
-	public void setRoomBooked(RoomI roomBooked) throws SQLException, RemoteException {
+
+	public void setRoomBooked(RoomI roomBooked) throws SQLException,
+			RemoteException {
 		setRoomBooked(roomBooked.getRoomID());
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#getCreatedByUser()
 	 */
 	@Override
@@ -272,7 +320,9 @@ public class Event extends Model implements EventI{
 		return createdByUser;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setCreatedByUser(int)
 	 */
 	@Override
@@ -281,7 +331,9 @@ public class Event extends Model implements EventI{
 		this.createdByUser = createdByUser;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#getCreatedByGroup()
 	 */
 	@Override
@@ -289,7 +341,9 @@ public class Event extends Model implements EventI{
 		return createdByGroup;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#setCreatedByGroup(int)
 	 */
 	@Override
@@ -298,30 +352,36 @@ public class Event extends Model implements EventI{
 		this.createdByGroup = createdByGroup;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#isMeeting()
 	 */
 	@Override
 	public boolean isMeeting() {
 		return isMeeting;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.EventI#delete()
 	 */
-	
+
 	@Override
 	public void delete() {
-		super.delete(eventID);		
+		super.delete(eventID);
 	}
 
 	@Override
-	public void setCreatedByUser(UserI createdByUser) throws SQLException,RemoteException {
-		setCreatedByUser(createdByUser.getUserID());	
+	public void setCreatedByUser(UserI createdByUser) throws SQLException,
+			RemoteException {
+		setCreatedByUser(createdByUser.getUserID());
 	}
 
 	@Override
-	public void setCreatedByGroup(GroupI createdByGroup) throws SQLException,RemoteException {
+	public void setCreatedByGroup(GroupI createdByGroup) throws SQLException,
+			RemoteException {
 		setCreatedByGroup(createdByGroup.getGroupID());
 	}
 }

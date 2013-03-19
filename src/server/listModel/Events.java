@@ -8,58 +8,58 @@ import server.model.User;
 
 import common.WeekI;
 
-
-public class Events {
+class Events {
 	private ArrayList<Event> events;
 	private ArrayList<User> users;
 	private ArrayList<Group> groups;
-	//TODO: This should be a Week object
+	// TODO: This should be a Week object
 	private WeekI week;
-	//TODO: private ListListner ll;
-	
+
+	// TODO: private ListListner ll;
+
 	public Events(ArrayList<User> users, ArrayList<Group> groups, WeekI week) {
 		// TODO Auto-generated constructor stub
 		this.users = users;
 		this.groups = groups;
 		this.week = week;
-		
+
 		refresh();
 	}
-	
+
 	private int[] getUserIDs() {
 		int[] ids = new int[users.size()];
-		
+
 		for (int i = 0; i < ids.length; i++) {
 			ids[i] = users.get(i).getUserID();
 		}
-		
+
 		return ids;
 	}
-	
+
 	private int[] getGroupIDs() {
 		int[] ids = new int[groups.size()];
-		
+
 		for (int i = 0; i < ids.length; i++) {
 			ids[i] = groups.get(i).getGroupID();
 		}
-		
+
 		return ids;
 	}
-	
+
 	public void refresh() {
-		// TODO: Update 
+		// TODO: Update
 	}
-	
+
 	public void nextWeek() {
 		week = week.getNextWeek();
 		refresh();
 	}
-	
+
 	public void previousWeek() {
 		week = week.getPreviousWeek();
 		refresh();
 	}
-	
+
 	public ArrayList<Event> toArrayList() {
 		return events;
 	}
@@ -93,7 +93,7 @@ public class Events {
 		this.groups = groups;
 		refresh();
 	}
-	
+
 	public boolean addGroup(Group group) {
 		boolean r = groups.add(group);
 		refresh();
