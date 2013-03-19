@@ -85,10 +85,7 @@ public class MainClass {
 		try {
 			return new GnuParser().parse(options, args);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.exit(1);
-			return null; // Why the fuck do i need this shit, java?
+			throw new IllegalArgumentException(e);
 		}
 	}
 }
