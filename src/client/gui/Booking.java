@@ -4,6 +4,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JLabel;
@@ -11,17 +12,19 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+
 import server.listModel.Rooms;
-import server.model.Room;
+
+import common.RoomI;
 
 public class Booking extends JPanel {
 	
 	protected JLabel label;
 	protected JLabel date;
-	protected JList<Room> list;
+	protected JList<RoomI> list;
 	protected JScrollPane scroll;
 	protected server.listModel.Rooms roomList;
-	protected DefaultListModel<Room> model;
+	protected DefaultListModel<RoomI> model;
 	protected DefaultListSelectionModel selectionModel;
 	
 	GridBagConstraints g = new GridBagConstraints();
@@ -35,9 +38,9 @@ public class Booking extends JPanel {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		model = new DefaultListModel<Room>();
+		model = new DefaultListModel<RoomI>();
 		try {
-			for(Room room: roomList.getList()){
+			for(RoomI room: roomList.getList()){
 				model.addElement(room);
 			}
 		} catch (RemoteException e) {
@@ -54,7 +57,7 @@ public class Booking extends JPanel {
 		selectionModel = new DefaultListSelectionModel();
 		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
-		list = new JList<Room>(model);
+		list = new JList<RoomI>(model);
 		list.setSelectionModel(selectionModel);
 		list.setCellRenderer(new CellRenderer());
 		
