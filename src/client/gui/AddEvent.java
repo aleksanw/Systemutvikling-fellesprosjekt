@@ -29,8 +29,8 @@ public class AddEvent extends JPanel implements ActionListener {
 	protected JLabel title, lAlarm, start, end, lAllDay, lDesc, visible, lName;
 	protected JTextField name;
 	protected JTextArea desc;
-	protected JComboBox<String> hour, min, hourE, minE, setAlarm, group, vis, day,
-			month, dayE, monthE;
+	protected JComboBox<String> hour, min, hourE, minE, setAlarm, group, vis,
+			day, month, dayE, monthE;
 	protected JRadioButton allDay;
 	protected JButton save, delete, cancel;
 	protected JTabbedPane tabs;
@@ -47,8 +47,8 @@ public class AddEvent extends JPanel implements ActionListener {
 
 		String[] hours = addNum(0, 24);
 		String[] minutes = { "00", "15", "30", "45" };
-		String[] minForAlarm = { "Ingen alarm", "0:10", "0:15", "0:20",
-				"0:30", "1:00", "2:00", "24:00" };
+		String[] minForAlarm = { "Ingen alarm", "0:10", "0:15", "0:20", "0:30",
+				"1:00", "2:00", "24:00" };
 		String[] days = addNum(1, 32);
 		String[] months = { "Mars 2013", "April 2013" };
 
@@ -308,11 +308,13 @@ public class AddEvent extends JPanel implements ActionListener {
 		e.setLocation(this.place.text.getText());
 		e.setRoomBooked(booking.list.getSelectedIndex());
 		e.setMeeting(false);
-		if(setAlarm.getSelectedIndex() > 0){
-			int hours = Integer.parseInt(setAlarm.getSelectedItem().toString().split(":")[0]);
-			int minutes = Integer.parseInt(setAlarm.getSelectedItem().toString().split(":")[1]);
+		if (setAlarm.getSelectedIndex() > 0) {
+			int hours = Integer.parseInt(setAlarm.getSelectedItem().toString()
+					.split(":")[0]);
+			int minutes = Integer.parseInt(setAlarm.getSelectedItem()
+					.toString().split(":")[1]);
 			alarm = MainClass.sServer.alarmStorage.create();
-			alarm.setNumberOfHoursBeforeMeeting(new Time(hours,minutes,0));
+			alarm.setNumberOfHoursBeforeMeeting(new Time(hours, minutes, 0));
 		}
 		// e.setCreatedByGroup(vis.getSelectedItem());
 	}

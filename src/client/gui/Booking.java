@@ -2,6 +2,7 @@ package client.gui;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JLabel;
@@ -13,6 +14,7 @@ import javax.swing.ListSelectionModel;
 import server.listModel.Rooms;
 
 import common.RoomI;
+import common.RoomsI;
 
 public class Booking extends JPanel {
 
@@ -20,7 +22,7 @@ public class Booking extends JPanel {
 	protected JLabel date;
 	protected JList<RoomI> list;
 	protected JScrollPane scroll;
-	protected server.listModel.Rooms roomList;
+	protected RoomsI roomList;
 	protected DefaultListModel<RoomI> model;
 	protected DefaultListSelectionModel selectionModel;
 
@@ -43,7 +45,7 @@ public class Booking extends JPanel {
 
 		selectionModel = new DefaultListSelectionModel();
 		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
+
 		list = new JList<RoomI>(model);
 		list.setSelectionModel(selectionModel);
 		list.setCellRenderer(new CellRenderer());

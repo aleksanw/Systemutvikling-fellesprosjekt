@@ -9,7 +9,9 @@ import server.model.Model;
 import server.model.Room;
 import server.system.StorageServer;
 
-public class Rooms extends ListModel {
+import common.RoomsI;
+
+public class Rooms extends ListModel implements RoomsI {
 	ArrayList<Room> rooms = new ArrayList<Room>();
 
 	public Rooms() {
