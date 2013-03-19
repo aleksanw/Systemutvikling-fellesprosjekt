@@ -5,6 +5,7 @@ import org.apache.commons.cli.GnuParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import server.system.StorageServer;
 import client.system.StorageServerConnection;
 
 public class MainClass {
@@ -18,7 +19,13 @@ public class MainClass {
 
 		CommandLine cmd = parseArgs(args);
 
-		String srvAddr = cmd.getArgs()[0];
+		String srvAddr;
+		if (cmd.getArgs().length < 1) {
+			new StorageServer();
+			srvAddr = "localhost";
+		} else
+			srvAddr = cmd.getArgs()[0];
+
 		sServer = new StorageServerConnection(srvAddr);
 		if (cmd.hasOption('L'))
 			loginOK();
