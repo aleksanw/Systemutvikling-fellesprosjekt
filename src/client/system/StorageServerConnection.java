@@ -8,6 +8,7 @@ import common.RoomStorageI;
 import common.UserStorageI;
 
 public class StorageServerConnection {
+	private RMIClient server;
 	public EventStorageI eventStorage;
 	public UserStorageI userStorage;
 	public GroupStorageI groupStorage;
@@ -15,8 +16,16 @@ public class StorageServerConnection {
 	public AlarmStorageI alarmStorage;
 	public InvitationStorageI invitationStorage;
 	
+	public StorageServerConnection(String address) {
+		this();
+		server = new RMIClient(address);
+	}
+	
 	public StorageServerConnection() {
-		RMIClient server = new RMIClient();
+		if(server==null) {
+			server = new RMIClient();
+		}
+		
 		this.eventStorage 		= (EventStorageI) server.getObject("eventStorage");
 		this.userStorage 		= (UserStorageI) server.getObject("userStorage");
 		this.groupStorage 		= (GroupStorageI) server.getObject("groupStorage");

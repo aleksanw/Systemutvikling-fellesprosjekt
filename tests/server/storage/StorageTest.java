@@ -1,14 +1,14 @@
 package server.storage;
 
-import common.EventI;
+import junit.extensions.jfcunit.JFCTestCase;
 
+import org.joda.time.DateTime;
 
 import server.system.StorageServer;
 import client.system.DummyStorageServerConnection;
 import client.system.StorageServerConnection;
-import junit.extensions.jfcunit.JFCTestCase;
 
-import org.joda.time.DateTime;
+import common.EventI;
 
 public class StorageTest  extends JFCTestCase {	
 	public void testSimpleWithDummyServer() throws Exception {
@@ -40,7 +40,6 @@ public class StorageTest  extends JFCTestCase {
 		StorageServerConnection client1 = new StorageServerConnection();
 		StorageServerConnection client2 = new StorageServerConnection();
 
-		// NB: BØR DET VÆRE EventI(nterface) her?
 		EventI eventClient1 = client1.eventStorage.create();	
 		int eventID = eventClient1.getEventID();
 		
@@ -57,6 +56,27 @@ public class StorageTest  extends JFCTestCase {
 		assertEquals("Test123", eventClient2.getEventName());
 		
 		server.killServer();
+		
+	}
+	
+	public void testAnotherServer() throws Exception { // THIS IS JUST FOR DEBUGGING
+		String address = "localhost:1099";
+		
+		// Set up two different client to the same server
+		StorageServerConnection client1 = new StorageServerConnection(address);
+		StorageServerConnection client2 = new StorageServerConnection(address);
+
+		EventI eventClient1 = client1.eventStorage.create();	
+		int eventID = eventClient1.getEventID();
+		
+		// Test om oppdatering av navn fungerer
+		eventClient1.setEventName("Test123");
+		assertEquals("Test123", eventClient1.getEventName());
+		
+		// Test om også oppdatert på klient2
+		EventI eventClient2 = client2.eventStorage.get(eventID);
+		assertEquals("Test123", eventClient2.getEventName());
+		
 		
 	}
 }
