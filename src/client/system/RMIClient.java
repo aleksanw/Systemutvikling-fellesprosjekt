@@ -5,7 +5,7 @@ import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 
 public class RMIClient {
-	private static String server = "localhost:1099";
+	private String server = "localhost:1099";
 	//public StorageI eventStorage;
 	
 	public RMIClient() throws RemoteException {
@@ -20,6 +20,11 @@ public class RMIClient {
 		//System.out.println(eventStorage.getValue());
 	}
 	
+	public RMIClient(String address) throws RemoteException {
+		this();
+		server = address;
+	}
+
 	public Object getObject(String objectname) throws Exception{
 		String urlServer = new String("rmi://" + server + "/" + objectname);
 
