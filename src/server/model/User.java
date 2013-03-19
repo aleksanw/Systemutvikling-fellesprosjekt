@@ -10,6 +10,8 @@ import common.EventI;
 import common.GroupI;
 import common.UserI;
 
+import exceptions.ObjectNotFoundException;
+
 public class User extends Model implements UserI {
 
 	private int userID;
@@ -201,6 +203,10 @@ public class User extends Model implements UserI {
 	 */
 	@Override
 	public void delete() {
+		try {
 		super.delete(userID);
+		} catch (ObjectNotFoundException e) {
+			throw new RuntimeException(e);
+		}		
 	}
 }

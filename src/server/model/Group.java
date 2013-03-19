@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import common.GroupI;
 
+import exceptions.ObjectNotFoundException;
+
 public class Group extends Model implements GroupI {
 
 	private int groupID, parentGroupID;
@@ -100,6 +102,10 @@ public class Group extends Model implements GroupI {
 	 */
 	@Override
 	public void delete() {
+		try {
 		super.delete(groupID);
+		} catch (ObjectNotFoundException e) {
+			throw new RuntimeException(e);
+		}		
 	}
 }

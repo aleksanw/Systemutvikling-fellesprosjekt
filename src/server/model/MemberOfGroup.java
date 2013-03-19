@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import exceptions.ObjectNotFoundException;
+
 class MemberOfGroup extends Model {
 
 	private int memberOfGroupID, groupID, userID;
@@ -58,6 +60,10 @@ class MemberOfGroup extends Model {
 
 	@Override
 	public void delete() {
+		try {
 		super.delete(memberOfGroupID);
+		} catch (ObjectNotFoundException e) {
+			throw new RuntimeException(e);
+		}		
 	}
 }

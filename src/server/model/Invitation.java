@@ -13,6 +13,8 @@ import common.EventI;
 import common.InvitationI;
 import common.UserI;
 
+import exceptions.ObjectNotFoundException;
+
 public class Invitation extends Model implements InvitationI {
 
 	private boolean isAttending;
@@ -157,6 +159,10 @@ public class Invitation extends Model implements InvitationI {
 	 */
 	@Override
 	public void delete() {
+		try {
 		super.delete(invitationID);
+		} catch (ObjectNotFoundException e) {
+			throw new RuntimeException(e);
+		}		
 	}
 }

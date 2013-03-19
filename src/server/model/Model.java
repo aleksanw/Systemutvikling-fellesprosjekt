@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import server.system.Database;
+import exceptions.ObjectNotFoundException;
 
 public abstract class Model extends UnicastRemoteObject {
 
@@ -31,9 +32,17 @@ public abstract class Model extends UnicastRemoteObject {
 
 	public abstract void delete() throws RemoteException;
 
-	protected void delete(Integer ID) {
+	protected void delete(Integer ID) throws ObjectNotFoundException {
 		try {
-			DB.updateQuery("DELETE FROM " + tableName + " WHERE userID=" + ID);
+			ResultSet rs = DB.readQuery("SELECT FROM " + tableName
+					+ " WHERE userID=" + ID);
+			if (rs.getBoolean(0)) {					//rs er enten tom eller har et element
+				DB.updateQuery("DELETE FROM " + tableName + " WHERE userID="
+						+ ID);
+			}
+			else{
+				throw new ObjectNotFoundException();
+			}
 		} catch (SQLException e) {
 			System.out.println("Could not delete " + tableName
 					+ " where userID is " + ID);
