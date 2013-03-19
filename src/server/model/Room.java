@@ -9,6 +9,8 @@ import org.joda.time.DateTime;
 
 import common.RoomI;
 
+import exceptions.ObjectNotFoundException;
+
 public class Room extends Model implements RoomI {
 
 	private int roomID, personCapacity;
@@ -93,6 +95,10 @@ public class Room extends Model implements RoomI {
 	 */
 	@Override
 	public void delete() {
-		super.delete(roomID);		
+		try {
+			super.delete(roomID);
+		} catch (ObjectNotFoundException e) {
+			throw new RuntimeException(e);
+		}		
 	}
 }

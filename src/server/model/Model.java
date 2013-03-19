@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import server.system.Database;
+import exceptions.ObjectNotFoundException;
 
 public abstract class Model extends UnicastRemoteObject {
 
@@ -17,56 +18,69 @@ public abstract class Model extends UnicastRemoteObject {
 	private String primaryKeyField1;
 	private ArrayList<String> tableFields;
 	private PropertyChangeSupport pcs;
-	
-	
-	public Model(String tableName, ArrayList<String> tableFields, String primaryKeyField1) throws RemoteException {
+
+	public Model(String tableName, ArrayList<String> tableFields,
+			String primaryKeyField1) throws RemoteException {
 		this.tableName = tableName;
 		this.tableFields = tableFields;
 		this.primaryKeyField1 = primaryKeyField1;
 	}
-	
-	public static Database getDB() throws RemoteException  {
+
+	public static Database getDB() throws RemoteException {
 		return DB;
 	}
-	
+
 	public abstract void delete() throws RemoteException;
-	
-	protected void delete(Integer ID) {
+
+	protected void delete(Integer ID) throws ObjectNotFoundException {
 		try {
-			DB.updateQuery("DELETE FROM " + tableName + " WHERE userID=" + ID);
-		} catch(SQLException e) {
-			System.out.println("Could not delete " + tableName + " where userID is " + ID);
+			ResultSet rs = DB.readQuery("SELECT FROM " + tableName
+					+ " WHERE userID=" + ID);
+			if (rs.getBoolean(0)) {					//rs er enten tom eller har et element
+				DB.updateQuery("DELETE FROM " + tableName + " WHERE userID="
+						+ ID);
+			}
+			else{
+				throw new ObjectNotFoundException();
+			}
+		} catch (SQLException e) {
+			System.out.println("Could not delete " + tableName
+					+ " where userID is " + ID);
 		}
 	}
 
-	protected void updateField(String field, Object value, int primaryKey1) throws SQLException{
-		String c =((value instanceof String) ? ( "'" +value+"'" ) : value.toString());
-		String query = "UPDATE " + tableName + " SET " + field + "="+ c +" WHERE " +
-				primaryKeyField1 + "=" + primaryKey1 + ";";
+	protected void updateField(String field, Object value, int primaryKey1)
+			throws SQLException {
+		String c = ((value instanceof String) ? ("'" + value + "'") : value
+				.toString());
+		String query = "UPDATE " + tableName + " SET " + field + "=" + c
+				+ " WHERE " + primaryKeyField1 + "=" + primaryKey1 + ";";
 		DB.updateQuery(query);
 	}
-	
-	
-	public void addPropartyChangeListener(PropertyChangeListener listener) throws RemoteException {
+
+	public void addPropartyChangeListener(PropertyChangeListener listener)
+			throws RemoteException {
 		pcs.addPropertyChangeListener(listener);
 	}
-	
-	public void removePropartyChangeListener(PropertyChangeListener listener) throws RemoteException  {
+
+	public void removePropartyChangeListener(PropertyChangeListener listener)
+			throws RemoteException {
 		pcs.removePropertyChangeListener(listener);
 	}
-	
+
 	protected ArrayList<String> getTableFields() {
 		return tableFields;
 	}
-	
+
 	protected ArrayList<Integer> addToDB() throws SQLException {
-		String query = "INSERT INTO " + tableName + " () VALUES ();";		
+		String query = "INSERT INTO " + tableName + " () VALUES ();";
 		ArrayList<Integer> keyList = DB.insertAndGetKeysQuery(query);
 		return keyList;
 	}
-	
+
 	protected ResultSet getFromDB(int primaryKey1) throws SQLException {
-		String query = "Select * FROM " + tableName + " WHERE " + primaryKeyField1 + "='" + primaryKey1 + "';";
+		String query = "Select * FROM " + tableName + " WHERE "
+				+ primaryKeyField1 + "='" + primaryKey1 + "';";
 		ResultSet result = DB.readQuery(query);
 		return result;
 	}

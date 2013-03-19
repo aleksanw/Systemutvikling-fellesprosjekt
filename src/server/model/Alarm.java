@@ -12,6 +12,8 @@ import common.AlarmI;
 import common.EventI;
 import common.UserI;
 
+import exceptions.ObjectNotFoundException;
+
 public class Alarm extends Model implements AlarmI {
 	
 	private Time numberOfHoursBeforeMeeting;
@@ -109,7 +111,11 @@ public class Alarm extends Model implements AlarmI {
 	 */
 	@Override
 	public void delete() throws RemoteException {
-		super.delete(alarmID);		
+		try {
+			super.delete(alarmID);
+		} catch (ObjectNotFoundException e) {
+			throw new RuntimeException(e);
+		}		
 	}
 	
 	public void setUser(UserI user) throws RemoteException, SQLException {

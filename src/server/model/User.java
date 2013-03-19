@@ -1,13 +1,16 @@
 package server.model;
 
 import java.rmi.RemoteException;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Date;
+
 import common.EventI;
 import common.GroupI;
 import common.UserI;
+
+import exceptions.ObjectNotFoundException;
 
 public class User extends Model implements UserI {
 	
@@ -168,6 +171,10 @@ public class User extends Model implements UserI {
 	 */
 	@Override
 	public void delete() {
-		super.delete(userID);		
+		try {
+			super.delete(userID);
+		} catch (ObjectNotFoundException e) {
+			throw new RuntimeException(e);
+		}		
 	}
 }
