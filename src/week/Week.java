@@ -6,10 +6,12 @@ public class Week implements WeekI {
 
 	int year;
 	int weeknr;
+	int date;
 
-	public Week(int year, int weeknr) {
+	public Week(int year, int weeknr, int date) {
 		this.year = year;
 		this.weeknr = weeknr;
+		this.date = date;
 
 	}
 
@@ -37,19 +39,35 @@ public class Week implements WeekI {
 	}
 
 	@Override
+	public int getFromDate() {
+		return date;
+	}
+
+	@Override
+	public int getToDate() {
+		return date;
+	}
+
+	@Override
 	public common.WeekI getNextWeek() {
 		if (weeknr < 51) {
-			return new Week(weeknr + 1, year);
+			return new Week(weeknr + 1, year, date);
 
 		} else
-			return new Week(1, year + 1);
+			return new Week(1, year + 1, date);
 	}
 
 	@Override
 	public common.WeekI getPreviousWeek() {
 		if (weeknr > 1) {
-			return new Week(weeknr - 1, year);
+			return new Week(weeknr - 1, year, date);
 		} else
-			return new Week(52, year - 1);
+			return new Week(52, year - 1, date);
 	}
+
+	@Override
+	public void setDate(int date) {
+		this.date = date;
+	}
+
 }
