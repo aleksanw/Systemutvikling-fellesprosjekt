@@ -2,6 +2,7 @@ package client.gui;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.rmi.RemoteException;
 
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
@@ -10,8 +11,6 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-
-import server.listModel.Rooms;
 
 import common.RoomI;
 import common.RoomsI;
@@ -30,7 +29,12 @@ public class Booking extends JPanel {
 
 	@SuppressWarnings("unchecked")
 	public Booking() {
-		roomList = new Rooms();
+		try {
+			roomList = MainClass.sServer.roomStorage.getRoomList();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 		model = new DefaultListModel<RoomI>();
 		for (RoomI room : roomList.getList()) {
 			model.addElement(room);

@@ -14,8 +14,6 @@ public class MainClass {
 	public static void main(String[] args) {
 		System.setProperty("file.encoding", "UTF-8");
 
-		gui = new GUI();
-
 		CommandLine cmd = parseArgs(args);
 
 		String srvAddr;
@@ -26,6 +24,7 @@ public class MainClass {
 			srvAddr = cmd.getArgs()[0];
 
 		sServer = new StorageServerConnection(srvAddr);
+		gui = new GUI();
 		if (cmd.hasOption('L'))
 			loginOK();
 	}

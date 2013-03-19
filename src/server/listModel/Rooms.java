@@ -11,7 +11,7 @@ import server.system.StorageServer;
 
 import common.RoomsI;
 
-class Rooms extends ListModel implements RoomsI {
+public class Rooms extends ListModel implements RoomsI {
 	ArrayList<Room> rooms = new ArrayList<Room>();
 
 	public Rooms() {
