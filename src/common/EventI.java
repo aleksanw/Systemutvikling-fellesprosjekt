@@ -55,13 +55,13 @@ public interface EventI extends ModelI {
 
 	public void setRoomBooked(RoomI room) throws RemoteException;
 
-	public int getCreatedByUser() throws RemoteException;
+	public UserI getCreatedByUser() throws RemoteException;
 
 	public void setCreatedByUser(int createdByUser) throws RemoteException;
 
 	public void setCreatedByUser(UserI createdByUser) throws RemoteException;
 
-	public int getCreatedByGroup() throws RemoteException;
+	public GroupI getCreatedByGroup() throws RemoteException;
 
 	public void setCreatedByGroup(int createdByGroup) throws RemoteException;
 

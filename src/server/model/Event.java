@@ -73,187 +73,80 @@ public class Event extends Model implements EventI {
 		return tableFields;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#getInvitationList()
-	 */
-	@Override
 	public ArrayList<Invitation> getInvitationList() {
 		return new ArrayList<Invitation>();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#invite(server.model.User)
-	 */
-	@Override
 	public void invite(UserI user) {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#getEventID()
-	 */
-	@Override
 	public int getEventID() {
 		return eventID;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#isWholeday()
-	 */
-	@Override
 	public boolean isWholeday() {
 		return isWholeday;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setWholeday(boolean)
-	 */
-	@Override
 	public void setWholeday(boolean isWholeday) {
 		this.isWholeday = isWholeday;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setMeeting(boolean)
-	 */
-	@Override
 	public void setMeeting(boolean isMeeting) {
 		this.isMeeting = isMeeting;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#isActive()
-	 */
-	@Override
 	public boolean isActive() {
 		return isActive;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setActive(boolean)
-	 */
-	@Override
 	public void setActive(boolean isActive) {
 		super.updateField("isActive", isActive, eventID);
 		this.isActive = isActive;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#isWholeDay()
-	 */
-	@Override
 	public boolean isWholeDay() {
 		return isWholeDay;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setWholeDay(boolean)
-	 */
-	@Override
 	public void setWholeDay(boolean isWholeDay) {
 		super.updateField("isWholeDay", isWholeDay, eventID);
 		this.isWholeDay = isWholeDay;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#getEventName()
-	 */
-	@Override
 	public String getEventName() {
 		return eventName;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setEventName(java.lang.String)
-	 */
-	@Override
 	public void setEventName(String eventName) {
 		super.updateField("eventName", eventName, eventID);
 		this.eventName = eventName;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#getDescription()
-	 */
-	@Override
 	public String getDescription() {
 		return description;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setDescription(java.lang.String)
-	 */
-	@Override
 	public void setDescription(String description) {
 		super.updateField("description", description, eventID);
 		this.description = description;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#getLocation()
-	 */
-	@Override
 	public String getLocation() {
 		return location;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setLocation(java.lang.String)
-	 */
 	@Override
 	public void setLocation(String location) {
 		super.updateField("location", location, eventID);
 		this.location = location;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#getStart()
-	 */
-	@Override
 	public DateTime getStart() {
 		return start;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setStart(org.joda.time.DateTime)
-	 */
-	@Override
 	public void setStart(DateTime start) {
 		DateTimeFormatter fmt = DateTimeFormat
 				.forPattern("yyyy-MM-dd HH:mm:SS");
@@ -262,22 +155,10 @@ public class Event extends Model implements EventI {
 		this.start = start;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#getEnd()
-	 */
-	@Override
 	public DateTime getEnd() {
 		return end;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setEnd(org.joda.time.DateTime)
-	 */
-	@Override
 	public void setEnd(DateTime end) {
 		DateTimeFormatter fmt = DateTimeFormat
 				.forPattern("yyyy-MM-dd HH:mm:SS");
@@ -286,22 +167,10 @@ public class Event extends Model implements EventI {
 		this.end = end;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#getRoomBooked()
-	 */
-	@Override
 	public Room getRoomBooked() throws RemoteException {
 		return StorageServer.roomStorage.get(roomBooked);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setRoomBooked(int)
-	 */
-	@Override
 	public void setRoomBooked(int roomBooked) {
 		super.updateField("roomBooked", roomBooked, eventID);
 		this.roomBooked = roomBooked;
@@ -316,65 +185,28 @@ public class Event extends Model implements EventI {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#getCreatedByUser()
-	 */
-	@Override
-	public int getCreatedByUser() {
-		return createdByUser;
+	public User getCreatedByUser() throws RemoteException {
+		return StorageServer.userStorage.get(createdByUser);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setCreatedByUser(int)
-	 */
-	@Override
 	public void setCreatedByUser(int createdByUser) {
 		super.updateField("createdByUser", createdByUser, eventID);
 		this.createdByUser = createdByUser;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#getCreatedByGroup()
-	 */
-	@Override
-	public int getCreatedByGroup() {
-		return createdByGroup;
+	public Group getCreatedByGroup() throws RemoteException {
+		return StorageServer.groupStorage.get(createdByGroup);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#setCreatedByGroup(int)
-	 */
-	@Override
 	public void setCreatedByGroup(int createdByGroup) {
 		super.updateField("createdByGroup", createdByGroup, eventID);
 		this.createdByGroup = createdByGroup;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#isMeeting()
-	 */
-	@Override
 	public boolean isMeeting() {
 		return isMeeting;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see server.model.EventI#delete()
-	 */
-
-	@Override
 	public void delete() {
 		try {
 			super.delete(eventID);
@@ -383,7 +215,6 @@ public class Event extends Model implements EventI {
 		}
 	}
 
-	@Override
 	public void setCreatedByUser(UserI createdByUser) {
 		try {
 			setCreatedByUser(createdByUser.getUserID());
@@ -393,7 +224,6 @@ public class Event extends Model implements EventI {
 		}
 	}
 
-	@Override
 	public void setCreatedByGroup(GroupI createdByGroup) {
 		try {
 			setCreatedByGroup(createdByGroup.getGroupID());
