@@ -14,7 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
+
 import common.UserI;
+import common.UserListI;
 
 class Participants extends JPanel implements ActionListener {
 
@@ -25,7 +27,7 @@ class Participants extends JPanel implements ActionListener {
 	protected AddParticipant adder;
 	protected DefaultListModel<UserI> model;
 	protected DefaultListSelectionModel selectionModel;
-	protected server.listModel.Users users;
+	protected UserListI users;
 
 	GridBagConstraints g = new GridBagConstraints();
 
