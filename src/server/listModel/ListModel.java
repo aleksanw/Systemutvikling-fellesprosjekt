@@ -6,7 +6,9 @@ import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-class ListModel<E> implements ListSelectionListener {
+import common.ListModelI;
+
+class ListModel<E> implements ListSelectionListener, ListModelI {
 
 	PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 	private DefaultListModel<E> model;
