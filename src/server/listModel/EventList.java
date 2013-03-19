@@ -34,7 +34,7 @@ public class EventList extends ListModel implements EventListI {
 		refresh();
 	}
 
-	private int[] getUserIDs() {
+	private int[] getUserIDs() throws RemoteException {
 		int[] ids = new int[users.size()];
 
 		for (int i = 0; i < ids.length; i++) {
@@ -44,7 +44,7 @@ public class EventList extends ListModel implements EventListI {
 		return ids;
 	}
 
-	private int[] getGroupIDs() {
+	private int[] getGroupIDs() throws RemoteException {
 		int[] ids = new int[groups.size()];
 
 		for (int i = 0; i < ids.length; i++) {
@@ -54,81 +54,86 @@ public class EventList extends ListModel implements EventListI {
 		return ids;
 	}
 
-	public void refresh() {
+	public void refresh() throws RemoteException {
+		// TODO
+		ArrayList<Event> oldEvents = events;
+
 		String query = "";
+
 		ResultSet result = Model.getDB().readQuery(query);
 		try {
 			while (result.next()) {
-				this.users.add(StorageServer.userStorage.get(result
-						.getInt("userID")));
+				this.events.add(StorageServer.eventStorage.get(result
+						.getInt("eventID")));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			throw new RuntimeException(e);
 		}
+
+		pcs.firePropertyChange("events", oldEvents, events);
 	}
 
-	public void nextDay() {
+	public void nextDay() throws RemoteException {
 		date.plusDays(1);
 		refresh();
 	}
 
-	public void previousDay() {
+	public void previousDay() throws RemoteException {
 		date.plusDays(1);
 		refresh();
 	}
 
-	public ArrayList<Event> toArrayList() {
+	public ArrayList<Event> toArrayList() throws RemoteException {
 		return events;
 	}
 
-	public ArrayList<User> getUsers() {
+	public ArrayList<User> getUsers() throws RemoteException {
 		return users;
 	}
 
-	public void setUsers(ArrayList<User> users) {
+	public void setUsers(ArrayList<User> users) throws RemoteException {
 		this.users = users;
 		refresh();
 	}
 
-	public boolean add(User user) {
+	public boolean add(User user) throws RemoteException {
 		boolean r = users.add(user);
 		refresh();
 		return r;
 	}
 
-	public boolean remove(User user) {
+	public boolean remove(User user) throws RemoteException {
 		boolean r = users.remove(user);
 		refresh();
 		return r;
 	}
 
-	public ArrayList<Group> getGroups() {
+	public ArrayList<Group> getGroups() throws RemoteException {
 		return groups;
 	}
 
-	public void setGroups(ArrayList<Group> groups) {
+	public void setGroups(ArrayList<Group> groups) throws RemoteException {
 		this.groups = groups;
 		refresh();
 	}
 
-	public boolean addGroup(Group group) {
+	public boolean addGroup(Group group) throws RemoteException {
 		boolean r = groups.add(group);
 		refresh();
 		return r;
 	}
 
-	public boolean removeGroup(Group group) {
+	public boolean removeGroup(Group group) throws RemoteException {
 		boolean r = groups.remove(group);
 		refresh();
 		return r;
 	}
 
-	public DateTime getDate() {
+	public DateTime getDate() throws RemoteException {
 		return date;
 	}
 
-	public void setDate(DateTime date) {
+	public void setDate(DateTime date) throws RemoteException {
 		this.date = date;
 		refresh();
 	}

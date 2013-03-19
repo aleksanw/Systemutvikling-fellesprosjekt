@@ -1,27 +1,21 @@
 package server.listModel;
 
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import javax.swing.DefaultListModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
 import common.ListModelI;
 
-public class ListModel<E> extends UnicastRemoteObject implements
-		ListSelectionListener, ListModelI {
+public abstract class ListModel extends UnicastRemoteObject implements
+		ListModelI {
+	protected PropertyChangeSupport pcs;
 
 	protected ListModel() throws RemoteException {
-		super();
-		// TODO Auto-generated constructor stub
+		pcs = new PropertyChangeSupport(this);
 	}
 
-	PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-	private DefaultListModel<E> model;
-
-	public void valueChanged(ListSelectionEvent e) {
-		System.out.println("Hei");
+	public void addPropertyChangeListner(PropertyChangeListener listener) {
+		pcs.addPropertyChangeListener(listener);
 	}
 }
