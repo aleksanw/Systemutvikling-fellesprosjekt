@@ -16,7 +16,7 @@ import server.system.StorageServer;
 import common.EventListI;
 
 public class EventList extends ListModel implements EventListI {
-	private ArrayList<Event> events;
+	private ArrayList<Event> list;
 
 	private ArrayList<User> users;
 	private ArrayList<Group> groups;
@@ -54,23 +54,37 @@ public class EventList extends ListModel implements EventListI {
 		return ids;
 	}
 
-	public void refresh() throws RemoteException {
-		// TODO
-		ArrayList<Event> oldEvents = events;
+	private static String intArraytoCommaSeperatedString(int[] list) {
+		String string = "";
 
-		String query = "";
+		for (int i = 0; i < list.length - 1; i++) {
+			string += list[i] + ",";
+		}
+		string += list[list.length - 1];
+
+		return string;
+	}
+
+	public void refresh() throws RemoteException {
+
+		ArrayList<Event> oldList = list;
+
+		String query = "SELECT * FROM Event WHERE createdByUser IN ("
+				+ intArraytoCommaSeperatedString(getUserIDs())
+				+ ") OR createdByGroup IN ("
+				+ intArraytoCommaSeperatedString(getGroupIDs()) + ")";
 
 		ResultSet result = Model.getDB().readQuery(query);
 		try {
 			while (result.next()) {
-				this.events.add(StorageServer.eventStorage.get(result
+				this.list.add(StorageServer.eventStorage.get(result
 						.getInt("eventID")));
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 
-		pcs.firePropertyChange("events", oldEvents, events);
+		pcs.firePropertyChange("list", oldList, list);
 	}
 
 	public void nextDay() throws RemoteException {
@@ -81,10 +95,6 @@ public class EventList extends ListModel implements EventListI {
 	public void previousDay() throws RemoteException {
 		date.plusDays(1);
 		refresh();
-	}
-
-	public ArrayList<Event> toArrayList() throws RemoteException {
-		return events;
 	}
 
 	public ArrayList<User> getUsers() throws RemoteException {
@@ -140,6 +150,6 @@ public class EventList extends ListModel implements EventListI {
 
 	@Override
 	public ArrayList<Event> getList() throws RemoteException {
-		return events;
+		return list;
 	}
 }
