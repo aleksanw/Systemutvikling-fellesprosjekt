@@ -1,5 +1,5 @@
 package server.listModel;
 
-public class CreatedMeetings extends ListModel {
+class CreatedMeetings extends ListModel {
 
 }

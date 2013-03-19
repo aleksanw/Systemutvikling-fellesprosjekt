@@ -5,25 +5,29 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class MemberOfGroup extends Model {
+import exceptions.ObjectNotFoundException;
+
+class MemberOfGroup extends Model {
 
 	private int memberOfGroupID, groupID, userID;
-	
-	public MemberOfGroup(Integer memberOfGroupID) throws RemoteException, SQLException {
+
+	public MemberOfGroup(Integer memberOfGroupID) throws RemoteException,
+			SQLException {
 		super("memberOfGroup", createTableFields(), "memberOfGroupID");
 		ResultSet result = super.getFromDB(memberOfGroupID);
-		if(result.next()) {
+		if (result.next()) {
 			this.memberOfGroupID = result.getInt("memberOfGroupID");
 			this.groupID = result.getInt("groupID");
 			this.userID = result.getInt("userID");
 		}
 	}
-	
+
 	public MemberOfGroup() throws RemoteException, SQLException {
 		super("memberOfGroup", createTableFields(), "memberOfGroupID");
 		ArrayList<Integer> keyList = super.addToDB();
 		this.memberOfGroupID = keyList.get(0);
 	}
+
 	private static ArrayList<String> createTableFields() {
 		ArrayList<String> tableFields = new ArrayList<String>();
 		tableFields.add("roomID");
@@ -53,9 +57,13 @@ public class MemberOfGroup extends Model {
 	public int getMemberOfGroupID() {
 		return memberOfGroupID;
 	}
-	
+
 	@Override
 	public void delete() {
-		super.delete(memberOfGroupID);		
+		try {
+		super.delete(memberOfGroupID);
+		} catch (ObjectNotFoundException e) {
+			throw new RuntimeException(e);
+		}		
 	}
 }

@@ -16,6 +16,8 @@ import common.GroupI;
 import common.RoomI;
 import common.UserI;
 
+import exceptions.ObjectNotFoundException;
+
 public class Event extends Model implements EventI {
 
 	private int eventID;
@@ -370,7 +372,11 @@ public class Event extends Model implements EventI {
 
 	@Override
 	public void delete() {
+		try {
 		super.delete(eventID);
+		} catch (ObjectNotFoundException e) {
+			throw new RuntimeException(e);
+		}		
 	}
 
 	@Override

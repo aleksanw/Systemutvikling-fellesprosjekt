@@ -9,28 +9,32 @@ import org.joda.time.DateTime;
 
 import common.RoomI;
 
+import exceptions.ObjectNotFoundException;
+
 public class Room extends Model implements RoomI {
 
 	private int roomID, personCapacity;
 	private String roomName;
-	
+
 	public Room(Integer roomID) throws RemoteException, SQLException {
 		super("Room", createTableFields(), "roomID");
 		ResultSet result = super.getFromDB(roomID);
-		if(result.next()) {
+		if (result.next()) {
 			this.roomID = result.getInt("roomID");
 			this.roomName = result.getString("roomName");
 			this.personCapacity = result.getInt("personCapacity");
 		}
 	}
-	
+
 	public Room() throws RemoteException, SQLException {
 		super("Room", createTableFields(), "roomID");
 		ArrayList<Integer> keyList = super.addToDB();
 		this.roomID = keyList.get(0);
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.RoomI#getRoomID()
 	 */
 	@Override
@@ -38,7 +42,9 @@ public class Room extends Model implements RoomI {
 		return roomID;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.RoomI#getPersonCapacity()
 	 */
 	@Override
@@ -46,7 +52,9 @@ public class Room extends Model implements RoomI {
 		return personCapacity;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.RoomI#getRoomName()
 	 */
 	@Override
@@ -61,16 +69,21 @@ public class Room extends Model implements RoomI {
 		tableFields.add("personCapacity");
 		return tableFields;
 	}
-	
-	/* (non-Javadoc)
-	 * @see server.model.RoomI#isBookedInPeriod(org.joda.time.DateTime, org.joda.time.DateTime)
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see server.model.RoomI#isBookedInPeriod(org.joda.time.DateTime,
+	 * org.joda.time.DateTime)
 	 */
 	@Override
 	public boolean isBookedInPeriod(DateTime start, DateTime end) {
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.RoomI#setPersonCapacity(int)
 	 */
 	@Override
@@ -79,7 +92,9 @@ public class Room extends Model implements RoomI {
 		this.personCapacity = personCapacity;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.RoomI#setRoomName(java.lang.String)
 	 */
 	@Override
@@ -87,12 +102,18 @@ public class Room extends Model implements RoomI {
 		super.updateField("roomName", roomName, roomID);
 		this.roomName = roomName;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see server.model.RoomI#delete()
 	 */
 	@Override
 	public void delete() {
-		super.delete(roomID);		
+		try {
+		super.delete(roomID);
+		} catch (ObjectNotFoundException e) {
+			throw new RuntimeException(e);
+		}		
 	}
 }
