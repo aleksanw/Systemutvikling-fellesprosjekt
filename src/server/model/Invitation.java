@@ -76,7 +76,7 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#getEventID()
 	 */
 	@Override
-	public EventI getEvent() {
+	public EventI getEvent() throws RemoteException, SQLException {
 		return new Event(eventID);
 	}
 
@@ -84,7 +84,7 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#getUserID()
 	 */
 	@Override
-	public UserI getUser() {
+	public UserI getUser() throws RemoteException, SQLException {
 		return new User(userID);
 	}
 
