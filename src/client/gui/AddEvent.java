@@ -23,8 +23,7 @@ import org.joda.time.DateTime;
 import common.AlarmI;
 import common.EventI;
 
-@SuppressWarnings("serial")
-public class AddEvent extends JPanel implements ActionListener {
+class AddEvent extends JPanel implements ActionListener {
 
 	protected JLabel title, lAlarm, start, end, lAllDay, lDesc, visible, lName;
 	protected JTextField name;

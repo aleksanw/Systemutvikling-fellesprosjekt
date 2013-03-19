@@ -4,12 +4,14 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 import org.joda.time.MutableDateTime;
 
-public class Buttons extends JPanel implements ActionListener {
+class Buttons extends JPanel implements ActionListener {
 
 	private JButton event, meating, groups, logout, rArrow, lArrow, toCurWeek;
 	private JLabel curWeek;
@@ -42,7 +44,7 @@ public class Buttons extends JPanel implements ActionListener {
 
 		lArrow = new JButton("<");
 		lArrow.addActionListener(this);
-		
+
 		toCurWeek = new JButton("Denne uken");
 		toCurWeek.addActionListener(this);
 
@@ -57,14 +59,13 @@ public class Buttons extends JPanel implements ActionListener {
 		add(curWeek, gbc);
 		add(lArrow, gbc);
 		add(rArrow, gbc);
-		add(toCurWeek,gbc);
+		add(toCurWeek, gbc);
 		add(logout, gbc);
 	}
 
 	private void toCurrentWeek() {
 		weekNr = date.getWeekOfWeekyear();
-		curWeek.setText("Uke " + weekNr + ", "
-				+ date.getYear());
+		curWeek.setText("Uke " + weekNr + ", " + date.getYear());
 	}
 
 	public void nextWeek() {
@@ -99,8 +100,7 @@ public class Buttons extends JPanel implements ActionListener {
 		} else if (e.getActionCommand().toString()
 				.equals("Gruppeinnstillinger")) {
 			MainClass.runGroupSettings();
-		}
-		else if(e.getActionCommand().toString().equals("Denne uken")){
+		} else if (e.getActionCommand().toString().equals("Denne uken")) {
 			toCurrentWeek();
 		}
 	}

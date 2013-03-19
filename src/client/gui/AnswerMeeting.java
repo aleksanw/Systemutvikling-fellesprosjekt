@@ -5,6 +5,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 
-public class AnswerMeeting extends JPanel implements ActionListener {
+class AnswerMeeting extends JPanel implements ActionListener {
 
 	private JLabel header, participants, accept, decline;
 	private JLabel name = new JLabel();
@@ -34,8 +35,8 @@ public class AnswerMeeting extends JPanel implements ActionListener {
 			String place) {
 		header = new JLabel();
 		header.setText("Svar på innkalling");
-		header.setFont(new Font("Sans Serif",Font.PLAIN,20));
-		
+		header.setFont(new Font("Sans Serif", Font.PLAIN, 20));
+
 		participants = new JLabel();
 		participants.setText("Deltakere");
 
@@ -61,65 +62,67 @@ public class AnswerMeeting extends JPanel implements ActionListener {
 		this.time.setText(time);
 		this.desc.setText(desc);
 		this.place.setText(place);
-		
+
 		send = new JButton("Svar");
 		send.addActionListener(this);
-		
+
 		myBGroup = new ButtonGroup();
 		myBGroup.add(acc);
 		myBGroup.add(dec);
-		
+
 		build();
 	}
 
-	public void build(){
+	public void build() {
 		setLayout(new GridBagLayout());
-		
+
 		g.gridwidth = 2;
 		g.gridy = 0;
-		add(header,g);
-		
+		add(header, g);
+
 		g.gridy = 1;
-		add(name,g);
-		
+		add(name, g);
+
 		g.gridy = 2;
-		add(date,g);
-		
+		add(date, g);
+
 		g.gridy = 3;
-		add(time,g);
-		
+		add(time, g);
+
 		g.gridy = 4;
-		add(desc,g);
-		
+		add(desc, g);
+
 		g.gridy = 5;
-		add(place,g);
-		
+		add(place, g);
+
 		g.gridy = 6;
-		add(participants,g);
-		
+		add(participants, g);
+
 		g.gridy = 7;
-		add(scroll,g);
-		
+		add(scroll, g);
+
 		g.gridwidth = 1;
 		g.gridy = 8;
-		add(acc,g);
-		add(accept,g);
-		
+		add(acc, g);
+		add(accept, g);
+
 		g.gridy = 9;
-		add(dec,g);
-		add(decline,g);
-		
+		add(dec, g);
+		add(decline, g);
+
 		g.gridy = 10;
-		add(send,g);
+		add(send, g);
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		
+
 	}
 
 	public static void main(String[] args) {
 		JFrame f = new JFrame();
-		f.getContentPane().add(new AnswerMeeting("Møte", "06.02", "15:30", "Pølsefest","Narvesen"));
+		f.getContentPane().add(
+				new AnswerMeeting("Møte", "06.02", "15:30", "Pølsefest",
+						"Narvesen"));
 		f.pack();
 		f.setVisible(true);
 		f.setSize(800, 600);

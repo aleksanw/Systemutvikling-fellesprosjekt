@@ -15,7 +15,7 @@ import javax.swing.ListSelectionModel;
 import common.RoomI;
 import common.RoomsI;
 
-public class Booking extends JPanel {
+class Booking extends JPanel {
 
 	protected JLabel label;
 	protected JLabel date;

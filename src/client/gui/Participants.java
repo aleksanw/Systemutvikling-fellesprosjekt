@@ -16,8 +16,7 @@ import javax.swing.ListSelectionModel;
 
 import common.UserI;
 
-
-public class Participants extends JPanel implements ActionListener {
+class Participants extends JPanel implements ActionListener {
 
 	protected JButton findP;
 	protected JList part;
@@ -27,18 +26,18 @@ public class Participants extends JPanel implements ActionListener {
 	protected DefaultListModel<UserI> model;
 	protected DefaultListSelectionModel selectionModel;
 	protected server.listModel.Users users;
-	
 
 	GridBagConstraints g = new GridBagConstraints();
 
 	public Participants() {
 		findP = new JButton("Legg til Deltaker");
 		findP.addActionListener(this);
-		
+
 		model = new DefaultListModel<UserI>();
-		
+
 		selectionModel = new DefaultListSelectionModel();
-		selectionModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		selectionModel
+				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
 		part = new JList(model);
 		part.setSelectionModel(selectionModel);

@@ -9,7 +9,7 @@ import javax.swing.ListCellRenderer;
 
 import common.RoomI;
 
-public class CellRenderer extends JLabel implements ListCellRenderer {
+class CellRenderer extends JLabel implements ListCellRenderer {
 
 	public Component getListCellRendererComponent(JList list, Object value,
 			int index, boolean isSelected, boolean cellHasFocus) {

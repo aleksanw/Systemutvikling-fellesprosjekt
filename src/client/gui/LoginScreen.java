@@ -3,13 +3,12 @@ package client.gui;
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
-
 import client.gui.widgets.LoginForm;
-import client.gui.widgets.LoginListener;
 import client.gui.widgets.LoginForm.LoginEvent;
+import client.gui.widgets.LoginListener;
 
-public class LoginScreen extends JPanel implements LoginListener{
-	
+class LoginScreen extends JPanel implements LoginListener {
+
 	public LoginScreen() {
 		this.setLayout(new MigLayout());
 		LoginForm form = new LoginForm();
@@ -19,7 +18,7 @@ public class LoginScreen extends JPanel implements LoginListener{
 
 	@Override
 	public void loginAttempted(LoginEvent e) {
-		if(e.getUsername().equals("fp") && e.getPassword().equals("ntnu")){
+		if (e.getUsername().equals("fp") && e.getPassword().equals("ntnu")) {
 			e.authSuccess();
 			MainClass.loginOK();
 		} else {
