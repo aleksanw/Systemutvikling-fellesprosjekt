@@ -12,16 +12,15 @@ import server.system.StorageServer;
 import common.RoomsI;
 
 public class Rooms extends ListModel implements RoomsI {
-	ArrayList<Room> rooms = new ArrayList<Room>();
+	ArrayList<Room> roomList = new ArrayList<Room>();
 
 	public Rooms() {
 		String query = "SELECT roomID FROM Room;";
 		ResultSet result;
 		try {
 			result = Model.getDB().readQuery(query);
-
 			while (result.next()) {
-				this.rooms.add(StorageServer.roomStorage.get(result
+				this.roomList.add(StorageServer.roomStorage.get(result
 						.getInt("roomID")));
 			}
 
@@ -31,7 +30,7 @@ public class Rooms extends ListModel implements RoomsI {
 		}
 	}
 
-	public ArrayList<Room> getList() {
-		return rooms;
+	public ArrayList<Room> getList() throws RemoteException {
+		return roomList;
 	}
 }

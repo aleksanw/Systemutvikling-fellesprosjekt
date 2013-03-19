@@ -32,8 +32,7 @@ public class RoomStorage extends Storage implements RoomStorageI {
 	}
 
 	@Override
-	public RoomsI getRoomList() {
-		// TODO Auto-generated method stub
+	public RoomsI getRoomList() throws RemoteException {
 		return new Rooms();
 	}
 }
