@@ -1,13 +1,17 @@
 package server.listModel;
 
 import java.rmi.RemoteException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.joda.time.DateTime;
 
 import server.model.Event;
 import server.model.Group;
+import server.model.Model;
 import server.model.User;
+import server.system.StorageServer;
 
 import common.EventListI;
 
@@ -51,7 +55,17 @@ public class EventList extends ListModel implements EventListI {
 	}
 
 	public void refresh() {
-		// TODO: Update
+		String query = "";
+		ResultSet result = Model.getDB().readQuery(query);
+		try {
+			while (result.next()) {
+				this.users.add(StorageServer.userStorage.get(result
+						.getInt("userID")));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 
 	public void nextDay() {
