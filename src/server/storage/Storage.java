@@ -3,7 +3,6 @@ package server.storage;
 import java.lang.reflect.InvocationTargetException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.SQLException;
 
 import common.ModelI;
 
@@ -47,7 +46,7 @@ public abstract class Storage extends UnicastRemoteObject {
 		return null;
 	}
 
-	public void delete(int ID) throws RemoteException, SQLException {
+	public void delete(int ID) throws RemoteException {
 		ModelI model = this.get(ID);
 		model.delete();
 		
@@ -55,7 +54,7 @@ public abstract class Storage extends UnicastRemoteObject {
 		model = null;
 	}
 	
-	public void delete(ModelI model) throws RemoteException, SQLException {
+	public void delete(ModelI model) throws RemoteException {
 		model.delete();
 		
 		// Delete from memory
