@@ -20,7 +20,8 @@ public class LoginScreen extends JPanel implements LoginListener{
 	@Override
 	public void loginAttempted(LoginEvent e) {
 		if(e.getUsername().equals("fp") && e.getPassword().equals("ntnu")){
-				MainClass.loginOK();
+			e.authSuccess();
+			MainClass.loginOK();
 		} else {
 			e.authFailure();
 		}

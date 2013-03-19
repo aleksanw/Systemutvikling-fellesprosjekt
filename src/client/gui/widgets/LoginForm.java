@@ -66,6 +66,13 @@ public class LoginForm extends JPanel implements ActionListener, DocumentListene
 		usernameField.requestFocusInWindow();
 	}
 	
+	private void setSucc(){
+		usernameField.setEnabled(true);
+		passwordField.setEnabled(true);
+		passwordField.setText("");
+		usernameField.requestFocusInWindow();
+	}
+	
 	private void setNormal(){
 		statuslabel.setText("");
 	}
@@ -111,6 +118,7 @@ public class LoginForm extends JPanel implements ActionListener, DocumentListene
 		public String getUsername() {	return username;	}
 		public String getPassword() {	return password;	}
 		public void authFailure() {		setFail();			}
+		public void authSuccess() {		setSucc();			}
 	}
 
 	
