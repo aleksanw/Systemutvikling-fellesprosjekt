@@ -1,17 +1,18 @@
 package client.gui;
 
-import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
+import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+import server.model.User;
 
 
 public class Participants extends JPanel implements ActionListener {
@@ -21,14 +22,24 @@ public class Participants extends JPanel implements ActionListener {
 	protected JScrollPane scroll;
 	protected JLabel lPart;
 	protected AddParticipant adder;
+	protected DefaultListModel<User> model;
+	protected DefaultListSelectionModel selectionModel;
+	protected server.listModel.Users users;
+	
 
 	GridBagConstraints g = new GridBagConstraints();
 
 	public Participants() {
 		findP = new JButton("Legg til Deltaker");
 		findP.addActionListener(this);
+		
+		model = new DefaultListModel<User>();
+		
+		selectionModel = new DefaultListSelectionModel();
+		selectionModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-		part = new JList();
+		part = new JList(model);
+		part.setSelectionModel(selectionModel);
 
 		scroll = new JScrollPane(part);
 
@@ -52,7 +63,6 @@ public class Participants extends JPanel implements ActionListener {
 		add(adder, g);
 		adder.setVisible(false);
 
-		setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 
 	public void actionPerformed(ActionEvent arg0) {

@@ -9,7 +9,7 @@ public class AddMeeting extends AddEvent {
 	public AddMeeting() {
 		super();
 		remove(allDay);
-		remove(alarm);
+		remove(setAlarm);
 		remove(lAlarm);
 		remove(lAllDay);
 		remove(vis);

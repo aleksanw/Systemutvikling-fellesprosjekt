@@ -1,6 +1,5 @@
 package client.gui;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -8,7 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
-import javax.swing.BorderFactory;
+import java.sql.Time;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -18,16 +18,17 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import org.joda.time.DateTime;
+
+import common.AlarmI;
 import common.EventI;
 
-
 @SuppressWarnings("serial")
-public class AddEvent extends JPanel implements ActionListener{
+public class AddEvent extends JPanel implements ActionListener {
 
 	protected JLabel title, lAlarm, start, end, lAllDay, lDesc, visible, lName;
 	protected JTextField name;
 	protected JTextArea desc;
-	protected JComboBox<String> hour, min, hourE, minE, alarm, group, vis, day,
+	protected JComboBox<String> hour, min, hourE, minE, setAlarm, group, vis, day,
 			month, dayE, monthE;
 	protected JRadioButton allDay;
 	protected JButton save, delete, cancel;
@@ -35,6 +36,8 @@ public class AddEvent extends JPanel implements ActionListener{
 	protected Place place = new Place();
 	protected Booking booking = new Booking();
 	protected EventI event;
+	protected AlarmI alarm;
+	protected 
 
 	GridBagConstraints g = new GridBagConstraints();
 
@@ -44,8 +47,8 @@ public class AddEvent extends JPanel implements ActionListener{
 
 		String[] hours = addNum(0, 24);
 		String[] minutes = { "00", "15", "30", "45" };
-		String[] minForAlarm = { "Ingen alarm", "10 min", "15 min", "20 min",
-				"30 min", "1 time", "2 timer", "24 timer" };
+		String[] minForAlarm = { "Ingen alarm", "0:10", "0:15", "0:20",
+				"0:30", "1:00", "2:00", "24:00" };
 		String[] days = addNum(1, 32);
 		String[] months = { "Mars 2013", "April 2013" };
 
@@ -61,7 +64,6 @@ public class AddEvent extends JPanel implements ActionListener{
 		tabs.setPreferredSize(new Dimension(250, 200));
 		tabs.addTab("Sted", place);
 		tabs.addTab("Book møterom", booking);
-		tabs.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
 		start = new JLabel();
 		start.setText("Start:");
@@ -88,7 +90,7 @@ public class AddEvent extends JPanel implements ActionListener{
 
 		lAlarm = new JLabel();
 		lAlarm.setText("Legg Til Alarm:");
-		alarm = new JComboBox<String>(minForAlarm);
+		setAlarm = new JComboBox<String>(minForAlarm);
 
 		day = new JComboBox<String>(days);
 		day.addActionListener(new timeBoxActionListener());
@@ -185,7 +187,7 @@ public class AddEvent extends JPanel implements ActionListener{
 		add(lAlarm, g);
 		g.gridx = 1;
 		g.gridwidth = 3;
-		add(alarm, g);
+		add(setAlarm, g);
 
 		g.gridy = 7;
 		g.gridx = 0;
@@ -263,13 +265,13 @@ public class AddEvent extends JPanel implements ActionListener{
 	}
 
 	private void delete(EventI e) {
-			if(e != null){
-				try {
-					MainClass.sServer.eventStorage.delete(event.getEventID());
-				} catch (RemoteException e1) {
-					e1.printStackTrace();
-				}
+		if (e != null) {
+			try {
+				MainClass.sServer.eventStorage.delete(event.getEventID());
+			} catch (RemoteException e1) {
+				e1.printStackTrace();
 			}
+		}
 	}
 
 	private void save(EventI e) throws SQLException {
@@ -277,7 +279,7 @@ public class AddEvent extends JPanel implements ActionListener{
 			if (e == null) {
 				e = (EventI) MainClass.sServer.eventStorage.create();
 				throw new RemoteException();
-			} 
+			}
 			editEvent(e);
 		} catch (RemoteException e1) {
 			e1.printStackTrace();
@@ -300,15 +302,19 @@ public class AddEvent extends JPanel implements ActionListener{
 		if (this.allDay.isSelected()) {
 			e.setEnd(new DateTime(eYear, eMonth, eDay, 23, 59));
 		} else {
-			e.setEnd(new DateTime(eYearE, eMonthE, eDayE, eHourE,
-					eMinE));
+			e.setEnd(new DateTime(eYearE, eMonthE, eDayE, eHourE, eMinE));
 		}
 		e.setDescription(this.desc.getText());
 		e.setLocation(this.place.text.getText());
 		e.setRoomBooked(booking.list.getSelectedIndex());
 		e.setMeeting(false);
-		//e.setCreatedByGroup(vis.getSelectedItem()); 
-		
+		if(setAlarm.getSelectedIndex() > 0){
+			int hours = Integer.parseInt(setAlarm.getSelectedItem().toString().split(":")[0]);
+			int minutes = Integer.parseInt(setAlarm.getSelectedItem().toString().split(":")[1]);
+			alarm = MainClass.sServer.alarmStorage.create();
+			alarm.setNumberOfHoursBeforeMeeting(new Time(hours,minutes,0));
+		}
+		// e.setCreatedByGroup(vis.getSelectedItem());
 	}
 
 	public void clearFields() {
@@ -321,7 +327,7 @@ public class AddEvent extends JPanel implements ActionListener{
 		minE.setSelectedIndex(0);
 		dayE.setSelectedIndex(0);
 		monthE.setSelectedIndex(0);
-		alarm.setSelectedIndex(0);
+		setAlarm.setSelectedIndex(0);
 		desc.setText("");
 		place.text.setText("");
 		booking.list.setSelectedIndex(0);

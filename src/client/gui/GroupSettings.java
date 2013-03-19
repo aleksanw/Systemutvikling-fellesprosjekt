@@ -81,9 +81,7 @@ public class GroupSettings extends JPanel implements ActionListener{
 		gbc.gridx = 0;
 		add(save, gbc);
 		gbc.gridx = 1;
-		add(cancel,gbc);
-		
-		
+		add(cancel,gbc);	
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -100,5 +98,4 @@ public class GroupSettings extends JPanel implements ActionListener{
 			//Uncheck all selected people
 		}
 	}
-
 }
