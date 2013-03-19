@@ -111,7 +111,7 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#setUserID(int)
 	 */
 	@Override
-	public void setUser(UserI user) {
+	public void setUser(UserI user) throws RemoteException, SQLException {
 		int userID = user.getUserID();
 		super.updateField("userID", userID, invitationID);
 		this.userID = userID;
@@ -121,7 +121,7 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#setEventID(int)
 	 */
 	@Override
-	public void setEvent(EventI event) {
+	public void setEvent(EventI event) throws RemoteException, SQLException {
 		int eventID = event.getEventID();
 		super.updateField("eventID", eventID, invitationID);
 		this.eventID = eventID;
