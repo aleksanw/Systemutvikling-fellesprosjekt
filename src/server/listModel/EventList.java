@@ -1,5 +1,6 @@
 package server.listModel;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import server.model.Event;
@@ -19,7 +20,8 @@ public class EventList extends ListModel implements EventListI {
 
 	// TODO: private ListListner ll;
 
-	public EventList(ArrayList<User> users, ArrayList<Group> groups, WeekI week) {
+	public EventList(ArrayList<User> users, ArrayList<Group> groups, WeekI week)
+			throws RemoteException {
 		this.users = users;
 		this.groups = groups;
 		this.week = week;

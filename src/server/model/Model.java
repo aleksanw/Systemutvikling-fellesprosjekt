@@ -73,12 +73,7 @@ public abstract class Model extends UnicastRemoteObject {
 	protected ArrayList<Integer> addToDB() {
 		String query = "INSERT INTO " + tableName + " () VALUES ();";
 		ArrayList<Integer> keyList;
-		try {
-			keyList = DB.insertAndGetKeysQuery(query);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			throw new RuntimeException(e);
-		}
+		keyList = DB.insertAndGetKeysQuery(query);
 		return keyList;
 	}
 

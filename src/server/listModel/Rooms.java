@@ -16,6 +16,14 @@ public class Rooms extends ListModel implements RoomsI {
 
 	public Rooms() throws RemoteException {
 		super();
+		refresh();
+	}
+
+	public ArrayList<Room> getList() throws RemoteException {
+		return roomList;
+	}
+
+	public void refresh() {
 		String query = "SELECT roomID FROM Room;";
 		ResultSet result;
 		try {
@@ -31,7 +39,4 @@ public class Rooms extends ListModel implements RoomsI {
 		}
 	}
 
-	public ArrayList<Room> getList() throws RemoteException {
-		return roomList;
-	}
 }
