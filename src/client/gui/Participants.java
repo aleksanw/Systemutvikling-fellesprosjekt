@@ -4,6 +4,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
@@ -12,7 +13,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-import server.model.User;
+
+import common.UserI;
 
 
 public class Participants extends JPanel implements ActionListener {
@@ -22,7 +24,7 @@ public class Participants extends JPanel implements ActionListener {
 	protected JScrollPane scroll;
 	protected JLabel lPart;
 	protected AddParticipant adder;
-	protected DefaultListModel<User> model;
+	protected DefaultListModel<UserI> model;
 	protected DefaultListSelectionModel selectionModel;
 	protected server.listModel.Users users;
 	
@@ -33,7 +35,7 @@ public class Participants extends JPanel implements ActionListener {
 		findP = new JButton("Legg til Deltaker");
 		findP.addActionListener(this);
 		
-		model = new DefaultListModel<User>();
+		model = new DefaultListModel<UserI>();
 		
 		selectionModel = new DefaultListSelectionModel();
 		selectionModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
