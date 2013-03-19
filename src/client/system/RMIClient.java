@@ -1,6 +1,8 @@
 package client.system;
 
+import java.net.MalformedURLException;
 import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 
@@ -8,7 +10,7 @@ public class RMIClient {
 	private static String server = "localhost:1099";
 	//public StorageI eventStorage;
 	
-	public RMIClient() throws RemoteException {
+	public RMIClient() {
 		System.setProperty("java.security.policy","config/openall.policy");
 		
 		// Initialize Security Manager
@@ -20,10 +22,15 @@ public class RMIClient {
 		//System.out.println(eventStorage.getValue());
 	}
 	
-	public Object getObject(String objectname) throws Exception{
+	public Object getObject(String objectname){
 		String urlServer = new String("rmi://" + server + "/" + objectname);
 
 		// Bind to RMIServer
-		return (Object) Naming.lookup(urlServer);
+		try {
+			return (Object) Naming.lookup(urlServer);
+		} catch (MalformedURLException | RemoteException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 }

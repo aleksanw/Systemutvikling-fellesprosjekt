@@ -15,7 +15,7 @@ public class StorageServerConnection {
 	public AlarmStorageI alarmStorage;
 	public InvitationStorageI invitationStorage;
 	
-	public StorageServerConnection() throws Exception {
+	public StorageServerConnection() {
 		RMIClient server = new RMIClient();
 		this.eventStorage 		= (EventStorageI) server.getObject("eventStorage");
 		this.userStorage 		= (UserStorageI) server.getObject("userStorage");
