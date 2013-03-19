@@ -65,6 +65,10 @@ class Buttons extends JPanel implements ActionListener {
 
 	private void toCurrentWeek() {
 		weekNr = date.getWeekOfWeekyear();
+<<<<<<< HEAD
+=======
+		year = date.getYear();
+>>>>>>> KÅMMIT
 		curWeek.setText("Uke " + weekNr + ", " + date.getYear());
 	}
 
