@@ -1,16 +1,18 @@
 package client.gui;
 
 import java.awt.CardLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.UIManager;
 
-import org.apache.commons.cli.*;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.GnuParser;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
 
 import server.system.StorageServer;
-
-import client.system.DummyStorageServerConnection;
 import client.system.StorageServerConnection;
 
 public class MainClass {
