@@ -33,6 +33,6 @@ public class RoomStorage extends Storage implements RoomStorageI {
 
 	@Override
 	public RoomsI getRoomList() throws RemoteException {
-		return new Rooms();
+		return (RoomsI) new Rooms();
 	}
 }

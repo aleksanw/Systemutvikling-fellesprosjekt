@@ -14,7 +14,8 @@ import common.RoomsI;
 public class Rooms extends ListModel implements RoomsI {
 	ArrayList<Room> roomList = new ArrayList<Room>();
 
-	public Rooms() {
+	public Rooms() throws RemoteException {
+		super();
 		String query = "SELECT roomID FROM Room;";
 		ResultSet result;
 		try {
