@@ -18,7 +18,6 @@ class DayView extends JPanel implements ListSelectionListener {
 
 	private JLabel day;
 	private DateTime date;
-	private Event evt;
 	private JList<String> list;
 	private JScrollPane scroll;
 	private DefaultListModel model;
