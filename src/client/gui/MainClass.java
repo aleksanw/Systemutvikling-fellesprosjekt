@@ -8,13 +8,11 @@ import org.apache.commons.cli.ParseException;
 import client.system.StorageServerConnection;
 
 public class MainClass {
-	static StorageServerConnection sServer;
+	static StorageServerConnection sServer = new StorageServerConnection();
 	static GUI gui;
 
 	public static void main(String[] args) {
 		System.setProperty("file.encoding", "UTF-8");
-
-		sServer = new StorageServerConnection();
 
 		gui = new GUI();
 
