@@ -10,7 +10,7 @@ import server.model.Model;
 import server.model.User;
 import server.system.StorageServer;
 
-class Users extends ListModel {
+public class Users extends ListModel {
 	ArrayList<User> users = new ArrayList<User>();
 
 	public Users(Group group) throws SQLException, RemoteException {

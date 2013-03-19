@@ -8,7 +8,7 @@ import server.model.User;
 
 import common.WeekI;
 
-class Events {
+public class Events {
 	private ArrayList<Event> events;
 	private ArrayList<User> users;
 	private ArrayList<Group> groups;
