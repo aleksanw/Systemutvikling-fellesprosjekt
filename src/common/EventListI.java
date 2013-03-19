@@ -1,6 +1,9 @@
 package common;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
+
+import org.joda.time.DateTime;
 
 import server.model.Event;
 import server.model.Group;
@@ -8,32 +11,32 @@ import server.model.User;
 
 public interface EventListI extends ListModelI {
 
-	public void refresh();
+	public void refresh() throws RemoteException;
 
-	public void nextWeek();
+	public void nextDay() throws RemoteException;
 
-	public void previousWeek();
+	public void previousDay() throws RemoteException;
 
-	public ArrayList<Event> getList();
+	public ArrayList<Event> getList() throws RemoteException;
 
-	public ArrayList<User> getUsers();
+	public ArrayList<User> getUsers() throws RemoteException;
 
-	public void setUsers(ArrayList<User> users);
+	public void setUsers(ArrayList<User> users) throws RemoteException;
 
-	public boolean add(User user);
+	public boolean add(User user) throws RemoteException;
 
-	public boolean remove(User user);
+	public boolean remove(User user) throws RemoteException;
 
-	public ArrayList<Group> getGroups();
+	public ArrayList<Group> getGroups() throws RemoteException;
 
-	public void setGroups(ArrayList<Group> groups);
+	public void setGroups(ArrayList<Group> groups) throws RemoteException;
 
-	public boolean addGroup(Group group);
+	public boolean addGroup(Group group) throws RemoteException;
 
-	public boolean removeGroup(Group group);
+	public boolean removeGroup(Group group) throws RemoteException;
 
-	public WeekI getWeek();
+	public DateTime getDate() throws RemoteException;
 
-	public void setWeek(WeekI week);
+	public void setDate(DateTime date) throws RemoteException;
 
 }

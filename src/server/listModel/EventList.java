@@ -3,12 +3,13 @@ package server.listModel;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import org.joda.time.DateTime;
+
 import server.model.Event;
 import server.model.Group;
 import server.model.User;
 
 import common.EventListI;
-import common.WeekI;
 
 public class EventList extends ListModel implements EventListI {
 	private ArrayList<Event> events;
@@ -16,15 +17,15 @@ public class EventList extends ListModel implements EventListI {
 	private ArrayList<User> users;
 	private ArrayList<Group> groups;
 	// TODO: This should be a Week object
-	private WeekI week;
+	private DateTime date;
 
 	// TODO: private ListListner ll;
 
-	public EventList(ArrayList<User> users, ArrayList<Group> groups, WeekI week)
-			throws RemoteException {
+	public EventList(ArrayList<User> users, ArrayList<Group> groups,
+			DateTime date) throws RemoteException {
 		this.users = users;
 		this.groups = groups;
-		this.week = week;
+		this.date = date;
 
 		refresh();
 	}
@@ -53,13 +54,13 @@ public class EventList extends ListModel implements EventListI {
 		// TODO: Update
 	}
 
-	public void nextWeek() {
-		week = week.getNextWeek();
+	public void nextDay() {
+		date.plusDays(1);
 		refresh();
 	}
 
-	public void previousWeek() {
-		week = week.getPreviousWeek();
+	public void previousDay() {
+		date.plusDays(1);
 		refresh();
 	}
 
@@ -109,12 +110,17 @@ public class EventList extends ListModel implements EventListI {
 		return r;
 	}
 
-	public WeekI getWeek() {
-		return week;
+	public DateTime getDate() {
+		return date;
 	}
 
-	public void setWeek(WeekI week) {
-		this.week = week;
+	public void setDate(DateTime date) {
+		this.date = date;
 		refresh();
+	}
+
+	@Override
+	public ArrayList<Event> getList() throws RemoteException {
+		return events;
 	}
 }
