@@ -8,13 +8,12 @@ import java.util.ArrayList;
 import server.model.Group;
 import server.model.Model;
 import server.model.User;
-import server.storage.UserStorage;
 import server.system.StorageServer;
 
 public class Users extends ListModel {
 	ArrayList<User> users = new ArrayList<User>();
 	
-	public Users(Group group, UserStorage storage) throws SQLException, RemoteException {
+	public Users(Group group) throws SQLException, RemoteException {
 		int groupID = group.getGroupID();
 		String query = "SELECT userID FROM memberOfGroup, Groups WHERE Group." + groupID + "=memberOfGroup." + groupID + ";";
 		ResultSet result = Model.getDB().readQuery(query);
