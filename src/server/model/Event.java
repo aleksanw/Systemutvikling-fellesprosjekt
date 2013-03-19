@@ -149,7 +149,7 @@ public class Event extends Model implements EventI {
 	 * @see server.model.EventI#setActive(boolean)
 	 */
 	@Override
-	public void setActive(boolean isActive) throws SQLException {
+	public void setActive(boolean isActive) {
 		super.updateField("isActive", isActive, eventID);
 		this.isActive = isActive;
 	}
@@ -170,7 +170,7 @@ public class Event extends Model implements EventI {
 	 * @see server.model.EventI#setWholeDay(boolean)
 	 */
 	@Override
-	public void setWholeDay(boolean isWholeDay) throws SQLException {
+	public void setWholeDay(boolean isWholeDay) {
 		super.updateField("isWholeDay", isWholeDay, eventID);
 		this.isWholeDay = isWholeDay;
 	}
@@ -191,7 +191,7 @@ public class Event extends Model implements EventI {
 	 * @see server.model.EventI#setEventName(java.lang.String)
 	 */
 	@Override
-	public void setEventName(String eventName) throws SQLException {
+	public void setEventName(String eventName) {
 		super.updateField("eventName", eventName, eventID);
 		this.eventName = eventName;
 	}
@@ -212,7 +212,7 @@ public class Event extends Model implements EventI {
 	 * @see server.model.EventI#setDescription(java.lang.String)
 	 */
 	@Override
-	public void setDescription(String description) throws SQLException {
+	public void setDescription(String description) {
 		super.updateField("description", description, eventID);
 		this.description = description;
 	}
@@ -233,7 +233,7 @@ public class Event extends Model implements EventI {
 	 * @see server.model.EventI#setLocation(java.lang.String)
 	 */
 	@Override
-	public void setLocation(String location) throws SQLException {
+	public void setLocation(String location) {
 		super.updateField("location", location, eventID);
 		this.location = location;
 	}
@@ -254,7 +254,7 @@ public class Event extends Model implements EventI {
 	 * @see server.model.EventI#setStart(org.joda.time.DateTime)
 	 */
 	@Override
-	public void setStart(DateTime start) throws SQLException {
+	public void setStart(DateTime start) {
 		DateTimeFormatter fmt = DateTimeFormat
 				.forPattern("yyyy-MM-dd HH:mm:SS");
 		String dateToString = fmt.print(start);
@@ -278,7 +278,7 @@ public class Event extends Model implements EventI {
 	 * @see server.model.EventI#setEnd(org.joda.time.DateTime)
 	 */
 	@Override
-	public void setEnd(DateTime end) throws SQLException {
+	public void setEnd(DateTime end) {
 		DateTimeFormatter fmt = DateTimeFormat
 				.forPattern("yyyy-MM-dd HH:mm:SS");
 		String dateToString = fmt.print(end);
@@ -302,14 +302,18 @@ public class Event extends Model implements EventI {
 	 * @see server.model.EventI#setRoomBooked(int)
 	 */
 	@Override
-	public void setRoomBooked(int roomBooked) throws SQLException {
+	public void setRoomBooked(int roomBooked) {
 		super.updateField("roomBooked", roomBooked, eventID);
 		this.roomBooked = roomBooked;
 	}
 
-	public void setRoomBooked(RoomI roomBooked) throws SQLException,
-			RemoteException {
-		setRoomBooked(roomBooked.getRoomID());
+	public void setRoomBooked(RoomI roomBooked) {
+		try {
+			setRoomBooked(roomBooked.getRoomID());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 
 	/*
@@ -328,7 +332,7 @@ public class Event extends Model implements EventI {
 	 * @see server.model.EventI#setCreatedByUser(int)
 	 */
 	@Override
-	public void setCreatedByUser(int createdByUser) throws SQLException {
+	public void setCreatedByUser(int createdByUser) {
 		super.updateField("createdByUser", createdByUser, eventID);
 		this.createdByUser = createdByUser;
 	}
@@ -349,7 +353,7 @@ public class Event extends Model implements EventI {
 	 * @see server.model.EventI#setCreatedByGroup(int)
 	 */
 	@Override
-	public void setCreatedByGroup(int createdByGroup) throws SQLException {
+	public void setCreatedByGroup(int createdByGroup) {
 		super.updateField("createdByGroup", createdByGroup, eventID);
 		this.createdByGroup = createdByGroup;
 	}
@@ -373,21 +377,29 @@ public class Event extends Model implements EventI {
 	@Override
 	public void delete() {
 		try {
-		super.delete(eventID);
+			super.delete(eventID);
 		} catch (ObjectNotFoundException e) {
 			throw new RuntimeException(e);
-		}		
+		}
 	}
 
 	@Override
-	public void setCreatedByUser(UserI createdByUser) throws SQLException,
-			RemoteException {
-		setCreatedByUser(createdByUser.getUserID());
+	public void setCreatedByUser(UserI createdByUser) {
+		try {
+			setCreatedByUser(createdByUser.getUserID());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 
 	@Override
-	public void setCreatedByGroup(GroupI createdByGroup) throws SQLException,
-			RemoteException {
-		setCreatedByGroup(createdByGroup.getGroupID());
+	public void setCreatedByGroup(GroupI createdByGroup) {
+		try {
+			setCreatedByGroup(createdByGroup.getGroupID());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 }

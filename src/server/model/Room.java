@@ -87,7 +87,7 @@ public class Room extends Model implements RoomI {
 	 * @see server.model.RoomI#setPersonCapacity(int)
 	 */
 	@Override
-	public void setPersonCapacity(int personCapacity) throws SQLException {
+	public void setPersonCapacity(int personCapacity) {
 		super.updateField("personCapacity", personCapacity, roomID);
 		this.personCapacity = personCapacity;
 	}
@@ -98,7 +98,7 @@ public class Room extends Model implements RoomI {
 	 * @see server.model.RoomI#setRoomName(java.lang.String)
 	 */
 	@Override
-	public void setRoomName(String roomName) throws SQLException {
+	public void setRoomName(String roomName) {
 		super.updateField("roomName", roomName, roomID);
 		this.roomName = roomName;
 	}
@@ -111,9 +111,9 @@ public class Room extends Model implements RoomI {
 	@Override
 	public void delete() {
 		try {
-		super.delete(roomID);
+			super.delete(roomID);
 		} catch (ObjectNotFoundException e) {
 			throw new RuntimeException(e);
-		}		
+		}
 	}
 }

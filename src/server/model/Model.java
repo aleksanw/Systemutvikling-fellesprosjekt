@@ -36,11 +36,10 @@ public abstract class Model extends UnicastRemoteObject {
 		try {
 			ResultSet rs = DB.readQuery("SELECT FROM " + tableName
 					+ " WHERE userID=" + ID);
-			if (rs.getBoolean(0)) {					//rs er enten tom eller har et element
+			if (rs.getBoolean(0)) { // rs er enten tom eller har et element
 				DB.updateQuery("DELETE FROM " + tableName + " WHERE userID="
 						+ ID);
-			}
-			else{
+			} else {
 				throw new ObjectNotFoundException();
 			}
 		} catch (SQLException e) {
@@ -49,8 +48,7 @@ public abstract class Model extends UnicastRemoteObject {
 		}
 	}
 
-	protected void updateField(String field, Object value, int primaryKey1)
-			throws SQLException {
+	protected void updateField(String field, Object value, int primaryKey1) {
 		String c = ((value instanceof String) ? ("'" + value + "'") : value
 				.toString());
 		String query = "UPDATE " + tableName + " SET " + field + "=" + c
@@ -72,16 +70,23 @@ public abstract class Model extends UnicastRemoteObject {
 		return tableFields;
 	}
 
-	protected ArrayList<Integer> addToDB() throws SQLException {
+	protected ArrayList<Integer> addToDB() {
 		String query = "INSERT INTO " + tableName + " () VALUES ();";
-		ArrayList<Integer> keyList = DB.insertAndGetKeysQuery(query);
+		ArrayList<Integer> keyList;
+		try {
+			keyList = DB.insertAndGetKeysQuery(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 		return keyList;
 	}
 
-	protected ResultSet getFromDB(int primaryKey1) throws SQLException {
+	protected ResultSet getFromDB(int primaryKey1) {
 		String query = "Select * FROM " + tableName + " WHERE "
 				+ primaryKeyField1 + "='" + primaryKey1 + "';";
-		ResultSet result = DB.readQuery(query);
+		ResultSet result;
+		result = DB.readQuery(query);
 		return result;
 	}
 }

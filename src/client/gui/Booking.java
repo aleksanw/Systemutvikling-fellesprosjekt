@@ -31,13 +31,13 @@ public class Booking extends JPanel {
 	public Booking() {
 		try {
 			roomList = MainClass.sServer.roomStorage.getRoomList();
+			model = new DefaultListModel<RoomI>();
+			for (RoomI room : roomList.getList()) {
+				model.addElement(room);
+			}
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);
-		}
-		model = new DefaultListModel<RoomI>();
-		for (RoomI room : roomList.getList()) {
-			model.addElement(room);
 		}
 
 		setLayout(new GridBagLayout());

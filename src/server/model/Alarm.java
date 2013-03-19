@@ -92,7 +92,7 @@ public class Alarm extends Model implements AlarmI {
 	 * @see server.model.AlarmI#setUserID(int)
 	 */
 	@Override
-	public void setUserID(int userID) throws RemoteException, SQLException {
+	public void setUserID(int userID) {
 		super.updateField("userID", userID, alarmID);
 		this.userID = userID;
 	}
@@ -103,7 +103,7 @@ public class Alarm extends Model implements AlarmI {
 	 * @see server.model.AlarmI#setEventID(int)
 	 */
 	@Override
-	public void setEventID(int eventID) throws RemoteException, SQLException {
+	public void setEventID(int eventID) {
 		super.updateField("eventID", eventID, alarmID);
 		this.eventID = eventID;
 	}
@@ -114,8 +114,7 @@ public class Alarm extends Model implements AlarmI {
 	 * @see server.model.AlarmI#setNumberOfHoursBeforeMeeting(java.sql.Time)
 	 */
 	@Override
-	public void setNumberOfHoursBeforeMeeting(Time numberOfHoursBeforeMeeting)
-			throws RemoteException, SQLException {
+	public void setNumberOfHoursBeforeMeeting(Time numberOfHoursBeforeMeeting) {
 		super.updateField("numberOfhoursBeforeMeeting",
 				numberOfHoursBeforeMeeting, alarmID);
 		this.numberOfHoursBeforeMeeting = numberOfHoursBeforeMeeting;
@@ -129,17 +128,27 @@ public class Alarm extends Model implements AlarmI {
 	@Override
 	public void delete() throws RemoteException {
 		try {
-		super.delete(alarmID);
+			super.delete(alarmID);
 		} catch (ObjectNotFoundException e) {
 			throw new RuntimeException(e);
-		}		
+		}
 	}
 
-	public void setUser(UserI user) throws RemoteException, SQLException {
-		this.setUserID(user.getUserID());
+	public void setUser(UserI user) {
+		try {
+			this.setUserID(user.getUserID());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 
-	public void setEvent(EventI event) throws RemoteException, SQLException {
-		this.setEventID(event.getEventID());
+	public void setEvent(EventI event) {
+		try {
+			this.setEventID(event.getEventID());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 }

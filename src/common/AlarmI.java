@@ -1,7 +1,6 @@
 package common;
 
 import java.rmi.RemoteException;
-import java.sql.SQLException;
 import java.sql.Time;
 
 public interface AlarmI extends ModelI {
@@ -14,13 +13,16 @@ public interface AlarmI extends ModelI {
 
 	public abstract Time getNumberOfHoursBeforeMeeting() throws RemoteException;
 
-	public abstract void setUserID(int userID) throws SQLException, RemoteException;
-	public abstract void setUser(UserI user) throws SQLException, RemoteException;
+	public abstract void setUserID(int userID) throws RemoteException;
 
-	public abstract void setEventID(int eventID) throws SQLException, RemoteException;
-	public abstract void setEvent(EventI event) throws SQLException, RemoteException;
+	public abstract void setUser(UserI user) throws RemoteException;
 
-	public abstract void setNumberOfHoursBeforeMeeting(Time numberOfHoursBeforeMeeting) throws RemoteException, SQLException;
+	public abstract void setEventID(int eventID) throws RemoteException;
+
+	public abstract void setEvent(EventI event) throws RemoteException;
+
+	public abstract void setNumberOfHoursBeforeMeeting(
+			Time numberOfHoursBeforeMeeting) throws RemoteException;
 
 	public abstract void delete() throws RemoteException;
 

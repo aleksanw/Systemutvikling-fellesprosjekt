@@ -19,23 +19,32 @@ public class User extends Model implements UserI {
 	private Date dateOfBirth;
 	public String userName;
 
-	public User(Integer userID) throws RemoteException, SQLException {
+	public User(Integer userID) throws RemoteException {
 		super("User", createTableFields(), "userID");
 		ResultSet result = super.getFromDB(userID);
-		if (result.next()) {
-			this.userID = result.getInt("userID");
-			this.name = result.getString("name");
-			this.email = result.getString("email");
-			this.dateOfBirth = result.getDate("dateOfBirth");
+		try {
+			if (result.next()) {
+				this.userID = result.getInt("userID");
+				this.name = result.getString("name");
+				this.email = result.getString("email");
+				this.dateOfBirth = result.getDate("dateOfBirth");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
 		}
 	}
 
-	public User(String username, String password) throws RemoteException,
-			SQLException {
+	public User(String username, String password) throws RemoteException {
 		super("User", createTableFields(), "userID");
 		String query = "SELECT userID FROM User WHERE username='' AND password='';";
 		ResultSet result = super.getDB().readQuery(query);
-		result.getInt("userID");
+		try {
+			result.getInt("userID");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 
 	public User() throws RemoteException, SQLException {
@@ -60,7 +69,7 @@ public class User extends Model implements UserI {
 	 * @see server.model.UserI#setEmail(java.lang.String)
 	 */
 	@Override
-	public void setEmail(String email) throws SQLException {
+	public void setEmail(String email) {
 		super.updateField(email, email, userID);
 		this.email = email;
 	}
@@ -132,14 +141,18 @@ public class User extends Model implements UserI {
 	 * @see server.model.UserI#getCreatedEvents()
 	 */
 	@Override
-	public ArrayList<Event> getCreatedEvents() throws RemoteException,
-			SQLException {
+	public ArrayList<Event> getCreatedEvents() throws RemoteException {
 		ArrayList<Event> events = new ArrayList<Event>();
 		String query = "SELECT eventID FROM Event WHERE createdByUser="
 				+ this.userID + ";";
 		ResultSet result = Model.getDB().readQuery(query);
-		while (result.next()) {
-			events.add(new Event((result.getInt("eventID"))));
+		try {
+			while (result.next()) {
+				events.add(new Event((result.getInt("eventID"))));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
 		}
 		return events;
 	}
@@ -180,7 +193,7 @@ public class User extends Model implements UserI {
 	 * @see server.model.UserI#setName(java.lang.String)
 	 */
 	@Override
-	public void setName(String name) throws SQLException {
+	public void setName(String name) {
 		super.updateField("name", name, userID);
 		this.name = name;
 	}
@@ -191,7 +204,7 @@ public class User extends Model implements UserI {
 	 * @see server.model.UserI#setDateOfBirth(java.sql.Date)
 	 */
 	@Override
-	public void setDateOfBirth(Date dateOfBirth) throws SQLException {
+	public void setDateOfBirth(Date dateOfBirth) {
 		super.updateField("dateOfBirth", dateOfBirth, userID);
 		this.dateOfBirth = dateOfBirth;
 	}
@@ -204,9 +217,9 @@ public class User extends Model implements UserI {
 	@Override
 	public void delete() {
 		try {
-		super.delete(userID);
+			super.delete(userID);
 		} catch (ObjectNotFoundException e) {
 			throw new RuntimeException(e);
-		}		
+		}
 	}
 }

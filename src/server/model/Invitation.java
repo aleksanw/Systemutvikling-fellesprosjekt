@@ -77,7 +77,7 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#setAttending(boolean)
 	 */
 	@Override
-	public void setAttending(boolean isAttending) throws SQLException {
+	public void setAttending(boolean isAttending) {
 		super.updateField("isAttending", isAttending, invitationID);
 		this.isAttending = isAttending;
 	}
@@ -88,8 +88,16 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#getEventID()
 	 */
 	@Override
-	public EventI getEvent() throws RemoteException, SQLException {
-		return new Event(eventID);
+	public EventI getEvent() {
+		try {
+			return new Event(eventID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 
 	/*
@@ -98,8 +106,13 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#getUserID()
 	 */
 	@Override
-	public UserI getUser() throws RemoteException, SQLException {
-		return new User(userID);
+	public UserI getUser() {
+		try {
+			return new User(userID);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 
 	/*
@@ -109,8 +122,7 @@ public class Invitation extends Model implements InvitationI {
 	 * server.model.InvitationI#setDateTimeOfInvitation(org.joda.time.DateTime)
 	 */
 	@Override
-	public void setDateTimeOfInvitation(DateTime dateTimeOfInvitation)
-			throws SQLException {
+	public void setDateTimeOfInvitation(DateTime dateTimeOfInvitation) {
 		DateTimeFormatter fmt = DateTimeFormat
 				.forPattern("yyyy-MM-dd HH:mm:SS");
 		String dateToString = fmt.print(dateTimeOfInvitation);
@@ -134,8 +146,14 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#setUserID(int)
 	 */
 	@Override
-	public void setUser(UserI user) throws RemoteException, SQLException {
-		int userID = user.getUserID();
+	public void setUser(UserI user) {
+		int userID;
+		try {
+			userID = user.getUserID();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 		super.updateField("userID", userID, invitationID);
 		this.userID = userID;
 	}
@@ -146,8 +164,14 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#setEventID(int)
 	 */
 	@Override
-	public void setEvent(EventI event) throws RemoteException, SQLException {
-		int eventID = event.getEventID();
+	public void setEvent(EventI event) {
+		int eventID;
+		try {
+			eventID = event.getEventID();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 		super.updateField("eventID", eventID, invitationID);
 		this.eventID = eventID;
 	}
@@ -160,9 +184,9 @@ public class Invitation extends Model implements InvitationI {
 	@Override
 	public void delete() {
 		try {
-		super.delete(invitationID);
+			super.delete(invitationID);
 		} catch (ObjectNotFoundException e) {
 			throw new RuntimeException(e);
-		}		
+		}
 	}
 }
