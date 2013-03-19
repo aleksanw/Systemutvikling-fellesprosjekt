@@ -17,6 +17,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
 import org.joda.time.DateTime;
 
 import common.AlarmI;
@@ -37,7 +38,6 @@ public class AddEvent extends JPanel implements ActionListener {
 	protected Booking booking = new Booking();
 	protected EventI event;
 	protected AlarmI alarm;
-	protected 
 
 	GridBagConstraints g = new GridBagConstraints();
 
