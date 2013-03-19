@@ -11,12 +11,15 @@ import javax.swing.JPanel;
 
 import org.joda.time.MutableDateTime;
 
+import common.WeekI;
+
 class Buttons extends JPanel implements ActionListener {
 
 	private JButton event, meating, groups, logout, rArrow, lArrow, toCurWeek;
 	private JLabel curWeek;
 	protected MutableDateTime date;
 	protected int weekNr, year;
+	protected WeekI w;
 
 	GridBagConstraints gbc = new GridBagConstraints();
 
@@ -127,4 +130,8 @@ class Buttons extends JPanel implements ActionListener {
 		curWeek.setText("Uke " + weekNr + ", " + year);
 	}
 
+	public WeekI getWeek() {
+		w.setWeek(year, weekNr);
+		return w;
+	}
 }

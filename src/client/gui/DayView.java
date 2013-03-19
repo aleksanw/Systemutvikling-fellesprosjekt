@@ -20,7 +20,7 @@ class DayView extends JPanel implements ListSelectionListener {
 	private DateTime date;
 	private JList<String> list;
 	private JScrollPane scroll;
-	private DefaultListModel model;
+	protected DefaultListModel model;
 
 	public DayView(String dag) {
 		day = new JLabel();
