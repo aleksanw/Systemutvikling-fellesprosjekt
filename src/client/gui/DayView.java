@@ -44,10 +44,6 @@ class DayView extends JPanel implements ListSelectionListener {
 		setPreferredSize(new Dimension(150, 650));
 	}
 
-	public void addEvents() {
-
-	}
-
 	public void valueChanged(ListSelectionEvent e) {
 
 	}

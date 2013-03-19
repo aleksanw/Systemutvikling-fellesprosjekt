@@ -8,9 +8,12 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import common.EventListI;
+
 class Calendar extends JPanel implements ActionListener {
 
 	protected DayView mon, tue, wed, thu, fri, sat, sun;
+	protected EventListI eventList;
 
 	public Calendar() {
 		setPreferredSize(new Dimension(800, 400));
@@ -31,8 +34,6 @@ class Calendar extends JPanel implements ActionListener {
 		add(fri);
 		add(sat);
 		add(sun);
-
-		mon.addEvents();
 
 	}
 
