@@ -6,7 +6,7 @@ import server.model.Event;
 import server.model.Group;
 import server.model.User;
 
-public interface EventListI {
+public interface EventListI extends ListModelI {
 
 	public void refresh();
 
@@ -14,7 +14,7 @@ public interface EventListI {
 
 	public void previousWeek();
 
-	public ArrayList<Event> toArrayList();
+	public ArrayList<Event> getList();
 
 	public ArrayList<User> getUsers();
 

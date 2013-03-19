@@ -60,7 +60,7 @@ public class Events {
 		refresh();
 	}
 
-	public ArrayList<Event> toArrayList() {
+	public ArrayList<Event> getList() {
 		return events;
 	}
 
