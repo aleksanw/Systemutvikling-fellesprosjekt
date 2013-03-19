@@ -5,10 +5,10 @@ import java.rmi.Naming;
 import java.rmi.NoSuchObjectException;
 import java.rmi.RMISecurityManager;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.rmi.RemoteException;
 
 
 /**
@@ -30,16 +30,20 @@ public class RMIServer {
 	 * 
 	 */
 	
-	public RMIServer() throws Exception {
+	public RMIServer() {
 		System.setProperty("java.security.policy","config/openall.policy");
 		
 		// Initialize Security Manager
-		if(System.getSecurityManager()==null){
+		if(System.getSecurityManager() == null){
             System.setSecurityManager(new RMISecurityManager());
         }
 		
 		// Bind to RMI registry 
-		registry = LocateRegistry.createRegistry( port );
+		try {
+			registry = LocateRegistry.createRegistry( port );
+		} catch (RemoteException e) {
+			throw new RuntimeException(e);
+		}
 		
 		System.out.println("RMI Server Running. (Should be killed before starting a new one on the same port.)");
 	}
@@ -66,18 +70,11 @@ public class RMIServer {
 	 */
 	
 	public void addObject(String name, Remote obj) {
-		// Bind to RMI registry 
 		try {
-			//Naming.rebind("EventStorage", new EventStorage());
 			Naming.rebind(name, obj);
-			
-		} catch (RemoteException e) {
-			System.out.println("RMI Server addObject error: Error initializing registry or binding server.");
-			System.out.println(e.getMessage());
-			System.exit(-1);
-		} catch (MalformedURLException e) {
-			System.out.println("RMI Server addObject error: Could not bind server to defined registry as the URL was malformed.");
-			System.exit(-1);
+		} catch (RemoteException | MalformedURLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
 		}
 	}
 }

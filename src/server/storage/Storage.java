@@ -3,61 +3,56 @@ package server.storage;
 import java.lang.reflect.InvocationTargetException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
+
+import server.model.Model;
 
 import common.ModelI;
 
-
 public abstract class Storage extends UnicastRemoteObject {
-	private Class modelClass;
-	
-	public Storage(Class modelClass) throws RemoteException {
+	private Class<? extends Model> modelClass;
+
+	public Storage(Class<? extends Model> modelClass) throws RemoteException {
 		this.modelClass = modelClass;
 	}
 
 	public ModelI create() throws RemoteException {
 		try {
-			return (ModelI)modelClass.newInstance();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
+			return (ModelI) modelClass.newInstance();
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
 		}
-		
-		return null;
 	}
-
 
 	public ModelI get(int ID) throws RemoteException {
 		try {
-			return (ModelI)modelClass.getConstructor(Integer.class).newInstance(ID);
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			e.printStackTrace();
+			return (ModelI) modelClass.getConstructor(Integer.class)
+					.newInstance(ID);
+		} catch (InstantiationException | IllegalAccessException
+				| IllegalArgumentException | InvocationTargetException
+				| NoSuchMethodException | SecurityException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
 		}
-		return null;
 	}
 
 	public void delete(int ID) throws RemoteException {
 		ModelI model = this.get(ID);
-		model.delete();
-		
-		// Delete from memory
-		model = null;
+		try {
+			model.delete();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
-	
+
 	public void delete(ModelI model) throws RemoteException {
-		model.delete();
-		
-		// Delete from memory
-		model = null;
+		try {
+			model.delete();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 }

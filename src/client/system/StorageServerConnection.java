@@ -16,15 +16,16 @@ public class StorageServerConnection {
 	public AlarmStorageI alarmStorage;
 	public InvitationStorageI invitationStorage;
 	
-	public StorageServerConnection(String address) throws Exception {
+	public StorageServerConnection(String address) {
 		this();
 		server = new RMIClient(address);
 	}
 	
-	public StorageServerConnection() throws Exception {
+	public StorageServerConnection() {
 		if(server==null) {
 			server = new RMIClient();
 		}
+		
 		this.eventStorage 		= (EventStorageI) server.getObject("eventStorage");
 		this.userStorage 		= (UserStorageI) server.getObject("userStorage");
 		this.groupStorage 		= (GroupStorageI) server.getObject("groupStorage");

@@ -1,7 +1,9 @@
 package server.storage;
 
 import java.rmi.RemoteException;
+
 import server.model.Room;
+
 import common.RoomI;
 import common.RoomStorageI;
 
