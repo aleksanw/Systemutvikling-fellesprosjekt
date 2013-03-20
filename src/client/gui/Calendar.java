@@ -35,12 +35,6 @@ class Calendar extends JPanel implements ActionListener {
 
 		users = new ArrayList<UserI>();
 		users.add(MainClass.getCurrentUser());
-		/*try {
-			users.add(MainClass.sServer.userStorage.get(3));
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			throw new RuntimeException(e);
-		}*/
 
 		groups = new ArrayList<GroupI>();
 
@@ -69,7 +63,7 @@ class Calendar extends JPanel implements ActionListener {
 		addEvent(week.getFromDate().plusDays(3));
 		addEvent(week.getFromDate().plusDays(4));
 		addEvent(week.getFromDate().plusDays(5));
-		addEvent(week.getFromDate().plusDays(6));
+		addEvent(week.getToDate());
 
 	}
 

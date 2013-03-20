@@ -370,7 +370,7 @@ class AddEvent extends JPanel implements ActionListener {
 					Integer.toString(e.getEnd().getYear()), years));
 			allDay.setSelected(e.isWholeday());
 			place.text.setText(e.getLocation());
-			booking.list.setSelectedValue(e.getRoomBooked(), true);
+			booking.list.setSelectedIndex(e.getRoomBooked().getRoomID());
 			// group.setSelectedItem(e.getCreatedByGroup());
 		}
 	}

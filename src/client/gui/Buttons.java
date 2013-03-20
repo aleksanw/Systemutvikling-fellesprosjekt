@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import org.joda.time.MutableDateTime;
+import org.joda.time.DateTime;
 
 import common.WeekI;
 
@@ -17,15 +17,14 @@ class Buttons extends JPanel implements ActionListener {
 
 	private JButton event, meating, groups, logout, rArrow, lArrow, toCurWeek;
 	private JLabel curWeek;
-	protected MutableDateTime date;
+	protected DateTime date;
 	protected int weekNr, year;
 	protected WeekI w;
 
 	GridBagConstraints gbc = new GridBagConstraints();
 
 	public Buttons() {
-		date = new MutableDateTime();
-		date.setDate(MutableDateTime.now());
+		date = MainClass.now;
 
 		weekNr = date.getWeekOfWeekyear();
 		year = date.getYear();
@@ -90,12 +89,14 @@ class Buttons extends JPanel implements ActionListener {
 			MainClass.logout();
 		} else if (e.getActionCommand().toString().equals("<")) {
 			if (validWeek(weekNr - 1)) {
+				MainClass.now = MainClass.now.minusDays(7);
 				prevWeek();
 			} else {
 				prevYear();
 			}
 		} else if (e.getActionCommand().toString().equals(">")) {
 			if (validWeek(weekNr + 1)) {
+				MainClass.now = MainClass.now.plusDays(7);
 				nextWeek();
 			} else {
 				nextYear();
@@ -106,6 +107,8 @@ class Buttons extends JPanel implements ActionListener {
 				.equals("Gruppeinnstillinger")) {
 			MainClass.runGroupSettings();
 		} else if (e.getActionCommand().toString().equals("Denne uken")) {
+			MainClass.now = DateTime.now();
+			date = MainClass.now;
 			toCurrentWeek();
 		}
 	}

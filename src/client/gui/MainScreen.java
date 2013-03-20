@@ -17,7 +17,7 @@ class MainScreen extends JPanel {
 		add(sb, BorderLayout.WEST);
 	}
 	
-	public void refresh() {
-		
+	public void refreshCal() {
+		cal = new Calendar();
 	}
 }
