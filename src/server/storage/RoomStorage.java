@@ -31,7 +31,6 @@ public class RoomStorage extends Storage implements RoomStorageI {
 		super.delete(model);
 	}
 
-	@Override
 	public RoomsI getRoomList() throws RemoteException {
 		return (RoomsI) new Rooms();
 	}

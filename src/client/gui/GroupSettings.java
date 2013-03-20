@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
 import common.GroupI;
+import common.UserListI;
 
 class GroupSettings extends JPanel implements ActionListener {
 
@@ -28,12 +29,13 @@ class GroupSettings extends JPanel implements ActionListener {
 	private JComboBox groupsCB;
 	private JScrollPane personListScroller;
 	private GroupI group;
+	private UserListI groupList;
 	private DefaultListModel model;
 	private DefaultListSelectionModel selModel;
 
 	GridBagConstraints gbc = new GridBagConstraints();
 
-	public GroupSettings() {
+	public GroupSettings() throws RemoteException {
 		title = new JLabel();
 		title.setText("Gruppeinnstillinger");
 
@@ -66,12 +68,17 @@ class GroupSettings extends JPanel implements ActionListener {
 
 		personListScroller = new JScrollPane(personList);
 
-		model.addElement("Johannes");
-		model.addElement("Ragnhild");
-		model.addElement("Markus");
-		model.addElement("Mads");
-		model.addElement("Jon");
-		model.addElement("Aleksander");
+		groupList = MainClass.sServer.userStorage.getUserList(group);
+
+		for (int i = 0; i < groupList.getList().size(); i++) {
+			model.addElement(groupList.getList().get(i));
+		}
+
+		/**
+		 * model.addElement("Johannes"); model.addElement("Ragnhild");
+		 * model.addElement("Markus"); model.addElement("Mads");
+		 * model.addElement("Jon"); model.addElement("Aleksander");
+		 **/
 
 		setLayout(new GridBagLayout());
 		gbc.gridy = 0;
