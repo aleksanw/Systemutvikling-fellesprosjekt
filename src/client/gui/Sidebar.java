@@ -1,7 +1,5 @@
 package client.gui;
 
-import java.rmi.RemoteException;
-
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
@@ -12,9 +10,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import net.miginfocom.swing.MigLayout;
-
-import common.EventsInvitedToI;
-import common.InvitationI;
 
 class Sidebar extends JPanel implements ListSelectionListener {
 
@@ -30,20 +25,31 @@ class Sidebar extends JPanel implements ListSelectionListener {
 		rList.setOpaque(false);
 		rList.addListSelectionListener(this);
 		
+		
+		for (int i = 0; i < 30; i++) {
+			listmodel.addElement("test" + i);
+		}
+		
+		
+		/*
 		EventsInvitedToI eventList;
 		try {
 			eventList = MainClass.sServer.invitationStorage.getEventsInvitedTo(MainClass.currentUser);
 		
 			for (InvitationI invitation : eventList.getInvitationList()) {
-				listmodel.addElement(invitation.getEvent().getEventName());
-				System.out.println(invitation.getEvent().getEventName());
+				//listmodel.addElement(invitation.getEvent().getEventName());
+				//System.out.println(invitation.getEvent().getEventName());
+				
+				listmodel.addElement("test" + i);
 			}
 		} catch (RemoteException e) {
+			System.out.println("RemoteExceptionerror");
 		}
+		/**/
 
 		sList = new JList<String>();
 
-		rScroll = new JScrollPane(rList);
+		rScroll = new JScrollPane(rList);	
 		rScroll.setBorder(BorderFactory.createEmptyBorder());
 		rScroll.setOpaque(false);
 		rScroll.getViewport().setOpaque(false);
