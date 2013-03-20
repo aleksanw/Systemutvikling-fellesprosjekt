@@ -122,7 +122,7 @@ class AnswerMeeting extends JPanel implements ActionListener {
 //			Add eventet til din kalender
 			
 		}
-		else if (e.getActionCommand().toString().equals("Avbryt"));{
+		else if (e.getActionCommand().toString().equals("Avbryt")){
 			MainClass.loginOK();
 		}
 
