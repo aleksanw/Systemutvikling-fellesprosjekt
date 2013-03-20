@@ -34,7 +34,7 @@ public class EventList extends ListModel implements EventListI {
 	private int[] getUserIDs() throws RemoteException {
 		int[] ids = new int[users.size()];
 
-		for (int i = 0; i < ids.length; i++) {
+		for (int i = 0; i < ids.length-1; i++) {
 			ids[i] = users.get(i).getUserID();
 		}
 
@@ -44,7 +44,7 @@ public class EventList extends ListModel implements EventListI {
 	private int[] getGroupIDs() throws RemoteException {
 		int[] ids = new int[groups.size()];
 
-		for (int i = 0; i < ids.length; i++) {
+		for (int i = 0; i < ids.length-1; i++) {
 			ids[i] = groups.get(i).getGroupID();
 		}
 
@@ -57,27 +57,27 @@ public class EventList extends ListModel implements EventListI {
 		for (int i = 0; i < list.length - 1; i++) {
 			string += list[i] + ",";
 		}
-		string += list[list.length - 1];
+		string += list[list.length -1];
 
 		return string;
 	}
 
 	private void refresh() throws RemoteException {
 
-		ArrayList<EventI> oldList = (ArrayList<EventI>) list.clone();
+		//ArrayList<EventI> oldList = (ArrayList<EventI>) list.clone();
 
 		list = new ArrayList<EventI>();
-		String query;
+		String query = "SELECT * FROM Event WHERE start=";
 		if(groups.size() < 1) {
-			query = "SELECT * FROM Event WHERE createdByUser IN ("
+			query += "createdByUser IN ("
 					+ intArraytoCommaSeperatedString(getUserIDs())
 					+ ");";
 		} else if (users.size() <1) {
-			query = "SELECT * FROM Event WHERE createdByGroup IN ("
+			query += "createdByGroup IN ("
 					+ intArraytoCommaSeperatedString(getGroupIDs()) + ");";
 		} else {
 
-			query = "SELECT * FROM Event WHERE createdByUser IN ("
+			query += "createdByUser IN ("
 					+ intArraytoCommaSeperatedString(getUserIDs())
 					+ ") OR createdByGroup IN ("
 					+ intArraytoCommaSeperatedString(getGroupIDs()) + ");";
@@ -92,7 +92,7 @@ public class EventList extends ListModel implements EventListI {
 			throw new RuntimeException(e);
 		}
 
-		pcs.firePropertyChange("list", oldList, list);
+		//pcs.firePropertyChange("list", oldList, list);
 	}
 
 	public void nextDay() throws RemoteException {

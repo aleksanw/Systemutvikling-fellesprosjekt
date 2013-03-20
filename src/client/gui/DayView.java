@@ -29,7 +29,7 @@ class DayView extends JPanel implements ListSelectionListener {
 		model = new DefaultListModel<>();
 
 		list = new JList<String>(model);
-		list.setCellRenderer(new CellRenderer());
+		list.setCellRenderer(new EventCellRenderer());
 		list.addListSelectionListener(this);
 
 		scroll = new JScrollPane(list);

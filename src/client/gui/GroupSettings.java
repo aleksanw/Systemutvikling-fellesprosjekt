@@ -153,7 +153,7 @@ class GroupSettings extends JPanel implements ActionListener {
 	}
 
 	private void clearFields() {
-		// groupsCB.setSelectedIndex(0);
+		groupsCB.setSelectedIndex(-1);
 		groupNameTF.setText("");
 	}
 
