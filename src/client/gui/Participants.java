@@ -18,7 +18,7 @@ import common.UserListI;
 class Participants extends JPanel implements ActionListener {
 
 	protected JButton findP;
-	protected JList part;
+	protected JList<UserI> part;
 	protected JScrollPane scroll;
 	protected JLabel lPart;
 	protected AddParticipant adder;
@@ -33,7 +33,7 @@ class Participants extends JPanel implements ActionListener {
 
 		model = new DefaultListModel<UserI>();
 
-		part = new JList(model);
+		part = new JList<UserI>(model);
 
 		scroll = new JScrollPane(part);
 

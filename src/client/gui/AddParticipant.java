@@ -24,13 +24,14 @@ class AddParticipant extends JPanel implements ActionListener {
 
 	private JButton addP, cancel;
 	private JComboBox groups;
-	private JList list;
+	private JList<UserI> list;
 	private JLabel lPart;
 	private JScrollPane scroll;
 	private DefaultListModel<UserI> model;
 	private DefaultListSelectionModel selectionModel;
 	private UserListI userList;
 	private ArrayList<UserI> arrayUserList;
+	protected UserI[] chosenOnes;
 
 	GridBagConstraints g = new GridBagConstraints();
 
@@ -50,11 +51,12 @@ class AddParticipant extends JPanel implements ActionListener {
 		selectionModel
 				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-		model = new DefaultListModel();
+		model = new DefaultListModel<UserI>();
 
-		list = new JList();
+		list = new JList<UserI>();
 		list.setModel(model);
 		list.setSelectionModel(selectionModel);
+		list.setCellRenderer(new UserCellRenderer());
 
 		scroll = new JScrollPane(list);
 
@@ -64,6 +66,10 @@ class AddParticipant extends JPanel implements ActionListener {
 		} catch (RemoteException e) {
 			throw new RuntimeException(e);
 		}
+		
+		for (int i = 0; i < arrayUserList.size(); i++) {
+			UserI user = arrayUserList.get(i);
+				model.addElement(user);
 
 		setLayout(new GridBagLayout());
 
@@ -77,13 +83,13 @@ class AddParticipant extends JPanel implements ActionListener {
 		g.gridy = 3;
 		add(addP, g);
 		g.gridx = 1;
-		add(cancel, g);
+		add(cancel, g);}
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getActionCommand().toString().equals("Legg Til..")) {
 			this.setVisible(false);
-			// lagre
+			chosenOnes = (UserI[]) list.getSelectedValues();
 		} else if (arg0.getActionCommand().toString().equals("Avbryt")) {
 			this.setVisible(false);
 		}
