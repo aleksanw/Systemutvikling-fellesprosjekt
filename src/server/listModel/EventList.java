@@ -67,12 +67,21 @@ public class EventList extends ListModel implements EventListI {
 		ArrayList<EventI> oldList = (ArrayList<EventI>) list.clone();
 
 		list = new ArrayList<EventI>();
+		String query;
+		if(groups.size() < 1) {
+			query = "SELECT * FROM Event WHERE createdByUser IN ("
+					+ intArraytoCommaSeperatedString(getUserIDs())
+					+ ");";
+		} else if (users.size() <1) {
+			query = "SELECT * FROM Event WHERE createdByGroup IN ("
+					+ intArraytoCommaSeperatedString(getGroupIDs()) + ");";
+		} else {
 
-		String query = "SELECT * FROM Event WHERE createdByUser IN ("
-				+ intArraytoCommaSeperatedString(getUserIDs())
-				+ ") OR createdByGroup IN ("
-				+ intArraytoCommaSeperatedString(getGroupIDs()) + ")";
-
+			query = "SELECT * FROM Event WHERE createdByUser IN ("
+					+ intArraytoCommaSeperatedString(getUserIDs())
+					+ ") OR createdByGroup IN ("
+					+ intArraytoCommaSeperatedString(getGroupIDs()) + ");";
+		}
 		ResultSet result = Model.getDB().readQuery(query);
 		try {
 			while (result.next()) {
