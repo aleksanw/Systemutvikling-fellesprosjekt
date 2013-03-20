@@ -9,6 +9,7 @@ import server.model.User;
 import common.EventsInvitedToI;
 import common.InvitationI;
 import common.InvitationStorageI;
+import common.UserI;
 
 public class InvitationStorage extends Storage implements InvitationStorageI {
 
@@ -32,8 +33,8 @@ public class InvitationStorage extends Storage implements InvitationStorageI {
 		super.delete(model);
 	}
 
-	public EventsInvitedToI getEventsInvitedTo(User user)
+	public EventsInvitedToI getEventsInvitedTo(UserI user)
 			throws RemoteException {
-		return (EventsInvitedToI) new EventsInvitedTo(user);
+		return (EventsInvitedToI) new EventsInvitedTo((User)user);
 	}
 }

@@ -3,8 +3,6 @@ package common;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import server.model.User;
-
 public interface InvitationStorageI extends Remote {
 	public InvitationI create() throws RemoteException;
 
@@ -14,6 +12,6 @@ public interface InvitationStorageI extends Remote {
 
 	public void delete(InvitationI model) throws RemoteException;
 
-	public EventsInvitedToI getEventsInvitedTo(User user)
+	public EventsInvitedToI getEventsInvitedTo(UserI user)
 			throws RemoteException;
 }
