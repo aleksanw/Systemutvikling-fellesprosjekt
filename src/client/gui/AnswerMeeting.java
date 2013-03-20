@@ -100,13 +100,6 @@ class AnswerMeeting extends JPanel implements ActionListener {
 		g.gridy = 3;
 		add(time, g);
 
-//		g.gridy = 4;
-//		add(desc, g);
-//
-//		g.gridy = 5;
-//		add(place, g);
-
-	
 		g.gridwidth = 1;
 		g.gridy = 4;
 		add(acc, g);
@@ -134,13 +127,4 @@ class AnswerMeeting extends JPanel implements ActionListener {
 
 	}
 
-//	public static void main(String[] args) {
-//		JFrame f = new JFrame();
-//		f.getContentPane().add(
-//				new AnswerMeeting("Møte", "06.02", "15:30", "Pølsefest",
-//						"Narvesen"));
-//		f.pack();
-//		f.setVisible(true);
-//		f.setSize(800, 600);
-//	}
 }
