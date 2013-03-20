@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 
 import server.listModel.EventsInvitedTo;
 import server.model.Invitation;
-import server.model.User;
 
 import common.EventsInvitedToI;
 import common.InvitationI;
@@ -35,6 +34,6 @@ public class InvitationStorage extends Storage implements InvitationStorageI {
 
 	public EventsInvitedToI getEventsInvitedTo(UserI user)
 			throws RemoteException {
-		return (EventsInvitedToI) new EventsInvitedTo((User)user);
+		return (EventsInvitedToI) new EventsInvitedTo(user);
 	}
 }

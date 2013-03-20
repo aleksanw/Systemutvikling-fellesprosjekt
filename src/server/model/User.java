@@ -39,6 +39,7 @@ public class User extends Model implements UserI {
 		super("User", createTableFields(), "userID");
 		String query = "SELECT userID FROM User WHERE username='" + username
 				+ "' AND password='" + password + "';";
+		System.out.println(query);
 		ResultSet result = super.getDB().readQuery(query);
 		try {
 			if (result.next())

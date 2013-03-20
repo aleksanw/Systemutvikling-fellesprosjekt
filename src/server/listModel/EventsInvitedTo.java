@@ -6,19 +6,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import server.model.Model;
-import server.model.User;
 import server.system.StorageServer;
 
 import common.EventI;
 import common.EventsInvitedToI;
 import common.InvitationI;
+import common.UserI;
 
 public class EventsInvitedTo extends ListModel implements EventsInvitedToI {
 	ArrayList<EventI> events = new ArrayList<EventI>();
 	ArrayList<InvitationI> invites = new ArrayList<InvitationI>();
 	int userID;
 
-	public EventsInvitedTo(User user) throws RemoteException {
+	public EventsInvitedTo(UserI user) throws RemoteException {
 		this.userID = user.getUserID();
 		refresh();
 	}
