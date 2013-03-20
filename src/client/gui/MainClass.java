@@ -71,6 +71,9 @@ public class MainClass {
 	public static void runGroupSettings() {
 		gui.swapPane("Groups");
 	}
+	public static void runAnswerMeeting(EventI event){
+		gui.swapPane("AnswerMeeting");
+	}
 
 	private static CommandLine parseArgs(String[] args) {
 		Options options = new Options();
