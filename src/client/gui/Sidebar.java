@@ -1,5 +1,7 @@
 package client.gui;
 
+import java.rmi.RemoteException;
+
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
@@ -10,6 +12,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import net.miginfocom.swing.MigLayout;
+
+import common.EventI;
+import common.UserInvitationListI;
 
 class Sidebar extends JPanel implements ListSelectionListener {
 
@@ -24,8 +29,14 @@ class Sidebar extends JPanel implements ListSelectionListener {
 		rList.setModel(listmodel);
 		rList.setOpaque(false);
 		rList.addListSelectionListener(this);
-
-		for (int i = 0; i < 30; i++) {
+		
+		UserInvitationListI aEventList;
+		try {
+			aEventList = MainClass.sServer.invitationStorage.getEventsInvitedTo(MainClass.currentUser);
+		} catch (RemoteException e) {
+		}
+		
+		for (EventI event : aEventList.getList()) {
 			listmodel.addElement("test" + i);
 		}
 
