@@ -8,12 +8,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
+
+import common.EventI;
 
 class AnswerMeeting extends JPanel implements ActionListener {
 
@@ -23,11 +24,12 @@ class AnswerMeeting extends JPanel implements ActionListener {
 	private JLabel place = new JLabel();
 	private JLabel time = new JLabel();
 	private JLabel desc = new JLabel();
-	private JButton send;
+	private JButton send, cancel;
 	private JList list;
 	private JRadioButton acc, dec;
 	private JScrollPane scroll;
 	private ButtonGroup myBGroup;
+	private EventI selectedEvent;
 
 	GridBagConstraints g = new GridBagConstraints();
 
@@ -46,7 +48,8 @@ class AnswerMeeting extends JPanel implements ActionListener {
 		decline = new JLabel();
 		decline.setText("Avvis");
 
-		list = new JList();
+//		list = new JList();
+		
 
 		scroll = new JScrollPane(list);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -65,6 +68,9 @@ class AnswerMeeting extends JPanel implements ActionListener {
 
 		send = new JButton("Svar");
 		send.addActionListener(this);
+		
+		cancel = new JButton("Avbryt");
+		cancel.addActionListener(this);
 
 		myBGroup = new ButtonGroup();
 		myBGroup.add(acc);
@@ -99,7 +105,7 @@ class AnswerMeeting extends JPanel implements ActionListener {
 		add(participants, g);
 
 		g.gridy = 7;
-		add(scroll, g);
+//		add(scroll, g);
 
 		g.gridwidth = 1;
 		g.gridy = 8;
@@ -112,19 +118,30 @@ class AnswerMeeting extends JPanel implements ActionListener {
 
 		g.gridy = 10;
 		add(send, g);
+		
+		g.gridx = 1;
+		add(cancel, g);
 	}
 
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
+		if (e.getActionCommand().toString().equals("Svar")){
+//			Send svar til database og shit
+//			Add eventet til din kalender
+			
+		}
+		else if (e.getActionCommand().toString().equals("Avbryt"));{
+			MainClass.loginOK();
+		}
 
 	}
 
-	public static void main(String[] args) {
-		JFrame f = new JFrame();
-		f.getContentPane().add(
-				new AnswerMeeting("Møte", "06.02", "15:30", "Pølsefest",
-						"Narvesen"));
-		f.pack();
-		f.setVisible(true);
-		f.setSize(800, 600);
-	}
+//	public static void main(String[] args) {
+//		JFrame f = new JFrame();
+//		f.getContentPane().add(
+//				new AnswerMeeting("Møte", "06.02", "15:30", "Pølsefest",
+//						"Narvesen"));
+//		f.pack();
+//		f.setVisible(true);
+//		f.setSize(800, 600);
+//	}
 }
