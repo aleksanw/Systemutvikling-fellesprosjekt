@@ -5,11 +5,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import common.allGroupsListI;
-
 import server.model.Group;
 import server.model.Model;
 import server.system.StorageServer;
+
+import common.allGroupsListI;
 
 public class allGroupsList extends ListModel implements allGroupsListI {
 
@@ -29,7 +29,7 @@ public class allGroupsList extends ListModel implements allGroupsListI {
 
 		list = new ArrayList<Group>();
 
-		String query = "SELECT groupID FROM Group;";
+		String query = "SELECT groupID FROM Groups;";
 		ResultSet result;
 		try {
 			result = Model.getDB().readQuery(query);
