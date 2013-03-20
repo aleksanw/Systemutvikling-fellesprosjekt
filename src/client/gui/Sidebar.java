@@ -13,8 +13,8 @@ import javax.swing.event.ListSelectionListener;
 
 import net.miginfocom.swing.MigLayout;
 
-import common.EventI;
-import common.UserInvitationListI;
+import common.EventsInvitedToI;
+import common.InvitationI;
 
 class Sidebar extends JPanel implements ListSelectionListener {
 
@@ -30,14 +30,15 @@ class Sidebar extends JPanel implements ListSelectionListener {
 		rList.setOpaque(false);
 		rList.addListSelectionListener(this);
 		
-		UserInvitationListI aEventList;
+		EventsInvitedToI eventList;
 		try {
-			aEventList = MainClass.sServer.invitationStorage.getEventsInvitedTo(MainClass.currentUser);
-		} catch (RemoteException e) {
-		}
+			eventList = MainClass.sServer.invitationStorage.getEventsInvitedTo(MainClass.currentUser);
 		
-		for (EventI event : aEventList.getList()) {
-			listmodel.addElement("test" + i);
+			for (InvitationI invitation : eventList.getInvitationList()) {
+				listmodel.addElement(invitation.getEvent().getEventName());
+				System.out.println(invitation.getEvent().getEventName());
+			}
+		} catch (RemoteException e) {
 		}
 
 		sList = new JList<String>();
