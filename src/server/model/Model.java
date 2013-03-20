@@ -79,7 +79,7 @@ public abstract class Model extends UnicastRemoteObject {
 
 	protected ResultSet getFromDB(int primaryKey1) {
 		String query = "Select * FROM " + tableName + " WHERE "
-				+ primaryKeyField1 + "='" + primaryKey1 + "';";
+				+ primaryKeyField1 + "=" + primaryKey1 + ";";
 		ResultSet result;
 		result = DB.readQuery(query);
 		return result;

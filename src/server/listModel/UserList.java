@@ -30,8 +30,8 @@ public class UserList extends ListModel implements UserListI {
 	private void refresh() throws RemoteException {
 		ArrayList<User> oldList = (ArrayList<User>) list.clone();
 
-		String query = "SELECT userID FROM memberOfGroup, Groups WHERE Group."
-				+ groupID + "=memberOfGroup." + groupID + ";";
+		String query = "SELECT userID FROM memberOfGroup natural join Groups WHERE groupID="
+				+ groupID + ";";
 		ResultSet result = Model.getDB().readQuery(query);
 		try {
 			while (result.next()) {

@@ -103,9 +103,9 @@ public class Group extends Model implements GroupI {
 	@Override
 	public void delete() {
 		try {
-		super.delete(groupID);
+			super.delete(groupID);
 		} catch (ObjectNotFoundException e) {
 			throw new RuntimeException(e);
-		}		
+		}
 	}
 }
