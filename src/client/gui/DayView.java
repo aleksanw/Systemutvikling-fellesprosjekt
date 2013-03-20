@@ -26,7 +26,7 @@ class DayView extends JPanel implements ListSelectionListener {
 		day = new JLabel();
 		day.setText(dag);
 
-		model = new DefaultListModel<>();
+		model = new DefaultListModel();
 
 		list = new JList<String>(model);
 		list.setCellRenderer(new EventCellRenderer());

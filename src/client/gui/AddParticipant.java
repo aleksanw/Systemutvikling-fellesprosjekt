@@ -50,7 +50,7 @@ class AddParticipant extends JPanel implements ActionListener {
 		selectionModel
 				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-		model = new DefaultListModel<>();
+		model = new DefaultListModel();
 
 		list = new JList();
 		list.setModel(model);

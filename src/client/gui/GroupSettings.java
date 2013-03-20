@@ -61,7 +61,7 @@ class GroupSettings extends JPanel implements ActionListener {
 		cancel.setText("Avbryt");
 		cancel.addActionListener(this);
 
-		model = new DefaultListModel<>();
+		model = new DefaultListModel();
 
 		selModel = new DefaultListSelectionModel();
 		selModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);

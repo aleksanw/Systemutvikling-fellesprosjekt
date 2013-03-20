@@ -34,8 +34,11 @@ public class RMIClient {
 		// Bind to RMIServer
 		try {
 			return (Object) Naming.lookup(urlServer);
-		} catch (MalformedURLException | RemoteException | NotBoundException e) {
-			// TODO Auto-generated catch block
+		} catch (MalformedURLException e) {
+			throw new RuntimeException(e);
+		} catch (RemoteException e) {
+			throw new RuntimeException(e);
+		} catch (NotBoundException e) {
 			throw new RuntimeException(e);
 		}
 	}
