@@ -37,10 +37,12 @@ public class User extends Model implements UserI {
 
 	public User(String username, String password) throws RemoteException {
 		super("User", createTableFields(), "userID");
-		String query = "SELECT userID FROM User WHERE username='' AND password='';";
+		String query = "SELECT userID FROM User WHERE username='" + username
+				+ "' AND password='" + password + "';";
 		ResultSet result = super.getDB().readQuery(query);
 		try {
-			result.getInt("userID");
+			if (result.next())
+				this.userID = result.getInt("userID");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);

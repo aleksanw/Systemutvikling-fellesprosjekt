@@ -42,4 +42,14 @@ public class UserStorage extends Storage implements UserStorageI {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public UserI login(String username, String password) throws RemoteException {
+		UserI user = new User(username, password);
+		Integer userID = user.getUserID();
+		if (userID == 0) {
+			return null;
+		}
+		return this.get(user.getUserID());
+	}
 }

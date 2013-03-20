@@ -1,5 +1,7 @@
 package client.gui;
 
+import java.rmi.RemoteException;
+
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
@@ -18,11 +20,18 @@ class LoginScreen extends JPanel implements LoginListener {
 
 	@Override
 	public void loginAttempted(LoginEvent e) {
-		if (e.getUsername().equals("fp") && e.getPassword().equals("ntnu")) {
-			e.authSuccess();
-			MainClass.loginOK();
-		} else {
-			e.authFailure();
+		// if (e.getUsername().equals("fp") && e.getPassword().equals("ntnu")) {
+		try {
+			if (MainClass.sServer.userStorage.login(e.getUsername(),
+					e.getPassword()) != null) {
+				e.authSuccess();
+				MainClass.loginOK();
+			} else {
+				e.authFailure();
+			}
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e1);
 		}
 	}
 }

@@ -8,6 +8,8 @@ public interface UserStorageI extends Remote {
 
 	public UserI get(int ID) throws RemoteException;
 
+	public UserI login(String username, String password) throws RemoteException;
+
 	public void delete(int ID) throws RemoteException;
 
 	public void delete(UserI model) throws RemoteException;
