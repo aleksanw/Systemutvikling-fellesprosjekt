@@ -10,10 +10,11 @@ import server.model.User;
 import server.system.StorageServer;
 
 import common.GroupI;
+import common.UserI;
 import common.UserListI;
 
 public class UserList extends ListModel implements UserListI {
-	ArrayList<User> list = new ArrayList<User>();
+	ArrayList<UserI> list = new ArrayList<UserI>();
 	int groupID;
 
 	public UserList(GroupI group) throws RemoteException {
@@ -22,7 +23,7 @@ public class UserList extends ListModel implements UserListI {
 		refresh();
 	}
 
-	public ArrayList<User> getList() {
+	public ArrayList<UserI> getList() {
 		return list;
 	}
 

@@ -3,6 +3,7 @@ package server.storage;
 import java.rmi.RemoteException;
 
 import server.listModel.UserList;
+import server.model.Group;
 import server.model.User;
 
 import common.GroupI;
@@ -33,6 +34,9 @@ public class UserStorage extends Storage implements UserStorageI {
 	}
 
 	public UserListI getUserList(GroupI group) throws RemoteException {
+		if (group == null) {
+			group = new Group(1);
+		}
 		return (UserListI) new UserList(group);
 	}
 
