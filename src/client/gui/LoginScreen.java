@@ -29,6 +29,7 @@ class LoginScreen extends JPanel implements LoginListener {
 			if (user != null) {
 				e.authSuccess();
 				MainClass.setCurrentUser(user);
+				MainClass.gui.postLogin();
 				MainClass.loginOK();
 			} else {
 				e.authFailure();

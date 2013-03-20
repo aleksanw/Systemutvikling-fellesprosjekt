@@ -18,16 +18,20 @@ class GUI extends JFrame {
 
 		cards = new JPanel(new CardLayout());
 		cards.add(new LoginScreen(), "login");
-		cards.add(new MainScreen(), "main");
-		cards.add(new AddEvent(), "addEvent");
-		cards.add(new AddMeeting(), "addMeeting");
-		cards.add(new GroupSettings(), "Groups");
 		add(cards);
 
 		setTitle("G4Calendar");
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+	}
+	
+	void postLogin(){
+		cards.add(new MainScreen(), "main");
+		cards.add(new AddEvent(), "addEvent");
+		cards.add(new AddMeeting(), "addMeeting");
+		cards.add(new GroupSettings(), "Groups");
+		add(cards);
 	}
 
 	/* Helper functions */
