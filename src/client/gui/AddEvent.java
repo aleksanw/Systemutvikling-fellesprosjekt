@@ -326,6 +326,7 @@ class AddEvent extends JPanel implements ActionListener {
 		e.setLocation(this.place.text.getText());
 		e.setRoomBooked(booking.list.getSelectedIndex());
 		e.setMeeting(false);
+	
 		if (setAlarm.getSelectedIndex() > 0) {
 			int hours = Integer.parseInt(setAlarm.getSelectedItem().toString()
 					.split(":")[0]);
@@ -334,7 +335,7 @@ class AddEvent extends JPanel implements ActionListener {
 			alarm = MainClass.sServer.alarmStorage.create();
 			alarm.setNumberOfHoursBeforeMeeting(new Time(hours, minutes, 0));
 		}
-		// e.setCreatedByGroup(vis.getSelectedItem());
+		e.setCreatedByUser(MainClass.getCurrentUser().getUserID());
 	}
 
 	public void clearFields() {

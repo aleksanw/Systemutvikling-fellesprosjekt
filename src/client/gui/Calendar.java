@@ -34,7 +34,13 @@ class Calendar extends JPanel implements ActionListener {
 		week = new Week(day);
 
 		users = new ArrayList<UserI>();
-		users.add(MainClass.getCurrentUser());
+		//users.add(MainClass.getCurrentUser());
+		try {
+			users.add(MainClass.sServer.userStorage.get(3));
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 
 		groups = new ArrayList<GroupI>();
 
@@ -71,6 +77,7 @@ class Calendar extends JPanel implements ActionListener {
 		System.out.println(e.getActionCommand().toString());
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addEvent(DateTime date) {
 		try {
 			eventList = MainClass.sServer.eventStorage.getEventList(users,
@@ -79,9 +86,6 @@ class Calendar extends JPanel implements ActionListener {
 		} catch (RemoteException e) {
 			throw new RuntimeException(e);
 		}
-		System.out.println(date.getDayOfMonth());
-		System.out.println(date.getMonthOfYear());
-		System.out.println(date.getYear());
 		for (int i = 0; i < eventListByDay.size(); i++) {
 			if (date.getDayOfWeek() == 1) {
 				mon.model.addElement(eventListByDay.get(i));
