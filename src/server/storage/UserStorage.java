@@ -6,6 +6,7 @@ import server.listModel.UserList;
 import server.model.Group;
 import server.model.User;
 
+import common.GroupI;
 import common.UserI;
 import common.UserListI;
 import common.UserStorageI;
@@ -34,5 +35,11 @@ public class UserStorage extends Storage implements UserStorageI {
 
 	public UserListI getUserList(Group group) throws RemoteException {
 		return (UserListI) new UserList(group);
+	}
+
+	@Override
+	public UserListI getUserList(GroupI group) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -20,10 +20,7 @@ public class EventList extends ListModel implements EventListI {
 
 	private ArrayList<User> users;
 	private ArrayList<Group> groups;
-	// TODO: This should be a Week object
 	private DateTime date;
-
-	// TODO: private ListListner ll;
 
 	public EventList(ArrayList<User> users, ArrayList<Group> groups,
 			DateTime date) throws RemoteException {

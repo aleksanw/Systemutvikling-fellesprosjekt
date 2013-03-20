@@ -3,6 +3,8 @@ package server.storage;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import org.joda.time.DateTime;
+
 import server.listModel.EventList;
 import server.model.Event;
 import server.model.Group;
@@ -10,7 +12,6 @@ import server.model.User;
 
 import common.EventI;
 import common.EventStorageI;
-import common.WeekI;
 
 public class EventStorage extends Storage implements EventStorageI {
 
@@ -45,7 +46,7 @@ public class EventStorage extends Storage implements EventStorageI {
 	}
 
 	public EventList getEventList(ArrayList<User> users,
-			ArrayList<Group> groups, WeekI week) throws RemoteException {
-		return new EventList(users, groups, week);
+			ArrayList<Group> groups, DateTime date) throws RemoteException {
+		return new EventList(users, groups, date);
 	}
 }
