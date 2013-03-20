@@ -6,8 +6,8 @@ import server.listModel.EventsInvitedTo;
 import server.model.Invitation;
 import server.model.User;
 
+import common.EventsInvitedToI;
 import common.InvitationI;
-import common.InvitationListI;
 import common.InvitationStorageI;
 
 public class InvitationStorage extends Storage implements InvitationStorageI {
@@ -32,7 +32,8 @@ public class InvitationStorage extends Storage implements InvitationStorageI {
 		super.delete(model);
 	}
 
-	public InvitationListI getInvitationList(User user) throws RemoteException {
-		return (InvitationListI) new EventsInvitedTo(user);
+	public EventsInvitedToI getEventsInvitedTo(User user)
+			throws RemoteException {
+		return (EventsInvitedToI) new EventsInvitedTo(user);
 	}
 }
