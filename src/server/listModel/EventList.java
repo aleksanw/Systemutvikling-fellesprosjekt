@@ -7,22 +7,22 @@ import java.util.ArrayList;
 
 import org.joda.time.DateTime;
 
-import server.model.Event;
-import server.model.Group;
 import server.model.Model;
-import server.model.User;
 import server.system.StorageServer;
 
+import common.EventI;
 import common.EventListI;
+import common.GroupI;
+import common.UserI;
 
 public class EventList extends ListModel implements EventListI {
-	private ArrayList<Event> list;
+	private ArrayList<EventI> list;
 
-	private ArrayList<User> users;
-	private ArrayList<Group> groups;
+	private ArrayList<UserI> users;
+	private ArrayList<GroupI> groups;
 	private DateTime date;
 
-	public EventList(ArrayList<User> users, ArrayList<Group> groups,
+	public EventList(ArrayList<UserI> users, ArrayList<GroupI> groups,
 			DateTime date) throws RemoteException {
 		this.users = users;
 		this.groups = groups;
@@ -64,9 +64,9 @@ public class EventList extends ListModel implements EventListI {
 
 	private void refresh() throws RemoteException {
 
-		ArrayList<Event> oldList = (ArrayList<Event>) list.clone();
+		ArrayList<EventI> oldList = (ArrayList<EventI>) list.clone();
 
-		list = new ArrayList<Event>();
+		list = new ArrayList<EventI>();
 
 		String query = "SELECT * FROM Event WHERE createdByUser IN ("
 				+ intArraytoCommaSeperatedString(getUserIDs())
@@ -96,43 +96,43 @@ public class EventList extends ListModel implements EventListI {
 		refresh();
 	}
 
-	public ArrayList<User> getUsers() throws RemoteException {
+	public ArrayList<UserI> getUsers() throws RemoteException {
 		return users;
 	}
 
-	public void setUsers(ArrayList<User> users) throws RemoteException {
+	public void setUsers(ArrayList<UserI> users) throws RemoteException {
 		this.users = users;
 		refresh();
 	}
 
-	public boolean add(User user) throws RemoteException {
+	public boolean add(UserI user) throws RemoteException {
 		boolean r = users.add(user);
 		refresh();
 		return r;
 	}
 
-	public boolean remove(User user) throws RemoteException {
+	public boolean remove(UserI user) throws RemoteException {
 		boolean r = users.remove(user);
 		refresh();
 		return r;
 	}
 
-	public ArrayList<Group> getGroups() throws RemoteException {
+	public ArrayList<GroupI> getGroups() throws RemoteException {
 		return groups;
 	}
 
-	public void setGroups(ArrayList<Group> groups) throws RemoteException {
+	public void setGroups(ArrayList<GroupI> groups) throws RemoteException {
 		this.groups = groups;
 		refresh();
 	}
 
-	public boolean addGroup(Group group) throws RemoteException {
+	public boolean addGroup(GroupI group) throws RemoteException {
 		boolean r = groups.add(group);
 		refresh();
 		return r;
 	}
 
-	public boolean removeGroup(Group group) throws RemoteException {
+	public boolean removeGroup(GroupI group) throws RemoteException {
 		boolean r = groups.remove(group);
 		refresh();
 		return r;
@@ -148,7 +148,7 @@ public class EventList extends ListModel implements EventListI {
 	}
 
 	@Override
-	public ArrayList<Event> getList() throws RemoteException {
+	public ArrayList<EventI> getList() throws RemoteException {
 		return list;
 	}
 }
