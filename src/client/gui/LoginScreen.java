@@ -9,6 +9,8 @@ import client.gui.widgets.LoginForm;
 import client.gui.widgets.LoginForm.LoginEvent;
 import client.gui.widgets.LoginListener;
 
+import common.UserI;
+
 class LoginScreen extends JPanel implements LoginListener {
 
 	public LoginScreen() {
@@ -20,10 +22,13 @@ class LoginScreen extends JPanel implements LoginListener {
 
 	@Override
 	public void loginAttempted(LoginEvent e) {
+		UserI user;
 		try {
-			if (MainClass.sServer.userStorage.login(e.getUsername(),
-					e.getPassword()) != null) {
+			user = MainClass.sServer.userStorage.login(e.getUsername(),
+					e.getPassword());
+			if (user != null) {
 				e.authSuccess();
+				MainClass.setCurrentUser(user);
 				MainClass.loginOK();
 			} else {
 				e.authFailure();

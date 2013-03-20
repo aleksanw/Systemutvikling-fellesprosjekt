@@ -7,9 +7,12 @@ import org.apache.commons.cli.ParseException;
 
 import client.system.StorageServerConnection;
 
+import common.UserI;
+
 public class MainClass {
 	static StorageServerConnection sServer;
 	static GUI gui;
+	static UserI currentUser;
 
 	public static void main(String[] args) {
 		System.setProperty("file.encoding", "UTF-8");
@@ -59,4 +62,13 @@ public class MainClass {
 			throw new IllegalArgumentException(e);
 		}
 	}
+
+	public static UserI getCurrentUser() {
+		return currentUser;
+	}
+
+	public static void setCurrentUser(UserI currentUser) {
+		MainClass.currentUser = currentUser;
+	}
+
 }
