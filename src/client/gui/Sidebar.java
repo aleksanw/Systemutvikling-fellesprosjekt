@@ -43,9 +43,9 @@ class Sidebar extends JPanel implements ListSelectionListener {
 
 		setLayout(new MigLayout("wrap 1"));
 		add(recieved);
-		add(rScroll, "grow");
+		add(rScroll, "growx");
 		add(sent);
-		add(sScroll, "grow");
+		add(sScroll, "growx");
 		add(calenders);
 
 		// setPreferredSize(new Dimension(250,600));
