@@ -41,7 +41,7 @@ public class Week implements WeekI {
 	public DateTime getFromDate() {
 		DateTime res = new DateTime(date);
 		while(res.getDayOfWeek() > 1){
-			res.plusDays(-1);
+			res = res.minusDays(1);
 		}
 		return res;
 	}
@@ -50,7 +50,7 @@ public class Week implements WeekI {
 	public DateTime getToDate() {
 		DateTime res = new DateTime(date);
 		while(res.getDayOfWeek() > 1){
-			res.plusDays(1);
+			res = res.plusDays(1);
 		}
 		return res;
 	}

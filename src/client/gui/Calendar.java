@@ -79,6 +79,9 @@ class Calendar extends JPanel implements ActionListener {
 		} catch (RemoteException e) {
 			throw new RuntimeException(e);
 		}
+		System.out.println(date.getDayOfMonth());
+		System.out.println(date.getMonthOfYear());
+		System.out.println(date.getYear());
 		for (int i = 0; i < eventListByDay.size(); i++) {
 			if (date.getDayOfWeek() == 1) {
 				mon.model.addElement(eventListByDay.get(i));
