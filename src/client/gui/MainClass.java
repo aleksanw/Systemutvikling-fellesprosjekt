@@ -1,5 +1,7 @@
 package client.gui;
 
+import java.rmi.RemoteException;
+
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.GnuParser;
 import org.apache.commons.cli.Options;
@@ -16,7 +18,6 @@ public class MainClass {
 	static GUI gui;
 	static UserI currentUser;
 	static DateTime now = DateTime.now();
-	static EventI currentEvent;
 
 	public static void main(String[] args) {
 		System.setProperty("file.encoding", "UTF-8");
@@ -41,11 +42,21 @@ public class MainClass {
 	}
 
 	public static void runAddEvent() {
+		try {
+			gui.getAddEvent().setEvent(null);
+		} catch (RemoteException e1) {
+			throw new RuntimeException(e1);
+		}
 		gui.swapPane("addEvent");
+		
 	}
 	
-	public static void runChangeEvent(EventI e){
-		currentEvent = e;
+	public static void runChangeEvent(EventI e) {
+		try {
+			gui.getAddEvent().setEvent(e);
+		} catch (RemoteException e1) {
+			throw new RuntimeException(e1);
+		}
 		gui.swapPane("addEvent");
 	}
 

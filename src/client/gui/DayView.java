@@ -55,6 +55,7 @@ class DayView extends JPanel implements ListSelectionListener {
 
 	public void valueChanged(ListSelectionEvent e) {
 		MainClass.runChangeEvent(list.getSelectedValue());
+		list.setSelectedIndex(0);
 	}
 	
 	

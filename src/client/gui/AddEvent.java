@@ -347,7 +347,7 @@ class AddEvent extends JPanel implements ActionListener {
 			min.setSelectedItem(e.getStart().getMinuteOfHour());
 			hourE.setSelectedItem(e.getEnd().getHourOfDay());
 			minE.setSelectedItem(e.getEnd().getMinuteOfHour());
-			group.setSelectedItem(e.getCreatedByGroup());
+			//group.setSelectedItem(e.getCreatedByGroup());
 			day.setSelectedItem(e.getStart().getDayOfMonth());
 			month.setSelectedItem(e.getStart().getMonthOfYear());
 			year.setSelectedItem(e.getStart().getYear());
