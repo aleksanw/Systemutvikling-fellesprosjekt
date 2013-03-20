@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -18,14 +17,13 @@ import common.EventI;
 
 class AnswerMeeting extends JPanel implements ActionListener {
 
-	private JLabel header, participants, accept, decline;
+	private JLabel header, accept, decline;
 	private JLabel name = new JLabel();
 	private JLabel date = new JLabel();
 	private JLabel place = new JLabel();
 	private JLabel time = new JLabel();
 	private JLabel desc = new JLabel();
 	private JButton send, cancel;
-	private JList list;
 	private JRadioButton acc, dec;
 	private JScrollPane scroll;
 	private ButtonGroup myBGroup;
@@ -39,8 +37,7 @@ class AnswerMeeting extends JPanel implements ActionListener {
 		header.setText("Svar på innkalling");
 		header.setFont(new Font("Sans Serif", Font.PLAIN, 20));
 
-		participants = new JLabel();
-		participants.setText("Deltakere");
+	
 
 		accept = new JLabel();
 		accept.setText("Godta");
@@ -48,11 +45,8 @@ class AnswerMeeting extends JPanel implements ActionListener {
 		decline = new JLabel();
 		decline.setText("Avvis");
 
-//		list = new JList();
 		
 
-		scroll = new JScrollPane(list);
-		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
 		acc = new JRadioButton();
 		acc.addActionListener(this);
@@ -102,7 +96,6 @@ class AnswerMeeting extends JPanel implements ActionListener {
 		add(place, g);
 
 		g.gridy = 6;
-		add(participants, g);
 
 		g.gridy = 7;
 //		add(scroll, g);
