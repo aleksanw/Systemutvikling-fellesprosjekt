@@ -89,10 +89,6 @@ public class Event extends Model implements EventI {
 		return isWholeday;
 	}
 
-	public void setWholeday(boolean isWholeday) {
-		this.isWholeday = isWholeday;
-	}
-
 	public void setMeeting(boolean isMeeting) {
 		this.isMeeting = isMeeting;
 	}
@@ -232,4 +228,5 @@ public class Event extends Model implements EventI {
 			throw new RuntimeException(e);
 		}
 	}
+
 }

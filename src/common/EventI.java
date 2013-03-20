@@ -17,8 +17,6 @@ public interface EventI extends ModelI {
 
 	public boolean isWholeday() throws RemoteException;
 
-	public void setWholeday(boolean isWholeday) throws RemoteException;
-
 	public void setMeeting(boolean isMeeting) throws RemoteException;
 
 	public boolean isActive() throws RemoteException;
