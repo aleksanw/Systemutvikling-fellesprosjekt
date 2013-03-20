@@ -53,7 +53,7 @@ public class MainClass {
 		gui.swapPane("login");
 	}
 
-	public static void runAddMeating() {
+	public static void runAddMeeting() {
 		gui.swapPane("addMeeting");
 	}
 
