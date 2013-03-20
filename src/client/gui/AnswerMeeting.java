@@ -35,7 +35,7 @@ class AnswerMeeting extends JPanel implements ActionListener {
 		this.selectedEvent = selectedEvent;
 		try {
 			this.name.setText(selectedEvent.getEventName());
-			DateTimeFormatter FMT = DateTimeFormat.forPattern("HH-mm dd-MM-yyyy");
+			DateTimeFormatter FMT = DateTimeFormat.forPattern("HH:mm dd-MM-yyyy");
 			this.date.setText(FMT.print(selectedEvent.getStart()));
 			this.time.setText(FMT.print(selectedEvent.getEnd()));
 		} catch (RemoteException e2) {
@@ -44,6 +44,11 @@ class AnswerMeeting extends JPanel implements ActionListener {
 	}
 
 	public void setInvite(InvitationI invite) {
+		try {
+			setSelectedEvent(invite.getEvent());
+		} catch (RemoteException e) {
+			throw new RuntimeException(e);
+		}
 		this.invite = invite;
 	}
 
