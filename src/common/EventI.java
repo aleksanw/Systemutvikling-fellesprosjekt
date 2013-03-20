@@ -5,11 +5,9 @@ import java.util.ArrayList;
 
 import org.joda.time.DateTime;
 
-import server.model.Invitation;
-
 public interface EventI extends ModelI {
 
-	public ArrayList<Invitation> getInvitationList() throws RemoteException;
+	public ArrayList<InvitationI> getInvitationList() throws RemoteException;
 
 	public void invite(UserI user) throws RemoteException;
 

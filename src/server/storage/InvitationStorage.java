@@ -36,4 +36,5 @@ public class InvitationStorage extends Storage implements InvitationStorageI {
 			throws RemoteException {
 		return (EventsInvitedToI) new EventsInvitedTo(user);
 	}
+	
 }

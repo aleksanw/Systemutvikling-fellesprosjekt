@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import org.joda.time.DateTime;
 
 import server.listModel.EventList;
+import server.listModel.MeetingsCreatedByUser;
 import server.model.Event;
 
 import common.EventI;
 import common.EventStorageI;
 import common.GroupI;
+import common.MeetingsCreatedByUserI;
 import common.UserI;
 
 public class EventStorage extends Storage implements EventStorageI {
@@ -48,5 +50,9 @@ public class EventStorage extends Storage implements EventStorageI {
 	public EventList getEventList(ArrayList<UserI> users,
 			ArrayList<GroupI> groups, DateTime date) throws RemoteException {
 		return new EventList(users, groups, date);
+	}
+	
+	public MeetingsCreatedByUserI getMeetingCreatedByUserI(UserI user) throws RemoteException {
+		return new MeetingsCreatedByUser(user);
 	}
 }

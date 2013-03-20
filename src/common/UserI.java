@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 import server.model.Alarm;
-import server.model.Event;
 import server.model.Invitation;
 
 public interface UserI extends ModelI {
@@ -26,7 +25,7 @@ public interface UserI extends ModelI {
 
 	public abstract void addToGroup(GroupI group) throws RemoteException;
 
-	public abstract ArrayList<Event> getCreatedEvents() throws RemoteException;
+	public abstract ArrayList<EventI> getCreatedEvents() throws RemoteException;
 
 	public abstract ArrayList<Invitation> getInvitations()
 			throws RemoteException;

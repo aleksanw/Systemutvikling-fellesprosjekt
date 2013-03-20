@@ -144,8 +144,8 @@ public class User extends Model implements UserI {
 	 * @see server.model.UserI#getCreatedEvents()
 	 */
 	@Override
-	public ArrayList<Event> getCreatedEvents() throws RemoteException {
-		ArrayList<Event> events = new ArrayList<Event>();
+	public ArrayList<EventI> getCreatedEvents() throws RemoteException {
+		ArrayList<EventI> events = new ArrayList<EventI>();
 		String query = "SELECT eventID FROM Event WHERE createdByUser="
 				+ this.userID + ";";
 		ResultSet result = Model.getDB().readQuery(query);

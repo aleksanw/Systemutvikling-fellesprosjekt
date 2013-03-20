@@ -13,6 +13,7 @@ import server.system.StorageServer;
 
 import common.EventI;
 import common.GroupI;
+import common.InvitationI;
 import common.RoomI;
 import common.UserI;
 
@@ -73,8 +74,19 @@ public class Event extends Model implements EventI {
 		return tableFields;
 	}
 
-	public ArrayList<Invitation> getInvitationList() {
-		return new ArrayList<Invitation>();
+	public ArrayList<InvitationI> getInvitationList() throws RemoteException {
+		ArrayList<InvitationI> invites = new ArrayList<InvitationI>();
+		String query = "select * from InvitedTo natural join Event where eventID=" + this.eventID + " AND isMeeting=true;";
+		ResultSet result = Model.getDB().readQuery(query);
+		try {
+			while (result.next()) {
+				invites.add(StorageServer.invitationStorage.get(result
+						.getInt("invitedToID")));
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return invites;
 	}
 
 	public void invite(UserI user) {

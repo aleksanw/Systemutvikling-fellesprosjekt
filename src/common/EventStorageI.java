@@ -17,4 +17,6 @@ public interface EventStorageI extends Remote {
 
 	public EventListI getEventList(ArrayList<UserI> users,
 			ArrayList<GroupI> groups, DateTime date) throws RemoteException;
+	
+	public MeetingsCreatedByUserI getMeetingCreatedByUserI(UserI user) throws RemoteException;
 }
