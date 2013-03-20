@@ -6,14 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
-import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.ListSelectionModel;
-
 
 import common.UserI;
 import common.UserListI;
@@ -26,7 +23,6 @@ class Participants extends JPanel implements ActionListener {
 	protected JLabel lPart;
 	protected AddParticipant adder;
 	protected DefaultListModel<UserI> model;
-	protected DefaultListSelectionModel selectionModel;
 	protected UserListI users;
 
 	GridBagConstraints g = new GridBagConstraints();
@@ -37,12 +33,7 @@ class Participants extends JPanel implements ActionListener {
 
 		model = new DefaultListModel<UserI>();
 
-		selectionModel = new DefaultListSelectionModel();
-		selectionModel
-				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-
 		part = new JList(model);
-		part.setSelectionModel(selectionModel);
 
 		scroll = new JScrollPane(part);
 

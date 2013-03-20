@@ -86,6 +86,7 @@ class Buttons extends JPanel implements ActionListener {
 		if (e.getActionCommand().toString().equals("Legg Til Avtale")) {
 			MainClass.runAddEvent();
 		} else if (e.getActionCommand().toString().equals("Logg Ut")) {
+			MainClass.setCurrentUser(null);
 			MainClass.logout();
 		} else if (e.getActionCommand().toString().equals("<")) {
 			if (validWeek(weekNr - 1)) {

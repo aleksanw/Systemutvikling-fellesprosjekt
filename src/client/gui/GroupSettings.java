@@ -31,10 +31,10 @@ class GroupSettings extends JPanel implements ActionListener {
 	private JComboBox groupsCB;
 	private JScrollPane personListScroller;
 	private GroupI group;
-	private UserListI groupList;
+	private UserListI userList;
 	private DefaultListModel model;
 	private DefaultListSelectionModel selModel;
-	private ArrayList<UserI> arrayGroupList;
+	private ArrayList<UserI> arrayUserList;
 
 	GridBagConstraints gbc = new GridBagConstraints();
 
@@ -72,25 +72,24 @@ class GroupSettings extends JPanel implements ActionListener {
 		personListScroller = new JScrollPane(personList);
 
 		try {
-			groupList = MainClass.sServer.userStorage.getUserList(group);
-			arrayGroupList = groupList.getList();
+			userList = MainClass.sServer.userStorage.getUserList(group);
+			arrayUserList = userList.getList();
 		} catch (RemoteException e) {
 			throw new RuntimeException(e);
 		}
 
-		for (int i = 0; i < arrayGroupList.size(); i++) {
+		for (int i = 0; i < arrayUserList.size(); i++) {
 			try {
-				model.addElement(arrayGroupList.get(i).getName());
+				String user = arrayUserList.get(i).getName();
+				if (user.equals("")) {
+					model.addElement("'Nameless user'");
+				} else {
+					model.addElement(user);
+				}
 			} catch (RemoteException e) {
 				throw new RuntimeException(e);
 			}
 		}
-
-		/**
-		 * model.addElement("Johannes"); model.addElement("Ragnhild");
-		 * model.addElement("Markus"); model.addElement("Mads");
-		 * model.addElement("Jon"); model.addElement("Aleksander");
-		 **/
 
 		setLayout(new GridBagLayout());
 		gbc.gridy = 0;
@@ -127,7 +126,11 @@ class GroupSettings extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().toString().equals("Lagre")) {
 			try {
-				save(MainClass.sServer.groupStorage.get(group.getGroupID()));
+				if (group == null) {
+					save(null);
+				} else {
+					save(MainClass.sServer.groupStorage.get(group.getGroupID()));
+				}
 			} catch (RemoteException e1) {
 				e1.printStackTrace();
 			}
@@ -150,7 +153,7 @@ class GroupSettings extends JPanel implements ActionListener {
 	}
 
 	private void clearFields() {
-		groupsCB.setSelectedIndex(0);
+		// groupsCB.setSelectedIndex(0);
 		groupNameTF.setText("");
 	}
 

@@ -21,6 +21,17 @@ class CellRenderer extends JLabel implements ListCellRenderer {
 			throw new RuntimeException(e);
 		}
 		setText(s);
+
+		if (isSelected) {
+			setBackground(list.getSelectionBackground());
+			setForeground(list.getSelectionForeground());
+		} else {
+			setBackground(list.getBackground());
+			setForeground(list.getForeground());
+		}
+		setOpaque(true);
+		setEnabled(list.isEnabled());
+		setFont(list.getFont());
 		return this;
 	}
 }
