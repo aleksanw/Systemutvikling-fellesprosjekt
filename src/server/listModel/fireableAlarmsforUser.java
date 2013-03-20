@@ -5,16 +5,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import common.FireableAlarmsForUserI;
+
 import server.model.Alarm;
 import server.model.Model;
 import server.model.User;
 import server.system.StorageServer;
 
-public class fireableAlarmsforUser extends ListModel {
+public class FireableAlarmsforUser extends ListModel implements FireableAlarmsForUserI {
 	private ArrayList<Alarm> list = new ArrayList<Alarm>();
 	private User user;
 
-	public fireableAlarmsforUser(User user) throws RemoteException {
+	public FireableAlarmsforUser(User user) throws RemoteException {
 		super();
 		refresh();
 	}

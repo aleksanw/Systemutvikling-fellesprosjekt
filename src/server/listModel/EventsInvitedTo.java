@@ -10,9 +10,9 @@ import server.model.Model;
 import server.model.User;
 import server.system.StorageServer;
 
-import common.InvitationListI;
+import common.EventsInvitedToI;
 
-public class EventsInvitedTo extends ListModel implements InvitationListI {
+public class EventsInvitedTo extends ListModel implements EventsInvitedToI {
 	ArrayList<Event> list = new ArrayList<Event>();
 	int userID;
 

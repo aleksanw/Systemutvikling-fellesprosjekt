@@ -5,11 +5,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import common.allGroupsListI;
+
 import server.model.Group;
 import server.model.Model;
 import server.system.StorageServer;
 
-public class allGroupsList extends ListModel {
+public class allGroupsList extends ListModel implements allGroupsListI {
 
 	ArrayList<Group> list = new ArrayList<Group>();
 
