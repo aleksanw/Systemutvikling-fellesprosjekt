@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true">  
   <class id="1" language="java" name="server.system.Database" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/system/Database.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="274" x="287" y="1305"/>    
+    <position height="279" width="274" x="2022" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="server.system.RMIServer" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/system/RMIServer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="173" x="4703" y="824"/>    
+    <position height="153" width="173" x="5326" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="server.system.StartUpServer" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/system/StartUpServer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="1557" y="37"/>    
+    <position height="99" width="113" x="1562" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="server.system.StorageServer" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/system/StorageServer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="107" x="6506" y="37"/>    
+    <position height="99" width="107" x="6227" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="server.storage.AlarmStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/AlarmStorage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="116" x="6899" y="824"/>    
+    <position height="153" width="116" x="6834" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="server.storage.EventStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/EventStorage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="357" x="5711" y="824"/>    
+    <position height="171" width="361" x="6227" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="server.storage.GroupStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/GroupStorage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="118" x="6741" y="824"/>    
+    <position height="153" width="118" x="5842" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -67,7 +67,7 @@
   <class id="8" language="java" name="server.storage.InvitationStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/InvitationStorage.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="171" width="195" x="6506" y="824"/>    
+    <position height="171" width="227" x="6990" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -76,7 +76,7 @@
   </class>  
   <class id="9" language="java" name="server.storage.RoomStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/RoomStorage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="131" x="6108" y="824"/>    
+    <position height="171" width="131" x="5671" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -85,7 +85,7 @@
   </class>  
   <class id="10" language="java" name="server.storage.Storage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/Storage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="205" x="6653" y="37"/>    
+    <position height="171" width="205" x="6374" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -94,7 +94,7 @@
   </class>  
   <class id="11" language="java" name="server.storage.UserStorage" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/storage/UserStorage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="166" x="7055" y="824"/>    
+    <position height="189" width="166" x="6628" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -103,7 +103,7 @@
   </class>  
   <class id="12" language="java" name="server.model.Alarm" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Alarm.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="369" width="242" x="601" y="1305"/>    
+    <position height="369" width="242" x="2336" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -112,7 +112,7 @@
   </class>  
   <class id="13" language="java" name="server.model.Event" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Event.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="909" width="210" x="2326" y="1305"/>    
+    <position height="909" width="210" x="2618" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -121,7 +121,7 @@
   </class>  
   <class id="14" language="java" name="server.model.Group" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Group.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="206" x="2080" y="1305"/>    
+    <position height="279" width="206" x="3135" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -130,7 +130,7 @@
   </class>  
   <class id="15" language="java" name="server.model.Invitation" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Invitation.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="387" width="214" x="883" y="1305"/>    
+    <position height="387" width="214" x="4477" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -139,7 +139,7 @@
   </class>  
   <class id="16" language="java" name="server.model.MemberOfGroup" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/MemberOfGroup.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="206" x="41" y="1305"/>    
+    <position height="279" width="206" x="1776" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -148,7 +148,7 @@
   </class>  
   <class id="17" language="java" name="server.model.Room" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Room.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="248" x="1158" y="1305"/>    
+    <position height="297" width="248" x="3381" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -157,7 +157,7 @@
   </class>  
   <class id="18" language="java" name="server.model.User" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/User.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="477" width="227" x="1813" y="1305"/>    
+    <position height="477" width="227" x="2868" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -166,7 +166,7 @@
   </class>  
   <class id="19" language="java" name="server.model.Model" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/model/Model.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="315" width="327" x="601" y="824"/>    
+    <position height="315" width="327" x="2826" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -176,7 +176,7 @@
   <class id="20" language="java" name="server.listModel.EventsInvitedTo" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/listModel/EventsInvitedTo.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="153" width="153" x="5518" y="824"/>    
+    <position height="153" width="153" x="544" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -185,7 +185,7 @@
   </class>  
   <class id="21" language="java" name="server.listModel.Rooms" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/listModel/Rooms.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="153" x="5182" y="824"/>    
+    <position height="135" width="153" x="1410" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -194,7 +194,7 @@
   </class>  
   <class id="22" language="java" name="server.listModel.UserList" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/listModel/UserList.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="149" x="4294" y="824"/>    
+    <position height="153" width="151" x="737" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -204,7 +204,7 @@
   <class id="23" language="java" name="exceptions.ObjectNotFoundException" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/exceptions/ObjectNotFoundException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="81" width="170" x="344" y="37"/>    
+    <position height="81" width="170" x="349" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -213,7 +213,7 @@
   </class>  
   <interface id="24" language="java" name="common.AlarmI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/AlarmI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="242" x="910" y="2254"/>    
+    <position height="243" width="242" x="2336" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -222,7 +222,7 @@
   </interface>  
   <interface id="25" language="java" name="common.AlarmStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/AlarmStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="116" x="6712" y="1305"/>    
+    <position height="135" width="116" x="6731" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -231,7 +231,7 @@
   </interface>  
   <interface id="26" language="java" name="common.EventI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/EventI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="621" width="210" x="2326" y="2254"/>    
+    <position height="621" width="210" x="2618" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -240,7 +240,7 @@
   </interface>  
   <interface id="27" language="java" name="common.EventStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/EventStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="359" x="5749" y="1305"/>    
+    <position height="153" width="363" x="6122" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -249,7 +249,7 @@
   </interface>  
   <interface id="28" language="java" name="common.GroupI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/GroupI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="165" x="2001" y="2254"/>    
+    <position height="171" width="165" x="3617" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -258,7 +258,7 @@
   </interface>  
   <interface id="29" language="java" name="common.GroupStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/GroupStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="118" x="6554" y="1305"/>    
+    <position height="135" width="118" x="5964" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -267,7 +267,7 @@
   </interface>  
   <interface id="30" language="java" name="common.InvitationI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/InvitationI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="214" x="1192" y="2254"/>    
+    <position height="243" width="214" x="4110" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -276,7 +276,7 @@
   </interface>  
   <interface id="31" language="java" name="common.InvitationStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/InvitationStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="195" x="6319" y="1305"/>    
+    <position height="153" width="227" x="6887" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -285,7 +285,7 @@
   </interface>  
   <interface id="32" language="java" name="common.ModelI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/ModelI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="327" x="1446" y="1305"/>    
+    <position height="117" width="327" x="4110" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -294,7 +294,7 @@
   </interface>  
   <interface id="33" language="java" name="common.RoomI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/RoomI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="248" x="1446" y="2254"/>    
+    <position height="189" width="248" x="3822" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -303,7 +303,7 @@
   </interface>  
   <interface id="34" language="java" name="common.RoomStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/RoomStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="131" x="6148" y="1305"/>    
+    <position height="153" width="131" x="5793" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -312,7 +312,7 @@
   </interface>  
   <interface id="35" language="java" name="common.UserI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/UserI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="315" width="227" x="1734" y="2254"/>    
+    <position height="315" width="227" x="3350" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -321,7 +321,7 @@
   </interface>  
   <interface id="36" language="java" name="common.UserStorageI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/UserStorageI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="166" x="6868" y="1305"/>    
+    <position height="171" width="166" x="6525" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -331,7 +331,7 @@
   <class id="37" language="java" name="client.system.StorageServerConnection" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/system/StorageServerConnection.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="117" width="187" x="6279" y="824"/>    
+    <position height="117" width="187" x="6000" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -340,7 +340,7 @@
   </class>  
   <class id="38" language="java" name="client.system.StartUpClient" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/system/StartUpClient.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="791" y="37"/>    
+    <position height="99" width="113" x="796" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -349,7 +349,7 @@
   </class>  
   <class id="39" language="java" name="client.system.RMIClient" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/system/RMIClient.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="142" x="944" y="37"/>    
+    <position height="135" width="142" x="949" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -358,7 +358,7 @@
   </class>  
   <class id="40" language="java" name="client.gui.widgets.LoginForm" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/widgets/LoginForm.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="208" x="3054" y="37"/>    
+    <position height="297" width="208" x="4731" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -367,7 +367,7 @@
   </class>  
   <class id="41" language="java" name="client.gui.widgets.LoginForm.LoginEvent" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/widgets/LoginForm.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="194" x="2949" y="824"/>    
+    <position height="189" width="194" x="4731" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -377,7 +377,7 @@
   <interface id="42" language="java" name="client.gui.widgets.LoginListener" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/widgets/LoginListener.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="81" width="181" x="2728" y="824"/>    
+    <position height="81" width="181" x="3889" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -387,7 +387,7 @@
   <class id="43" language="java" name="client.gui.widgets.MyPasswordField" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/widgets/MyPasswordField.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="117" width="148" x="3356" y="824"/>    
+    <position height="117" width="148" x="5138" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -396,7 +396,7 @@
   </class>  
   <class id="44" language="java" name="client.gui.widgets.MyTextField" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/widgets/MyTextField.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="133" x="3183" y="824"/>    
+    <position height="117" width="133" x="4965" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -405,7 +405,7 @@
   </class>  
   <class id="45" language="java" name="client.gui.AddEvent" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/AddEvent.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="747" width="194" x="1710" y="37"/>    
+    <position height="783" width="194" x="1715" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -415,7 +415,7 @@
   <class id="46" language="java" name="client.gui.AddEvent.timeBoxActionListener" 
     project="Systemutvikling-fellesprosjekt" file="/Systemutvikling-fellesprosjekt/src/client/gui/AddEvent.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="194" x="1105" y="824"/>    
+    <position height="99" width="194" x="1369" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -424,7 +424,7 @@
   </class>  
   <class id="47" language="java" name="client.gui.AddMeeting" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/AddMeeting.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="91" x="2597" y="824"/>    
+    <position height="81" width="91" x="1603" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -433,7 +433,7 @@
   </class>  
   <class id="48" language="java" name="client.gui.AddParticipant" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/AddParticipant.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="194" x="3446" y="2254"/>    
+    <position height="297" width="226" x="1697" y="2470"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -442,7 +442,7 @@
   </class>  
   <class id="49" language="java" name="client.gui.AnswerMeeting" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/AnswerMeeting.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="423" width="263" x="41" y="37"/>    
+    <position height="423" width="263" x="46" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -451,7 +451,7 @@
   </class>  
   <class id="50" language="java" name="client.gui.Booking" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Booking.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="226" x="4916" y="824"/>    
+    <position height="207" width="226" x="1837" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -460,7 +460,7 @@
   </class>  
   <class id="51" language="java" name="client.gui.Buttons" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Buttons.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="441" width="194" x="7749" y="824"/>    
+    <position height="441" width="194" x="4364" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -469,7 +469,7 @@
   </class>  
   <class id="52" language="java" name="client.gui.Calendar" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Calendar.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="194" x="7515" y="824"/>    
+    <position height="117" width="194" x="4598" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -478,7 +478,7 @@
   </class>  
   <class id="53" language="java" name="client.gui.CellRenderer" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/CellRenderer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="391" x="1126" y="37"/>    
+    <position height="99" width="391" x="1131" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -487,7 +487,7 @@
   </class>  
   <class id="54" language="java" name="client.gui.DayView" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/DayView.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="214" x="7515" y="1305"/>    
+    <position height="189" width="214" x="4598" y="2470"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -496,7 +496,7 @@
   </class>  
   <class id="55" language="java" name="client.gui.GroupSettings" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/GroupSettings.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="387" width="197" x="554" y="37"/>    
+    <position height="423" width="197" x="559" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -505,7 +505,7 @@
   </class>  
   <class id="56" language="java" name="client.gui.LoginScreen" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/LoginScreen.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="181" x="2728" y="37"/>    
+    <position height="99" width="181" x="3899" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -514,7 +514,7 @@
   </class>  
   <class id="57" language="java" name="client.gui.MainClass" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/MainClass.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="190" x="5381" y="37"/>    
+    <position height="261" width="190" x="3669" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -523,7 +523,7 @@
   </class>  
   <class id="58" language="java" name="client.gui.MainScreen" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/MainScreen.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="92" x="7515" y="37"/>    
+    <position height="81" width="92" x="5539" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -532,7 +532,7 @@
   </class>  
   <class id="59" language="java" name="client.gui.Participants" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Participants.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="226" x="3446" y="1305"/>    
+    <position height="207" width="194" x="1603" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -541,7 +541,7 @@
   </class>  
   <class id="60" language="java" name="client.gui.Place" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Place.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="97" x="968" y="824"/>    
+    <position height="117" width="97" x="1232" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -550,7 +550,7 @@
   </class>  
   <class id="61" language="java" name="client.gui.Sidebar" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/Sidebar.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="214" x="7261" y="824"/>    
+    <position height="225" width="214" x="5539" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -559,7 +559,7 @@
   </class>  
   <class id="62" language="java" name="client.gui.GUI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/client/gui/GUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="180" x="4483" y="824"/>    
+    <position height="135" width="180" x="3669" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -568,615 +568,570 @@
   </class>  
   <interface id="63" language="java" name="common.EventListI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/EventListI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="195" x="5283" y="1305"/>    
+    <position height="297" width="197" x="1267" y="2470"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </interface>  
-  <interface id="64" language="java" name="common.InvitationListI" project="Systemutvikling-fellesprosjekt" 
-    file="/Systemutvikling-fellesprosjekt/src/common/InvitationListI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="153" x="5518" y="1305"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
-    </display>  
-  </interface>  
-  <interface id="65" language="java" name="common.ListModelI" project="Systemutvikling-fellesprosjekt" 
+  <interface id="64" language="java" name="common.ListModelI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/ListModelI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="63" width="103" x="5375" y="824"/>    
+    <position height="63" width="103" x="1267" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </interface>  
-  <interface id="66" language="java" name="common.RoomsI" project="Systemutvikling-fellesprosjekt" 
+  <interface id="65" language="java" name="common.RoomsI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/RoomsI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="153" x="5069" y="1305"/>    
+    <position height="81" width="153" x="1504" y="2470"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </interface>  
-  <interface id="67" language="java" name="common.UserListI" project="Systemutvikling-fellesprosjekt" 
+  <interface id="66" language="java" name="common.UserListI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/UserListI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="149" x="4294" y="2254"/>    
+    <position height="81" width="151" x="1076" y="2470"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </interface>  
-  <interface id="68" language="java" name="common.WeekI" project="Systemutvikling-fellesprosjekt" 
+  <interface id="67" language="java" name="common.WeekI" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/common/WeekI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="150" x="7866" y="1305"/>    
+    <position height="243" width="150" x="3255" y="2470"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </interface>  
-  <class id="69" language="java" name="server.listModel.EventList" project="Systemutvikling-fellesprosjekt" 
+  <class id="68" language="java" name="server.listModel.EventList" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/listModel/EventList.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="405" width="295" x="3959" y="824"/>    
+    <position height="459" width="299" x="928" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="70" language="java" name="server.listModel.ListModel" project="Systemutvikling-fellesprosjekt" 
+  <class id="69" language="java" name="server.listModel.ListModel" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/server/listModel/ListModel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="327" x="4294" y="37"/>    
+    <position height="135" width="327" x="865" y="860"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="71" language="java" name="week.Week" project="Systemutvikling-fellesprosjekt" 
+  <class id="70" language="java" name="week.Week" project="Systemutvikling-fellesprosjekt" 
     file="/Systemutvikling-fellesprosjekt/src/week/Week.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="150" x="7983" y="824"/>    
+    <position height="297" width="150" x="2146" y="1809"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
+  <generalization id="71">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
   <generalization id="72">    
-    <bendpoint x="5252" y="1305"/>    
-    <end type="SOURCE" refId="67"/>    
-    <end type="TARGET" refId="65"/>  
-  </generalization>  
-  <generalization id="73">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="74">    
-    <end type="SOURCE" refId="37" navigable="false">      
-      <attribute id="75" name="eventStorage"/>      
-      <multiplicity id="76" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="77">    
-    <end type="SOURCE" refId="33"/>    
-    <end type="TARGET" refId="32"/>  
-  </generalization>  
-  <realization id="78">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="34"/>  
-  </realization>  
-  <realization id="79">    
-    <end type="SOURCE" refId="71"/>    
-    <end type="TARGET" refId="68"/>  
-  </realization>  
-  <association id="80">    
-    <end type="SOURCE" refId="37" navigable="false">      
-      <attribute id="81" name="invitationStorage"/>      
-      <multiplicity id="82" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="83">    
-    <end type="SOURCE" refId="69"/>    
-    <end type="TARGET" refId="70"/>  
-  </generalization>  
-  <association id="84">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="85" name="DB"/>      
-      <multiplicity id="86" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="87">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
-  <association id="88">    
-    <end type="SOURCE" refId="69" navigable="false">      
-      <attribute id="89" name="users"/>      
-      <multiplicity id="90" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="91">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="92">    
-    <end type="SOURCE" refId="24"/>    
-    <end type="TARGET" refId="32"/>  
-  </generalization>  
-  <association id="93">    
-    <end type="SOURCE" refId="69" navigable="false">      
-      <attribute id="94" name="list"/>      
-      <multiplicity id="95" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="96">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="70"/>  
-  </generalization>  
-  <association id="97">    
-    <end type="SOURCE" refId="52" navigable="false">      
-      <attribute id="98" name="mon"/>      
-      <multiplicity id="99" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="54" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="100">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <realization id="101">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="30"/>  
-  </realization>  
-  <association id="102">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="103" name="userStorage"/>      
-      <multiplicity id="104" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="105">    
+  <association id="73">    
     <end type="SOURCE" refId="58" navigable="false">      
-      <attribute id="106" name="sb"/>      
-      <multiplicity id="107" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="61" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="108">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="109" name="invitationStorage"/>      
-      <multiplicity id="110" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="111">    
-    <end type="SOURCE" refId="40"/>    
-    <end type="TARGET" refId="41"/>  
-  </nesting>  
-  <generalization id="112">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <association id="113">    
-    <end type="SOURCE" refId="69" navigable="false">      
-      <attribute id="114" name="groups"/>      
-      <multiplicity id="115" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="116">    
-    <end type="SOURCE" refId="50" navigable="false">      
-      <attribute id="117" name="roomList"/>      
-      <multiplicity id="118" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="66" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="119">    
-    <end type="SOURCE" refId="52" navigable="false">      
-      <attribute id="120" name="fri"/>      
-      <multiplicity id="121" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="54" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="122">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="123" name="groupStorage"/>      
-      <multiplicity id="124" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="125">    
-    <end type="SOURCE" refId="59" navigable="false">      
-      <attribute id="126" name="users"/>      
-      <multiplicity id="127" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="67" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="128">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <generalization id="129">    
-    <end type="SOURCE" refId="64"/>    
-    <end type="TARGET" refId="65"/>  
-  </generalization>  
-  <association id="130">    
-    <end type="SOURCE" refId="45" navigable="false">      
-      <attribute id="131" name="place"/>      
-      <multiplicity id="132" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="60" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="133">    
-    <end type="SOURCE" refId="47" navigable="false">      
-      <attribute id="134" name="part"/>      
-      <multiplicity id="135" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="59" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="136">    
-    <end type="SOURCE" refId="69"/>    
-    <end type="TARGET" refId="63"/>  
-  </realization>  
-  <association id="137">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="138" name="rmiServer"/>      
-      <multiplicity id="139" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="140">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="141" name="alarmStorage"/>      
-      <multiplicity id="142" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="143">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="28"/>  
-  </realization>  
-  <realization id="144">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="64"/>  
-  </realization>  
-  <association id="145">    
-    <end type="SOURCE" refId="57" navigable="false">      
-      <attribute id="146" name="gui"/>      
-      <multiplicity id="147" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="62" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="148">    
-    <end type="SOURCE" refId="59" navigable="false">      
-      <attribute id="149" name="adder"/>      
-      <multiplicity id="150" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="48" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="151">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <realization id="152">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="31"/>  
-  </realization>  
-  <association id="153">    
-    <end type="SOURCE" refId="37" navigable="false">      
-      <attribute id="154" name="groupStorage"/>      
-      <multiplicity id="155" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="29" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="156">    
-    <end type="SOURCE" refId="70"/>    
-    <end type="TARGET" refId="65"/>  
-  </realization>  
-  <association id="157">    
-    <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="158" name="loginListener"/>      
-      <multiplicity id="159" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="42" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="160">    
-    <end type="SOURCE" refId="52" navigable="false">      
-      <attribute id="161" name="sat"/>      
-      <multiplicity id="162" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="54" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="163">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="27"/>  
-  </realization>  
-  <association id="164">    
-    <end type="SOURCE" refId="52" navigable="false">      
-      <attribute id="165" name="tue"/>      
-      <multiplicity id="166" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="54" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="167">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="32"/>  
-  </generalization>  
-  <generalization id="168">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="32"/>  
-  </generalization>  
-  <association id="169">    
-    <end type="SOURCE" refId="52" navigable="false">      
-      <attribute id="170" name="thu"/>      
-      <multiplicity id="171" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="54" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="172">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="24"/>  
-  </realization>  
-  <association id="173">    
-    <end type="SOURCE" refId="58" navigable="false">      
-      <attribute id="174" name="ms"/>      
-      <multiplicity id="175" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="51" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="176">    
-    <end type="SOURCE" refId="37" navigable="false">      
-      <attribute id="177" name="userStorage"/>      
-      <multiplicity id="178" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="36" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="179">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <generalization id="180">    
-    <end type="SOURCE" refId="63"/>    
-    <end type="TARGET" refId="65"/>  
-  </generalization>  
-  <association id="181">    
-    <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="182" name="usernameField"/>      
-      <multiplicity id="183" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="44" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="184">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="185">    
-    <bendpoint x="2566" y="824"/>    
-    <bendpoint x="2566" y="1305"/>    
-    <end type="SOURCE" refId="45" navigable="false">      
-      <attribute id="186" name="event"/>      
-      <multiplicity id="187" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="188">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="66"/>  
-  </realization>  
-  <realization id="189">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="35"/>  
-  </realization>  
-  <realization id="190">    
-    <end type="SOURCE" refId="56"/>    
-    <end type="TARGET" refId="42"/>  
-  </realization>  
-  <association id="191">    
-    <bendpoint x="1329" y="824"/>    
-    <bendpoint x="1127" y="1305"/>    
-    <end type="SOURCE" refId="45" navigable="false">      
-      <attribute id="192" name="alarm"/>      
-      <multiplicity id="193" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="194">    
-    <end type="SOURCE" refId="52" navigable="false">      
-      <attribute id="195" name="wed"/>      
-      <multiplicity id="196" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="54" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="197">    
-    <end type="SOURCE" refId="45"/>    
-    <end type="TARGET" refId="46"/>  
-  </nesting>  
-  <association id="198">    
-    <end type="SOURCE" refId="58" navigable="false">      
-      <attribute id="199" name="cal"/>      
-      <multiplicity id="200" minimum="0" maximum="1"/>    
+      <attribute id="74" name="cal"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="52" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="201">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="202" name="eventStorage"/>      
-      <multiplicity id="203" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="204">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="70"/>  
-  </generalization>  
-  <association id="205">    
-    <end type="SOURCE" refId="37" navigable="false">      
-      <attribute id="206" name="roomStorage"/>      
-      <multiplicity id="207" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="34" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="208">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="29"/>  
-  </realization>  
-  <realization id="209">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="26"/>  
-  </realization>  
-  <realization id="210">    
-    <bendpoint x="4303" y="1305"/>    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="67"/>  
-  </realization>  
-  <generalization id="211">    
-    <end type="SOURCE" refId="66"/>    
-    <end type="TARGET" refId="65"/>  
-  </generalization>  
-  <realization id="212">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="36"/>  
-  </realization>  
-  <generalization id="213">    
-    <end type="SOURCE" refId="35"/>    
-    <end type="TARGET" refId="32"/>  
-  </generalization>  
-  <association id="214">    
-    <end type="SOURCE" refId="51" navigable="false">      
-      <attribute id="215" name="w"/>      
-      <multiplicity id="216" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="68" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="217">    
+  <association id="76">    
     <end type="SOURCE" refId="57" navigable="false">      
-      <attribute id="218" name="sServer"/>      
-      <multiplicity id="219" minimum="0" maximum="1"/>    
+      <attribute id="77" name="gui"/>      
+      <multiplicity id="78" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="62" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="79">    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="80" name="sServer"/>      
+      <multiplicity id="81" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="37" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="220">    
-    <end type="SOURCE" refId="52" navigable="false">      
-      <attribute id="221" name="sun"/>      
-      <multiplicity id="222" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="54" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="223">    
-    <end type="SOURCE" refId="37" navigable="false">      
-      <attribute id="224" name="alarmStorage"/>      
-      <multiplicity id="225" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="226">    
-    <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="227" name="passwordField"/>      
-      <multiplicity id="228" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="43" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="229">    
+  <generalization id="82">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="83">    
     <end type="SOURCE" refId="30"/>    
     <end type="TARGET" refId="32"/>  
   </generalization>  
-  <realization id="230">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="25"/>  
+  <association id="84">    
+    <bendpoint x="1745" y="860"/>    
+    <end type="SOURCE" refId="45" navigable="false">      
+      <attribute id="85" name="event"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="87">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="35"/>  
   </realization>  
-  <generalization id="231">    
-    <end type="SOURCE" refId="8"/>    
+  <generalization id="88">    
+    <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
-  <generalization id="232">    
+  <association id="89">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="90" name="invitationStorage"/>      
+      <multiplicity id="91" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="92">    
     <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="19"/>  
   </generalization>  
-  <generalization id="233">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="234">    
+  <association id="93">    
+    <end type="SOURCE" refId="59" navigable="false">      
+      <attribute id="94" name="users"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="66" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <end type="SOURCE" refId="59" navigable="false">      
+      <attribute id="97" name="adder"/>      
+      <multiplicity id="98" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="99">    
     <end type="SOURCE" refId="47"/>    
     <end type="TARGET" refId="45"/>  
   </generalization>  
-  <generalization id="235">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="19"/>  
+  <generalization id="100">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="10"/>  
   </generalization>  
-  <realization id="236">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="33"/>  
-  </realization>  
-  <generalization id="237">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="70"/>  
-  </generalization>  
-  <association id="238">    
-    <end type="SOURCE" refId="52" navigable="false">      
-      <attribute id="239" name="eventList"/>      
-      <multiplicity id="240" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="63" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="241">    
+  <association id="101">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="242" name="roomStorage"/>      
-      <multiplicity id="243" minimum="0" maximum="1"/>    
+      <attribute id="102" name="roomStorage"/>      
+      <multiplicity id="103" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <generalization id="104">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="105">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <realization id="106">    
+    <end type="SOURCE" refId="70"/>    
+    <end type="TARGET" refId="67"/>  
+  </realization>  
+  <generalization id="107">    
+    <end type="SOURCE" refId="63"/>    
+    <end type="TARGET" refId="64"/>  
+  </generalization>  
+  <realization id="108">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="29"/>  
+  </realization>  
+  <association id="109">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="110" name="alarmStorage"/>      
+      <multiplicity id="111" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="112">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="113" name="passwordField"/>      
+      <multiplicity id="114" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="115">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="69"/>  
+  </generalization>  
+  <generalization id="116">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="32"/>  
+  </generalization>  
+  <association id="117">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="118" name="roomList"/>      
+      <multiplicity id="119" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="65" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="120">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="33"/>  
+  </realization>  
+  <generalization id="121">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="69"/>  
+  </generalization>  
+  <association id="122">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="123" name="loginListener"/>      
+      <multiplicity id="124" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="125">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="126" name="eventStorage"/>      
+      <multiplicity id="127" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="128">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <association id="129">    
+    <end type="SOURCE" refId="58" navigable="false">      
+      <attribute id="130" name="sb"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="132">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="133" name="wed"/>      
+      <multiplicity id="134" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="135">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <association id="136">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="137" name="eventStorage"/>      
+      <multiplicity id="138" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="139">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="140" name="invitationStorage"/>      
+      <multiplicity id="141" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="142">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="143" name="usernameField"/>      
+      <multiplicity id="144" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="145">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="32"/>  
+  </generalization>  
+  <realization id="146">    
+    <end type="SOURCE" refId="56"/>    
+    <end type="TARGET" refId="42"/>  
+  </realization>  
+  <nesting id="147">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="41"/>  
+  </nesting>  
+  <realization id="148">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <realization id="149">    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="63"/>  
+  </realization>  
+  <realization id="150">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="27"/>  
+  </realization>  
+  <realization id="151">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <association id="152">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="153" name="tue"/>      
+      <multiplicity id="154" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="155">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="156" name="sat"/>      
+      <multiplicity id="157" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="158">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="32"/>  
+  </generalization>  
+  <realization id="159">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="66"/>  
+  </realization>  
+  <association id="160">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="161" name="userStorage"/>      
+      <multiplicity id="162" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="163">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="24"/>  
+  </realization>  
+  <generalization id="164">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <association id="165">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="166" name="userStorage"/>      
+      <multiplicity id="167" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="168">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="169" name="roomStorage"/>      
+      <multiplicity id="170" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="171">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <realization id="172">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="30"/>  
+  </realization>  
+  <association id="173">    
+    <bendpoint x="1724" y="860"/>    
+    <end type="SOURCE" refId="45" navigable="false">      
+      <attribute id="174" name="alarm"/>      
+      <multiplicity id="175" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="176">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="177" name="part"/>      
+      <multiplicity id="178" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="59" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="179">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="180" name="fri"/>      
+      <multiplicity id="181" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="182">    
+    <end type="SOURCE" refId="58" navigable="false">      
+      <attribute id="183" name="ms"/>      
+      <multiplicity id="184" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="51" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="185">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="186" name="eventList"/>      
+      <multiplicity id="187" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="63" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="188">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="189" name="sun"/>      
+      <multiplicity id="190" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="191">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="36"/>  
+  </realization>  
+  <association id="192">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="193" name="rmiServer"/>      
+      <multiplicity id="194" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="195">    
+    <end type="SOURCE" refId="45" navigable="false">      
+      <attribute id="196" name="place"/>      
+      <multiplicity id="197" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="60" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="198">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <association id="199">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="200" name="groupStorage"/>      
+      <multiplicity id="201" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="202">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="203" name="groupStorage"/>      
+      <multiplicity id="204" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="205">    
+    <end type="SOURCE" refId="66"/>    
+    <end type="TARGET" refId="64"/>  
+  </generalization>  
+  <association id="206">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="207" name="w"/>      
+      <multiplicity id="208" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="67" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="209">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="210">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="211" name="alarmStorage"/>      
+      <multiplicity id="212" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="213">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="32"/>  
+  </generalization>  
+  <nesting id="214">    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="46"/>  
+  </nesting>  
+  <generalization id="215">    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="69"/>  
+  </generalization>  
+  <generalization id="216">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <association id="217">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="218" name="DB"/>      
+      <multiplicity id="219" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="220">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="69"/>  
+  </generalization>  
+  <generalization id="221">    
+    <end type="SOURCE" refId="65"/>    
+    <end type="TARGET" refId="64"/>  
+  </generalization>  
+  <association id="222">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="223" name="mon"/>      
+      <multiplicity id="224" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="225">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="31"/>  
+  </realization>  
+  <realization id="226">    
+    <end type="SOURCE" refId="69"/>    
+    <end type="TARGET" refId="64"/>  
+  </realization>  
+  <association id="227">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="228" name="thu"/>      
+      <multiplicity id="229" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="230">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="28"/>  
+  </realization>  
+  <generalization id="231">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="32"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true"/>    

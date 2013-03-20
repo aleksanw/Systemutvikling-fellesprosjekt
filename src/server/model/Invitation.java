@@ -44,8 +44,8 @@ public class Invitation extends Model implements InvitationI {
 	private static ArrayList<String> createTableFields() {
 		ArrayList<String> tableFields = new ArrayList<String>();
 		tableFields.add("invitedToID");
-		tableFields.add("User_userID");
-		tableFields.add("Event_eventID");
+		tableFields.add("userID");
+		tableFields.add("eventID");
 		tableFields.add("isAttending");
 		tableFields.add("dateOfInvitation");
 		return tableFields;

@@ -26,8 +26,7 @@ public class FireableAlarmsforUser extends ListModel implements FireableAlarmsFo
 	}
 
 	private void refresh() {
-		ArrayList<Alarm> oldList = (ArrayList<Alarm>) list.clone();
-
+		ArrayList<Alarm> oldList = new ArrayList<Alarm>(list);
 		list = new ArrayList<Alarm>();
 
 		String query = "SELECT alarmID FROM Alarm JOIN Event USING(eventID) WHERE userID="
