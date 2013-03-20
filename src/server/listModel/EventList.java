@@ -66,6 +66,8 @@ public class EventList extends ListModel implements EventListI {
 
 		ArrayList<Event> oldList = (ArrayList<Event>) list.clone();
 
+		list = new ArrayList<Event>();
+
 		String query = "SELECT * FROM Event WHERE createdByUser IN ("
 				+ intArraytoCommaSeperatedString(getUserIDs())
 				+ ") OR createdByGroup IN ("

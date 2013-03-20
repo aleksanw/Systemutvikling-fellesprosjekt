@@ -2,40 +2,38 @@ package server.listModel;
 
 import java.rmi.RemoteException;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import server.model.Event;
 import server.model.Model;
-import server.model.Room;
+import server.model.Group;
 import server.system.StorageServer;
 
-import common.RoomsI;
+public class allGroupsList extends ListModel {
 
-public class Rooms extends ListModel implements RoomsI {
-	ArrayList<Room> list = new ArrayList<Room>();
+	ArrayList<Group> list = new ArrayList<Group>();
 
-	public Rooms() throws RemoteException {
+	public allGroupsList() throws RemoteException {
 		super();
 		refresh();
 	}
 
-	public ArrayList<Room> getList() throws RemoteException {
+	public ArrayList<Group> getList() throws RemoteException {
 		return list;
 	}
 
 	private void refresh() {
-		ArrayList<Room> oldList = (ArrayList<Room>)list.clone();
+		ArrayList<Group> oldList = (ArrayList<Group>)list.clone();
 		
-		list = new ArrayList<Room>();
+		list = new ArrayList<Group>();
 		
-		String query = "SELECT roomID FROM Room;";
+		String query = "SELECT groupID FROM Group;";
 		ResultSet result;
 		try {
 			result = Model.getDB().readQuery(query);
 			while (result.next()) {
-				this.list.add(StorageServer.roomStorage.get(result
-						.getInt("roomID")));
+				this.list.add(StorageServer.groupStorage.get(result
+						.getInt("groupID")));
 			}
 
 		} catch (RemoteException | SQLException e) {

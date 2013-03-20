@@ -10,11 +10,10 @@ import server.model.User;
 import server.system.StorageServer;
 
 import common.GroupI;
-import common.UserI;
 import common.UserListI;
 
 public class UserList extends ListModel implements UserListI {
-	ArrayList<UserI> list = new ArrayList<UserI>();
+	ArrayList<User> list = new ArrayList<User>();
 	int groupID;
 
 	public UserList(GroupI group) throws RemoteException {
@@ -23,15 +22,18 @@ public class UserList extends ListModel implements UserListI {
 		refresh();
 	}
 
-	public ArrayList<UserI> getList() {
+	public ArrayList<User> getList() {
 		return list;
 	}
 
 	private void refresh() throws RemoteException {
 		ArrayList<User> oldList = (ArrayList<User>) list.clone();
 
+		list = new ArrayList<User>();
+
 		String query = "SELECT userID FROM memberOfGroup natural join Groups WHERE groupID="
 				+ groupID + ";";
+
 		ResultSet result = Model.getDB().readQuery(query);
 		try {
 			while (result.next()) {

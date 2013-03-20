@@ -2,7 +2,7 @@ package server.storage;
 
 import java.rmi.RemoteException;
 
-import server.listModel.InvitationList;
+import server.listModel.EventsInvitedTo;
 import server.model.Invitation;
 import server.model.User;
 
@@ -33,6 +33,6 @@ public class InvitationStorage extends Storage implements InvitationStorageI {
 	}
 
 	public InvitationListI getInvitationList(User user) throws RemoteException {
-		return (InvitationListI) new InvitationList(user);
+		return (InvitationListI) new EventsInvitedTo(user);
 	}
 }
