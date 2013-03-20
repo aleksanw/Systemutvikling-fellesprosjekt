@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import server.model.Event;
 import server.model.Model;
 import server.model.Room;
 import server.system.StorageServer;
@@ -25,10 +24,10 @@ public class Rooms extends ListModel implements RoomsI {
 	}
 
 	private void refresh() {
-		ArrayList<Room> oldList = (ArrayList<Room>)list.clone();
-		
+		ArrayList<Room> oldList = (ArrayList<Room>) list.clone();
+
 		list = new ArrayList<Room>();
-		
+
 		String query = "SELECT roomID FROM Room;";
 		ResultSet result;
 		try {
@@ -38,11 +37,13 @@ public class Rooms extends ListModel implements RoomsI {
 						.getInt("roomID")));
 			}
 
-		} catch (RemoteException | SQLException e) {
+		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
-		
+
 		pcs.firePropertyChange("list", oldList, list);
 	}
 }

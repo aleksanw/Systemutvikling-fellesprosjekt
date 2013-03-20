@@ -36,8 +36,10 @@ public class allGroupsList extends ListModel {
 						.getInt("groupID")));
 			}
 
-		} catch (RemoteException | SQLException e) {
+		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 
