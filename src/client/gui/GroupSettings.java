@@ -34,6 +34,7 @@ class GroupSettings extends JPanel implements ActionListener {
 	private UserListI groupList;
 	private DefaultListModel model;
 	private DefaultListSelectionModel selModel;
+	private ArrayList<UserI> arrayGroupList;
 
 	GridBagConstraints gbc = new GridBagConstraints();
 
@@ -70,8 +71,6 @@ class GroupSettings extends JPanel implements ActionListener {
 
 		personListScroller = new JScrollPane(personList);
 
-		ArrayList<UserI> arrayGroupList;
-
 		try {
 			groupList = MainClass.sServer.userStorage.getUserList(group);
 			arrayGroupList = groupList.getList();
@@ -80,7 +79,11 @@ class GroupSettings extends JPanel implements ActionListener {
 		}
 
 		for (int i = 0; i < arrayGroupList.size(); i++) {
-			model.addElement(arrayGroupList.get(i));
+			try {
+				model.addElement(arrayGroupList.get(i).getName());
+			} catch (RemoteException e) {
+				throw new RuntimeException(e);
+			}
 		}
 
 		/**
