@@ -38,8 +38,8 @@ public class Event extends Model implements EventI {
 			this.eventID = result.getInt("eventID");
 			this.eventName = result.getString("eventName");
 			this.isActive = result.getBoolean("isActive");
-			this.start = new DateTime(result.getDate("start"));
-			this.end = new DateTime(result.getDate("end"));
+			this.start = new DateTime(result.getTimestamp("start"));
+			this.end = new DateTime(result.getTimestamp("end"));
 			this.isWholeday = result.getBoolean("isWholeDay");
 			this.description = result.getString("description");
 			this.location = result.getString("location");

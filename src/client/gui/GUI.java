@@ -9,15 +9,25 @@ import javax.swing.UIManager;
 
 class GUI extends JFrame {
 	JPanel cards;
+	private LoginScreen loginScreen;
+	private MainScreen mainScreen;
+	private AddEvent addEvent;
+	private AddMeeting addMeeting;
+	private GroupSettings groupsetting;
 
 	public GUI() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
 		}
+		this.loginScreen = new LoginScreen();
+		this.mainScreen = new MainScreen();
+		this.addEvent = new AddEvent();
+		this.addMeeting = new AddMeeting();
+		this.groupsetting = new GroupSettings();
 
 		cards = new JPanel(new CardLayout());
-		cards.add(new LoginScreen(), "login");
+		cards.add(this.loginScreen, "login");
 		add(cards);
 
 		setTitle("G4Calendar");
@@ -27,10 +37,10 @@ class GUI extends JFrame {
 	}
 	
 	void postLogin(){
-		cards.add(new MainScreen(), "main");
-		cards.add(new AddEvent(), "addEvent");
-		cards.add(new AddMeeting(), "addMeeting");
-		cards.add(new GroupSettings(), "Groups");
+		cards.add(this.mainScreen, "main");
+		cards.add(this.addEvent, "addEvent");
+		cards.add(this.addMeeting, "addMeeting");
+		cards.add(this.groupsetting, "Groups");
 		add(cards);
 	}
 

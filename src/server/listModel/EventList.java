@@ -162,6 +162,7 @@ public class EventList extends ListModel implements EventListI {
 
 	@Override
 	public ArrayList<EventI> getList() throws RemoteException {
+		refresh();
 		return list;
 	}
 }

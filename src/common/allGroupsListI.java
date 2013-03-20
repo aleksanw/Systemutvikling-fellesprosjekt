@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import server.model.Group;
 
-public interface allGroupsListI {
+public interface AllGroupsListI {
 
 	public ArrayList<Group> getList() throws RemoteException;
 
