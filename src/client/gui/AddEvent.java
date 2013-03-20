@@ -42,14 +42,14 @@ class AddEvent extends JPanel implements ActionListener {
 	String[] minForAlarm = { "Ingen alarm", "0:10", "0:15", "0:20", "0:30",
 			"1:00", "2:00", "24:00" };
 	String[] days = addNum(1, 32);
-	String[] months = { "Januar", "Februar", "Mars", "April", "Mai",
-			"Juni", "Juli", "August", "September", "Oktober", "November",
-			"Desember" };
-	String[] years = { "2013", "2014", "2015", "2016", "2017", "2018",
-			"2019", "2020", "2021", "2022", "2023" };
+	String[] months = { "Januar", "Februar", "Mars", "April", "Mai", "Juni",
+			"Juli", "August", "September", "Oktober", "November", "Desember" };
+	String[] years = { "2013", "2014", "2015", "2016", "2017", "2018", "2019",
+			"2020", "2021", "2022", "2023" };
 
 	GridBagConstraints g = new GridBagConstraints();
-	private String[] monthsInNum = {"1","2","3","4","5","6","7","8","9","10","11","12"};
+	private String[] monthsInNum = { "1", "2", "3", "4", "5", "6", "7", "8",
+			"9", "10", "11", "12" };
 
 	public AddEvent() {
 
@@ -321,10 +321,10 @@ class AddEvent extends JPanel implements ActionListener {
 		e.setStart(new DateTime(eYear, eMonth, eDay, eHour, eMin));
 		if (this.allDay.isSelected()) {
 			e.setEnd(new DateTime(eYear, eMonth, eDay, 23, 45));
-			e.setWholeday(true);
+			e.setWholeDay(true);
 		} else {
 			e.setEnd(new DateTime(eYearE, eMonthE, eDayE, eHourE, eMinE));
-			e.setWholeday(false);
+			e.setWholeDay(false);
 		}
 		e.setDescription(this.desc.getText());
 		e.setLocation(this.place.text.getText());
@@ -347,34 +347,43 @@ class AddEvent extends JPanel implements ActionListener {
 		if (e != null) {
 			name.setText(e.getEventName());
 			desc.setText(e.getDescription());
-			hour.setSelectedIndex(setToIndex(Integer.toString(e.getStart().getHourOfDay()),hours));
-			min.setSelectedIndex(setToIndex(Integer.toString(e.getStart().getMinuteOfHour()),minutes));
-			hourE.setSelectedIndex(setToIndex(Integer.toString(e.getEnd().getHourOfDay()), hours));
-			minE.setSelectedIndex(setToIndex(Integer.toString(e.getEnd().getMinuteOfHour()), minutes));
-			day.setSelectedIndex(setToIndex(Integer.toString(e.getStart().getDayOfMonth()), days));
-			month.setSelectedIndex(setToIndex(Integer.toString(e.getStart().getMonthOfYear()), monthsInNum ));
-			year.setSelectedIndex(setToIndex(Integer.toString(e.getStart().getYear()), years));
-			dayE.setSelectedIndex(setToIndex(Integer.toString(e.getEnd().getDayOfMonth()), days));
-			monthE.setSelectedIndex(setToIndex(Integer.toString(e.getEnd().getMonthOfYear()),monthsInNum));
-			yearE.setSelectedIndex(setToIndex(Integer.toString(e.getEnd().getYear()), years));
+			hour.setSelectedIndex(setToIndex(
+					Integer.toString(e.getStart().getHourOfDay()), hours));
+			min.setSelectedIndex(setToIndex(
+					Integer.toString(e.getStart().getMinuteOfHour()), minutes));
+			hourE.setSelectedIndex(setToIndex(
+					Integer.toString(e.getEnd().getHourOfDay()), hours));
+			minE.setSelectedIndex(setToIndex(
+					Integer.toString(e.getEnd().getMinuteOfHour()), minutes));
+			day.setSelectedIndex(setToIndex(
+					Integer.toString(e.getStart().getDayOfMonth()), days));
+			month.setSelectedIndex(setToIndex(
+					Integer.toString(e.getStart().getMonthOfYear()),
+					monthsInNum));
+			year.setSelectedIndex(setToIndex(
+					Integer.toString(e.getStart().getYear()), years));
+			dayE.setSelectedIndex(setToIndex(
+					Integer.toString(e.getEnd().getDayOfMonth()), days));
+			monthE.setSelectedIndex(setToIndex(
+					Integer.toString(e.getEnd().getMonthOfYear()), monthsInNum));
+			yearE.setSelectedIndex(setToIndex(
+					Integer.toString(e.getEnd().getYear()), years));
 			allDay.setSelected(e.isWholeday());
 			place.text.setText(e.getLocation());
 			booking.list.setSelectedValue(e.getRoomBooked(), true);
-			//group.setSelectedItem(e.getCreatedByGroup());
+			// group.setSelectedItem(e.getCreatedByGroup());
 		}
 	}
-
 
 	private int setToIndex(String hourOfDay, String[] list) {
 		int res = -1;
 		for (int i = 0; i < list.length; i++) {
-			if(hourOfDay.equals(list[i])){
+			if (hourOfDay.equals(list[i])) {
 				res = i;
 			}
-		}		
+		}
 		return res;
 	}
-	
 
 	public void clearFields() {
 		name.setText("");
@@ -398,7 +407,6 @@ class AddEvent extends JPanel implements ActionListener {
 			yearE.setEnabled(true);
 			allDay.setSelected(false);
 		}
-
 	}
 
 	public int getYear(Object o) {
