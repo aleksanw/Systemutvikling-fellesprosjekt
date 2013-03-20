@@ -30,6 +30,7 @@ class AnswerMeeting extends JPanel implements ActionListener {
 	private ButtonGroup myBGroup;
 	private EventI selectedEvent;
 	private InvitationI invite;
+	private Boolean attending;
 	
 	public void setSelectedEvent(EventI selectedEvent) {
 		this.selectedEvent = selectedEvent;
@@ -72,11 +73,20 @@ class AnswerMeeting extends JPanel implements ActionListener {
 
 
 		acc = new JRadioButton();
-		acc.addActionListener(this);
+		
 
 		dec = new JRadioButton();
-		dec.addActionListener(this);
-
+		try {
+			if(invite.isAttending()) {			
+				acc.setSelected(true);
+			} else if(!invite.isAttending()) {
+				dec.setSelected(false);
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
+		
 		send = new JButton("Svar");
 		send.addActionListener(this);
 		
@@ -89,6 +99,7 @@ class AnswerMeeting extends JPanel implements ActionListener {
 
 		build();
 	}
+	
 
 	public void build() {
 		setLayout(new GridBagLayout());
@@ -123,8 +134,19 @@ class AnswerMeeting extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().toString().equals("Svar")){
+		if (acc.isSelected()){
+			attending = true;
 			
+		}if (dec.isSelected()){
+			attending = false;
+		}
+		if (e.getActionCommand().toString().equals("Svar")){
+			try {
+				invite.setAttending(attending);
+				MainClass.loginOK();
+			} catch (RemoteException e1) {
+				throw new RuntimeException(e1);
+			}
 			
 		}
 		else if (e.getActionCommand().toString().equals("Avbryt")){
