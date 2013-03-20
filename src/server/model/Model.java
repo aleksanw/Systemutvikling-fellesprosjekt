@@ -34,17 +34,18 @@ public abstract class Model extends UnicastRemoteObject {
 
 	protected void delete(Integer ID) throws ObjectNotFoundException {
 		try {
-			ResultSet rs = DB.readQuery("SELECT FROM " + tableName
-					+ " WHERE userID=" + ID);
-			if (rs.getBoolean(0)) { // rs er enten tom eller har et element
-				DB.updateQuery("DELETE FROM " + tableName + " WHERE userID="
-						+ ID);
+			ResultSet rs = DB.readQuery("SELECT * FROM " + tableName
+					+ " WHERE " + primaryKeyField1 + "=" + ID + ";");
+			
+			if (rs.next()) { // rs er enten tom eller har et element
+				DB.updateQuery("DELETE FROM " + tableName + " WHERE " + primaryKeyField1 + "=" + ID + ";");
+				
 			} else {
 				throw new ObjectNotFoundException();
 			}
 		} catch (SQLException e) {
 			System.out.println("Could not delete " + tableName
-					+ " where userID is " + ID);
+					+ " where ID is " + ID);
 		}
 	}
 
