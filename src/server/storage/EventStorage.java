@@ -7,11 +7,11 @@ import org.joda.time.DateTime;
 
 import server.listModel.EventList;
 import server.model.Event;
-import server.model.Group;
-import server.model.User;
 
 import common.EventI;
 import common.EventStorageI;
+import common.GroupI;
+import common.UserI;
 
 public class EventStorage extends Storage implements EventStorageI {
 
@@ -45,8 +45,8 @@ public class EventStorage extends Storage implements EventStorageI {
 		super.delete(model);
 	}
 
-	public EventList getEventList(ArrayList<User> users,
-			ArrayList<Group> groups, DateTime date) throws RemoteException {
+	public EventList getEventList(ArrayList<UserI> users,
+			ArrayList<GroupI> groups, DateTime date) throws RemoteException {
 		return new EventList(users, groups, date);
 	}
 }

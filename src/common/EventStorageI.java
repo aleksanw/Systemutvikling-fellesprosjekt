@@ -6,9 +6,6 @@ import java.util.ArrayList;
 
 import org.joda.time.DateTime;
 
-import server.model.Group;
-import server.model.User;
-
 public interface EventStorageI extends Remote {
 	public EventI create() throws RemoteException;
 
@@ -18,6 +15,6 @@ public interface EventStorageI extends Remote {
 
 	public void delete(EventI model) throws RemoteException;
 
-	public EventListI getEventList(ArrayList<User> users,
-			ArrayList<Group> groups, DateTime date) throws RemoteException;
+	public EventListI getEventList(ArrayList<UserI> users,
+			ArrayList<GroupI> groups, DateTime date) throws RemoteException;
 }

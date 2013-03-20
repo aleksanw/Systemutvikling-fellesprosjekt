@@ -29,7 +29,7 @@ class AddEvent extends JPanel implements ActionListener {
 	protected JTextField name;
 	protected JTextArea desc;
 	protected JComboBox<String> hour, min, hourE, minE, setAlarm, group, vis,
-			day, month, dayE, monthE;
+			day, month, year, dayE, monthE, yearE;
 	protected JRadioButton allDay;
 	protected JButton save, delete, cancel;
 	protected JTabbedPane tabs;
@@ -49,7 +49,11 @@ class AddEvent extends JPanel implements ActionListener {
 		String[] minForAlarm = { "Ingen alarm", "0:10", "0:15", "0:20", "0:30",
 				"1:00", "2:00", "24:00" };
 		String[] days = addNum(1, 32);
-		String[] months = { "Mars 2013", "April 2013" };
+		String[] months = { "Januar", "Februar", "Mars", "April", "Mai",
+				"Juni", "Juli", "August", "September", "Oktober", "November",
+				"Desember" };
+		String[] years = { "2013", "2014", "2015", "2016", "2017", "2018",
+				"2019", "2020", "2021", "2022", "2023" };
 
 		title = new JLabel();
 		title.setText("Legg til/endre avtale");
@@ -101,6 +105,11 @@ class AddEvent extends JPanel implements ActionListener {
 
 		monthE = new JComboBox<String>(months);
 
+		year = new JComboBox<String>(years);
+		year.addActionListener(new timeBoxActionListener());
+
+		yearE = new JComboBox<String>(years);
+
 		save = new JButton();
 		save.setText("Lagre");
 		save.addActionListener(this);
@@ -120,7 +129,8 @@ class AddEvent extends JPanel implements ActionListener {
 		booking.date.setText("klokken " + hour.getSelectedItem().toString()
 				+ ":" + min.getSelectedItem().toString() + " den "
 				+ day.getSelectedItem().toString() + ". "
-				+ month.getSelectedItem().toString());
+				+ month.getSelectedItem().toString() + " "
+				+ year.getSelectedItem().toString());
 
 		buildPanel();
 
@@ -139,7 +149,7 @@ class AddEvent extends JPanel implements ActionListener {
 		g.gridwidth = 1;
 		add(lName, g);
 		g.gridx = 1;
-		g.gridwidth = 4;
+		g.gridwidth = 5;
 		add(name, g);
 
 		g.gridwidth = 1;
@@ -154,6 +164,8 @@ class AddEvent extends JPanel implements ActionListener {
 		add(day, g);
 		g.gridx = 4;
 		add(month, g);
+		g.gridx = 5;
+		add(year, g);
 
 		g.gridx = 0;
 		g.gridy = 3;
@@ -166,6 +178,8 @@ class AddEvent extends JPanel implements ActionListener {
 		add(dayE, g);
 		g.gridx = 4;
 		add(monthE, g);
+		g.gridx = 5;
+		add(yearE, g);
 
 		g.gridx = 0;
 		g.gridy = 4;
@@ -177,7 +191,7 @@ class AddEvent extends JPanel implements ActionListener {
 		g.gridy = 5;
 		add(lDesc, g);
 		g.gridx = 1;
-		g.gridwidth = 4;
+		g.gridwidth = 5;
 		add(desc, g);
 
 		g.gridwidth = 1;
@@ -214,7 +228,8 @@ class AddEvent extends JPanel implements ActionListener {
 			booking.date.setText("klokken " + hour.getSelectedItem().toString()
 					+ ":" + min.getSelectedItem().toString() + " den "
 					+ day.getSelectedItem().toString() + ". "
-					+ month.getSelectedItem().toString());
+					+ month.getSelectedItem().toString() + " "
+					+ year.getSelectedItem().toString());
 		}
 	}
 
@@ -230,7 +245,12 @@ class AddEvent extends JPanel implements ActionListener {
 		if (e.getActionCommand().toString().equals("Lagre")) {
 			try {
 				try {
-					save(MainClass.sServer.eventStorage.get(event.getEventID()));
+					if (event == null) {
+						save(null);
+					} else {
+						save(MainClass.sServer.eventStorage.get(event
+								.getEventID()));
+					}
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
@@ -277,7 +297,6 @@ class AddEvent extends JPanel implements ActionListener {
 		try {
 			if (e == null) {
 				e = (EventI) MainClass.sServer.eventStorage.create();
-				throw new RemoteException();
 			}
 			editEvent(e);
 		} catch (RemoteException e1) {
@@ -296,7 +315,7 @@ class AddEvent extends JPanel implements ActionListener {
 		int eDayE = Integer.parseInt(this.dayE.getSelectedItem().toString());
 		int eHourE = Integer.parseInt(this.hourE.getSelectedItem().toString());
 		int eMinE = Integer.parseInt(this.minE.getSelectedItem().toString());
-		e.setEventName(this.getName());
+		e.setEventName(this.name.getText());
 		e.setStart(new DateTime(eYear, eMonth, eDay, eHour, eMin));
 		if (this.allDay.isSelected()) {
 			e.setEnd(new DateTime(eYear, eMonth, eDay, 23, 59));
@@ -343,14 +362,10 @@ class AddEvent extends JPanel implements ActionListener {
 	}
 
 	public int getYear(Object o) {
-		String[] y = ((JComboBox<String>) o).getSelectedItem().toString()
-				.split(" ");
-		return Integer.parseInt(y[1]);
+		return Integer.parseInt(year.getSelectedItem().toString());
 	}
 
 	public int getMonth(Object o) {
-		String[] y = ((JComboBox<String>) o).getSelectedItem().toString()
-				.split(" ");
-		return Integer.parseInt(y[0]);
+		return month.getSelectedIndex() + 1;
 	}
 }

@@ -5,11 +5,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import common.allGroupsListI;
+
 import server.model.Group;
 import server.model.Model;
 import server.system.StorageServer;
 
-public class allGroupsList extends ListModel {
+public class allGroupsList extends ListModel implements allGroupsListI {
 
 	ArrayList<Group> list = new ArrayList<Group>();
 
@@ -36,8 +38,10 @@ public class allGroupsList extends ListModel {
 						.getInt("groupID")));
 			}
 
-		} catch (RemoteException | SQLException e) {
+		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 

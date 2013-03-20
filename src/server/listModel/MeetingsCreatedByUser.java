@@ -5,12 +5,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import common.MeetingsCreatedByUserI;
+
 import server.model.Event;
 import server.model.Model;
 import server.model.User;
 import server.system.StorageServer;
 
-public class MeetingsCreatedByUser extends ListModel {
+public class MeetingsCreatedByUser extends ListModel implements MeetingsCreatedByUserI {
 	ArrayList<Event> list = new ArrayList<Event>();
 	private User user;
 
@@ -38,8 +40,10 @@ public class MeetingsCreatedByUser extends ListModel {
 						.getInt("eventID")));
 			}
 
-		} catch (RemoteException | SQLException e) {
+		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 

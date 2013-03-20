@@ -14,5 +14,6 @@ public interface InvitationStorageI extends Remote {
 
 	public void delete(InvitationI model) throws RemoteException;
 
-	public InvitationListI getInvitationList(User user) throws RemoteException;
+	public EventsInvitedToI getEventsInvitedTo(User user)
+			throws RemoteException;
 }

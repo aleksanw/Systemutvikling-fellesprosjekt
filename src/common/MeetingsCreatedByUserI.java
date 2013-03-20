@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import server.model.Event;
 
-public interface InvitationListI extends ListModelI {
+public interface MeetingsCreatedByUserI {
+
 	public ArrayList<Event> getList() throws RemoteException;
+
 }
