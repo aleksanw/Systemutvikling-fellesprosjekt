@@ -39,6 +39,7 @@ public class MainClass {
 	}
 
 	public static void loginOK() {
+		gui.initCalender();
 		gui.swapPane("main");
 	}
 

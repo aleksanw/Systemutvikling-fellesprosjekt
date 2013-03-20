@@ -16,4 +16,8 @@ class MainScreen extends JPanel {
 		add(cal, BorderLayout.CENTER);
 		add(sb, BorderLayout.WEST);
 	}
+	
+	public void refresh() {
+		
+	}
 }

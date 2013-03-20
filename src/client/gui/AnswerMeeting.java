@@ -51,6 +51,16 @@ class AnswerMeeting extends JPanel implements ActionListener {
 			throw new RuntimeException(e);
 		}
 		this.invite = invite;
+		try {
+			if(invite.isAttending()) {			
+				acc.setSelected(true);
+			} else if(!invite.isAttending()) {
+				dec.setSelected(false);
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 
 
@@ -76,16 +86,7 @@ class AnswerMeeting extends JPanel implements ActionListener {
 		
 
 		dec = new JRadioButton();
-		try {
-			if(invite.isAttending()) {			
-				acc.setSelected(true);
-			} else if(!invite.isAttending()) {
-				dec.setSelected(false);
-			}
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			throw new RuntimeException(e);
-		}
+		
 		
 		send = new JButton("Svar");
 		send.addActionListener(this);

@@ -58,7 +58,7 @@ class GUI extends JFrame {
 		setVisible(true);
 	}
 	
-	void postLogin(){
+	void initCalender(){
 		this.answerMeeting = new AnswerMeeting();
 		this.mainScreen = new MainScreen();
 		this.addEvent = new AddEvent();
