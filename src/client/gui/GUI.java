@@ -14,6 +14,7 @@ class GUI extends JFrame {
 	private AddEvent addEvent;
 	private AddMeeting addMeeting;
 	private GroupSettings groupsetting;
+	private AnswerMeeting answerMeeting;
 
 	public LoginScreen getLoginScreen() {
 		return loginScreen;
@@ -27,7 +28,11 @@ class GUI extends JFrame {
 		return addEvent;
 	}
 
-	public AddMeeting getAddMeeting() {
+	public AnswerMeeting getAnswerMeeting() {
+		return this.answerMeeting;
+	}
+	
+ 	public AddMeeting getAddMeeting() {
 		return addMeeting;
 	}
 
@@ -54,6 +59,7 @@ class GUI extends JFrame {
 	}
 	
 	void postLogin(){
+		this.answerMeeting = new AnswerMeeting();
 		this.mainScreen = new MainScreen();
 		this.addEvent = new AddEvent();
 		this.addMeeting = new AddMeeting();
@@ -62,6 +68,7 @@ class GUI extends JFrame {
 		cards.add(this.addEvent, "addEvent");
 		cards.add(this.addMeeting, "addMeeting");
 		cards.add(this.groupsetting, "Groups");
+		cards.add(this.answerMeeting, "AnswerMeeting");
 		add(cards);
 	}
 

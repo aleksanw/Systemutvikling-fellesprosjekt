@@ -11,6 +11,7 @@ import org.joda.time.DateTime;
 import client.system.StorageServerConnection;
 
 import common.EventI;
+import common.InvitationI;
 import common.UserI;
 
 public class MainClass {
@@ -71,7 +72,8 @@ public class MainClass {
 	public static void runGroupSettings() {
 		gui.swapPane("Groups");
 	}
-	public static void runAnswerMeeting(EventI event){
+	public static void runAnswerMeeting(InvitationI invite){
+		gui.getAnswerMeeting().setInvite(invite);
 		gui.swapPane("AnswerMeeting");
 	}
 

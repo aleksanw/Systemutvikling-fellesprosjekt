@@ -14,7 +14,6 @@ import javax.swing.event.ListSelectionListener;
 
 import net.miginfocom.swing.MigLayout;
 
-import common.EventI;
 import common.EventsInvitedToI;
 import common.InvitationI;
 
@@ -22,14 +21,15 @@ class Sidebar extends JPanel implements ListSelectionListener {
 
 	private JLabel recieved, sent, calenders;
 	private JList<String> sList;
-	private JList<EventI> rList;
+	private JList<InvitationI> rList;
 	private JScrollPane sScroll, rScroll;
 	EventsInvitedToI evtList;
 	ArrayList<InvitationI> invList;
 
 	public Sidebar() {
 		DefaultListModel<InvitationI> listmodel = new DefaultListModel<InvitationI>();
-		rList = new JList<EventI>();
+		rList = new JList<InvitationI>(listmodel);
+		rList.setCellRenderer(new InvitationsCellRenderer());
 		rList.setFocusable(false);
 //		rList.setModel(listmodel);
 		rList.setOpaque(false);
@@ -87,7 +87,6 @@ class Sidebar extends JPanel implements ListSelectionListener {
 	}
 
 	public void valueChanged(ListSelectionEvent e) {
-		System.out.println("Skjer det noe");
-		MainClass.runAnswerMeeting(rList.getSelectedValue() );
+		MainClass.runAnswerMeeting(rList.getSelectedValue());
 	}
 }

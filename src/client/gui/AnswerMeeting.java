@@ -29,10 +29,28 @@ class AnswerMeeting extends JPanel implements ActionListener {
 	private JRadioButton acc, dec;
 	private ButtonGroup myBGroup;
 	private EventI selectedEvent;
+	private InvitationI invite;
+	
+	public void setSelectedEvent(EventI selectedEvent) {
+		this.selectedEvent = selectedEvent;
+		try {
+			this.name.setText(selectedEvent.getEventName());
+			DateTimeFormatter FMT = DateTimeFormat.forPattern("HH-mm dd-MM-yyyy");
+			this.date.setText(FMT.print(selectedEvent.getStart()));
+			this.time.setText(FMT.print(selectedEvent.getEnd()));
+		} catch (RemoteException e2) {
+			throw new RuntimeException(e2);
+		}
+	}
+
+	public void setInvite(InvitationI invite) {
+		this.invite = invite;
+	}
+
 
 	GridBagConstraints g = new GridBagConstraints();
 
-	public AnswerMeeting(EventI event, InvitationI invite) {
+	public AnswerMeeting() {
 		header = new JLabel();
 		header.setText("Svar på innkalling");
 		header.setFont(new Font("Sans Serif", Font.PLAIN, 20));
@@ -53,23 +71,6 @@ class AnswerMeeting extends JPanel implements ActionListener {
 
 		dec = new JRadioButton();
 		dec.addActionListener(this);
-
-		try {
-			this.name.setText(event.getEventName());
-		} catch (RemoteException e2) {
-			throw new RuntimeException(e2);
-		}
-		DateTimeFormatter FMT = DateTimeFormat.forPattern("HH-mm dd-MM-yyyy");
-		try {
-			this.date.setText(FMT.print(event.getStart()));
-		} catch (RemoteException e1) {
-			throw new RuntimeException(e1);
-		}
-		try {
-			this.time.setText(FMT.print(event.getEnd()));
-		} catch (RemoteException e) {
-			throw new RuntimeException(e);
-		}
 
 		send = new JButton("Svar");
 		send.addActionListener(this);
