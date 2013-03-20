@@ -58,17 +58,21 @@ class GUI extends JFrame {
 		setVisible(true);
 	}
 	
+	void refresh(){		
+		this.mainScreen = new MainScreen();
+		cards.add(this.mainScreen, "main");
+	}
+	
 	void initCalender(){
 		this.answerMeeting = new AnswerMeeting();
-		this.mainScreen = new MainScreen();
 		this.addEvent = new AddEvent();
 		this.addMeeting = new AddMeeting();
 		this.groupsetting = new GroupSettings();
-		cards.add(this.mainScreen, "main");
 		cards.add(this.addEvent, "addEvent");
 		cards.add(this.addMeeting, "addMeeting");
 		cards.add(this.groupsetting, "Groups");
 		cards.add(this.answerMeeting, "AnswerMeeting");
+		refresh();
 		add(cards);
 	}
 

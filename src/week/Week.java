@@ -1,7 +1,6 @@
 package week;
 
 import org.joda.time.DateTime;
-import org.joda.time.MutableDateTime;
 
 import common.WeekI;
 
@@ -9,11 +8,12 @@ public class Week implements WeekI {
 
 	int year;
 	int weeknr;
-	private MutableDateTime date;
+	private DateTime date;
 
 	public Week(DateTime date) {
 		this.year = date.getYear();
 		this.weeknr = date.getWeekOfWeekyear();
+		this.date = date;
 	}
 
 	@Override

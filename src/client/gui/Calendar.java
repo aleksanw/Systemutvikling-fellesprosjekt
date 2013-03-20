@@ -27,11 +27,10 @@ class Calendar extends JPanel implements ActionListener {
 	protected ArrayList<UserI> users;
 	protected ArrayList<GroupI> groups;
 	protected Week week;
-	protected DateTime day = MainClass.now;
 
 	public Calendar() {
 
-		week = new Week(day);
+		week = new Week(MainClass.now);
 
 		users = new ArrayList<UserI>();
 		users.add(MainClass.getCurrentUser());
@@ -64,6 +63,7 @@ class Calendar extends JPanel implements ActionListener {
 		addEvent(week.getFromDate().plusDays(4));
 		addEvent(week.getFromDate().plusDays(5));
 		addEvent(week.getToDate());
+		
 
 	}
 

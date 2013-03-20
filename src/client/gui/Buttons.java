@@ -94,6 +94,7 @@ class Buttons extends JPanel implements ActionListener {
 			} else {
 				prevYear();
 			}
+			MainClass.loginOK();
 		} else if (e.getActionCommand().toString().equals(">")) {
 			if (validWeek(weekNr + 1)) {
 				MainClass.now = MainClass.now.plusDays(7);
@@ -101,6 +102,7 @@ class Buttons extends JPanel implements ActionListener {
 			} else {
 				nextYear();
 			}
+			MainClass.loginOK();;
 		} else if (e.getActionCommand().toString().equals("Opprett Møte")) {
 			MainClass.runAddMeeting();
 		} else if (e.getActionCommand().toString()
