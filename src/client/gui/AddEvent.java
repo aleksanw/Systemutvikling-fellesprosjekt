@@ -37,23 +37,23 @@ class AddEvent extends JPanel implements ActionListener {
 	protected Booking booking = new Booking();
 	protected EventI event;
 	protected AlarmI alarm;
+	String[] hours = addNum(0, 24);
+	String[] minutes = { "0", "15", "30", "45" };
+	String[] minForAlarm = { "Ingen alarm", "0:10", "0:15", "0:20", "0:30",
+			"1:00", "2:00", "24:00" };
+	String[] days = addNum(1, 32);
+	String[] months = { "Januar", "Februar", "Mars", "April", "Mai",
+			"Juni", "Juli", "August", "September", "Oktober", "November",
+			"Desember" };
+	String[] years = { "2013", "2014", "2015", "2016", "2017", "2018",
+			"2019", "2020", "2021", "2022", "2023" };
 
 	GridBagConstraints g = new GridBagConstraints();
+	private String[] monthsInNum = {"1","2","3","4","5","6","7","8","9","10","11","12"};
 
 	public AddEvent() {
 
 		g.fill = GridBagConstraints.BOTH;
-
-		String[] hours = addNum(0, 24);
-		String[] minutes = { "00", "15", "30", "45" };
-		String[] minForAlarm = { "Ingen alarm", "0:10", "0:15", "0:20", "0:30",
-				"1:00", "2:00", "24:00" };
-		String[] days = addNum(1, 32);
-		String[] months = { "Januar", "Februar", "Mars", "April", "Mai",
-				"Juni", "Juli", "August", "September", "Oktober", "November",
-				"Desember" };
-		String[] years = { "2013", "2014", "2015", "2016", "2017", "2018",
-				"2019", "2020", "2021", "2022", "2023" };
 
 		title = new JLabel();
 		title.setText("Legg til/endre avtale");
@@ -343,22 +343,34 @@ class AddEvent extends JPanel implements ActionListener {
 		if (e != null) {
 			name.setText(e.getEventName());
 			desc.setText(e.getDescription());
-			hour.setSelectedItem(e.getStart().getHourOfDay());
-			min.setSelectedItem(e.getStart().getMinuteOfHour());
-			hourE.setSelectedItem(e.getEnd().getHourOfDay());
-			minE.setSelectedItem(e.getEnd().getMinuteOfHour());
-			//group.setSelectedItem(e.getCreatedByGroup());
-			day.setSelectedItem(e.getStart().getDayOfMonth());
-			month.setSelectedItem(e.getStart().getMonthOfYear());
-			year.setSelectedItem(e.getStart().getYear());
-			dayE.setSelectedItem(e.getEnd().getDayOfMonth());
-			monthE.setSelectedItem(e.getEnd().getMonthOfYear());
-			yearE.setSelectedItem(e.getEnd().getYear());
+			hour.setSelectedIndex(setToIndex(Integer.toString(e.getStart().getHourOfDay()),hours));
+			min.setSelectedIndex(setToIndex(Integer.toString(e.getStart().getMinuteOfHour()),minutes));
+			hourE.setSelectedIndex(setToIndex(Integer.toString(e.getEnd().getHourOfDay()), hours));
+			minE.setSelectedIndex(setToIndex(Integer.toString(e.getEnd().getMinuteOfHour()), minutes));
+			day.setSelectedIndex(setToIndex(Integer.toString(e.getStart().getDayOfMonth()), days));
+			month.setSelectedIndex(setToIndex(Integer.toString(e.getStart().getMonthOfYear()), monthsInNum ));
+			year.setSelectedIndex(setToIndex(Integer.toString(e.getStart().getYear()), years));
+			dayE.setSelectedIndex(setToIndex(Integer.toString(e.getEnd().getDayOfMonth()), days));
+			monthE.setSelectedIndex(setToIndex(Integer.toString(e.getEnd().getMonthOfYear()),monthsInNum));
+			yearE.setSelectedIndex(setToIndex(Integer.toString(e.getEnd().getYear()), years));
 			allDay.setSelected(e.isWholeday());
 			place.text.setText(e.getLocation());
 			booking.list.setSelectedValue(e.getRoomBooked(), true);
+			//group.setSelectedItem(e.getCreatedByGroup());
 		}
 	}
+
+
+	private int setToIndex(String hourOfDay, String[] list) {
+		int res = -1;
+		for (int i = 0; i < list.length; i++) {
+			if(hourOfDay.equals(list[i])){
+				res = i;
+			}
+		}		
+		return res;
+	}
+	
 
 	public void clearFields() {
 		name.setText("");
