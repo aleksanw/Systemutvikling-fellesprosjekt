@@ -5,18 +5,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import server.model.Group;
 import server.model.Model;
 import server.model.User;
 import server.system.StorageServer;
 
+import common.GroupI;
 import common.UserListI;
 
 public class UserList extends ListModel implements UserListI {
 	ArrayList<User> list = new ArrayList<User>();
 	int groupID;
 
-	public UserList(Group group) throws RemoteException {
+	public UserList(GroupI group) throws RemoteException {
 		super();
 		groupID = group.getGroupID();
 		refresh();
