@@ -2,11 +2,11 @@ package server.listModel;
 
 import java.rmi.RemoteException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-import server.model.Event;
-import server.model.Model;
 import server.model.Group;
+import server.model.Model;
 import server.system.StorageServer;
 
 public class allGroupsList extends ListModel {
@@ -23,10 +23,10 @@ public class allGroupsList extends ListModel {
 	}
 
 	private void refresh() {
-		ArrayList<Group> oldList = (ArrayList<Group>)list.clone();
-		
+		ArrayList<Group> oldList = (ArrayList<Group>) list.clone();
+
 		list = new ArrayList<Group>();
-		
+
 		String query = "SELECT groupID FROM Group;";
 		ResultSet result;
 		try {
@@ -40,7 +40,7 @@ public class allGroupsList extends ListModel {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);
 		}
-		
+
 		pcs.firePropertyChange("list", oldList, list);
 	}
 }

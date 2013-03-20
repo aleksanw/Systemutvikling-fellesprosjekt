@@ -6,14 +6,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import server.model.Model;
-import server.model.User;
 import server.system.StorageServer;
 
 import common.GroupI;
+import common.UserI;
 import common.UserListI;
 
 public class UserList extends ListModel implements UserListI {
-	ArrayList<User> list = new ArrayList<User>();
+	ArrayList<UserI> list = new ArrayList<UserI>();
 	int groupID;
 
 	public UserList(GroupI group) throws RemoteException {
@@ -22,14 +22,14 @@ public class UserList extends ListModel implements UserListI {
 		refresh();
 	}
 
-	public ArrayList<User> getList() {
+	public ArrayList<UserI> getList() {
 		return list;
 	}
 
 	private void refresh() throws RemoteException {
-		ArrayList<User> oldList = (ArrayList<User>) list.clone();
+		ArrayList<UserI> oldList = (ArrayList<UserI>) list.clone();
 
-		list = new ArrayList<User>();
+		list = new ArrayList<UserI>();
 
 		String query = "SELECT userID FROM memberOfGroup natural join Groups WHERE groupID="
 				+ groupID + ";";

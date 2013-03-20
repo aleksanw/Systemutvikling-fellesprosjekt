@@ -2,6 +2,7 @@ package server.listModel;
 
 import java.rmi.RemoteException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import server.model.Event;
@@ -23,11 +24,12 @@ public class MeetingsCreatedByUser extends ListModel {
 	}
 
 	private void refresh() {
-		ArrayList<Event> oldList = (ArrayList<Event>)list.clone();
-		
+		ArrayList<Event> oldList = (ArrayList<Event>) list.clone();
+
 		list = new ArrayList<Event>();
-		
-		String query = "SELECT * FROM Event WHERE isMeeting=1 AND createdByUser=" + user.getUserID();
+
+		String query = "SELECT * FROM Event WHERE isMeeting=1 AND createdByUser="
+				+ user.getUserID();
 		ResultSet result;
 		try {
 			result = Model.getDB().readQuery(query);
@@ -40,7 +42,7 @@ public class MeetingsCreatedByUser extends ListModel {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);
 		}
-		
+
 		pcs.firePropertyChange("list", oldList, list);
 	}
 }

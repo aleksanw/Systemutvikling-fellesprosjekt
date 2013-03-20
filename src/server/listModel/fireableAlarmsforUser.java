@@ -2,10 +2,10 @@ package server.listModel;
 
 import java.rmi.RemoteException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import server.model.Alarm;
-import server.model.Event;
 import server.model.Model;
 import server.model.User;
 import server.system.StorageServer;
@@ -24,11 +24,13 @@ public class fireableAlarmsforUser extends ListModel {
 	}
 
 	private void refresh() {
-		ArrayList<Alarm> oldList = (ArrayList<Alarm>)list.clone();
-		
+		ArrayList<Alarm> oldList = (ArrayList<Alarm>) list.clone();
+
 		list = new ArrayList<Alarm>();
-		
-		String query = "SELECT alarmID FROM Alarm JOIN Event USING(eventID) WHERE userID="+user.getUserID()+" AND start-numberOfHoursBeforeMeeting > NOW()";
+
+		String query = "SELECT alarmID FROM Alarm JOIN Event USING(eventID) WHERE userID="
+				+ user.getUserID()
+				+ " AND start-numberOfHoursBeforeMeeting > NOW()";
 		ResultSet result;
 		try {
 			result = Model.getDB().readQuery(query);
@@ -41,7 +43,7 @@ public class fireableAlarmsforUser extends ListModel {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);
 		}
-		
+
 		pcs.firePropertyChange("list", oldList, list);
 	}
 }
