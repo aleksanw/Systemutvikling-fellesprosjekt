@@ -1,31 +1,30 @@
 package week;
 
+import org.joda.time.DateTime;
+import org.joda.time.MutableDateTime;
+
 import common.WeekI;
 
 public class Week implements WeekI {
 
 	int year;
 	int weeknr;
-	int date;
+	private MutableDateTime date;
 
-	public Week(int year, int weeknr, int date) {
-		this.year = year;
-		this.weeknr = weeknr;
-		this.date = date;
-
+	public Week(DateTime date) {
+		this.year = date.getYear();
+		this.weeknr = date.getWeekOfWeekyear();
 	}
 
 	@Override
 	public void setWeek(int year, int weeknr) {
-
 		this.year = year;
 		this.weeknr = weeknr;
 	}
 
 	@Override
 	public String getWeek() {
-		String result = this.year + "W: " + this.weeknr;
-		return result;
+		return this.year + "W" + this.weeknr;
 	}
 
 	@Override
@@ -39,22 +38,26 @@ public class Week implements WeekI {
 	}
 
 	@Override
-	public int getFromDate() {
-		return date;
+	public DateTime getFromDate() {
+		DateTime res = new DateTime(date);
+		while(res.getDayOfWeek() > 1){
+			res.plusDays(-1);
+		}
+		return res;
 	}
 
 	@Override
-	public int getToDate() {
-		return date;
+	public DateTime getToDate() {
+		DateTime res = new DateTime(date);
+		while(res.getDayOfWeek() > 1){
+			res.plusDays(1);
+		}
+		return res;
 	}
 
-	@Override
+	/*@Override
 	public common.WeekI getNextWeek() {
-		if (weeknr < 51) {
-			return new Week(weeknr + 1, year, date);
-
-		} else
-			return new Week(1, year + 1, date);
+		return new Week((common.WeekI)date.addDays(7));
 	}
 
 	@Override
@@ -63,11 +66,5 @@ public class Week implements WeekI {
 			return new Week(weeknr - 1, year, date);
 		} else
 			return new Week(52, year - 1, date);
-	}
-
-	@Override
-	public void setDate(int date) {
-		this.date = date;
-	}
-
+	}*/
 }

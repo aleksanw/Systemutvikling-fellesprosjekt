@@ -4,6 +4,7 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.GnuParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.joda.time.DateTime;
 
 import client.system.StorageServerConnection;
 
@@ -13,6 +14,7 @@ public class MainClass {
 	static StorageServerConnection sServer;
 	static GUI gui;
 	static UserI currentUser;
+	static DateTime now = DateTime.now();
 
 	public static void main(String[] args) {
 		System.setProperty("file.encoding", "UTF-8");
