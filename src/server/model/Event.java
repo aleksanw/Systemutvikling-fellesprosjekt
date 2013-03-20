@@ -1,4 +1,4 @@
-kakepackage server.model;
+package server.model;
 
 import java.rmi.RemoteException;
 import java.sql.ResultSet;
