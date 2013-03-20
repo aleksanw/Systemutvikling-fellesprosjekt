@@ -36,7 +36,7 @@ public class EventList extends ListModel implements EventListI {
 	private int[] getUserIDs() throws RemoteException {
 		int[] ids = new int[users.size()];
 
-		for (int i = 0; i < ids.length-1; i++) {
+		for (int i = 0; i < ids.length; i++) {
 			ids[i] = users.get(i).getUserID();
 		}
 
@@ -46,7 +46,7 @@ public class EventList extends ListModel implements EventListI {
 	private int[] getGroupIDs() throws RemoteException {
 		int[] ids = new int[groups.size()];
 
-		for (int i = 0; i < ids.length-1; i++) {
+		for (int i = 0; i < ids.length; i++) {
 			ids[i] = groups.get(i).getGroupID();
 		}
 
@@ -60,7 +60,6 @@ public class EventList extends ListModel implements EventListI {
 			string += list[i] + ",";
 		}
 		string += list[list.length -1];
-
 		return string;
 	}
 
@@ -72,7 +71,7 @@ public class EventList extends ListModel implements EventListI {
 		DateTimeFormatter fmt = DateTimeFormat
 				.forPattern("yyyy-MM-dd");
 		String dateToString = fmt.print(date);
-		String query = "SELECT * FROM Event WHERE start<'" + dateToString +" 23:59:59' AND start>=" + dateToString +" 23:59:59' AND ";
+		String query = "SELECT * FROM Event WHERE start<'" + dateToString +" 23:59:59' AND start>='" + dateToString +" 00:00:00' AND ";
 		if(groups.size() < 1) {
 			query += "createdByUser IN ("
 					+ intArraytoCommaSeperatedString(getUserIDs())
