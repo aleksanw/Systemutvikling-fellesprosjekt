@@ -275,11 +275,13 @@ class AddEvent extends JPanel implements ActionListener {
 			minE.setEnabled(false);
 			dayE.setEnabled(false);
 			monthE.setEnabled(false);
+			yearE.setEnabled(false);
 		} else if (!allDay.isSelected()) {
 			hourE.setEnabled(true);
 			minE.setEnabled(true);
 			dayE.setEnabled(true);
 			monthE.setEnabled(true);
+			yearE.setEnabled(true);
 		}
 	}
 
@@ -318,9 +320,11 @@ class AddEvent extends JPanel implements ActionListener {
 		e.setEventName(this.name.getText());
 		e.setStart(new DateTime(eYear, eMonth, eDay, eHour, eMin));
 		if (this.allDay.isSelected()) {
-			e.setEnd(new DateTime(eYear, eMonth, eDay, 23, 59));
+			e.setEnd(new DateTime(eYear, eMonth, eDay, 23, 45));
+			e.setWholeday(true);
 		} else {
 			e.setEnd(new DateTime(eYearE, eMonthE, eDayE, eHourE, eMinE));
+			e.setWholeday(false);
 		}
 		e.setDescription(this.desc.getText());
 		e.setLocation(this.place.text.getText());
@@ -391,6 +395,7 @@ class AddEvent extends JPanel implements ActionListener {
 			minE.setEnabled(true);
 			dayE.setEnabled(true);
 			monthE.setEnabled(true);
+			yearE.setEnabled(true);
 			allDay.setSelected(false);
 		}
 
