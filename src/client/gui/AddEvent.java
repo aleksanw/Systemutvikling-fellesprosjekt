@@ -326,7 +326,7 @@ class AddEvent extends JPanel implements ActionListener {
 		e.setLocation(this.place.text.getText());
 		e.setRoomBooked(booking.list.getSelectedIndex());
 		e.setMeeting(false);
-	
+
 		if (setAlarm.getSelectedIndex() > 0) {
 			int hours = Integer.parseInt(setAlarm.getSelectedItem().toString()
 					.split(":")[0]);
@@ -336,6 +336,28 @@ class AddEvent extends JPanel implements ActionListener {
 			alarm.setNumberOfHoursBeforeMeeting(new Time(hours, minutes, 0));
 		}
 		e.setCreatedByUser(MainClass.getCurrentUser().getUserID());
+	}
+
+	public void setEvent(EventI e) throws RemoteException {
+		this.event = e;
+		if (e != null) {
+			name.setText(e.getEventName());
+			desc.setText(e.getDescription());
+			hour.setSelectedItem(e.getStart().getHourOfDay());
+			min.setSelectedItem(e.getStart().getMinuteOfHour());
+			hourE.setSelectedItem(e.getEnd().getHourOfDay());
+			minE.setSelectedItem(e.getEnd().getMinuteOfHour());
+			group.setSelectedItem(e.getCreatedByGroup());
+			day.setSelectedItem(e.getStart().getDayOfMonth());
+			month.setSelectedItem(e.getStart().getMonthOfYear());
+			year.setSelectedItem(e.getStart().getYear());
+			dayE.setSelectedItem(e.getEnd().getDayOfMonth());
+			monthE.setSelectedItem(e.getEnd().getMonthOfYear());
+			yearE.setSelectedItem(e.getEnd().getYear());
+			allDay.setSelected(e.isWholeday());
+			place.text.setText(e.getLocation());
+			booking.list.setSelectedValue(e.getRoomBooked(), true);
+		}
 	}
 
 	public void clearFields() {

@@ -8,6 +8,7 @@ import org.joda.time.DateTime;
 
 import client.system.StorageServerConnection;
 
+import common.EventI;
 import common.UserI;
 
 public class MainClass {
@@ -15,6 +16,7 @@ public class MainClass {
 	static GUI gui;
 	static UserI currentUser;
 	static DateTime now = DateTime.now();
+	static EventI currentEvent;
 
 	public static void main(String[] args) {
 		System.setProperty("file.encoding", "UTF-8");
@@ -39,6 +41,11 @@ public class MainClass {
 	}
 
 	public static void runAddEvent() {
+		gui.swapPane("addEvent");
+	}
+	
+	public static void runChangeEvent(EventI e){
+		currentEvent = e;
 		gui.swapPane("addEvent");
 	}
 
