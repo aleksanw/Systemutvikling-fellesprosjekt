@@ -21,10 +21,7 @@ class GUI extends JFrame {
 		} catch (Exception e) {
 		}
 		this.loginScreen = new LoginScreen();
-		this.mainScreen = new MainScreen();
-		this.addEvent = new AddEvent();
-		this.addMeeting = new AddMeeting();
-		this.groupsetting = new GroupSettings();
+		
 
 		cards = new JPanel(new CardLayout());
 		cards.add(this.loginScreen, "login");
@@ -37,6 +34,10 @@ class GUI extends JFrame {
 	}
 	
 	void postLogin(){
+		this.mainScreen = new MainScreen();
+		this.addEvent = new AddEvent();
+		this.addMeeting = new AddMeeting();
+		this.groupsetting = new GroupSettings();
 		cards.add(this.mainScreen, "main");
 		cards.add(this.addEvent, "addEvent");
 		cards.add(this.addMeeting, "addMeeting");

@@ -9,13 +9,13 @@ import server.model.Group;
 import server.model.Model;
 import server.system.StorageServer;
 
-import common.allGroupsListI;
+import common.AllGroupsListI;
 
-public class allGroupsList extends ListModel implements allGroupsListI {
+public class AllGroupsList extends ListModel implements AllGroupsListI {
 
 	ArrayList<Group> list = new ArrayList<Group>();
 
-	public allGroupsList() throws RemoteException {
+	public AllGroupsList() throws RemoteException {
 		super();
 		refresh();
 	}
