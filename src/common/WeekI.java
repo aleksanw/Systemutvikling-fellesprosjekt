@@ -1,5 +1,9 @@
 package common;
 
+import org.joda.time.DateTime;
+
+
+
 public interface WeekI {
 	public void setWeek(int year, int weeknr);
 
@@ -9,15 +13,13 @@ public interface WeekI {
 
 	public int getWeeknr();
 
-	public int getFromDate();
+	public DateTime getFromDate();
 
-	public int getToDate();
-
-	public void setDate(int date);
+	public DateTime getToDate();
 
 	public String toString();
 
-	public WeekI getNextWeek();
+	//public WeekI getNextWeek();
 
-	public WeekI getPreviousWeek();
+	//public WeekI getPreviousWeek();
 }

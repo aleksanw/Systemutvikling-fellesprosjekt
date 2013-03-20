@@ -12,11 +12,12 @@ import javax.swing.JPanel;
 
 import org.joda.time.DateTime;
 
+import week.Week;
+
 import common.EventI;
 import common.EventListI;
 import common.GroupI;
 import common.UserI;
-import common.WeekI;
 
 class Calendar extends JPanel implements ActionListener {
 
@@ -25,23 +26,17 @@ class Calendar extends JPanel implements ActionListener {
 	protected ArrayList<EventI> eventListByDay;
 	protected ArrayList<UserI> users;
 	protected ArrayList<GroupI> groups;
-	protected WeekI week;
-	protected DateTime date = new DateTime(2013,3,18,15,30);
+	protected Week week;
+	protected DateTime day = MainClass.now;
 
 	public Calendar() {
+
+		week = new Week(day);
 
 		users = new ArrayList<UserI>();
 		users.add(MainClass.getCurrentUser());
 
 		groups = new ArrayList<GroupI>();
-
-		try {
-			eventList = MainClass.sServer.eventStorage.getEventList(users,
-					groups, date);
-			eventListByDay = eventList.getList();
-		} catch (RemoteException e) {
-			throw new RuntimeException(e);
-		}
 
 		setPreferredSize(new Dimension(800, 400));
 		setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -62,7 +57,13 @@ class Calendar extends JPanel implements ActionListener {
 		add(sat);
 		add(sun);
 
-		addEvent();
+		addEvent(week.getFromDate());
+		addEvent(week.getFromDate().plusDays(1));
+		addEvent(week.getFromDate().plusDays(2));
+		addEvent(week.getFromDate().plusDays(3));
+		addEvent(week.getFromDate().plusDays(4));
+		addEvent(week.getFromDate().plusDays(5));
+		addEvent(week.getFromDate().plusDays(6));
 
 	}
 
@@ -70,12 +71,33 @@ class Calendar extends JPanel implements ActionListener {
 		System.out.println(e.getActionCommand().toString());
 	}
 
-	public void addEvent() {
-		for (int i = 0; i < eventListByDay.size(); i++) {
-			mon.model.addElement(eventListByDay.get(i));
+	public void addEvent(DateTime date) {
+		try {
+			eventList = MainClass.sServer.eventStorage.getEventList(users,
+					groups, date);
+			eventListByDay = eventList.getList();
+		} catch (RemoteException e) {
+			throw new RuntimeException(e);
 		}
-
-		// week.setWeek(year, weeknr)
-		// date = new DateTime(week.getYear(),week.getFromDate(),5,5,6);
+		System.out.println(date.getDayOfMonth());
+		System.out.println(date.getMonthOfYear());
+		System.out.println(date.getYear());
+		for (int i = 0; i < eventListByDay.size(); i++) {
+			if (date.getDayOfWeek() == 1) {
+				mon.model.addElement(eventListByDay.get(i));
+			} else if (date.getDayOfWeek() == 2) {
+				tue.model.addElement(eventListByDay.get(i));
+			} else if (date.getDayOfWeek() == 3) {
+				wed.model.addElement(eventListByDay.get(i));
+			} else if (date.getDayOfWeek() == 4) {
+				thu.model.addElement(eventListByDay.get(i));
+			} else if (date.getDayOfWeek() == 5) {
+				fri.model.addElement(eventListByDay.get(i));
+			} else if (date.getDayOfWeek() == 6) {
+				sat.model.addElement(eventListByDay.get(i));
+			} else if (date.getDayOfWeek() == 7) {
+				sun.model.addElement(eventListByDay.get(i));
+			}
+		}
 	}
 }
