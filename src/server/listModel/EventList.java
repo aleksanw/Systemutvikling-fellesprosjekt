@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import server.model.Model;
 import server.system.StorageServer;
@@ -67,7 +69,10 @@ public class EventList extends ListModel implements EventListI {
 		//ArrayList<EventI> oldList = (ArrayList<EventI>) list.clone();
 
 		list = new ArrayList<EventI>();
-		String query = "SELECT * FROM Event WHERE start=";
+		DateTimeFormatter fmt = DateTimeFormat
+				.forPattern("yyyy-MM-dd");
+		String dateToString = fmt.print(date);
+		String query = "SELECT * FROM Event WHERE start<'" + dateToString +" 23:59:59' AND start>=" + dateToString +" 23:59:59' AND ";
 		if(groups.size() < 1) {
 			query += "createdByUser IN ("
 					+ intArraytoCommaSeperatedString(getUserIDs())
@@ -77,10 +82,10 @@ public class EventList extends ListModel implements EventListI {
 					+ intArraytoCommaSeperatedString(getGroupIDs()) + ");";
 		} else {
 
-			query += "createdByUser IN ("
+			query += "(createdByUser IN ("
 					+ intArraytoCommaSeperatedString(getUserIDs())
 					+ ") OR createdByGroup IN ("
-					+ intArraytoCommaSeperatedString(getGroupIDs()) + ");";
+					+ intArraytoCommaSeperatedString(getGroupIDs()) + "));";
 		}
 		ResultSet result = Model.getDB().readQuery(query);
 		try {
