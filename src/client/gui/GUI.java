@@ -15,6 +15,26 @@ class GUI extends JFrame {
 	private AddMeeting addMeeting;
 	private GroupSettings groupsetting;
 
+	public LoginScreen getLoginScreen() {
+		return loginScreen;
+	}
+
+	public MainScreen getMainScreen() {
+		return mainScreen;
+	}
+
+	public AddEvent getAddEvent() {
+		return addEvent;
+	}
+
+	public AddMeeting getAddMeeting() {
+		return addMeeting;
+	}
+
+	public GroupSettings getGroupsetting() {
+		return groupsetting;
+	}
+
 	public GUI() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
