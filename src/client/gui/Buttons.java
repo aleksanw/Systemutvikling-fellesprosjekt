@@ -101,7 +101,7 @@ class Buttons extends JPanel implements ActionListener {
 				nextYear();
 			}
 		} else if (e.getActionCommand().toString().equals("Opprett Møte")) {
-			MainClass.runAddMeating();
+			MainClass.runAddMeeting();
 		} else if (e.getActionCommand().toString()
 				.equals("Gruppeinnstillinger")) {
 			MainClass.runGroupSettings();

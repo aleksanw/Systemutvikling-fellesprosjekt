@@ -1,5 +1,8 @@
 package client.gui;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
@@ -11,23 +14,37 @@ import javax.swing.event.ListSelectionListener;
 
 import net.miginfocom.swing.MigLayout;
 
+import common.EventI;
+import common.EventsInvitedToI;
+import common.InvitationI;
+
 class Sidebar extends JPanel implements ListSelectionListener {
 
 	private JLabel recieved, sent, calenders;
-	private JList<String> rList, sList;
+	private JList<String> sList;
+	private JList<EventI> rList;
 	private JScrollPane sScroll, rScroll;
+	EventsInvitedToI evtList;
+	ArrayList<InvitationI> invList;
 
 	public Sidebar() {
-		DefaultListModel<String> listmodel = new DefaultListModel<String>();
-		rList = new JList<String>();
+		DefaultListModel<InvitationI> listmodel = new DefaultListModel<InvitationI>();
+		rList = new JList<EventI>();
 		rList.setFocusable(false);
-		rList.setModel(listmodel);
+//		rList.setModel(listmodel);
 		rList.setOpaque(false);
 		rList.addListSelectionListener(this);
 		
+		try {
+			evtList = MainClass.sServer.invitationStorage.getEventsInvitedTo(MainClass.currentUser);
+			invList = evtList.getInvitationList();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 		
-		for (int i = 0; i < 30; i++) {
-			listmodel.addElement("test" + i);
+		for (int i = 0; i < invList.size(); i++) {
+			listmodel.addElement(invList.get(i));
 		}
 		
 		
@@ -69,7 +86,8 @@ class Sidebar extends JPanel implements ListSelectionListener {
 		// setPreferredSize(new Dimension(250,600));
 	}
 
-	public void valueChanged(ListSelectionEvent arg0) {
-
+	public void valueChanged(ListSelectionEvent e) {
+		System.out.println("Skjer det noe");
+		MainClass.runAnswerMeeting(rList.getSelectedValue() );
 	}
 }
