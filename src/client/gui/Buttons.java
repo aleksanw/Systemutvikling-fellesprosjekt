@@ -112,6 +112,7 @@ class Buttons extends JPanel implements ActionListener {
 			MainClass.now = DateTime.now();
 			date = MainClass.now;
 			toCurrentWeek();
+		MainClass.loginOK();
 		}
 	}
 
