@@ -1,7 +1,6 @@
 package client.gui;
 
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
@@ -17,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
+import net.miginfocom.swing.MigLayout;
+
 import common.UserI;
 import common.UserListI;
 
@@ -31,11 +32,15 @@ class AddParticipant extends JPanel implements ActionListener {
 	private DefaultListSelectionModel selectionModel;
 	private UserListI userList;
 	private ArrayList<UserI> arrayUserList;
-	protected UserI[] chosenOnes;
+	protected ArrayList<UserI> chosenOnes;
+	private Participants p;
 
 	GridBagConstraints g = new GridBagConstraints();
-
-	public AddParticipant() {
+	
+	
+	
+	public AddParticipant(Participants p) {
+		this.p = p;
 		addP = new JButton("Legg Til..");
 		addP.addActionListener(this);
 
@@ -43,16 +48,24 @@ class AddParticipant extends JPanel implements ActionListener {
 		cancel.addActionListener(this);
 
 		groups = new JComboBox();
+		try {
+			groups.addItem(MainClass.sServer.groupStorage.get(1).getGroupName());
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e1);
+		}
 
 		lPart = new JLabel();
 		lPart.setText("Velg flere med shift og ctrl");
-
+		
 		selectionModel = new DefaultListSelectionModel();
 		selectionModel
 				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
 		model = new DefaultListModel<UserI>();
-
+		
+		
+		
 		list = new JList<UserI>();
 		list.setModel(model);
 		list.setSelectionModel(selectionModel);
@@ -71,25 +84,27 @@ class AddParticipant extends JPanel implements ActionListener {
 			UserI user = arrayUserList.get(i);
 				model.addElement(user);
 
-		setLayout(new GridBagLayout());
+		}
+		setLayout(new MigLayout("wrap 1"));
 
 		g.gridx = 0;
 		g.gridy = 0;
-		add(groups, g);
+		add(groups, "north");
 		g.gridy = 1;
-		add(scroll, g);
+		add(scroll, "w 200:250:300, h 90:180:360");
 		g.gridy = 2;
-		add(lPart, g);
+		add(lPart, "wrap");
 		g.gridy = 3;
-		add(addP, g);
+		add(addP, "split 2");
 		g.gridx = 1;
-		add(cancel, g);}
+		add(cancel);
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getActionCommand().toString().equals("Legg Til..")) {
+			chosenOnes =  (ArrayList<UserI>) list.getSelectedValuesList();
+			p.setAddedUsers(chosenOnes);
 			this.setVisible(false);
-			chosenOnes = (UserI[]) list.getSelectedValues();
 		} else if (arg0.getActionCommand().toString().equals("Avbryt")) {
 			this.setVisible(false);
 		}

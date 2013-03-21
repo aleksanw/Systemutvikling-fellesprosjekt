@@ -377,6 +377,10 @@ class AddEvent extends JPanel implements ActionListener {
 		}
 	}
 
+	public EventI getEvent() {
+		return this.event;
+	}
+	
 	private int setToIndex(String hourOfDay, String[] list) {
 		int res = -1;
 		for (int i = 0; i < list.length; i++) {
