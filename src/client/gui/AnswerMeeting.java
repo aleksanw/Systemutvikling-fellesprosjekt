@@ -52,8 +52,11 @@ class AnswerMeeting extends JPanel implements ActionListener {
 		}
 		this.invite = invite;
 		try {
-			if(invite.isAttending()) {			
+			if(invite.isAttending() == null);
+			else if(invite.isAttending()) {			
 				acc.setSelected(true);
+			} else {
+				dec.setSelected(true);
 			}
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -138,8 +141,9 @@ class AnswerMeeting extends JPanel implements ActionListener {
 				if(acc.isSelected()) {
 					invite.setAttending(true);					
 				} else if(dec.isSelected()) {
-					invite.delete();
+					invite.setAttending(false);
 				}
+				myBGroup.clearSelection();
 				MainClass.loginOK();
 			} catch (RemoteException e1) {
 				throw new RuntimeException(e1);

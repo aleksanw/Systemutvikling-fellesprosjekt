@@ -1,6 +1,9 @@
 package client.gui;
 
 import java.awt.GridBagConstraints;
+import java.rmi.RemoteException;
+
+import common.EventI;
 
 class AddMeeting extends AddEvent {
 
@@ -23,5 +26,9 @@ class AddMeeting extends AddEvent {
 		g.gridy = 1;
 		g.gridheight = 8;
 		add(part, g);
+	}
+	
+	public void setEvent(EventI event) throws RemoteException {
+		super.setEvent(event);
 	}
 }

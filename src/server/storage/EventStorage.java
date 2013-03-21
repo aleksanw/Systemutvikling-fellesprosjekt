@@ -52,7 +52,7 @@ public class EventStorage extends Storage implements EventStorageI {
 		return new EventList(users, groups, date);
 	}
 	
-	public MeetingsCreatedByUserI getMeetingCreatedByUserI(UserI user) throws RemoteException {
-		return new MeetingsCreatedByUser(user);
+	public MeetingsCreatedByUserI getMeetingsCreatedByUser(UserI user) throws RemoteException {
+		return (MeetingsCreatedByUserI)new MeetingsCreatedByUser(user);
 	}
 }

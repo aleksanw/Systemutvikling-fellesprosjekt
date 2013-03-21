@@ -2,6 +2,7 @@ package client.gui;
 
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -53,9 +54,14 @@ class GUI extends JFrame {
 		add(cards);
 
 		setTitle("G4Calendar");
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		int height = 800;
+		int with = (height * 16)/9;
+		setSize(new Dimension(with, height));
+		setLocationRelativeTo(null);
+		setResizable(false);
 		setVisible(true);
+		
 	}
 	
 	void refresh(){		

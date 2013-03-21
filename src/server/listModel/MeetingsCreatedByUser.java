@@ -14,6 +14,7 @@ public class MeetingsCreatedByUser extends ListModel implements MeetingsCreatedB
 
 	public MeetingsCreatedByUser(UserI user) throws RemoteException {
 		super();
+		this.user = user;
 		refresh();
 	}
 
@@ -23,7 +24,6 @@ public class MeetingsCreatedByUser extends ListModel implements MeetingsCreatedB
 
 	private void refresh() throws RemoteException {
 		//ArrayList<Event> oldList = (ArrayList<Event>) list.clone();
-
 		list = user.getCreatedEvents();
 
 		//pcs.firePropertyChange("list", oldList, list);

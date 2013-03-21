@@ -70,9 +70,19 @@ public class MainClass {
 		gui.swapPane("addMeeting");
 	}
 
+	public static void runChangeMeeting(EventI e) {
+		try {
+			gui.getAddMeeting().setEvent(e);
+		} catch (RemoteException e1) {
+			throw new RuntimeException(e1);
+		}
+		gui.swapPane("addMeeting");
+	}
+	
 	public static void runGroupSettings() {
 		gui.swapPane("Groups");
 	}
+	
 	public static void runAnswerMeeting(InvitationI invite){
 		gui.getAnswerMeeting().setInvite(invite);
 		gui.swapPane("AnswerMeeting");

@@ -29,7 +29,7 @@ public class Invitation extends Model implements InvitationI {
 			this.invitationID = result.getInt("invitedToID");
 			this.userID = result.getInt("userID");
 			this.eventID = result.getInt("eventID");
-			this.isAttending = result.getBoolean("isAttending");
+			this.isAttending = (Boolean)result.getObject("isAttending");
 			this.dateTimeOfInvitation = new DateTime(
 					result.getDate("dateOfInvitation"));
 		}
