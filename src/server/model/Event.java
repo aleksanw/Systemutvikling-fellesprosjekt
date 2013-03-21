@@ -91,6 +91,11 @@ public class Event extends Model implements EventI {
 
 	public void invite(UserI user) {
 		try {
+			String query = "select * from InvitedTo natural join Event where eventID=" + this.eventID + " AND isMeeting=true;";
+			ResultSet result = Model.getDB().readQuery(query);
+			while (result.next()) {
+				if(user.getUserID() == result.getInt("userID")) return;
+			}
 			Invitation inv = new Invitation();
 			inv.setEvent(this);
 			inv.setUser(user);

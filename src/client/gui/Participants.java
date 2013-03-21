@@ -66,11 +66,20 @@ class Participants extends JPanel implements ActionListener {
 	}
 
 	public void addUsers(ArrayList<UserI> users) {
+		boolean isEqual;
 		for(UserI user : users) {
 			try {
 				if(!addedUsers.contains(user) && user.getUserID() != MainClass.getCurrentUser().getUserID()) {
-					this.addedUsers.add(user);
-					this.model.addElement(user);
+					isEqual = false;
+					for(UserI userInList : addedUsers) {
+						if(user.getUserID() == userInList.getUserID()) {
+							isEqual = true;
+						}
+					}
+					if(!isEqual) {
+						this.addedUsers.add(user);
+						this.model.addElement(user);
+					}
 				}
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block
@@ -82,7 +91,8 @@ class Participants extends JPanel implements ActionListener {
 	public void setAddedUsers(ArrayList<UserI> users) {
 		this.addedUsers = new ArrayList<UserI>();
 		this.model.clear();
-		this.addUsers((ArrayList<UserI>) users.clone());
+		System.out.println("users");
+		this.addUsers((ArrayList<UserI>) users);
 	}
 	
 	public void actionPerformed(ActionEvent arg0) {
