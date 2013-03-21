@@ -44,14 +44,7 @@ class Sidebar extends JPanel implements ListSelectionListener {
 		}
 		
 		for (int i = 0; i < invList.size(); i++) {
-			try {
-				if(!invList.get(i).isAttending()) {}
-				else
-					listmodel.addElement(invList.get(i));
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				throw new RuntimeException(e);
-			}
+			listmodel.addElement(invList.get(i));
 		}
 		
 		

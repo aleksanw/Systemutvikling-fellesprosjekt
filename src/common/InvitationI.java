@@ -8,7 +8,7 @@ public interface InvitationI extends ModelI {
 
 	public abstract DateTime getDateTimeOfInvitation() throws RemoteException;
 
-	public abstract boolean isAttending() throws RemoteException;
+	public abstract Boolean isAttending() throws RemoteException;
 
 	public abstract void setAttending(boolean isAttending)
 			throws RemoteException;

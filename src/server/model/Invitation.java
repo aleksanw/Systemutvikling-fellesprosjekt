@@ -17,7 +17,7 @@ import exceptions.ObjectNotFoundException;
 
 public class Invitation extends Model implements InvitationI {
 
-	private boolean isAttending;
+	private Boolean isAttending;
 	private DateTime dateTimeOfInvitation;
 	private int invitationID, userID, eventID;
 
@@ -67,7 +67,7 @@ public class Invitation extends Model implements InvitationI {
 	 * @see server.model.InvitationI#isAttending()
 	 */
 	@Override
-	public boolean isAttending() {
+	public Boolean isAttending() {
 		return isAttending;
 	}
 
