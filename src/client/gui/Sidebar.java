@@ -98,9 +98,9 @@ class Sidebar extends JPanel {
 
 		setLayout(new MigLayout("wrap 1"));
 		add(recieved);
-		add(rScroll, "growx, h 20%");
+		add(rScroll, "w 200:250:300, h 90:180:360");
 		add(sent);
-		add(sScroll, "growx, h 50%");
+		add(sScroll, "w 200:250:300, h 180:360:540");
 		add(calenders);
 
 		// setPreferredSize(new Dimension(250,600));

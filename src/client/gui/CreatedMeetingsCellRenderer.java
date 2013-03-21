@@ -19,12 +19,21 @@ public class CreatedMeetingsCellRenderer extends JLabel implements ListCellRende
 			int accepted = 0;
 			int declined = 0;
 			int notAnswered = 0;
+			for(int i = 0; i<numberOfInvites; i++) {
+				if(((EventI) value).getInvitationList().get(i).isAttending() == null) {
+					notAnswered++;
+				} else if(((EventI) value).getInvitationList().get(i).isAttending()) {
+					accepted++;
+				} else {
+					declined++;
+				}
+			}
 			s = "<html>" + ((EventI) value).getEventName();
 			s += "<br /> -Invites:           " + numberOfInvites;
 			s += "<br /> -Accepted:          " + accepted;
 			s += "<br /> -Declined:          " + declined;
 			s += "<br /> -Not answered yet : " + notAnswered;
-			s += "</html>";
+			s += "<br /> ----------------------------</html>";
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);
