@@ -102,6 +102,7 @@ public class Event extends Model implements EventI {
 	}
 
 	public void setMeeting(boolean isMeeting) {
+		super.updateField("isMeeting", isMeeting, eventID);
 		this.isMeeting = isMeeting;
 	}
 

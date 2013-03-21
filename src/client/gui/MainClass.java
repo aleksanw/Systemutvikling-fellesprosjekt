@@ -67,6 +67,11 @@ public class MainClass {
 	}
 
 	public static void runAddMeeting() {
+		try {
+			gui.getAddMeeting().setEvent(null);
+		} catch (RemoteException e1) {
+			throw new RuntimeException(e1);
+		}
 		gui.swapPane("addMeeting");
 	}
 

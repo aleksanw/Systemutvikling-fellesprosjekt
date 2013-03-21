@@ -2,6 +2,7 @@ package client.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.rmi.RemoteException;
 
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
@@ -54,8 +55,18 @@ class DayView extends JPanel implements ListSelectionListener {
 	}
 
 	public void valueChanged(ListSelectionEvent e) {
-		MainClass.runChangeEvent(list.getSelectedValue());
-		list.setSelectedIndex(0);
+		EventI event = list.getSelectedValue();
+		
+		try {
+			if(event.isMeeting()) {
+				MainClass.runChangeMeeting(event);
+			} else {
+				MainClass.runChangeEvent(event);
+			}
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e1);
+		}
 	}
 	
 	

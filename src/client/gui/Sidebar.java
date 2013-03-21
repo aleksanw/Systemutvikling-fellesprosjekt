@@ -50,7 +50,15 @@ class Sidebar extends JPanel {
 			evtList = MainClass.sServer.invitationStorage.getEventsInvitedTo(MainClass.currentUser);
 			invList = evtList.getInvitationList();
 			createdEvents = (MeetingsCreatedByUserI) MainClass.sServer.eventStorage.getMeetingsCreatedByUser(MainClass.currentUser);
-			createdMeetingsList = createdEvents.getList();
+			createdMeetingsList = new ArrayList<EventI>();
+			ArrayList<EventI> tempList = createdEvents.getList();
+			for(int i = 0; i < createdEvents.getList().size(); i++){
+				EventI tempEvent = tempList.get(i);
+				if(tempEvent.isMeeting()) {					
+					createdMeetingsList.add(tempEvent);			
+				}
+			}
+				
 			
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block

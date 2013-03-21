@@ -329,7 +329,6 @@ class AddEvent extends JPanel implements ActionListener {
 		e.setDescription(this.desc.getText());
 		e.setLocation(this.place.text.getText());
 		e.setRoomBooked(booking.list.getSelectedIndex());
-		e.setMeeting(false);
 
 		if (setAlarm.getSelectedIndex() > 0) {
 			int hours = Integer.parseInt(setAlarm.getSelectedItem().toString()
@@ -339,7 +338,10 @@ class AddEvent extends JPanel implements ActionListener {
 			alarm = MainClass.sServer.alarmStorage.create();
 			alarm.setNumberOfHoursBeforeMeeting(new Time(hours, minutes, 0));
 		}
+		
 		e.setCreatedByUser(MainClass.getCurrentUser().getUserID());
+		boolean b = this instanceof AddMeeting;
+		e.setMeeting(b);
 	}
 
 	public void setEvent(EventI e) throws RemoteException {
