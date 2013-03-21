@@ -90,7 +90,17 @@ public class Event extends Model implements EventI {
 	}
 
 	public void invite(UserI user) {
-
+		try {
+			Invitation inv = new Invitation();
+			inv.setEvent(this);
+			inv.setUser(user);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
 	}
 
 	public int getEventID() {

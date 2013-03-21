@@ -22,6 +22,7 @@ import org.joda.time.DateTime;
 
 import common.AlarmI;
 import common.EventI;
+import common.UserI;
 
 class AddEvent extends JPanel implements ActionListener {
 
@@ -341,6 +342,11 @@ class AddEvent extends JPanel implements ActionListener {
 		
 		e.setCreatedByUser(MainClass.getCurrentUser().getUserID());
 		boolean b = this instanceof AddMeeting;
+		if(b) {
+			Participants p = ((AddMeeting)this).getPart();
+			for(UserI user: p.getAddedUsers())
+				e.invite(user);
+		}
 		e.setMeeting(b);
 	}
 

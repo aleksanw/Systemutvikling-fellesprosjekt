@@ -103,7 +103,7 @@ class AddParticipant extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getActionCommand().toString().equals("Legg Til..")) {
 			chosenOnes =  (ArrayList<UserI>) list.getSelectedValuesList();
-			p.setAddedUsers(chosenOnes);
+			p.addUsers(chosenOnes);
 			this.setVisible(false);
 		} else if (arg0.getActionCommand().toString().equals("Avbryt")) {
 			this.setVisible(false);

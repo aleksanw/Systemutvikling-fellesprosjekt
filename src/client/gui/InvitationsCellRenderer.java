@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
+import common.EventI;
 import common.InvitationI;
 
 class InvitationsCellRenderer extends JLabel implements ListCellRenderer {
@@ -15,7 +16,12 @@ class InvitationsCellRenderer extends JLabel implements ListCellRenderer {
 			int index, boolean isSelected, boolean cellHasFocus) {
 		String s;
 		try {
-			s = ((InvitationI) value).getEvent().getEventName();
+			EventI event = ((InvitationI) value).getEvent();
+			InvitationI invite = ((InvitationI) value);
+			s = event.getEventName();
+			if(invite.isAttending() == null) {
+				s += "          !NEW INVITE!";
+			}
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);

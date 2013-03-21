@@ -3,6 +3,7 @@ package client.gui;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
@@ -66,15 +67,22 @@ class Participants extends JPanel implements ActionListener {
 
 	public void addUsers(ArrayList<UserI> users) {
 		for(UserI user : users) {
-			this.addedUsers.add(user);
-			this.model.addElement(user);
+			try {
+				if(!addedUsers.contains(user) && user.getUserID() != MainClass.getCurrentUser().getUserID()) {
+					this.addedUsers.add(user);
+					this.model.addElement(user);
+				}
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				throw new RuntimeException(e);
+			}
 		}
 	}
 	
 	public void setAddedUsers(ArrayList<UserI> users) {
-		for (int i = 0; i < users.size(); i++) {
-			model.addElement(users.get(i));
-		}
+		this.addedUsers = new ArrayList<UserI>();
+		this.model.clear();
+		this.addUsers((ArrayList<UserI>) users.clone());
 	}
 	
 	public void actionPerformed(ActionEvent arg0) {

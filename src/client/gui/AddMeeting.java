@@ -34,8 +34,12 @@ class AddMeeting extends AddEvent {
 		super.setEvent(event);
 		ArrayList<UserI> users  = new ArrayList<UserI>();
 		if(event != null) {
-			for(int i = 0; i < event.getInvitationList().size(); i++ )
-				users.add((UserI) event.getInvitationList().get(i));
+			UserI useri;
+			for(int i = 0; i < event.getInvitationList().size(); i++ ) {
+				useri = (UserI) event.getInvitationList().get(i).getUser();
+				if(useri != null)
+					users.add(useri);
+			}
 		}
 		part.setAddedUsers(users);
 		part.setEvent(event);
@@ -43,5 +47,9 @@ class AddMeeting extends AddEvent {
 	
 	public EventI getEvent() {
 		return super.getEvent();
+	}
+	
+	public Participants getPart() {
+		return this.part;
 	}
 }
